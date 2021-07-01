@@ -1,0 +1,15 @@
+@use './colors';
+
+$primary: colors.$blue;
+$secondary: colors.$purple;
+$destructive: colors.$red;
+$background: colors.$white;
+$text-on-background: colors.$black;
+$text-on-primary: colors.$white;
+$text-on-destructive: colors.$white;
+$text-on-secondary: colors.$white;
+
+$base-size: 4px;
+$font-size-small: 12px;
+$font-size-medium: 16px;
+$font-size-large: 20px;
