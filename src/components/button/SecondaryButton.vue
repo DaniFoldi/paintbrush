@@ -14,9 +14,6 @@ export default {
 @use '../../scss/constants';
 
 button {
-  font-weight: 600;
-  background: constants.$secondary;
-  color: constants.$text-on-secondary;
-  min-width: constants.$base-size * 20;
+  @include constants.secondary;
 }
 </style>

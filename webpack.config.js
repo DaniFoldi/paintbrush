@@ -1,6 +1,5 @@
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const vueLoaderPlugin = require('vue-loader')
-const onBuildWebpackPlugin = require('on-build-webpack')
 const webpack = require('webpack')
 const childProcess = require('child_process')
 
@@ -10,9 +9,9 @@ module.exports = {
     rules: [
       { test: /\.js$/, use: 'babel-loader' },
       { test: /\.vue$/, use: 'vue-loader' },
-      //{ test: /\.css$/, use: ['vue-style-loader', 'style-loader', 'css-loader', 'sass-loader']},
-      { test: /\.(scss|sass)$/, use: ['vue-style-loader', 'css-loader', 'sass-loader'] },
-      { test: /\.css$/, use: ['vue-style-loader', 'css-loader'] }
+      { test: /\.s(a|c)ss$/, use: ['vue-style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.css$/, use: ['vue-style-loader', 'css-loader'] },
+      { test: /\.(woff2?|ttf|eot|svg)?$/, use: 'file-loader' }
     ]
   },
   plugins: [
@@ -23,8 +22,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new (class {
       apply(compiler) {
-        compiler.hooks.compilation.tap('AutoFormat', () => {
-          childProcess.exec('npm run format')
+        compiler.hooks.beforeCompile.tap('AutoFormat', () => {
+          childProcess.execSync('npm run format')
         })
       }
     })()

@@ -14,8 +14,7 @@ export default {
 @use '../../scss/constants';
 
 button {
-  background: constants.$background;
-  color: constants.$text-on-background;
-  padding: constants.$base-size * 2;
+  @include constants.text;
+  @include constants.padded;
 }
 </style>

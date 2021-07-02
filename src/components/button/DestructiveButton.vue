@@ -14,7 +14,6 @@ export default {
 @use '../../scss/constants';
 
 button {
-  background: constants.$destructive;
-  color: constants.$text-on-destructive;
+  @include constants.destructive;
 }
 </style>

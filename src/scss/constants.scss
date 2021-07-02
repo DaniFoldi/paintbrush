@@ -1,4 +1,6 @@
 @use './colors';
+@use '@fontsource/raleway/scss/mixins.scss' as raleway;
+@use 'sass:meta';
 
 $primary: colors.$blue;
 $secondary: colors.$purple;
@@ -10,6 +12,127 @@ $text-on-destructive: colors.$white;
 $text-on-secondary: colors.$white;
 
 $base-size: 4px;
-$font-size-small: 12px;
+$font-size-small: 14px;
 $font-size-medium: 16px;
 $font-size-large: 20px;
+$font-size-x-large: 28px;
+$font-size-xx-large: 36px;
+
+$color-function: meta.get-function('lighten');
+
+$primary-second: meta.call($color-function, $primary, 30);
+
+@mixin fontSource {
+  @include raleway.fontFace($weight: 300, $display: fallback, $fontDir: '~@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 400, $display: fallback, $fontDir: '~@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 500, $display: fallback, $fontDir: '~@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 600, $display: fallback, $fontDir: '~@fontsource/raleway/files');
+  @import url('phosphor-icons/src/css/phosphor.css');
+}
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-weight: 300;
+  font-family: 'RalewayVariable';
+}
+
+@mixin interactive {
+  font-weight: 500;
+  cursor: pointer;
+  font-size: $font-size-medium;
+}
+
+@mixin normal {
+  background: $background;
+  color: $text-on-background;
+}
+
+@mixin primary {
+  background: $primary;
+  color: $text-on-primary;
+}
+
+@mixin primary-second {
+  background: $primary-second;
+  color: $text-on-primary;
+}
+
+@mixin secondary {
+  background: $secondary;
+  color: $text-on-secondary;
+}
+
+@mixin destructive {
+  background: $destructive;
+  color: $text-on-destructive;
+}
+
+@mixin rounded {
+  border-radius: $base-size * 2;
+}
+
+@mixin spaced {
+  margin: $base-size;
+}
+
+@mixin size1 {
+  height: $base-size * 10;
+}
+
+@mixin size2 {
+  height: $base-size * 6;
+}
+
+@mixin mpadded {
+  padding: $base-size * 2 $base-size * 4;
+}
+
+@mixin padded {
+  padding: $base-size * 2;
+}
+
+@mixin spadded {
+  padding: $base-size;
+}
+
+@mixin text {
+  color: $text-on-background;
+  background: $background;
+}
+
+@mixin animated {
+  // todo add hover and focus animation
+}
+
+@mixin centergrid {
+  display: grid;
+  place-items: center;
+}
+
+@mixin circle {
+  border-radius: 50%;
+}
+
+@mixin fontSizes {
+  // todo refactor as list loop
+  .font-small {
+    font-size: $font-size-small;
+  }
+  .font-medium {
+    font-size: $font-size-medium;
+  }
+  .font-large {
+    font-size: $font-size-large;
+  }
+}
+
+@mixin colors {
+  // todo
+}
+
+@mixin backgroundColors {
+  // todo
+}
