@@ -3,17 +3,14 @@
 </template>
 
 <script>
-import Button from './Button.vue'
-export default {
-  name: 'DestructiveButton',
-  components: { Button }
-}
+  import Button from './Button.vue'
+  export default { name: 'DestructiveButton', components: { Button } }
 </script>
 
 <style lang="scss" scoped>
-@use '../../scss/constants';
+  @use '../../scss/constants';
 
-button {
-  @include constants.destructive;
-}
+  button {
+    @include constants.destructive;
+  }
 </style>

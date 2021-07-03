@@ -3,33 +3,32 @@
 </template>
 
 <script>
-export default {
-  name: 'Icon',
-  data: () => {
-    return {
-      svg: ''
-    }
-    // todo add options
-  },
-  props: {
-    name: {
-      type: String,
-      required: true
+  export default {
+    name: 'Icon',
+    props: {
+      name: {
+        type: String,
+        required: true
+      },
+      size: {
+        type: String
+      }
     },
-    size: {
-      type: String,
-      default: 'medium'
+    data: () => {
+      return {
+        svg: ''
+      }
+      // todo add options
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
-@use '../../scss/constants';
+  @use '../../scss/constants';
 
-i {
-  @include constants.reset;
-  font-family: 'Phosphor-icons';
-  vertical-align: middle;
-}
+  i {
+    @include constants.reset;
+    font-family: 'Phosphor-icons';
+    vertical-align: middle;
+  }
 </style>

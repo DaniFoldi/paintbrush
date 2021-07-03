@@ -136,3 +136,10 @@ $primary-second: meta.call($color-function, $primary, 30);
 @mixin backgroundColors {
   // todo
 }
+
+@mixin doublegrid {
+  display: inline-grid;
+  align-items: center;
+  grid-template-columns: auto auto;
+  grid-gap: $base-size;
+}

@@ -3,17 +3,17 @@
 </template>
 
 <script>
-export default {
-  name: 'Title'
-}
+  export default {
+    name: 'Title'
+  }
 </script>
 
 <style lang="scss" scoped>
-@use '../../scss/constants';
+  @use '../../scss/constants';
 
-h1 {
-  @include constants.reset;
-  font-weight: 600;
-  font-size: constants.$font-size-xx-large;
-}
+  h1 {
+    @include constants.reset;
+    font-weight: 600;
+    font-size: constants.$font-size-xx-large;
+  }
 </style>

@@ -3,16 +3,16 @@
 </template>
 
 <script>
-export default {
-  name: 'Paragraph'
-}
+  export default {
+    name: 'Paragraph'
+  }
 </script>
 
 <style lang="scss" scoped>
-@use '../../scss/constants';
+  @use '../../scss/constants';
 
-p {
-  @include constants.reset;
-  margin: constants.$base-size * 2 0;
-}
+  p {
+    @include constants.reset;
+    margin: constants.$base-size * 2 0;
+  }
 </style>

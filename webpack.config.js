@@ -24,6 +24,7 @@ module.exports = {
       apply(compiler) {
         compiler.hooks.beforeCompile.tap('AutoFormat', () => {
           childProcess.execSync('npm run format')
+          childProcess.execSync('npm run lint')
         })
       }
     })()

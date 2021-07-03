@@ -3,36 +3,36 @@
 </template>
 
 <script>
-export default {
-  name: 'Icon',
-  data: () => {
-    return {
-      svg: ''
-    }
-    // todo add options
-  },
-  props: {
-    href: {
-      type: String,
-      required: true
+  export default {
+    name: 'Icon',
+    props: {
+      href: {
+        type: String,
+        required: true
+      }
+    },
+    data: () => {
+      return {
+        svg: ''
+      }
+      // todo add options
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
-@use '../../scss/constants';
+  @use '../../scss/constants';
 
-a,
-a:visited {
-  @include constants.reset;
-  @include constants.interactive;
-  @include constants.normal;
-  color: constants.$primary;
-  text-decoration: none;
+  a,
+  a:visited {
+    @include constants.reset;
+    @include constants.interactive;
+    @include constants.normal;
+    color: constants.$primary;
+    text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
-}
 </style>

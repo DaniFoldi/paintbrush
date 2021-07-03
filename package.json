@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && webpack --mode production",
-    "format": "prettier --write '**/*.{js,css,json,md,scss,sass,html,vue}' '.*rc'",
+    "lint": "eslint --fix 'src/**.{js,css,scss,sass,vue}'",
+    "format": "prettier --write '**/*.{js,css,json,md,scss,sass,html,vue}'",
     "serve": "webpack serve --mode development"
   },
   "repository": {
@@ -34,9 +35,17 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@fontsource/raleway": "^4.4.5",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@vue/compiler-sfc": "^3.1.2",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-json": "^3.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.12.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "icon-blender": "^1.0.0-beta.4",
