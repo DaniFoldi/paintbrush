@@ -4,18 +4,12 @@
 
 <script>
   export default {
-    name: 'Icon',
+    name: 'Link',
     props: {
       href: {
         type: String,
         required: true
       }
-    },
-    data: () => {
-      return {
-        svg: ''
-      }
-      // todo add options
     }
   }
 </script>

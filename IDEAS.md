@@ -1,1 +1,4 @@
 - Map component
+- Formatted (monospace) number display with currency
+- Back to top button
+- Emoji component

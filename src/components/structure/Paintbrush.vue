@@ -17,4 +17,9 @@
   @include constants.fontSizes;
   @include constants.colors;
   @include constants.backgroundColors;
+
+  div.paintbrush-container {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
 </style>

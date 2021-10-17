@@ -19,8 +19,10 @@ $font-size-x-large: 28px;
 $font-size-xx-large: 36px;
 
 $color-function: meta.get-function('lighten');
+$color-anti-function: meta.get-function('darken');
 
 $primary-second: meta.call($color-function, $primary, 30);
+$background-second: meta.call($color-anti-function, $background, 10);
 
 @mixin fontSource {
   @include raleway.fontFace($weight: 300, $display: fallback, $fontDir: '~@fontsource/raleway/files');
@@ -142,4 +144,8 @@ $primary-second: meta.call($color-function, $primary, 30);
   align-items: center;
   grid-template-columns: auto auto;
   grid-gap: $base-size;
+}
+
+@mixin shaded {
+  background: $background-second;
 }
