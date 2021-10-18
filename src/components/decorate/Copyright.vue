@@ -1,8 +1,8 @@
 <template>
-  <span>
+  <div>
     <Icon name="copyright"></Icon>
     <p>Copyright {{ year }} <slot></slot>. All rights reserved.</p>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -25,8 +25,18 @@
 <style lang="scss" scoped>
   @use '../../scss/constants';
 
-  span {
+  div {
     @include constants.reset;
-    @include constants.doublegrid;
+
+    font-size: constants.$font-size-small;
+
+    i {
+      // TODO better fix for vertical offset
+      margin-bottom: 2.5px;
+    }
+
+    p {
+      display: inline;
+    }
   }
 </style>

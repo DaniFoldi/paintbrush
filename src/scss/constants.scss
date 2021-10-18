@@ -106,7 +106,7 @@ $background-second: meta.call($color-anti-function, $background, 10);
 }
 
 @mixin animated {
-  // todo add hover and focus animation
+  // TODO add hover and focus animation
 }
 
 @mixin centergrid {
@@ -119,7 +119,7 @@ $background-second: meta.call($color-anti-function, $background, 10);
 }
 
 @mixin fontSizes {
-  // todo refactor as list loop
+  // TODO refactor as list loop
   .font-small {
     font-size: $font-size-small;
   }
@@ -132,11 +132,11 @@ $background-second: meta.call($color-anti-function, $background, 10);
 }
 
 @mixin colors {
-  // todo
+  // TODO
 }
 
 @mixin backgroundColors {
-  // todo
+  // TODO
 }
 
 @mixin doublegrid {

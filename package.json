@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && webpack --mode production",
-    "lint": "eslint --fix 'src/**.{js,css,scss,sass,vue}'",
+    "lint": "eslint --fix 'src/**.{js,css,scss,sass,vue}' 'docs/**.{js,css,scss,sass,vue}'",
     "format": "prettier --write '**/*.{js,css,json,md,scss,sass,html,vue}'",
     "serve": "webpack serve --mode development"
   },
@@ -69,6 +69,7 @@
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.0.1",
     "phosphor-icons": "^1.2.0",
-    "prismjs": "^1.24.1"
+    "prismjs": "^1.24.1",
+    "vue-router": "^3.5.2"
   }
 }

@@ -1,11 +1,10 @@
 <template>
-  <a :href="href">Powered by <slot></slot></a>
+  <a href="https://paintbrush.design">Powered by Paintbrush</a>
 </template>
 
 <script>
   export default {
-    name: 'PoweredBy',
-    props: ['href']
+    name: 'PoweredBy'
   }
 </script>
 
@@ -16,6 +15,8 @@
   a:visited {
     @include constants.reset;
     text-decoration: none;
+    text-align: center;
+    display: block;
     font-weight: 500;
     color: constants.$text-on-background;
   }
