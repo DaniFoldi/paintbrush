@@ -67,7 +67,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@highlightjs/vue-plugin": "^2.0.1",
+    "@highlightjs/vue-plugin": "^2.1.0",
     "phosphor-icons": "^1.2.0",
     "prismjs": "^1.25.0"
   }
