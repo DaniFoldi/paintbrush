@@ -2,9 +2,16 @@
   <Paintbrush>
     <Sidebar>
       <template #sidebar-top>
-        <Title><PaintbrushLogo size="48px" /> Paintbrush</Title>
+        <PaintbrushTitle />
       </template>
       <template #sidebar-middle>
+        <SidebarEntry href="/components" icon="cube" label="Components" />
+        <SidebarEntry href="/examples" icon="brackets-curly" label="Examples" />
+      </template>
+      <template #sidebar-bottom>
+        <PoweredBy />
+      </template>
+      <template #content>
         <Button>test button</Button>
         <SecondaryButton>click here now</SecondaryButton>
         <DestructiveButton>Delete</DestructiveButton>
@@ -13,12 +20,6 @@
         <Text>test paragraph</Text>
         <Title>Title</Title>
         <Subtitle>Test subtitle</Subtitle>
-      </template>
-      <template #sidebar-bottom>
-        <PoweredBy />
-        <Copyright>Dániel Földi</Copyright>
-      </template>
-      <template #content>
         <Icon name="x"></Icon>
         <Tag closeable="true">ASDASD</Tag>
         <Link href="https://duckduckgo.com">DuckDuckGo</Link>
@@ -27,6 +28,7 @@
         <CodeView language="js" code="const x = 3;"></CodeView>
         <HighlightedText>This is important.</HighlightedText>
         <Image src="assets/test.jpg" caption alt="Test caption"></Image>
+        <Copyright>Dániel Földi</Copyright>
       </template>
     </Sidebar>
   </Paintbrush>
@@ -51,10 +53,11 @@
   import Quote from 'decorate/Quote.vue'
   import Shortcut from 'decorate/Shortcut.vue'
   import Paintbrush from 'paintbrush/Paintbrush.vue'
-  import PaintbrushLogo from 'paintbrush/PaintbrushLogo.vue'
+  import PaintbrushTitle from 'paintbrush/PaintbrushTitle.vue'
   import PoweredBy from 'paintbrush/PoweredBy.vue'
   import Menubar from 'skeleton/Menubar.vue'
   import Sidebar from 'skeleton/Sidebar.vue'
+  import SidebarEntry from 'skeleton/SidebarEntry.vue'
   export default {
     el: '#app',
     components: {
@@ -80,7 +83,8 @@
       Menubar,
       Sidebar,
       PoweredBy,
-      PaintbrushLogo
+      PaintbrushTitle,
+      SidebarEntry
     }
   }
 </script>

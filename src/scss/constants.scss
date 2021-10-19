@@ -48,7 +48,6 @@ $background-second: meta.call($color-anti-function, $background, 10);
 }
 
 @mixin normal {
-  background: $background;
   color: $text-on-background;
 }
 
@@ -106,7 +105,7 @@ $background-second: meta.call($color-anti-function, $background, 10);
 }
 
 @mixin animated {
-  // TODO add hover and focus animation
+  transition: all 0.25s ease-in-out;
 }
 
 @mixin centergrid {
@@ -128,6 +127,9 @@ $background-second: meta.call($color-anti-function, $background, 10);
   }
   .font-large {
     font-size: $font-size-large;
+  }
+  .font-x-large {
+    font-size: $font-size-x-large;
   }
 }
 

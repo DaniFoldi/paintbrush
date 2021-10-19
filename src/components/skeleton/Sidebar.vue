@@ -20,7 +20,9 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    name: 'Sidebar'
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -32,6 +34,7 @@
     display: grid;
     grid-template-columns: 280px 1fr;
     grid-template-rows: 100%;
+    row-gap: constants.$base-size * 2;
   }
   div.sidebar-bottom {
     align-self: end;
@@ -48,6 +51,10 @@
   }
   main {
     grid-template-rows: 1fr;
+  }
+  aside > div,
+  main > div {
+    padding: constants.$base-size * 2;
   }
   main > div {
     overflow-x: hidden;

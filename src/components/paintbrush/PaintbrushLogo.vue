@@ -6,7 +6,17 @@
 <script>
   export default {
     name: 'PaintbrushLogo',
-    props: ['size']
+    props: {
+      size: {
+        type: Number,
+        default: 48
+      }
+    },
+    computed: {
+      sizePx() {
+        return `${this.size}px`
+      }
+    }
   }
 </script>
 
@@ -15,7 +25,7 @@
 
   img {
     @include constants.reset;
-    max-width: v-bind(size);
-    max-height: v-bind(size);
+    max-width: v-bind(sizePx);
+    max-height: v-bind(sizePx);
   }
 </style>
