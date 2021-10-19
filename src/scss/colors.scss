@@ -5,10 +5,10 @@ $teal: #22e0ff;
 $blue: #3e56f4;
 $purple: #7e09ec;
 $pink: #ec368d;
-
-$hues: ($red, $orange, $green, $blue, $purple, $pink);
-
 $black: #111111;
 $gray: #aaaaaa;
 $silver: #dddddd;
 $white: #ffffff;
+
+$hues: ($red, $orange, $green, $teal, $blue, $purple, $pink);
+$grayscale: ($black, $gray, $silver, $white);
