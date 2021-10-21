@@ -38,7 +38,7 @@
     "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@vue/compiler-sfc": "^3.2.20",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.3",
     "css-loader": "^6.4.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
