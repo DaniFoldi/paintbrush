@@ -1,11 +1,12 @@
 <template>
   <Link :href="href">
-    <Icon :name="icon" center="true" size="x-large" />
+    <Icon :name="icon" center size="large" />
     <Text>{{ label }}</Text>
   </Link>
 </template>
 
 <script>
+  import { resolve } from '../../data/scheme'
   import Icon from '../basic/Icon.vue'
   import Link from '../basic/Link.vue'
   import Text from '../basic/Text.vue'
@@ -16,7 +17,16 @@
       Link,
       Text
     },
+    inject: ['primary', 'secondary'],
     props: {
+      href: {
+        type: String,
+        required: true
+      },
+      color: {
+        type: String,
+        default: 'primary'
+      },
       icon: {
         type: String,
         required: true
@@ -24,6 +34,11 @@
       label: {
         type: String,
         required: true
+      }
+    },
+    computed: {
+      iconColor() {
+        return resolve(this.color, this.primary, this.secondary)
       }
     }
   }
@@ -43,7 +58,7 @@
 
     div {
       @include constants.animated;
-      color: constants.$primary;
+      color: v-bind(iconColor);
       border-radius: constants.$base-size * 2;
       width: 32px;
       height: 32px;
@@ -53,13 +68,17 @@
       color: constants.$text-on-background;
       margin: 0;
     }
+
+    &:not(:last-child) {
+      margin-bottom: constants.$base-size * 2;
+    }
   }
 
   a:hover {
     text-decoration: none;
 
     div {
-      background: constants.$primary;
+      background: v-bind(iconColor);
       color: constants.$background;
     }
   }

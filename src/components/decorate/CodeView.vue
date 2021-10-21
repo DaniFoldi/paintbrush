@@ -1,24 +1,59 @@
 <template>
-  <HightlightJs :language="language" :code="code"> </HightlightJs>
+  <pre>
+    <code :class="['hljs', this.highlightLanguage]" v-html="codeValue"></code>
+  </pre>
 </template>
 
 <script>
-  import highlightJsVuePlugin from '@highlightjs/vue-plugin'
   import highlightJsCommon from 'highlight.js/lib/common'
+  import highlightJsCore from 'highlight.js/lib/core'
   export default {
     name: 'CodeView',
-    props: ['language', 'code'],
-    components: { HightlightJs: highlightJsVuePlugin.component }
+    props: {
+      code: {
+        type: String,
+        required: true
+      },
+      language: {
+        type: String,
+        default: ''
+      },
+      ignoreIllegals: {
+        type: Boolean,
+        default: true
+      }
+    },
+    data() {
+      return {
+        highlightLanguage: highlightJsCore.getLanguage(this.language) ?? ''
+      }
+    },
+    computed: {
+      codeValue() {
+        console.log(this.language, this.highlightLanguage)
+        return this.highlightLanguage === ''
+          ? (() => {
+              const result = highlightJsCore.highlightAuto(this.code)
+              this.highlightLanguage = result.language
+              return result.value
+            })()
+          : highlightJsCore.highlight(this.code, {
+              language: this.language,
+              ignoreIllegals: this.ignoreIllegals
+            }).value
+      }
+    }
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+  // TODO scoped somehow
   @use '../../scss/constants';
 
-  // todo add color schemes (dark and light)
+  // TODO add color schemes (dark and light)
 
   pre {
-    &:deep(code.hljs) {
+    code.hljs {
       @include constants.reset;
       @include constants.padded;
       @include constants.rounded;

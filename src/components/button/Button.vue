@@ -20,5 +20,15 @@
     @include constants.size1;
     @include constants.spaced;
     @include constants.animated;
+
+    &:hover {
+      // TODO consistent shadow
+      box-shadow: 1px 5px 20px -4px rgba(0, 0, 0, 0.7);
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
   }
 </style>

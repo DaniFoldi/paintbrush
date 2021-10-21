@@ -5,8 +5,13 @@
 </template>
 
 <script>
+  import { computed } from 'vue'
   export default {
-    name: 'Base'
+    name: 'Base',
+    props: { primary: { type: String, default: 'blue' }, secondary: { type: String, default: 'purple' } },
+    provide() {
+      return { primary: computed(() => this.primary), secondary: computed(() => this.secondary) }
+    }
   }
 </script>
 
@@ -18,8 +23,24 @@
   @include constants.colors;
   @include constants.backgroundColors;
 
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    display: grid;
+    grid-template: 'app' 100% / 100%;
+  }
+</style>
+
+<style lang="scss" scoped>
+  @use '../../scss/constants.scss';
   div.paintbrush-container {
-    max-width: 100vw;
-    max-height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 </style>

@@ -29,8 +29,8 @@
   @use '../../scss/constants';
   div.sidebar-container {
     @include constants.reset;
-    max-height: inherit;
-    max-width: inherit;
+    height: inherit;
+    width: inherit;
     display: grid;
     grid-template-columns: 280px 1fr;
     grid-template-rows: 100%;

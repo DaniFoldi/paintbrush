@@ -5,30 +5,34 @@
         <PaintbrushTitle />
       </template>
       <template #sidebar-middle>
-        <SidebarEntry href="/components" icon="cube" label="Components" />
-        <SidebarEntry href="/examples" icon="brackets-curly" label="Examples" />
+        <SidebarEntry color="blue" href="/setup" icon="gear-six" label="Setup" />
+        <SidebarEntry color="purple" href="/components" icon="cube" label="Components" />
+        <SidebarEntry color="teal" href="/examples" icon="brackets-curly" label="Examples" />
+        <SidebarEntry color="orange" href="/links" icon="link" label="Links" />
       </template>
       <template #sidebar-bottom>
         <PoweredBy />
       </template>
       <template #content>
-        <Button>test button</Button>
-        <SecondaryButton>click here now</SecondaryButton>
-        <DestructiveButton>Delete</DestructiveButton>
-        <GhostButton>Cancel</GhostButton>
-        <UserIcon>DF</UserIcon>
-        <Text>test paragraph</Text>
-        <Title>Title</Title>
-        <Subtitle>Test subtitle</Subtitle>
-        <Icon name="x"></Icon>
-        <Tag closeable="true">ASDASD</Tag>
-        <Link href="https://duckduckgo.com">DuckDuckGo</Link>
-        <Quote from="Author">This is a quote. Oh yes it is</Quote>
-        <Shortcut keyboard-key="F5" alt="true" shift="true"></Shortcut>
-        <CodeView language="js" code="const x = 3;"></CodeView>
-        <HighlightedText>This is important.</HighlightedText>
-        <Image src="assets/test.jpg" caption alt="Test caption"></Image>
-        <Copyright>Dániel Földi</Copyright>
+        <CenterContents>
+          <Button>test button</Button>
+          <SecondaryButton>click here now</SecondaryButton>
+          <DestructiveButton>Delete</DestructiveButton>
+          <GhostButton>Cancel</GhostButton>
+          <UserIcon>DF</UserIcon>
+          <Text>test paragraph</Text>
+          <Title>Title</Title>
+          <Subtitle>Test subtitle</Subtitle>
+          <Icon name="x"></Icon>
+          <Tag closeable>ASDASD</Tag>
+          <Link href="https://duckduckgo.com">DuckDuckGo</Link>
+          <Quote from="Author">This is a quote. Oh yes it is</Quote>
+          <Shortcut keyboard-key="F5" alt shift></Shortcut>
+          <CodeView code="const x = 3;"></CodeView>
+          <HighlightedText>This is important.</HighlightedText>
+          <Image src="assets/test.jpg" caption alt="Test caption"></Image>
+          <Copyright>Dániel Földi</Copyright>
+        </CenterContents>
       </template>
     </Sidebar>
   </Paintbrush>
@@ -58,8 +62,8 @@
   import Menubar from 'skeleton/Menubar.vue'
   import Sidebar from 'skeleton/Sidebar.vue'
   import SidebarEntry from 'skeleton/SidebarEntry.vue'
+  import CenterContents from 'structure/CenterContents.vue'
   export default {
-    el: '#app',
     components: {
       Paintbrush,
       Button,
@@ -84,7 +88,8 @@
       Sidebar,
       PoweredBy,
       PaintbrushTitle,
-      SidebarEntry
+      SidebarEntry,
+      CenterContents
     }
   }
 </script>

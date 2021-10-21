@@ -13,5 +13,6 @@
   button {
     @include constants.text;
     @include constants.padded;
+    background: none;
   }
 </style>

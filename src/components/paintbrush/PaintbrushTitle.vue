@@ -34,6 +34,7 @@
 
     & > h1 {
       grid-area: title;
+      user-select: none;
     }
   }
 </style>

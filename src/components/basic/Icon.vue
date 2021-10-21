@@ -1,3 +1,5 @@
+<!-- DOCS
+-->
 <template>
   <CenterContents v-if="center">
     <i :class="[name ? 'ph-' + name : '', 'font-' + size]"></i>
