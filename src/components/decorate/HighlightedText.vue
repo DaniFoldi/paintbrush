@@ -1,7 +1,5 @@
 <template>
-  <Text
-    ><span><slot></slot></span
-  ></Text>
+  <Text><slot /></Text>
 </template>
 
 <script>
@@ -15,7 +13,7 @@
 <style lang="scss" scoped>
   @use '../../scss/constants';
 
-  span {
+  p {
     @include constants.reset;
     margin: constants.$base-size * 2 0;
     padding: constants.$base-size * 0.5;
