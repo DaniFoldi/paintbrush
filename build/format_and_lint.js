@@ -9,9 +9,9 @@ module.exports = class {
     compiler.hooks.beforeCompile.tap('FormatAndLint', async () => {
       console.log('Running format')
       try {
-        const proc = childProcess.exec('npm run format')
-        proc.stdout.on('data', data => logFilter(data) && console.log(data.replace(/\n$/, '')))
-        await proc
+        //const proc = childProcess.exec('npm run format')
+        //proc.stdout.on('data', data => logFilter(data) && console.log(data.replace(/\n$/, '')))
+        //await proc
       } catch (e) {
         console.error('Running format failed')
         console.error(e)

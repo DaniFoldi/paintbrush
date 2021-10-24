@@ -30,7 +30,11 @@ module.exports = {
   },
   plugins: [
     new webpack.WatchIgnorePlugin({ paths: [/.*colors\.scss/] }),
-    new generateComponentDocumentation({components: ['src/**/*.vue'], output: 'docs/components'}),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false
+    }),
+    new generateComponentDocumentation({ components: 'src/components', output: 'docs/components' }),
     new buildColorScheme({ source: 'src/data/scheme.js', target: 'src/scss/colors.scss' }),
     new miniCssExtractPlugin({
       filename: 'style.css'

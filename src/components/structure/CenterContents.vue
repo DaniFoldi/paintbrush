@@ -1,8 +1,9 @@
 <template>
   <div class="center-contents">
-    <div>
+    <div class="center-multi" v-if="multi">
       <slot></slot>
     </div>
+    <slot v-else></slot>
   </div>
 </template>
 
@@ -13,6 +14,10 @@
       maxWidth: {
         type: String,
         default: '100%'
+      },
+      multi: {
+        type: Boolean,
+        default: true
       }
     }
   }
@@ -28,7 +33,7 @@
     grid-template-areas: '. content .';
     grid-template-columns: 1fr v-bind(maxWidth) 1fr;
 
-    div {
+    & > ::v-deep(*) {
       grid-area: content;
     }
   }

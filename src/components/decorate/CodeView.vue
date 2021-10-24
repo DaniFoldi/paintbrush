@@ -30,7 +30,6 @@
     },
     computed: {
       codeValue() {
-        console.log(this.language, this.highlightLanguage)
         return this.highlightLanguage === ''
           ? (() => {
               const result = highlightJsCore.highlightAuto(this.code)
