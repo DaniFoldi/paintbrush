@@ -33,7 +33,7 @@
   "homepage": "https://github.com/DaniFoldi/paintbrush#readme",
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-env": "^7.16.0",
     "@fontsource/raleway": "^4.4.5",
     "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@vue/compiler-sfc": "^3.2.20",
