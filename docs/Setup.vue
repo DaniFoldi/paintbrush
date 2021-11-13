@@ -16,9 +16,11 @@
       <template #content>
         <CenterContents>
           <Button>test button</Button>
-          <SecondaryButton>click here now</SecondaryButton>
-          <DestructiveButton>Delete</DestructiveButton>
-          <GhostButton>Cancel</GhostButton>
+          <ButtonGroup>
+            <SecondaryButton>click here now</SecondaryButton>
+            <DestructiveButton>Delete</DestructiveButton>
+            <GhostButton>Cancel</GhostButton>
+          </ButtonGroup>
           <UserIcon>DF</UserIcon>
           <Text>test paragraph</Text>
           <Title>Title</Title>
@@ -62,6 +64,7 @@
   import Menubar from 'skeleton/Menubar.vue'
   import Sidebar from 'skeleton/Sidebar.vue'
   import SidebarEntry from 'skeleton/SidebarEntry.vue'
+  import ButtonGroup from 'structure/ButtonGroup.vue'
   import CenterContents from 'structure/CenterContents.vue'
   export default {
     components: {
@@ -89,7 +92,8 @@
       PoweredBy,
       PaintbrushTitle,
       SidebarEntry,
-      CenterContents
+      CenterContents,
+      ButtonGroup
     }
   }
 </script>
