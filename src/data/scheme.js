@@ -7,13 +7,14 @@ const scheme = {
   purple: '#7e09ec',
   pink: '#ec368d',
   black: '#111111',
+  darkgray: '#555555',
   gray: '#aaaaaa',
   silver: '#dddddd',
   white: '#ffffff'
 }
 
 const hues = ['red', 'orange', 'green', 'teal', 'blue', 'purple', 'pink']
-const grayscale = ['black', 'gray', 'silver', 'white']
+const grayscale = ['black', 'darkgray', 'gray', 'silver', 'white']
 
 const resolve = (color, primary, secondary) => {
   if (color === 'primary') {
@@ -28,4 +29,29 @@ const resolve = (color, primary, secondary) => {
   return color
 }
 
-module.exports = { resolve, scheme, hues, grayscale }
+const textColor = backgroundColor => {
+  const rgb = hexToRgb(backgroundColor)
+  const [r, g, b] = rgb
+
+  const contrast = (Math.round(r * 299) + Math.round(g * 587) + Math.round(b * 114)) / 1000
+  return contrast >= 128 ? scheme.black : scheme.white
+}
+
+const hexToRgb = color => {
+  let result = color.replace('#', '')
+  if (result.length === 3) {
+    result = result.charAt(0).repeat(2) + result.charAt(1).repeat(2) + result.charAt(3).repeat(2)
+  } else if (result.length !== 6) {
+    console.log(`Invalid hex color: ${color}`)
+    return scheme.white
+  }
+
+  const rgb = []
+  for (let i = 0; i <= 2; i++) {
+    rgb[i] = parseInt(result.substr(i * 2, 2), 16)
+  }
+
+  return rgb
+}
+
+module.exports = { resolve, textColor, scheme, hues, grayscale }
