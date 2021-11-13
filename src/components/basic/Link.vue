@@ -1,5 +1,6 @@
 <template>
-  <a :href="href"><slot></slot></a>
+  <a v-if="reload" :href="href"><slot></slot></a>
+  <router-link v-else :to="href"><slot></slot></router-link>
 </template>
 
 <script>
@@ -9,6 +10,10 @@
       href: {
         type: String,
         required: true
+      },
+      reload: {
+        type: Boolean,
+        default: true
       }
     }
   }

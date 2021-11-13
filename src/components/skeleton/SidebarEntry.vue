@@ -1,5 +1,5 @@
 <template>
-  <Link :href="href">
+  <Link :reload="reload" :href="href">
     <Icon :name="icon" center size="large" />
     <Text>{{ label }}</Text>
   </Link>
@@ -34,6 +34,10 @@
       label: {
         type: String,
         required: true
+      },
+      reload: {
+        type: Boolean,
+        default: true
       }
     },
     computed: {

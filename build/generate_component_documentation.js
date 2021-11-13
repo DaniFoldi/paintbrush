@@ -12,6 +12,7 @@ module.exports = class {
   apply(compiler) {
     compiler.hooks.beforeCompile.tap('GenDocumentation', async () => {
       const files = await util.promisify(glob)(`${this.components}/**/*.vue`)
+      const components = {}
 
       await Promise.all(
         files.map(async file => {
@@ -49,6 +50,9 @@ module.exports = class {
               case '@usage':
                 componentData.usage = entry.match(/^@\w+ (?<value>.*)$/imu).groups.value
                 break
+              case '@note':
+                componentData.note = entry.match(/^@\w+ (?<value>.*)$/imu).groups.value
+                break
               case '@tag':
                 if (!componentData.tags) {
                   componentData.tags = []
@@ -74,13 +78,15 @@ module.exports = class {
                 componentData.properties.push(entry.match(/^@\w+ (?<value>.*)$/imu).groups.value)
                 break
               default:
-                console.warn(`File ${path} Line ${entry} could not be parsed into documentation`)
+                console.warn(`File ${file} Line ${entry} could not be parsed into documentation`)
             }
           }
 
-          if (Object.keys(componentData).length > 0) console.log(componentData)
+          components[file.replace(this.components, '').replace(/^\//, '')] = componentData
         })
       )
+
+      await fse.writeJson(this.output, components, { spaces: 2 })
     })
   }
 }

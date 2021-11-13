@@ -23,15 +23,7 @@
   import TagGroup from 'groups/TagGroup.vue'
   export default {
     name: 'ComponentDesc',
-    components: {
-      Title,
-      Text,
-      Tag,
-      TagGroup,
-      Divider,
-      Subtitle,
-      CodeView
-    },
+    components: { Title, Text, Tag, TagGroup, Divider, Subtitle, CodeView },
     props: {
       name: { type: String, default: 'Component' },
       desc: { type: String, default: 'Component description' },
