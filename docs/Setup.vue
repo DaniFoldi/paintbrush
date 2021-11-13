@@ -15,6 +15,9 @@
       </template>
       <template #content>
         <CenterContents>
+          <Badge left="hello" right="there" />
+          <UrlInput />
+          <TextInput />
           <Button>test button</Button>
           <ButtonGroup>
             <SecondaryButton>click here now</SecondaryButton>
@@ -53,11 +56,14 @@
   import GhostButton from 'button/GhostButton.vue'
   import SecondaryButton from 'button/SecondaryButton.vue'
   import Image from 'content/Image.vue'
+  import Badge from 'decorate/Badge.vue'
   import CodeView from 'decorate/CodeView.vue'
   import Copyright from 'decorate/Copyright.vue'
   import HighlightedText from 'decorate/HighlightedText.vue'
   import Quote from 'decorate/Quote.vue'
   import Shortcut from 'decorate/Shortcut.vue'
+  import TextInput from 'input/TextInput.vue'
+  import UrlInput from 'input/UrlInput.vue'
   import Paintbrush from 'paintbrush/Paintbrush.vue'
   import PaintbrushTitle from 'paintbrush/PaintbrushTitle.vue'
   import PoweredBy from 'paintbrush/PoweredBy.vue'
@@ -93,7 +99,10 @@
       PaintbrushTitle,
       SidebarEntry,
       CenterContents,
-      ButtonGroup
+      ButtonGroup,
+      TextInput,
+      UrlInput,
+      Badge
     }
   }
 </script>
