@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.16.0",
     "@fontsource/raleway": "^4.4.5",
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
-    "@vue/compiler-sfc": "^3.2.20",
+    "@vue/compiler-sfc": "^3.2.23",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
