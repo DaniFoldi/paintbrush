@@ -10,10 +10,13 @@ const webpack = require('webpack')
 module.exports = {
   entry: './docs/main.js',
   resolve: {
+    alias: {
+      vue: 'vue/dist/vue.esm-bundler.js'
+    },
     modules: [path.resolve(__dirname, 'src/components'), 'node_modules']
   },
   devServer: {
-    hot: true,
+    hot: false,
     static: {
       publicPath: '/assets/',
       directory: path.join(__dirname, 'assets')

@@ -14,7 +14,7 @@
     <Tag closeable>ASDASD</Tag>
     <Link href="https://duckduckgo.com">DuckDuckGo</Link>
     <Quote from="Author">This is a quote. Oh yes it is</Quote>
-    <Shortcut keyboard-key="F5" alt shift></Shortcut>
+    <Shortcut keyboard-key="F5" :alt="true" shift="true"></Shortcut>
     <CodeView code="const x = 3;"></CodeView>
     <HighlightedText>This is important.</HighlightedText>
     <Image src="assets/test.jpg" caption alt="Test caption"></Image>

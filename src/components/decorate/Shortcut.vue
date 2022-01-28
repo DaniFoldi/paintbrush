@@ -52,11 +52,9 @@
         return !isApple() && this.ctrl && this.alt
       },
       ctrlkey() {
-        // TODO replace with phosphor icon once released
         return isApple() ? '^' : 'Ctrl'
       },
       altkey() {
-        // TODO replace with phosphor icon once released
         return isApple() ? '⌥' : 'Alt'
       },
       metakey() {
