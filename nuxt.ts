@@ -1,11 +1,11 @@
-import { join } from 'pathe'
 import { defineNuxtModule } from '@nuxt/kit'
+import { fileURLToPath } from 'url'
 
 export default defineNuxtModule({
   hooks: {
     'components:dirs'(dirs) {
       dirs.push({
-        path: join(__dirname, 'components'),
+        path: fileURLToPath(new URL('./components', import.meta.url)),
         prefix: 'paintbrush'
       })
     }

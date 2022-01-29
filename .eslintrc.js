@@ -4,22 +4,24 @@ module.exports = {
   // root property `parser` to `'vue-eslint-parser'`, which, for code parsing,
   // in turn delegates to the parser, specified in `parserOptions.parser`:
   // https://github.com/vuejs/eslint-plugin-vue#what-is-the-use-the-latest-vue-eslint-parser-error
-  parser: '@typescript-eslint/parser',
+  parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     extraFileExtensions: ['.vue'],
-    ecmaFeatures: {
-      jsx: true
-    },
+    ecmaFeatures: { jsx: true },
     ecmaVersion: 2021,
     sourceType: 'module'
   },
-  ignorePatterns: ['node_modules/', 'dist/'],
-  extends: [
+  ignorePatterns: ['node_modules/'],
+  extends: ['plugin:@typescript-eslint/recommended',
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended'
+    'plugin:vue/vue3-recommended',
+    'plugin:nuxt/recommended'
   ],
   overrides: [{
+    files: ['*.ts', '*.json', '*.js', 'build/*'],
+    env: { node: true }
+  },{
     files: ['*.ts', '*.tsx'],
     rules: {
       // The core 'no-unused-vars' rules (in the eslint:recommeded ruleset)
@@ -28,92 +30,90 @@ module.exports = {
     }
   }],
   rules: {
-    "block-spacing": [
-      "error",
-      "always"
+    'block-spacing': [
+      'error',
+      'always'
     ],
-    "brace-style": [
-      "error",
-      "1tbs"
+    'brace-style': [
+      'error',
+      '1tbs'
     ],
-    "comma-dangle": [
-      "warn",
-      "never"
+    'comma-dangle': [
+      'warn',
+      'never'
     ],
-    "consistent-return": "off",
-    "eol-last": [
-      "error",
-      "always"
+    'consistent-return': 'off',
+    'eol-last': [
+      'error',
+      'always'
     ],
-    "function-paren-newline": [
-      "error",
-      "multiline"
+    'function-paren-newline': [
+      'error',
+      'multiline'
     ],
-    "indent": [
-      "error",
+    'indent': [
+      'error',
       2,
-      {
-        "SwitchCase": 1
-      }
+      { 'SwitchCase': 1 }
     ],
-    "linebreak-style": [
-      "error",
-      "unix"
+    'linebreak-style': [
+      'error',
+      'unix'
     ],
-    "lines-between-class-members": [
-      "error",
-      "always",
-      {
-        "exceptAfterSingleLine": true
-      }
+    'lines-between-class-members': [
+      'error',
+      'always',
+      { 'exceptAfterSingleLine': true }
     ],
-    "max-len": [
-      "error",
+    'max-len': [
+      'error',
       120
     ],
-    "no-else-return": "off",
-    "no-multiple-empty-lines": [
-      "error",
+    'no-else-return': 'off',
+    'no-multiple-empty-lines': [
+      'error',
       {
-        "max": 1,
-        "maxEOF": 0
+        'max': 1,
+        'maxEOF': 0
       }
     ],
-    "no-trailing-spaces": "error",
-    "no-var": "error",
-    "quotes": [
-      "error",
-      "single"
+    'no-trailing-spaces': 'error',
+    'no-var': 'error',
+    'quotes': [
+      'error',
+      'single'
     ],
-    "semi": [
-      "error",
-      "never"
+    'semi': [
+      'error',
+      'never'
     ],
-    "object-curly-newline": [
-      "error",
-      {
-        "multiline": true
-      }
+    'object-curly-newline': [
+      'error',
+      { 'multiline': true }
     ],
-    "object-curly-spacing": [
-      "error",
-      "always"
+    'object-curly-spacing': [
+      'error',
+      'always'
     ],
-    "func-call-spacing": [
-      "error",
-      "never"
+    'func-call-spacing': [
+      'error',
+      'never'
     ],
-    "operator-linebreak": [
-      "error",
-      "before"
+    'operator-linebreak': [
+      'error',
+      'before'
     ],
-    "arrow-parens": [
-      "error",
-      "as-needed"
+    'arrow-parens': [
+      'error',
+      'as-needed'
     ],
-    "space-in-parens": [
-      "error",
-      "never"
-    ]
-    }
+    'space-in-parens': [
+      'error',
+      'never'
+    ],
+    'vue/multi-word-component-names': [
+      'off'
+    ],
+    'sort-imports': ['error']
+  }
 }

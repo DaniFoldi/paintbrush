@@ -4,7 +4,6 @@ import { defineNuxtConfig } from 'nuxt3'
 export default defineNuxtConfig({
   buildModules: [
     '~/build/colorScheme.ts',
-    '~/build/generateDocs.ts'
+    '~/build/componentDocs.ts'
   ]
 })
-

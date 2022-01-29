@@ -1,6 +1,6 @@
-import {writeFile} from 'fs/promises'
+import { grayscale, hues, scheme } from '../scripts/color'
 import { fileURLToPath } from 'url'
-import { grayscale,hues,scheme } from '../scripts/color'
+import { writeFile } from 'fs/promises'
 
 export default async () => {
   const target = fileURLToPath(new URL('./../assets/colorScheme.sass', import.meta.url))

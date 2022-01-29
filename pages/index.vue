@@ -1,14 +1,10 @@
 <template>
-  <h1>test</h1>
-  <Test></Test>
+  <Paintbrush>
+    <h1>test</h1>
+    <TestComponent />
+  </Paintbrush>
 </template>
 
 <script lang="ts">
-export default {
-
-}
+export default {  }
 </script>
-
-<style lang="sass" scoped>
-
-</style>
