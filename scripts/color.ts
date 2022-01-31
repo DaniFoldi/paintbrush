@@ -1,55 +1,29 @@
-const scheme: Record<string, string> = {
-  red: '#ff3333',
-  orange: '#ff6d1f',
-  green: '#11e454',
-  teal: '#22e0ff',
-  blue: '#3e56f4',
-  purple: '#7e09ec',
-  pink: '#ec368d',
-  black: '#111111',
-  darkgray: '#555555',
-  gray: '#aaaaaa',
-  silver: '#dddddd',
-  white: '#ffffff'
-}
-const hues = ['red', 'orange', 'green', 'teal', 'blue', 'purple', 'pink']
-const grayscale = ['black', 'darkgray', 'gray', 'silver', 'white']
-
-const resolve = (color: string, primary: string, secondary: string): string => {
-  if (color === 'primary') {
-    color = primary
-  } else if (color === 'secondary') {
-    color = secondary
+const resolve = (scheme: Record<string, string>, color: string, primary: string, secondary: string): string => {
+  switch (color) {
+    case 'primary':
+      color = primary
+      break
+    case 'secondary':
+      color = secondary
+      break
   }
 
-  if (Object.keys(scheme).indexOf(color) !== -1) {
-    return scheme[color]
-  }
-  return color
+  return Object.keys(scheme).indexOf(color) !== -1 ? scheme[color] : color
 }
 
 const hexToRgb = (color: string): number[] => {
   let result = color.replace('#', '')
   if (result.length === 3) {
-    result = result.charAt(0).repeat(2) + result.charAt(1).repeat(2) + result.charAt(3).repeat(2)
-  } else if (result.length !== 6) {
-    console.log(`Invalid hex color: ${color}`)
+    result = result.charAt(0).repeat(2) + result.charAt(1).repeat(2) + result.charAt(2).repeat(2)
   }
 
-  const rgb = []
-  for (let i = 0; i <= 2; i++) {
-    rgb[i] = parseInt(result.substr(i * 2, 2), 16)
-  }
-
-  return rgb
+  return [0, 1, 2].map(i => parseInt(result.substring(i * 2, i * 2 + 2), 16))
 }
 
-const textColor = (backgroundColor: string): string => {
-  const rgb = hexToRgb(backgroundColor)
-  const [r, g, b] = rgb
+const textColor = (backgroundColor: string, dark: string, light: string): string => {
+  const [r, g, b] = hexToRgb(backgroundColor)
 
-  const contrast = (Math.round(r * 299) + Math.round(g * 587) + Math.round(b * 114)) / 1000
-  return contrast >= 128 ? scheme.black : scheme.white
+  return (Math.round(r * 299) + Math.round(g * 587) + Math.round(b * 114)) >= 128000 ? dark : light
 }
 
-export { resolve, textColor, scheme, hues, grayscale }
+export { resolve, textColor }
