@@ -13,15 +13,16 @@ module.exports = {
     sourceType: 'module'
   },
   ignorePatterns: ['node_modules/'],
-  extends: ['plugin:@typescript-eslint/recommended',
+  extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
-    'plugin:nuxt/recommended'
+    'plugin:nuxt/recommended',
+    'plugin:@typescript-eslint/recommended'
   ],
   overrides: [{
     files: ['*.ts', '*.json', '*.js', 'build/*'],
     env: { node: true }
-  },{
+  }, {
     files: ['*.ts', '*.tsx'],
     rules: {
       // The core 'no-unused-vars' rules (in the eslint:recommeded ruleset)
@@ -111,9 +112,41 @@ module.exports = {
       'error',
       'never'
     ],
+    'sort-imports': ['error'],
+    'key-spacing': [
+      'warn',
+      {
+        'beforeColon': false,
+        'afterColon': true,
+        'mode': 'strict'
+      }
+    ],
+    'comma-spacing': [
+      'warn',
+      {
+        'before': false,
+        'after': true
+      }
+    ],
+    'keyword-spacing': [
+      'warn',
+      {
+        'before': true,
+        'after': true
+      }
+    ],
+    'arrow-spacing': [
+      'error'
+    ],
+    'space-infix-ops': [
+      'error'
+    ],
     'vue/multi-word-component-names': [
       'off'
     ],
-    'sort-imports': ['error']
+    'vue/max-attributes-per-line': [
+      'warn',
+      { 'singleline': 3, 'multiline': 1 }
+    ]
   }
 }
