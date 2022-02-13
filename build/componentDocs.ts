@@ -26,16 +26,15 @@ export default async () => {
       .map(words => [ words[0].replace('@', ''), words.slice(1).join(' ') ])
 
     const componentData: Record<string, string | string[]> = {
-      name: '',
       description: '',
-      version: '',
-      usage: '',
-      note: '',
-      tags: [],
-      see: [],
       example: [],
-      properties: []
-
+      name: '',
+      note: '',
+      properties: [],
+      see: [],
+      tags: [],
+      usage: '',
+      version: ''
     }
     for (const entry of doc) {
       if (Array.isArray(componentData[entry[0]])) {
