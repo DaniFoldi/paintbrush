@@ -25,9 +25,11 @@ withDefaults(defineProps<IconProps>(), {
 })
 </script>
 
-<style lang="sass" scoped>
-  i
-    font-family: 'Phosphor-icons'
-    vertical-align: middle
-    font-size: v-bind(size)
+<style lang="scss" scoped>
+  i {
+    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
+    font-family: Phosphor-icons;
+    font-size: v-bind(size);
+    vertical-align: middle;
+  }
 </style>
