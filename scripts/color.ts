@@ -1,10 +1,10 @@
-const resolve = (scheme: Record<string, string>, color: string, primary: string, secondary: string): string => {
+const resolve = (scheme: Record<string, string>, color: string, primary?: string, secondary?: string): string => {
   switch (color) {
       case 'primary':
-        color = primary
+        color = primary ? primary : scheme.primary
         break
       case 'secondary':
-        color = secondary
+        color = secondary ? secondary : scheme.secondary
         break
   }
 
