@@ -8,7 +8,8 @@
   <p><slot /></p>
 </template>
 
-<style lang="sass" scoped>
-  p
-    margin: var(--unit) 0
+<style lang="scss" scoped>
+  p {
+    margin: var(--unit) 0;
+  }
 </style>

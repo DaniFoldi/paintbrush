@@ -2,6 +2,8 @@
  Based on https://github.com/LukyVj/colofilter.css
  with MIT License */
 
+// TODO integrate into component
+
 // Colofilter.css v1.0.1
 $color-map: (
   'red': '#E50914',
@@ -14,268 +16,256 @@ $color-map: (
   'blue-yellow': ' ',
   'pink-yellow': ' ',
   'red-blue': ' ',
-  );
+);
 
-[class^="blend"] {
-  img {
-    mix-blend-mode: luminosity;
-  }
-
-  &:before {
-    position: absolute;
-    z-index: 3;
-    background: rgba(#000, 0.4);
-    color: #fff;
-    padding: 0.2em; 
-    font-size: 14px;
-  }
-
-  &:after {
-    display: block;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    filter: contrast(1.3);
-    mix-blend-mode: hue;
-  }
-
-  &[class*="-dark"] {
-    img {
-      mix-blend-mode: darken;
-    }
-
-    &:after {
-      mix-blend-mode: lighten !important;
-    }
-  }
-  &[class*="-light"] {
-    img {
-      mix-blend-mode: lighten;
-    }
-
-    &:after {
-      mix-blend-mode: darken !important;
-    }
-  }
-
+[class^=blend] {
   @each $color, $value in $color-map {
-
-    @if $color == 'blue-yellow' or 
-    $color == 'pink-yellow' or 
-    $color == 'red-blue' {
+    @if $color != 'blue-yellow' and
+      $color != 'pink-yellow' and
+      $color != 'red-blue' {
       &[class*="-#{$color}"] {
-      }
-    }
-    @else {
-      &[class*="-#{$color}"] {
-        background: #{($value)};
+        background: #{$value};
       }
     }
     &[class*="-#{$color}"] {
       @if $color == 'blue' {
-        &:not([class*="-dark"]):not([class*="-light"]){
-          &:after{
-            mix-blend-mode: hard-light;
+
+        &:not([class*=-dark]):not([class*=-light]) {
+
+          &::after {
             filter: brightness(0.6);
+            mix-blend-mode: hard-light;
           }
         }
-        &[class*="-dark"] {
-          &:after{
+
+        &[class*=-dark] {
+
+          &::after {
             mix-blend-mode: darken !important;
           }
-        }   
+        }
       }
 
       @if $color == 'orange' {
-        &[class*="-dark"] {
-          &:after{
+
+        &[class*=-dark] {
+
+          &::after {
             mix-blend-mode: darken !important;
           }
-        }   
-        &[class*="-light"] {
-          &:after{
-            mix-blend-mode: hue !important;
+        }
+
+        &[class*=-light] {
+
+          &::after {
             filter: saturate(400%) contrast(1.5);
+            mix-blend-mode: hue !important;
           }
-        }   
+        }
       }
 
       @if $color == 'red' {
-        &:after{
-          mix-blend-mode: hard-light;
+
+        &::after {
           filter: contrast(0.6) saturate(120%) brightness(1.2);
+          mix-blend-mode: hard-light;
         }
-        &[class*="-dark"] {
-          &:after{
-            mix-blend-mode: lighten !important;
+
+        &[class*=-dark] {
+
+          &::after {
             filter: contrast(1.1) !important;
+            mix-blend-mode: lighten !important;
           }
         }
 
-        &[class*="-light"] {
-          &:after{
-            mix-blend-mode: color-dodge !important;
+        &[class*=-light] {
+
+          &::after {
             filter: saturate(400%) contrast(1.5);
+            mix-blend-mode: color-dodge !important;
           }
-        }   
+        }
       }
 
       @if $color == 'green' {
-        &:not([class*="-dark"]):not([class*="-light"]){
-          &:after{
+
+        &:not([class*=-dark]):not([class*=-light]) {
+
+          &::after {
             mix-blend-mode: soft-light;
           }
         }
 
-        &[class*="-light"] {
-          &:after{
-            mix-blend-mode: color-dodge !important;
+        &[class*=-light] {
+
+          &::after {
             filter: saturate(100%) brightness(0.8) contrast(160%);
+            mix-blend-mode: color-dodge !important;
           }
         }
       }
 
       @if $color == 'yellow' {
-        &:not([class*="-dark"]):not([class*="-light"]){
-          &:after{
+
+        &:not([class*=-dark]):not([class*=-light]) {
+
+          &::after {
             filter: brightness(3.5);
             mix-blend-mode: soft-light;
           }
         }
-        &[class*="-dark"] {
-          &:after{
-            mix-blend-mode: color-dodge !important;
+
+        &[class*=-dark] {
+
+          &::after {
             filter: hue-rotate(70deg);
+            mix-blend-mode: color-dodge !important;
           }
-        }  
-        &[class*="-light"] {
-          background: #000000;
-          &:after{
-            mix-blend-mode: color !important;
+        }
+
+        &[class*=-light] {
+          background: #000;
+
+          &::after {
             filter: brightness(3) hue-rotate(93deg) contrast(2) saturate(150);
+            mix-blend-mode: color !important;
           }
-        }  
+        }
       }
 
       @if $color == 'purple' {
-        &:not([class*="-dark"]):not([class*="-light"]){
+
+        &:not([class*=-dark]):not([class*=-light]) {
           background: rebeccapurple;
-          &:after{
+
+          &::after {
             mix-blend-mode: darken !important;
           }
         }
-        &[class*="-dark"] {
+
+        &[class*=-dark] {
           background: #B10AFF;
-          &:after{
-            mix-blend-mode: soft-light !important;
+
+          &::after {
             filter: saturate(100);
+            mix-blend-mode: soft-light !important;
           }
         }
-        &[class*="-light"] {
-          &:after{
+
+        &[class*=-light] {
+
+          &::after {
             background: #A37FC7;
             filter: saturate(520%) brightness(10.5) contrast(350) !important;
           }
         }
       }
+
       @if $color == 'pink' {
-        &:not([class*="-dark"]):not([class*="-light"]):not([class*="-yellow"]){
-          &:after{
-          }
-        }
-        &[class*="-dark"] {
-          &:after{
+
+        &[class*=-dark] {
+
+          &::after {
             background: #1D0E14;
           }
         }
-        &[class*="-light"] {
-          &:after{
+
+        &[class*=-light] {
+
+          &::after {
             background: #FF468D;
-            mix-blend-mode: lighten !important;
             filter: contrast(1) saturate(250%) !important;
+            mix-blend-mode: lighten !important;
           }
         }
       }
 
       @if $color == 'blue-yellow' {
-        &:not([class*="-dark"]):not([class*="-light"]){
-          background: linear-gradient(to top left,#55ACEE, #FEDD31);
-          &:after{
-          }
+
+        &:not([class*=-dark]):not([class*=-light]) {
+          background: linear-gradient(to top left, #55ACEE, #FEDD31);
         }
-        &[class*="-dark"] {
-          &:after{
-            mix-blend-mode: hard-light !important
-          }
-        }
-        &[class*="-light"] {
-          &:after{
+
+        &[class*=-dark] {
+
+          &::after {
             mix-blend-mode: hard-light !important;
+          }
+        }
+
+        &[class*=-light] {
+
+          &::after {
             filter: none;
+            mix-blend-mode: hard-light !important;
           }
         }
       }
 
       @if $color == 'pink-yellow' {
-        &:not([class*="-dark"]):not([class*="-light"]){
-          background: linear-gradient(to bottom right, #FAA6FB, #FBBC05) !important; 
-          &:after{
 
-          }
+        &:not([class*=-dark]):not([class*=-light]) {
+          background: linear-gradient(to bottom right, #FAA6FB, #FBBC05) !important;
         }
-        &[class*="-dark"] {
-          &:after{
+
+        &[class*=-dark] {
+
+          &::after {
+            filter: none !important;
             mix-blend-mode: hue !important;
-            filter: none !important;
           }
         }
-        &[class*="-light"] {
-          &:after{
-            mix-blend-mode: hard-light !important;
+
+        &[class*=-light] {
+
+          &::after {
             filter: none !important;
+            mix-blend-mode: hard-light !important;
           }
         }
       }
 
       @if $color == 'red-blue' {
-        &:not([class*="-dark"]):not([class*="-light"]){
+
+        &:not([class*=-dark]):not([class*=-light]) {
           background: linear-gradient(to bottom right, #3993E2, #E2544B);
-          &:after{
+
+          &::after {
             filter: none;
             mix-blend-mode: hard-light;
           }
         }
-        &[class*="-dark"] {
-          &:after{
-            mix-blend-mode: hard-light !important;
+
+        &[class*=-dark] {
+
+          &::after {
             filter: none !important;
+            mix-blend-mode: hard-light !important;
           }
         }
-        &[class*="-light"] {
-          &:after{
-            mix-blend-mode: screen !important;
+
+        &[class*=-light] {
+
+          &::after {
             filter: saturate(300%) brightness(1.2) !important;
+            mix-blend-mode: screen !important;
           }
         }
       }
-      
-      @if $value == ' ' {
-        &:after {
+
+      @if $value != ' ' {
+
+        &::after {
+          background: #{$value};
         }
       }
-      @else {
-        &:after {
-          background: #{($value)};
-        }
-      }
-      
-      &:after {
+
+      &::after {
         @if $color == 'red' {
           background: #282581;
         }
+
         @if $color == 'blue' {
           background: #93EF90;
         }
@@ -291,22 +281,70 @@ $color-map: (
         @if $color == 'purple' {
           background: #ACFCEE;
         }
+
         @if $color == 'pink' {
           background: #EA4C89;
         }
 
         @if $color == 'blue-yellow' {
-          background: linear-gradient(to top left,#55ACEE, #FEDD31) !important;
+          background: linear-gradient(to top left, #55ACEE, #FEDD31) !important;
         }
 
-        @if $color == 'pink-yellow'{
-          background: linear-gradient(to top left, #FAA6FB, #FBBC05) !important; 
+        @if $color == 'pink-yellow' {
+          background: linear-gradient(to top left, #FAA6FB, #FBBC05) !important;
         }
 
         @if $color == 'red-blue' {
           background: linear-gradient(to bottom right, #3993E2, #E2544B);
-        } 
+        }
       }
+    }
+  }
+
+  img {
+    mix-blend-mode: luminosity;
+  }
+
+  &::before {
+    background: rgba(#000, 0.4);
+    color: #FFF;
+    font-size: 14px;
+    padding: 0.2em;
+    position: absolute;
+    z-index: 3;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    filter: contrast(1.3);
+    height: 100%;
+    left: 0;
+    mix-blend-mode: hue;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &[class*=-dark] {
+
+    img {
+      mix-blend-mode: darken;
+    }
+
+    &::after {
+      mix-blend-mode: lighten !important;
+    }
+  }
+
+  &[class*=-light] {
+
+    img {
+      mix-blend-mode: lighten;
+    }
+
+    &::after {
+      mix-blend-mode: darken !important;
     }
   }
 }

@@ -1,0 +1,92 @@
+@use './scrollbar';
+@use './theme';
+
+@mixin paintbrush {
+  @media (prefers-reduced-motion: reduce) {
+
+    html, body {
+      height: 100%;
+      padding: 0;
+      width: 100%;
+    }
+
+    html {
+      text-size-adjust: 100%;
+
+      &:focus-within {
+        scroll-behavior: smooth;
+      }
+    }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    @include scrollbar.spec;
+    @include scrollbar.webkit;
+  }
+
+  html, body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+    margin: 0;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  button, [type=button], [type=reset], [type=submit] {
+    appearance: button;
+  }
+
+  #__nuxt {
+    height: 100%;
+    isolation: isolate;
+    padding: 0;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    width: 100%;
+
+    // TODO transition color
+    // transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+
+    @include theme.light {
+      background: var(--light-background);
+      color: var(--light-text);
+    }
+
+    @include theme.dark {
+      background: var(--dark-background);
+      color: var(--dark-text);
+    }
+  }
+
+  .container {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
