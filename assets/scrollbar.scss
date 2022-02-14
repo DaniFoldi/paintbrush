@@ -7,24 +7,17 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: orange;
+    background: var(--background-second);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: blue;
-    border: 3px solid orange;
-    border-radius: 6px;
+    background-color: var(--text-second);
+    border: 3px solid var(--background-second);
+    border-radius: 8px;
   }
 }
 
 @mixin spec {
+  scrollbar-color: var(--text-second) var(--background-second);
   scrollbar-width: auto;
-
-  @include theme.light {
-    scrollbar-color: var(--light-text) var(--light-background);
-  }
-
-  @include theme.dark {
-    scrollbar-color: var(--dark-text) var(--dark-background);
-  }
 }
