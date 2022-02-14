@@ -1,0 +1,30 @@
+@use './theme';
+
+@mixin webkit {
+
+  &::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: orange;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border: 3px solid orange;
+    border-radius: 6px;
+  }
+}
+
+@mixin spec {
+  scrollbar-width: auto;
+
+  @include theme.light {
+    scrollbar-color: var(--light-text) var(--light-background);
+  }
+
+  @include theme.dark {
+    scrollbar-color: var(--dark-text) var(--dark-background);
+  }
+}

@@ -1,0 +1,21 @@
+@use '../node_modules/@fontsource/raleway/scss/mixins.scss' as raleway;
+@use '../node_modules/@fontsource/playfair-display/scss/mixins.scss' as playfair;
+@use '../node_modules/phosphor-icons/src/css/icons.css';
+
+@mixin raleway {
+  @include raleway.fontFace($weight: 300, $display: fallback, $fontDir: '~@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 400, $display: fallback, $fontDir: '~@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 500, $display: fallback, $fontDir: '~@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 600, $display: fallback, $fontDir: '~@fontsource/raleway/files');
+}
+
+@mixin playfair {
+  @include playfair.fontFace($weight: 300, $display: fallback, $fontDir: '~@fontsource/playfair-display/files');
+  @include playfair.fontFace($weight: 400, $display: fallback, $fontDir: '~@fontsource/playfair-display/files');
+  @include playfair.fontFace($weight: 500, $display: fallback, $fontDir: '~@fontsource/playfair-display/files');
+  @include playfair.fontFace($weight: 600, $display: fallback, $fontDir: '~@fontsource/playfair-display/files');
+}
+
+@mixin phosphor {
+  // TODO phosphor icons
+}
