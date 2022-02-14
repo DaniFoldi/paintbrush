@@ -4,18 +4,8 @@
 @mixin paintbrush {
   @media (prefers-reduced-motion: reduce) {
 
-    html, body {
-      height: 100%;
-      padding: 0;
-      width: 100%;
-    }
-
-    html {
-      text-size-adjust: 100%;
-
-      &:focus-within {
-        scroll-behavior: smooth;
-      }
+    html:focus-within {
+      scroll-behavior: auto;
     }
 
     *, *::before, *::after {
@@ -24,6 +14,12 @@
       scroll-behavior: auto !important;
       transition-duration: 0.01ms !important;
     }
+  }
+
+  html, body {
+    height: 100%;
+    padding: 0;
+    width: 100%;
   }
 
   *, *::before, *::after {
@@ -37,6 +33,14 @@
 
   html, body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
     margin: 0;
+  }
+
+  html {
+    text-size-adjust: 100%;
+
+    &:focus-within {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
