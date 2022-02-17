@@ -1,11 +1,11 @@
 const resolve = (scheme: Record<string, string>, color: string, primary?: string, secondary?: string): string => {
   switch (color) {
-      case 'primary':
-        color = primary ? primary : scheme.primary
-        break
-      case 'secondary':
-        color = secondary ? secondary : scheme.secondary
-        break
+    case 'primary':
+      color = primary ? primary : scheme.primary
+      break
+    case 'secondary':
+      color = secondary ? secondary : scheme.secondary
+      break
   }
 
   return Object.keys(scheme).indexOf(color) !== -1 ? scheme[color] : color

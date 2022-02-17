@@ -48,7 +48,7 @@ module.exports = {
     'no-missing-end-of-source-newline': true,
     'order/order': [ 'custom-properties', 'declarations', 'at-rules', 'rules' ],
     'order/properties-alphabetical-order': true,
-    'plugin/no-low-performance-animation-properties': true,
+    'plugin/no-low-performance-animation-properties': [ true, { 'ignore': 'paint-properties' }],
     'property-no-unknown': true,
     'rule-empty-line-before': 'always',
     'scss/at-rule-no-unknown': true,

@@ -43,7 +43,7 @@ module.exports = {
     'eqeqeq': [ 'error', 'always' ],
     'func-call-spacing': [ 'error', 'never' ],
     'function-paren-newline': [ 'error', 'multiline' ],
-    'indent': [ 'error', 2, { 'SwitchCase': 2 }],
+    'indent': [ 'error', 2, { 'SwitchCase': 1 }],
     'key-spacing': [ 'warn', { 'afterColon': true, 'beforeColon': false, 'mode': 'strict' }],
     'keyword-spacing': [ 'warn', { 'after': true, 'before': true  }],
     'linebreak-style': [ 'error', 'unix' ],
