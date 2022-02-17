@@ -1,0 +1,78 @@
+@mixin grid-center-items {
+  display: grid;
+  place-items: center;
+}
+
+@mixin no-margin {
+  margin: 0;
+}
+
+@mixin no-padding {
+  padding: 0;
+}
+
+@mixin no-border {
+  border: 0;
+}
+
+@mixin standard {
+  @include standard-background;
+  @include standard-text;
+}
+
+@mixin standard-text {
+  color: var(--text);
+}
+
+@mixin standard-background {
+  background: var(--background);
+}
+
+@mixin primary {
+  background: var(--primary);
+  color: var(--text-on-primary);
+}
+
+@mixin rounded {
+  border-radius: var(--radius);
+}
+
+@mixin unit-padding {
+  padding: var(--unit);
+}
+
+@mixin unit-margin {
+  margin: var(--unit);
+}
+
+@mixin vertical-unit-margin {
+  margin-bottom: var(--unit);
+  margin-top: var(--unit);
+}
+
+@mixin horizontal-unit-margin {
+  margin-left: var(--unit);
+  margin-right: var(--unit);
+}
+
+@mixin with-fade {
+  transition: background .2s ease-in-out, color .2s ease-in-out;
+}
+
+@mixin font($family) {
+  @if $family == 'raleway' {
+    font-family: Raleway, 'Helvetica Neue', sans-serif;
+  }
+  @else if $family == 'playfair' {
+    font-family: 'Playfair Display', 'Times New Roman', sans-serif;
+  }
+  @else if $family == 'phosphor-icons' {
+    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
+    font-family: Phosphor-icons;
+  }
+}
+
+@mixin full-size {
+  height: 100%;
+  width: 100%;
+}

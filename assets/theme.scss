@@ -14,60 +14,10 @@
   @media (prefers-color-scheme: dark) {
     @at-root #{selector-nest(':root:not([data-theme=light]):not([data-theme=dark])', &)} {
       @content;
-
-      :root {
-        --background: var(--dark-background);
-        --text: var(--dark-text);
-        --background-second: var(--dark-background-second);
-        --text-second: var(--dark-text-second);
-      }
     }
   }
 
   @at-root #{selector-nest(':root[data-theme=dark]', &)} {
     @content;
-
-    :root {
-      --background: var(--dark-background);
-      --text: var(--dark-text);
-      --background-second: var(--dark-background-second);
-      --text-second: var(--dark-text-second);
-    }
-  }
-}
-
-@mixin root {
-  @media (prefers-color-scheme: light) {
-
-    :root:not([data-theme=light]):not([data-theme=dark]) {
-      --background: var(--light-background);
-      --text: var(--light-text);
-      --background-second: var(--light-background-second);
-      --text-second: var(--light-text-second);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-
-    :root:not([data-theme=light]):not([data-theme=dark]) {
-      --background: var(--dark-background);
-      --text: var(--dark-text);
-      --background-second: var(--dark-background-second);
-      --text-second: var(--dark-text-second);
-    }
-  }
-
-  :root[data-theme=dark] {
-    --background: var(--dark-background);
-    --text: var(--dark-text);
-    --background-second: var(--dark-background-second);
-    --text-second: var(--dark-text-second);
-  }
-
-  :root[data-theme=light] {
-    --background: var(--light-background);
-    --text: var(--light-text);
-    --background-second: var(--light-background-second);
-    --text-second: var(--light-text-second);
   }
 }

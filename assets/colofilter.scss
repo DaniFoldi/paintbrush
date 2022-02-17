@@ -33,7 +33,7 @@ $color-map: (
         &:not([class*=-dark]):not([class*=-light]) {
 
           &::after {
-            filter: brightness(0.6);
+            filter: brightness(.6);
             mix-blend-mode: hard-light;
           }
         }
@@ -67,7 +67,7 @@ $color-map: (
       @if $color == 'red' {
 
         &::after {
-          filter: contrast(0.6) saturate(120%) brightness(1.2);
+          filter: contrast(.6) saturate(120%) brightness(1.2);
           mix-blend-mode: hard-light;
         }
 
@@ -100,7 +100,7 @@ $color-map: (
         &[class*=-light] {
 
           &::after {
-            filter: saturate(100%) brightness(0.8) contrast(160%);
+            filter: saturate(100%) brightness(.8) contrast(160%);
             mix-blend-mode: color-dodge !important;
           }
         }
@@ -306,10 +306,10 @@ $color-map: (
   }
 
   &::before {
-    background: rgba(#000, 0.4);
+    background: rgba(#000, .4);
     color: #FFF;
     font-size: 14px;
-    padding: 0.2em;
+    padding: .2em;
     position: absolute;
     z-index: 3;
   }
