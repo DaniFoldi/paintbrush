@@ -9,7 +9,10 @@
 </template>
 
 <style lang="scss" scoped>
-  p {
-    margin: var(--unit) 0;
-  }
+@use '../assets/mixins';
+
+p {
+  @include mixins.vertical-unit-margin;
+  @include mixins.standard-text;
+}
 </style>

@@ -15,21 +15,38 @@
 
 <script lang="ts" setup>
 interface IconProps {
-  name?: string;
-  size?: string;
+  color?: string
+  name?: string
+  size?: string
 }
 
 withDefaults(defineProps<IconProps>(), {
+  color: 'primary',
   name: '',
   size: '16px'
 })
 </script>
 
-<style lang="scss" scoped>
-  i {
-    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
-    font-family: Phosphor-icons;
-    font-size: v-bind(size);
-    vertical-align: middle;
+<script lang="ts">
+import { resolve } from '../scripts/color'
+
+export default {
+  inject: { colorScheme: { default: {} } },
+  computed: {
+    computedcolor() {
+      return resolve(this.colorScheme, this.color)
+    }
   }
+}
+</script>
+
+<style lang="scss" scoped>
+@use '../assets/mixins';
+
+i {
+  color: v-bind(computedcolor);
+  font-size: v-bind(size);
+  vertical-align: middle;
+  @include mixins.font('phosphor-icons');
+}
 </style>
