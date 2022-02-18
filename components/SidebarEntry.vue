@@ -63,6 +63,10 @@ a {
     background: var(--background-2);
     text-decoration: none;
   }
+
+  &:active {
+    background: var(--background-highlight);
+  }
 }
 
 </style>

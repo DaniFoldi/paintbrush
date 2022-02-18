@@ -54,10 +54,12 @@ withDefaults(defineProps<PaintbrushProps>(), {
   colorScheme: () => ({
     black: '#111',
     blue: '#3E56F4',
+    darkergray: '#252525',
     darkestgray: '#1A1A1A',
     darkgray: '#555',
     gray: '#AAA',
     green: '#11E454',
+    lightergray: '#E2E2E2',
     lightestgray: '#EFEFEF',
     lightgray: '#DDD',
     orange: '#FF6D1F',
@@ -70,6 +72,7 @@ withDefaults(defineProps<PaintbrushProps>(), {
   darkColors: () => ({
     background: 'black',
     background2: 'darkestgray',
+    backgroundHighlight: 'darkergray',
     primary: 'blue',
     radius: '4px',
     secondary: 'purple',
@@ -87,6 +90,7 @@ withDefaults(defineProps<PaintbrushProps>(), {
   lightColors: () => ({
     background: 'white',
     background2: 'lightestgray',
+    backgroundHighlight: 'lightergray',
     primary: 'blue',
     radius: '4px',
     secondary: 'purple',
@@ -175,9 +179,6 @@ export default {
 body {
   @include mixins.font('raleway');
   @include mixins.standard;
-
-  #__nuxt {
-    @include mixins.with-fade;
-  }
+  @include mixins.with-fade;
 }
 </style>

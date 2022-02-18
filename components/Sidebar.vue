@@ -20,45 +20,47 @@
 </template>
 
 <style lang="scss" scoped>
-  .sidebar-container {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    grid-template-rows: 100%;
-    height: 100%;
-    row-gap: calc(2 * var(--unit));
-    width: 100%;
-  }
+@use '../assets/mixins';
 
-  div.sidebar-top, div.sidebar-middle, div.sidebar-bottom {
-    display: grid;
-    row-gap: calc(2 * var(--unit));
-  }
+.sidebar-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 100%;
+  row-gap: calc(2 * var(--unit));
+  @include mixins.full-size;
+}
 
-  .sidebar-bottom {
-    align-self: end;
-  }
+div.sidebar-top, div.sidebar-middle, div.sidebar-bottom {
+  display: grid;
+  row-gap: calc(2 * var(--unit));
+}
 
-  aside, main {
-    display: grid;
-    grid-template-columns: 100%;
-  }
+.sidebar-bottom {
+  align-self: end;
+}
 
-  aside {
-    grid-template-rows: 1fr auto 1fr;
-  }
+aside, main {
+  display: grid;
+  grid-template-columns: 100%;
+  @include mixins.with-fade;
+}
 
-  main {
-    background: var(--background-2);
-    grid-template-rows: 1fr;
-  }
+aside {
+  grid-template-rows: 1fr auto 1fr;
+}
 
-  aside > div, main > div {
-    padding: 8px;
-  }
+main {
+  background: var(--background-2);
+  grid-template-rows: 1fr;
+}
 
-  main > div {
-    max-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
+aside > div, main > div {
+  @include mixins.double-unit-padding;
+}
+
+main > div {
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 </style>
