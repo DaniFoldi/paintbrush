@@ -50,7 +50,6 @@
 <script lang="ts" setup>
 withDefaults(defineProps<PaintbrushProps>(), {
   appName: '',
-  borderRadius: '4px',
   canonical: '',
   colorScheme: () => ({
     black: '#111',
@@ -101,7 +100,6 @@ withDefaults(defineProps<PaintbrushProps>(), {
   pageTitle: '',
   twitterHandle: '',
   twitterType: 'summary_large_image',
-  unitSize: '4px',
   url: ''
 })
 </script>
@@ -112,7 +110,6 @@ import { computed } from 'vue'
 
 interface PaintbrushProps {
   appName?: string
-  borderRadius?: string
   canonical?: string
   colorScheme?: Record<string, string>
   darkColors?: Record<string, string>
@@ -128,7 +125,6 @@ interface PaintbrushProps {
   pageTitle?: string
   twitterType?: string
   twitterHandle?: string
-  unitSize?: string
   url?: string
 }
 
