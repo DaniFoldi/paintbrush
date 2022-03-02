@@ -84,3 +84,19 @@
   height: 100%;
   width: 100%;
 }
+
+@mixin two-items {
+  display: grid;
+  gap: var(--unit);
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+
+  & > :first-child {
+    aspect-ratio: 1 / 1;
+    place-self: center;
+  }
+
+  & > :not(:first-child) {
+    align-self: center;
+  }
+}
