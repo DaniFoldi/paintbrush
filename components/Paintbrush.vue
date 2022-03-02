@@ -48,6 +48,26 @@
 </template>
 
 <script lang="ts" setup>
+interface PaintbrushProps {
+  appName?: string
+  canonical?: string
+  colorScheme?: Record<string, string>
+  darkColors?: Record<string, string>
+  description?: string
+  favicon?: string
+  keywords?: string
+  lang?: string
+  largeImage?: string
+  largeImageAlt?: string
+  lightColors?: Record<string, string>
+  manifest?: string
+  ogType?: string
+  pageTitle?: string
+  twitterType?: string
+  twitterHandle?: string
+  url?: string
+}
+
 withDefaults(defineProps<PaintbrushProps>(), {
   appName: '',
   canonical: '',
@@ -111,27 +131,6 @@ withDefaults(defineProps<PaintbrushProps>(), {
 <script lang="ts">
 import { kebabCaseName, resolve } from '../scripts/color'
 import { computed } from 'vue'
-
-interface PaintbrushProps {
-  appName?: string
-  canonical?: string
-  colorScheme?: Record<string, string>
-  darkColors?: Record<string, string>
-  description?: string
-  favicon?: string
-  keywords?: string
-  lang?: string
-  largeImage?: string
-  largeImageAlt?: string
-  lightColors?: Record<string, string>
-  manifest?: string
-  ogType?: string
-  pageTitle?: string
-  twitterType?: string
-  twitterHandle?: string
-  url?: string
-}
-
 export default {
   provide() {
     return {
@@ -159,6 +158,7 @@ export default {
   methods: {
     updateTheme(useDarkTheme?: boolean) {
       this.darkTheme = useDarkTheme ?? !this.darkTheme
+      return this.darkTheme
     }
   }
 }

@@ -65,6 +65,7 @@ module.exports = {
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
     'sort-imports': [ 'warn', { 'ignoreCase': true }],
+    'space-before-function-paren': [ 'error', { 'anonymous': 'never', 'asyncArrow': 'always', 'named': 'never' }],
     'space-in-parens': [ 'warn', 'never' ],
     'space-infix-ops': [ 'warn' ],
     'vue/attributes-order': [ 'warn', { 'alphabetical': true }],

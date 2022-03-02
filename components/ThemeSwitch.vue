@@ -11,13 +11,13 @@ defineEmits([ 'toggle' ])
 <script lang="ts">
 export default {
   inject: [ 'paintbrush' ],
-  data () {
+  data() {
     return {
       icon: 'sun'
     }
   },
   methods: {
-    toggle () {
+    toggle() {
       this.icon = this.paintbrush.updateTheme() ? 'moon' : 'sun'
       this.$emit('toggle')
     }

@@ -47,7 +47,7 @@ defineEmits([
 export default {
   inject: { colorScheme: { default: {} } },
   computed: {
-    computedcolor () {
+    computedcolor() {
       return resolve(this.colorScheme, this.color)
     }
   }
