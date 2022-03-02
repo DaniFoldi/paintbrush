@@ -1,7 +1,7 @@
 <template>
-  <PrimaryButton @click="toggle">
-    <Icon name="sun" size="20px" /> Switch
-  </PrimaryButton>
+  <IconButton :icon="icon" @click="toggle">
+    Switch
+  </IconButton>
 </template>
 
 <script lang="ts" setup>
@@ -11,9 +11,14 @@ defineEmits([ 'toggle' ])
 <script lang="ts">
 export default {
   inject: [ 'paintbrush' ],
+  data () {
+    return {
+      icon: 'sun'
+    }
+  },
   methods: {
-    toggle() {
-      this.paintbrush.updateTheme()
+    toggle () {
+      this.icon = this.paintbrush.updateTheme() ? 'moon' : 'sun'
       this.$emit('toggle')
     }
   }
