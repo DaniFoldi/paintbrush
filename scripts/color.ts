@@ -21,7 +21,7 @@ const hexToRgb = (color: string): number[] => {
 }
 
 const kebabCaseName = (name: string): string => {
-  return `--${name.split('').map(c => c === c.toUpperCase() ? `-${c.toLowerCase()}` : c).join('')}`
+  return name.split('').map(c => c === c.toUpperCase() ? `-${c.toLowerCase()}` : c).join('')
 }
 
 const textColor = (backgroundColor: string, dark: string, light: string): string => {

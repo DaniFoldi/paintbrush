@@ -9,7 +9,7 @@
 -->
 <template>
   <slot />
-  <Html>
+  <Html :style="styleVariables">
     <Head>
       <Meta charset="UTF-8" />
       <Meta :content="colorMap.theme" name="theme-color" />
@@ -140,39 +140,35 @@ export default {
     }
   },
   data() {
+    // TODO load without instant transition
     return { darkTheme: true }
   },
   computed: {
     colorMap() {
       return this.darkTheme ? this.darkColors : this.lightColors
+    },
+    styleVariables() {
+      return Object.keys(this.colorMap)
+        .map(color => `--${kebabCaseName(color)}: ${resolve(this.colorScheme, this.colorMap[color])};`).join('')
     }
   },
   beforeMount() {
-    this.updateTheme()
+    // TODO persistent dark mode
+    this.updateTheme(matchMedia('(prefers-color-scheme: dark)').matches)
   },
   methods: {
     updateTheme(useDarkTheme?: boolean) {
       this.darkTheme = useDarkTheme ?? !this.darkTheme
-
-      for (const color in this.colorMap) {
-        const variableName = kebabCaseName(color)
-        const newValue = resolve(this.colorScheme, this.colorMap[color])
-        const oldValue = getComputedStyle(document.documentElement).getPropertyValue(variableName)
-
-        if (newValue !== oldValue) {
-          document.documentElement.style.setProperty(variableName, newValue)
-        }
-      }
     }
   }
 }
 </script>
 
 <style lang="scss">
-@use '../assets/reset';
 @use '../assets/fonts';
-@use '../node_modules/phosphor-icons/src/css/icons.css';
 @use '../assets/mixins';
+@use '../assets/reset';
+@use '../node_modules/phosphor-icons/src/css/icons.css';
 
 @include reset.paintbrush;
 
