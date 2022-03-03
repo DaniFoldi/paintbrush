@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ThemeSwitch />
+    <ThemeToggle />
     <Text>asd</Text>
     <Icon name="gear" />
     <AutoLink href="https://paintbrush.danifoldi.com" :reload="true">

@@ -140,11 +140,11 @@ export default {
   },
   data() {
     // TODO load without instant transition
-    return { darkTheme: true }
+    return { theme: 'dark' }
   },
   computed: {
     colorMap() {
-      return this.darkTheme ? this.darkColors : this.lightColors
+      return this.theme === 'dark' ? this.darkColors : this.lightColors
     },
     styleVariables() {
       return Object.keys(this.colorMap)
@@ -153,12 +153,14 @@ export default {
   },
   beforeMount() {
     // TODO persistent dark mode
-    this.updateTheme(matchMedia('(prefers-color-scheme: dark)').matches)
+    this.updateTheme(matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
   },
   methods: {
-    updateTheme(useDarkTheme?: boolean) {
-      this.darkTheme = useDarkTheme ?? !this.darkTheme
-      return this.darkTheme
+    updateTheme(theme: string) {
+      this.theme = theme
+    },
+    getTheme() {
+      return this.theme
     }
   }
 }
