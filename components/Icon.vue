@@ -14,30 +14,23 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, inject } from 'vue'
+import { resolve } from '../scripts/color'
+
+const colorScheme: Record<string, string> = inject('colorScheme', {})
+
 interface IconProps {
   color?: string
   name?: string
   size?: string
 }
 
-withDefaults(defineProps<IconProps>(), {
+const props = withDefaults(defineProps<IconProps>(), {
   color: 'primary',
   name: '',
   size: '16px'
 })
-</script>
-
-<script lang="ts">
-import { resolve } from '../scripts/color'
-
-export default {
-  inject: { colorScheme: { default: {} } },
-  computed: {
-    computedcolor() {
-      return resolve(this.colorScheme, this.color)
-    }
-  }
-}
+const computedcolor = computed(() => resolve(colorScheme, props.color))
 </script>
 
 <style lang="scss" scoped>
