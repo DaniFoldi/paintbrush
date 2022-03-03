@@ -7,8 +7,8 @@
 
 <script lang="ts" setup>
 interface AutoLinkProps {
-  href?: string;
-  reload?: boolean;
+  href?: string
+  reload?: boolean
 }
 withDefaults(defineProps<AutoLinkProps>(), {
   href: '',

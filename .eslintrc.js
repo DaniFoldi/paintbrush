@@ -30,6 +30,14 @@ module.exports = {
   },
   plugins: [ '@typescript-eslint' ],
   rules: {
+    '@typescript-eslint/member-delimiter-style': [
+      'error', {
+        'multiline': { 'delimiter': 'none', 'requireLast': true },
+        'singleline': { 'delimiter': 'semi', 'requireLast': false }
+      }
+    ],
+    '@typescript-eslint/prefer-for-of': 'warn',
+    '@typescript-eslint/type-annotation-spacing': [ 'warn', { 'after': true, 'before': false }],
     'array-bracket-newline': [ 'warn', { 'multiline': true }],
     'array-bracket-spacing': [ 'warn', 'always', { 'arraysInArrays': false, 'objectsInArrays': false }],
     'arrow-parens': [ 'warn', 'as-needed' ],
@@ -49,7 +57,7 @@ module.exports = {
     'linebreak-style': [ 'error', 'unix' ],
     'lines-between-class-members': [ 'error', 'always', { 'exceptAfterSingleLine': true }],
     'max-len': [ 'error', 120 ],
-    'no-else-return': 'off',
+    'no-else-return': 'warn',
     'no-multiple-empty-lines': [ 'error', { 'max': 1, 'maxEOF': 0 }],
     'no-trailing-spaces': 'error',
     'no-var': 'error',
@@ -62,9 +70,14 @@ module.exports = {
     ],
     'object-curly-spacing': [ 'warn', 'always' ],
     'operator-linebreak': [ 'warn', 'before' ],
+    'prefer-const': 'warn',
+    'prefer-object-spread': 'warn',
+    'prefer-spread': 'warn',
+    'prefer-template': 'warn',
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
     'sort-imports': [ 'warn', { 'ignoreCase': true }],
+    'sort-keys': [ 'warn' ],
     'space-before-function-paren': [ 'error', { 'anonymous': 'never', 'asyncArrow': 'always', 'named': 'never' }],
     'space-in-parens': [ 'warn', 'never' ],
     'space-infix-ops': [ 'warn' ],
