@@ -57,7 +57,7 @@ a {
     @include mixins.no-margin;
   }
 
-  &:hover {
+  &:hover, &.router-link-active {
     background: var(--background-2);
     text-decoration: none;
   }
