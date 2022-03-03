@@ -1,13 +1,4 @@
-const resolve = (scheme: Record<string, string>, color: string, primary?: string, secondary?: string): string => {
-  switch (color) {
-    case 'primary':
-      color = primary || scheme.primary
-      break
-    case 'secondary':
-      color = secondary || scheme.secondary
-      break
-  }
-
+const resolve = (scheme: Record<string, string>, color: string): string => {
   return Object.keys(scheme).includes(color) ? scheme[color] : color
 }
 
