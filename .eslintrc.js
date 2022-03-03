@@ -11,13 +11,6 @@ module.exports = {
     {
       env: { node: true },
       files: [ '*.ts', '*.json', '*.js', 'build/*' ]
-    }, {
-      files: [ '*.ts', '*.tsx' ],
-      rules: {
-      // The core 'no-unused-vars' rules (in the eslint:recommeded ruleset)
-      // does not work with type definitions
-        'no-unused-vars': 'off'
-      }
     }
   ],
   parser: 'vue-eslint-parser',
@@ -36,8 +29,14 @@ module.exports = {
         'singleline': { 'delimiter': 'semi', 'requireLast': false }
       }
     ],
+    '@typescript-eslint/no-unused-vars': [ 'warn' ],
     '@typescript-eslint/prefer-for-of': 'warn',
-    '@typescript-eslint/type-annotation-spacing': [ 'warn', { 'after': true, 'before': false }],
+    '@typescript-eslint/type-annotation-spacing': [
+      'warn', {
+        'after': true, 'before': true,
+        'overrides': { 'colon': { 'after': true, 'before': false } }
+      }
+    ],
     'array-bracket-newline': [ 'warn', { 'multiline': true }],
     'array-bracket-spacing': [ 'warn', 'always', { 'arraysInArrays': false, 'objectsInArrays': false }],
     'arrow-parens': [ 'warn', 'as-needed' ],
@@ -60,6 +59,7 @@ module.exports = {
     'no-else-return': 'warn',
     'no-multiple-empty-lines': [ 'error', { 'max': 1, 'maxEOF': 0 }],
     'no-trailing-spaces': 'error',
+    'no-unused-vars': 'off',
     'no-var': 'error',
     'object-curly-newline': [
       'error',
