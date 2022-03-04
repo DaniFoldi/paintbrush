@@ -11,30 +11,18 @@
 </template>
 
 <script lang="ts" setup>
-interface AutoLinkProps {
+interface SidebarEntryProps {
   color?: string
   href: string
   icon: string
   reload?: boolean
 }
 
-withDefaults(defineProps<AutoLinkProps>(), {
+withDefaults(defineProps<SidebarEntryProps>(), {
   color: 'primary',
   reload: false
 })
-</script>
 
-<script lang="ts">
-import { resolve } from '../scripts/color'
-
-export default {
-  inject: { colorScheme: { default: {} } },
-  computed: {
-    computedcolor(): string {
-      return resolve(this.colorScheme, this.color)
-    }
-  }
-}
 </script>
 
 <style lang="scss" scoped>
