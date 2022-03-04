@@ -137,6 +137,7 @@ export default {
       colorScheme: computed(() => this.colorScheme),
       paintbrush: this
     }
+
   },
   data() {
     // TODO load without instant transition
@@ -156,11 +157,11 @@ export default {
     this.updateTheme(matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
   },
   methods: {
-    updateTheme(theme: string) {
-      this.theme = theme
-    },
     getTheme() {
       return this.theme
+    },
+    updateTheme(theme: string) {
+      this.theme = theme
     }
   }
 }
