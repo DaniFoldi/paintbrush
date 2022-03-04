@@ -1,5 +1,5 @@
-import { access, readFile, writeFile } from 'fs/promises'
-import { fileURLToPath } from 'url'
+import { access, readFile, writeFile } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
 import { globbyStream } from 'globby'
 
 export default async () => {
@@ -9,7 +9,7 @@ export default async () => {
     const fileName = file.toString()
     try {
       await access(file)
-    } catch (e) {
+    } catch {
       return
     }
 
