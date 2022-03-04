@@ -8,11 +8,11 @@ const hexToRgb = (color: string): number[] => {
     result = result.charAt(0).repeat(2) + result.charAt(1).repeat(2) + result.charAt(2).repeat(2)
   }
 
-  return [ 0, 1, 2 ].map(i => parseInt(result.substring(i * 2, i * 2 + 2), 16))
+  return [ 0, 1, 2 ].map(i => Number.parseInt(result.slice(i * 2, i * 2 + 2), 16))
 }
 
 const kebabCaseName = (name: string): string => {
-  return name.split('').map(c => c === c.toUpperCase() ? `-${c.toLowerCase()}` : c).join('')
+  return [ ...name ].map(c => c === c.toUpperCase() ? `-${c.toLowerCase()}` : c).join('')
 }
 
 const textColor = (backgroundColor: string, dark: string, light: string): string => {
