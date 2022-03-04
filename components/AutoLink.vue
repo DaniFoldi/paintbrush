@@ -20,9 +20,5 @@ withDefaults(defineProps<AutoLinkProps>(), {
   a, a:visited {
     color: var(--primary);
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 </style>

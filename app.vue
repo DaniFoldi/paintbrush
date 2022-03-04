@@ -31,6 +31,9 @@
             Source
           </SidebarEntry>
         </template>
+        <template #sidebar-bottom>
+          <PoweredBy />
+        </template>
         <template #content>
           <NuxtPage />
         </template>
