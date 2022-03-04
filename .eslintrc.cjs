@@ -138,6 +138,7 @@ module.exports = {
     'no-useless-backreference': 'error',
     'no-useless-escape': 'error',
     'no-var': 'error',
+    'no-warning-comments': [ 'warn', { 'location': 'anywhere', 'terms': [ 'todo', 'fixme' ] }],
     'object-curly-newline': [
       'error',
       {
