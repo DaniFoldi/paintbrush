@@ -2,6 +2,7 @@ import { access, readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { globbyStream } from 'globby'
 
+
 export default async () => {
   const components: Record<string, object> = {}
 

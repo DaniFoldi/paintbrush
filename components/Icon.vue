@@ -17,6 +17,7 @@
 import { computed, inject } from 'vue'
 import { resolve } from '../scripts/color'
 
+
 const colorScheme: Record<string, string> = inject('colorScheme', {})
 
 interface IconProps {

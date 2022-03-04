@@ -7,6 +7,7 @@
 <script lang="ts" setup>
 import { inject } from 'vue'
 
+
 defineEmits([ 'toggle' ])
 
 interface Paintbrush {

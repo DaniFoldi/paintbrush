@@ -48,8 +48,10 @@
 </template>
 
 <script lang="ts" setup>
-import { kebabCaseName, resolve } from '../scripts/color'
 import { computed } from 'vue'
+import { kebabCaseName, resolve } from '../scripts/color'
+
+
 interface PaintbrushProps {
   appName?: string
   canonical?: string
