@@ -49,7 +49,7 @@ module.exports = {
     'array-bracket-newline': [ 'warn', { 'multiline': true }],
     'array-bracket-spacing': [ 'warn', 'always', { 'arraysInArrays': false, 'objectsInArrays': false }],
     'arrow-parens': [ 'warn', 'as-needed' ],
-    'arrow-spacing': [ 'warn' ],
+    'arrow-spacing': 'warn',
     'block-spacing': [ 'warn', 'always' ],
     'brace-style': [ 'error', '1tbs' ],
     'comma-dangle': [ 'warn', 'never' ],
@@ -61,18 +61,35 @@ module.exports = {
     'func-call-spacing': [ 'error', 'never' ],
     'function-paren-newline': [ 'error', 'multiline' ],
     'import/export': 'error',
-    'import/first': 'error',
+    'import/exports-last': 'error',
+    'import/first': [ 'error', 'absolute-first' ],
+    'import/newline-after-import': [ 'error', { 'count': 2 }],
     'import/no-absolute-path': [ 'error', { 'amd': false, 'commonjs': true, 'esmodule': true }],
     'import/no-duplicates': 'error',
     'import/no-named-default': 'error',
-    'import/no-unresolved': [ 'error', { 'ignore': [ '#app' ] }],
+    'import/no-unassigned-import': 'error',
+    'import/no-unresolved': [ 'error', { 'ignore': [ '#app', 'node:.*' ] }],
     'import/no-webpack-loader-syntax': 'error',
+    'import/order': [
+      'error', {
+        'groups': [ 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type' ]
+      }
+    ],
     'indent': [ 'error', 2, { 'SwitchCase': 1 }],
     'key-spacing': [ 'warn', { 'afterColon': true, 'beforeColon': false, 'mode': 'strict' }],
     'keyword-spacing': [ 'warn', { 'after': true, 'before': true  }],
     'linebreak-style': [ 'error', 'unix' ],
     'lines-between-class-members': [ 'error', 'always', { 'exceptAfterSingleLine': true }],
-    'max-len': [ 'error', 120 ],
+    'max-len': [
+      'error', {
+        'code': 120,
+        'ignoreRegExpLiterals': true,
+        'ignoreStrings': true,
+        'ignoreTemplateLiterals': true,
+        'ignoreTrailingComments': true,
+        'ignoreUrls': true
+      }
+    ],
     'no-dupe-args': 'error',
     'no-dupe-class-members': 'error',
     'no-dupe-keys': 'error',
@@ -99,7 +116,7 @@ module.exports = {
     'no-lonely-if': 'warn',
     'no-loss-of-precision': 'error',
     'no-misleading-character-class': 'error',
-    'no-multiple-empty-lines': [ 'error', { 'max': 1, 'maxEOF': 0 }],
+    'no-multiple-empty-lines': [ 'error', { 'max': 2, 'maxEOF': 0 }],
     'no-prototype-builtins': 'error',
     'no-tabs': 'error',
     'no-trailing-spaces': 'error',
@@ -121,11 +138,11 @@ module.exports = {
     'prefer-template': 'warn',
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
-    'sort-imports': [ 'warn', { 'ignoreCase': true }],
-    'sort-keys': [ 'warn' ],
+    'sort-imports': 'off',
+    'sort-keys': 'warn',
     'space-before-function-paren': [ 'error', { 'anonymous': 'never', 'asyncArrow': 'always', 'named': 'never' }],
     'space-in-parens': [ 'warn', 'never' ],
-    'space-infix-ops': [ 'warn' ],
+    'space-infix-ops': 'warn',
     'unicorn/numeric-separators-style': [ 'warn', { 'onlyIfContainsSeparator': true }],
     'unicorn/prevent-abbreviations': 'off',
     'valid-typeof': [ 'error', { 'requireStringLiterals': true }],
@@ -134,8 +151,8 @@ module.exports = {
       'warn',
       { 'multiline': 1, 'singleline': 3 }
     ],
-    'vue/multi-word-component-names': [ 'off' ],
-    'vue/order-in-components': [ 'warn' ],
-    'vue/sort-keys': [ 'warn' ]
+    'vue/multi-word-component-names': 'off',
+    'vue/order-in-components': 'warn',
+    'vue/sort-keys': 'warn'
   }
 }
