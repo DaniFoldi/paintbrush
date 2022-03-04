@@ -68,7 +68,7 @@ module.exports = {
     'selector-id-pattern': '^(__nuxt|[a-zA-Z](-[a-zA-Z0-9]+)*)$',
     'selector-list-comma-newline-after': 'always-multi-line',
     'selector-list-comma-newline-before': 'never-multi-line',
-    'selector-list-comma-space-after': 'always',
+    'selector-list-comma-space-after': 'always-single-line',
     'selector-list-comma-space-before': 'never',
     'selector-pseudo-element-no-unknown': [ true, { 'ignorePseudoElements': [ 'v-deep' ] }],
     'selector-type-case': 'lower',

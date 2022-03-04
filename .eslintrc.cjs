@@ -12,8 +12,24 @@ module.exports = {
   ignorePatterns: [ 'node_modules/' ],
   overrides: [
     {
+      files: [ '*.vue' ],
+      globals: {
+        'useAsyncData': 'readonly',
+        'useFetch': 'readonly',
+        'useLazyAsyncData': 'readonly',
+        'useLazyFetch': 'readonly'
+      }
+    },
+    {
       env: { node: true },
       files: [ '*.ts', '*.json', '*.js', 'build/*' ]
+    },
+    {
+      env: { node: true },
+      files: [ '.eslintrc.cjs', 'stylelint.config.cjs' ],
+      parserOptions: {
+        sourceType: 'script'
+      }
     },
     {
       files: [ 'components/**.vue' ],
@@ -68,13 +84,9 @@ module.exports = {
     'import/no-duplicates': 'error',
     'import/no-named-default': 'error',
     'import/no-unassigned-import': 'error',
-    'import/no-unresolved': [ 'error', { 'ignore': [ '#app', 'node:.*' ] }],
+    'import/no-unresolved': [ 'error', { 'ignore': [ '#app', 'node:fs', 'node:url' ] }],
     'import/no-webpack-loader-syntax': 'error',
-    'import/order': [
-      'error', {
-        'groups': [ 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type' ]
-      }
-    ],
+    'import/order': [ 'error', {   'groups': [ 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type' ] }],
     'indent': [ 'error', 2, { 'SwitchCase': 1 }],
     'key-spacing': [ 'warn', { 'afterColon': true, 'beforeColon': false, 'mode': 'strict' }],
     'keyword-spacing': [ 'warn', { 'after': true, 'before': true  }],
@@ -120,8 +132,11 @@ module.exports = {
     'no-prototype-builtins': 'error',
     'no-tabs': 'error',
     'no-trailing-spaces': 'error',
+    'no-undef': [ 'error', { 'typeof': true }],
+    'no-unneeded-ternary': 'warn',
     'no-unused-vars': 'off',
     'no-useless-backreference': 'error',
+    'no-useless-escape': 'error',
     'no-var': 'error',
     'object-curly-newline': [
       'error',
@@ -139,20 +154,18 @@ module.exports = {
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
     'sort-imports': 'off',
-    'sort-keys': 'warn',
+    'sort-keys': 'off',
     'space-before-function-paren': [ 'error', { 'anonymous': 'never', 'asyncArrow': 'always', 'named': 'never' }],
     'space-in-parens': [ 'warn', 'never' ],
     'space-infix-ops': 'warn',
+    'unicorn/no-null': 'off',
     'unicorn/numeric-separators-style': [ 'warn', { 'onlyIfContainsSeparator': true }],
     'unicorn/prevent-abbreviations': 'off',
     'valid-typeof': [ 'error', { 'requireStringLiterals': true }],
     'vue/attributes-order': [ 'warn', { 'alphabetical': true }],
-    'vue/max-attributes-per-line': [
-      'warn',
-      { 'multiline': 1, 'singleline': 3 }
-    ],
+    'vue/max-attributes-per-line': [ 'warn', { 'multiline': 1, 'singleline': 3 }],
     'vue/multi-word-component-names': 'off',
     'vue/order-in-components': 'warn',
-    'vue/sort-keys': 'warn'
+    'vue/sort-keys': [ 'warn', 'asc', { 'caseSensitive': true, 'natural': true }]
   }
 }

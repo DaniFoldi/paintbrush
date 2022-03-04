@@ -1,7 +1,8 @@
 <template>
   <pre>
-  <code :class="['hljs' ,language]" v-html="code" />
-</pre>
+    <!-- TODO replace v-html -->
+    <code :class="['hljs' ,language]" v-html="code" />
+  </pre>
 </template>
 
 <script lang="ts" setup>
@@ -51,7 +52,7 @@ pre {
       color: #F96A38;
     }
 
-    .hljs-class .hljs-title, .hljs-title, .hljs-title.class_ {
+    .hljs-title, .hljs-class .hljs-title, .hljs-title.class_ {
       color: #FBA922;
     }
 
@@ -64,24 +65,34 @@ pre {
       color: #198844;
     }
 
-    /* stylelint-disable */
-    .hljs-attribute, .hljs-built_in, .hljs-doctag, .hljs-function .hljs-title,
-    .hljs-keyword.hljs-atrule, .hljs-quote, .hljs-regexp, .hljs-section, .hljs-title.function_, .ruby .hljs-property {
+    .hljs-attribute,
+    .hljs-built_in,
+    .hljs-doctag,
+    .hljs-function .hljs-title,
+    .hljs-keyword.hljs-atrule,
+    .hljs-quote,
+    .hljs-regexp,
+    .hljs-section,
+    .hljs-title.function_,
+    .ruby .hljs-property {
       color: #3971ED;
     }
-    /* stylelint-enable */
 
-    .diff .hljs-meta, .hljs-keyword, .hljs-template-tag, .hljs-type {
+    .hljs-keyword {
+      color: #A36AC7;
+    }
+
+    .hljs-meta, .hljs-meta .hljs-keyword, .hljs-meta .hljs-string {
+      color: #3971ED;
+    }
+
+    .diff .hljs-meta, .hljs-template-tag, .hljs-type {
       color: #A36AC7;
     }
 
     .hljs-emphasis {
       color: #A36AC7;
       font-style: italic;
-    }
-
-    .hljs-meta, .hljs-meta .hljs-keyword, .hljs-meta .hljs-string {
-      color: #3971ED;
     }
 
     .hljs-meta .hljs-keyword, .hljs-meta-keyword {
