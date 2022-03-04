@@ -14,13 +14,12 @@
     @touchmove="$emit('touchmove')"
     @touchstart="$emit('touchstart')"
   >
-    <Icon :name="icon" size="20px" />
+    <Icon :color="iconColor" :name="icon" size="20px" />
     <Text><slot /></Text>
   </button>
 </template>
 
 <script lang="ts" setup>
-import { resolve } from '../scripts/color'
 interface IconProps {
   color?: string
   icon?: string
@@ -43,17 +42,6 @@ defineEmits([
 ])
 </script>
 
-<script lang="ts">
-export default {
-  inject: { colorScheme: { default: {} } },
-  computed: {
-    computedcolor() {
-      return resolve(this.colorScheme, this.color)
-    }
-  }
-}
-</script>
-
 <style lang="scss" scoped>
 @use '../assets/mixins.scss';
 
@@ -61,9 +49,5 @@ button {
   @include mixins.no-border;
   @include mixins.rounded;
   @include mixins.two-items;
-}
-
-i {
-  color: v-bind(computedcolor);
 }
 </style>
