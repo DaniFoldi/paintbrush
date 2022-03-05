@@ -1,21 +1,30 @@
 <template>
   <pre>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <code :class="['hljs' ,language]" v-html="code" />
+    <code :class="['hljs', highlight.language]" v-html="highlight.value" />
   </pre>
 </template>
 
 <script lang="ts" setup>
-const language = 'js'
+import { computed } from 'vue'
+import hljs from 'highlight.js'
+
 
 interface MultilineCodeProps {
   code: string
+  language?: string
 }
 
-defineProps<MultilineCodeProps>()
+const props = withDefaults(defineProps<MultilineCodeProps>(), {
+  language: 'auto'
+})
+
+const highlight = computed(() => {
+  return props.language === 'auto' ? hljs.highlightAuto(props.code) : hljs.highlight(props.code, { language: props.language })
+})
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 pre {
 
   code.hljs {

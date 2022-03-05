@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { kebabCaseName, resolve } from '../scripts/color'
 
 
@@ -72,7 +72,7 @@ interface PaintbrushProps {
   url?: string
 }
 
-withDefaults(defineProps<PaintbrushProps>(), {
+const props = withDefaults(defineProps<PaintbrushProps>(), {
   appName: '',
   canonical: '',
   colorScheme: () => ({
@@ -130,43 +130,13 @@ withDefaults(defineProps<PaintbrushProps>(), {
   twitterType: 'summary_large_image',
   url: ''
 })
-</script>
 
-<script lang="ts">
-export default {
-  provide() {
-    return {
-      colorScheme: computed(() => this.colorScheme),
-      paintbrush: this
-    }
+// TODO persistent dark theme
+const theme = ref('dark')
+const colorMap = computed(() => theme.value === 'dark' ? props.darkColors : props.lightColors)
+const styleVariables = computed(() => Object.keys(colorMap.value).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, colorMap.value[color])};`).join(' '))
 
-  },
-  data() {
-    // TODO load without instant transition
-    return { theme: 'dark' }
-  },
-  computed: {
-    colorMap() {
-      return this.theme === 'dark' ? this.darkColors : this.lightColors
-    },
-    styleVariables() {
-      return Object.keys(this.colorMap)
-        .map(color => `--${kebabCaseName(color)}: ${resolve(this.colorScheme, this.colorMap[color])};`).join('')
-    }
-  },
-  beforeMount() {
-    // TODO persistent dark mode
-    this.updateTheme(matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-  },
-  methods: {
-    getTheme() {
-      return this.theme
-    },
-    updateTheme(theme: string) {
-      this.theme = theme
-    }
-  }
-}
+defineExpose({ colorMap, theme })
 </script>
 
 <style lang="scss">
