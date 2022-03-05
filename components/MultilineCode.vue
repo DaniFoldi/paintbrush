@@ -1,6 +1,6 @@
 <template>
   <pre>
-    <!-- TODO replace v-html -->
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <code :class="['hljs' ,language]" v-html="code" />
   </pre>
 </template>
@@ -27,7 +27,6 @@ pre {
     //@include constants.padded;
     //@include constants.rounded;
     //@include constants.shaded;
-
     .hljs-comment {
       color: #969896;
     }

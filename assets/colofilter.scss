@@ -2,7 +2,9 @@
  Based on https://github.com/LukyVj/colofilter.css
  with MIT License */
 
-// TODO integrate into component
+// TODO fix !important
+
+// stylelint-disable declaration-no-important -- From external source
 
 // Colofilter.css v1.0.1
 $color-map: (
@@ -348,3 +350,5 @@ $color-map: (
     }
   }
 }
+
+// stylelint-enable declaration-no-important
