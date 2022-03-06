@@ -25,13 +25,19 @@ module.exports = {
       files: [ '*.ts', '*.json', '*.js', 'build/*' ]
     },
     {
+      files: [ '**lint**' ],
+      rules: {
+        'quote-props': [ 'error', 'consistent-as-needed' ]
+      }
+    },
+    {
       env: { node: true },
-      files: [ 'lint/*.cjs' ],
+      files: [ '*.cjs' ],
       parserOptions: {
         sourceType: 'script'
       },
       rules: {
-        'quote-props': [ 'error', 'consistent-as-needed' ]
+        '@typescript-eslint/no-var-requires': 'off'
       }
     },
     {
