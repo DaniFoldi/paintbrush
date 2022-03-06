@@ -50,6 +50,9 @@ export default async () => {
       version: ''
     }
     for (const entry of doc) {
+      if (typeof componentData[entry[0]] === 'undefined') {
+        console.warn(`Unknown property @'${entry[0]}' in '${fileName}' docs, skipping`)
+      }
       if (Array.isArray(componentData[entry[0]])) {
         (componentData[entry[0]] as string[]).push(entry[1])
       } else {
@@ -57,9 +60,26 @@ export default async () => {
       }
     }
 
-    components[fileName] = componentData
     if (componentData.name === '') {
-      console.warn(`Component ${fileName} has no name`)
+      console.warn(`Component ${fileName} has no @name`)
+    } else {
+      const duplicates = Object.entries(components).filter(component => component[1].name === componentData.name)
+      if (duplicates.length > 0) {
+        console.warn(`Component ${fileName} has duplicate @name (${duplicates.map(component => component[0]).join(', ')})`)
+      }
+    }
+    if (componentData.version === '') {
+      console.info(`Component ${fileName} has no @version, defaulting to 0.0.1`)
+      componentData.version = '0.0.1'
+    }
+    components[fileName] = componentData
+  }
+
+  for (const component of Object.values(components)) {
+    for (const see of component.see) {
+      if (!components[see]) {
+        console.warn(`Component ${component} has invalid @see ${see}`)
+      }
     }
   }
 
