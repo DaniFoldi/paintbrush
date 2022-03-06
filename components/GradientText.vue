@@ -3,9 +3,7 @@
 @version 1.0.0
 -->
 <template>
-  <em>
-    <slot />
-  </em>
+  <em><slot /></em>
 </template>
 
 <style lang="scss" scoped>
