@@ -3,21 +3,7 @@
 @version 1.0.0
 -->
 <template>
-  <button
-    @blur="$emit('blur')"
-    @click="$emit('click')"
-    @focus="$emit('focus')"
-    @mousedown="$emit('mousedown')"
-    @mouseenter="$emit('mouseenter')"
-    @mouseleave="$emit('mouseleave')"
-    @mouseout="$emit('mouseout')"
-    @mouseover="$emit('mouseover')"
-    @mouseup="$emit('mouseup')"
-    @touchcancel="$emit('touchcancel')"
-    @touchend="$emit('touchend')"
-    @touchmove="$emit('touchmove')"
-    @touchstart="$emit('touchstart')"
-  >
+  <button>
     <Icon :color="iconColor" :name="icon" size="20px" />
     <Text><slot /></Text>
   </button>
@@ -35,15 +21,6 @@ withDefaults(defineProps<IconProps>(), {
   icon: '',
   iconColor: 'white'
 })
-
-defineEmits([
-  'blur', 'focus',
-  'click',
-  'mouseover', 'mouseout',
-  'mouseenter', 'mouseleave',
-  'mousedown', 'mouseup',
-  'touchstart', 'touchmove', 'touchend', 'touchcancel'
-])
 </script>
 
 <style lang="scss" scoped>
