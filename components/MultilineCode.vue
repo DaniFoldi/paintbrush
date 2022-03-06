@@ -1,8 +1,6 @@
 <template>
-  <pre>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <code :class="['hljs', highlight.language]" v-html="highlight.value" />
-  </pre>
+  <!-- eslint-disable-next-line vue/no-v-html -->
+  <pre><code :class="['hljs', highlight.language]" v-html="highlight.value" /></pre>
 </template>
 
 <script lang="ts" setup>
