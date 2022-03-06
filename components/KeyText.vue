@@ -1,3 +1,7 @@
+<!--!
+@name KeyText
+@version 1.0.0
+-->
 <template>
   <Text>
     <slot />

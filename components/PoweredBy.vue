@@ -1,3 +1,7 @@
+<!--!
+@name PoweredBy
+@version 1.0.0
+-->
 <template>
   <AutoLink href="https://paintbrush.danifoldi.com" :reload="true">
     <KeyText>

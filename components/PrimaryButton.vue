@@ -1,3 +1,7 @@
+<!--!
+@name PrimaryButton
+@version 1.0.0
+-->
 <template>
   <button
     @blur="$emit('blur')"

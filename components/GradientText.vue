@@ -1,3 +1,7 @@
+<!--!
+@name GradientText
+@version 1.0.0
+-->
 <template>
   <em>
     <slot />

@@ -1,3 +1,7 @@
+<!--!
+@name Sidebar
+@version 1.0.0
+-->
 <template>
   <div class="sidebar-container">
     <aside>

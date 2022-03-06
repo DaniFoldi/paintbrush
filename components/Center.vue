@@ -1,3 +1,7 @@
+<!--!
+@name Center
+@version 1.0.0
+-->
 <template>
   <div class="center">
     <slot />

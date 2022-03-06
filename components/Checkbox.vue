@@ -1,3 +1,7 @@
+<!--!
+@name Checkbox
+@version 1.0.0
+-->
 <template>
   <label>
     <input v-model="checked" type="checkbox">

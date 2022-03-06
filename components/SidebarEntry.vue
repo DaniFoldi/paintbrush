@@ -1,3 +1,7 @@
+<!--!
+@name SidebarEntry
+@version 1.0.0
+-->
 <template>
   <AutoLink :href="href" :reload="reload">
     <Icon
