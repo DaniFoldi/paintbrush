@@ -8,7 +8,14 @@ export interface ComponentDocs {
   example: string[]
   name: string
   note: string
-  properties: string[]
+  property: {
+    default?: string
+    description: string
+    name: string
+    required: boolean
+    type: string
+  }[]
+  renderedExample: string[]
   see: string[]
   tags: string[]
   usage: string
@@ -31,19 +38,19 @@ export default async () => {
     const doc: [keyof ComponentDocs, string][] = [ ...text.matchAll(/<!--!(?<value>.*?)-->/gisu) ]
       .map(match => match.groups?.value)
       .join('\n')
-      .split('\n')
-      .map(line => line.trim())
-      .filter(line => line.length > 0)
-      .filter(line => line.startsWith('@'))
-      .map(line => line.split(' '))
-      .map(words => [ words[0].replace('@', '') as keyof ComponentDocs, words.slice(1).join(' ') ])
+      .split(/^@/gm)
+      .map(entry => entry.trim())
+      .filter(entry => entry.length > 0)
+      .map(entry => entry.split(' '))
+      .map(words => [ words[0].trimEnd() as keyof ComponentDocs, words.slice(1).join(' ').replace(/(^\n|\n$)/g, '').replace(/^ {2}/gm, '') ])
 
     const componentData: ComponentDocs = {
       description: '',
       example: [],
       name: '',
       note: '',
-      properties: [],
+      property: [],
+      renderedExample: [],
       see: [],
       tags: [],
       usage: '',
