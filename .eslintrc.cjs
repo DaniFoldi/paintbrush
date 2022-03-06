@@ -1,3 +1,8 @@
+const rulesDir = require('eslint-plugin-rulesdir')
+
+
+rulesDir.RULES_DIR = './lint/'
+
 module.exports = {
   env: { 'vue/setup-compiler-macros': true },
   extends: [
@@ -55,7 +60,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     sourceType: 'module'
   },
-  plugins: [ '@typescript-eslint' ],
+  plugins: [ '@typescript-eslint', 'eslint-plugin-rulesdir' ],
   rules: {
     '@typescript-eslint/member-delimiter-style': [
       'error', {
@@ -162,6 +167,7 @@ module.exports = {
     'prefer-spread': 'warn',
     'prefer-template': 'warn',
     'quotes': [ 'error', 'single' ],
+    'rulesdir/vue-eslint-comment': [ 'warn', { disallow: [ 'todo', 'fixme' ] }],
     'semi': [ 'error', 'never' ],
     'sort-imports': 'off',
     'sort-keys': 'off',
