@@ -5,11 +5,19 @@
       <Text>{{ component.version }}</Text>
       <Text>{{ component.description }}</Text>
       <MultilineCode :code="component.usage" language="html" />
-      <Text v-for="related in component.see" :key="related">
-        <AutoLink :href="related">
-          {{ related }}
-        </AutoLink>
-      </Text>
+      <div v-for="property in component.property" :key="property.name" />
+      <AutoLink v-for="related in component.see" :key="related" :href="related">
+        {{ related }}
+      </AutoLink>
+      <template v-for="example in component.renderedExample" :key="example">
+        <MultilineCode
+          :code="example"
+          language="html"
+        />
+        <!-- TODO find a way to render components -->
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <!-- <div v-html="example" /> -->
+      </template>
       <MultilineCode
         v-for="example in component.example"
         :key="example"
