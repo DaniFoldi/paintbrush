@@ -5,8 +5,8 @@
 @usage <Paintbrush></Paintbrush>
 
 @note This component should be wrapping every other Paintbrush component used
-@todo Add props to documentation, check one per page
 -->
+<!-- TODO add props to documentation -->
 <template>
   <slot />
   <Html :style="styleVariables">

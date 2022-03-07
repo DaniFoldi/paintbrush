@@ -57,6 +57,23 @@ export default async () => {
       version: ''
     }
     for (const entry of doc) {
+      if (entry[0] === 'property') {
+        const regex = /^\s*(?<name>[\w-]+)\s*(?<optional>\?)?:\s*(?<type>[\w"'-]+)\s*(\[\s*(?<default>.*?)\s*])?\s*(\((?<desc>.*?)\))?\s*$/
+        for (const line of entry[1].split('\n')) {
+          const data = regex.exec(line)?.groups
+          if (data) {
+            componentData.property.push({
+              default: data.default,
+              description: data.desc,
+              name: data.name,
+              required: !data.optional,
+              type: data.type
+            })
+          } else {
+            console.warn(`Unable to parse @property line: ${line}`)
+          }
+        }
+      }
       if (typeof componentData[entry[0]] === 'undefined') {
         console.warn(`Unknown property @'${entry[0]}' in '${fileName}' docs, skipping`)
       }
