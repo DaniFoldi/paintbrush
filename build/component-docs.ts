@@ -41,8 +41,15 @@ export default async () => {
       .split(/^@/gm)
       .map(entry => entry.trim())
       .filter(entry => entry.length > 0)
-      .map(entry => entry.split(' '))
-      .map(words => [ words[0].trimEnd() as keyof ComponentDocs, words.slice(1).join(' ').replace(/(^\n|\n$)/g, '').replace(/^ {2}/gm, '') ])
+      .map(entry => entry.replace(/(^\n|\n$)/g, ''))
+      .map(entry => {
+        if (entry.includes('\n')) {
+          const lines = entry.split('\n')
+          return [ lines[0] as keyof ComponentDocs, lines.slice(1).join('\n').replace(/^ {2}/gm, '') ]
+        }
+        const lines = entry.split(' ')
+        return [ lines[0] as keyof ComponentDocs, lines.slice(1).join(' ').replace(/^ {2}/gm, '') ]
+      })
 
     const componentData: ComponentDocs = {
       description: '',
@@ -73,9 +80,11 @@ export default async () => {
             console.warn(`Unable to parse @property line: ${line}`)
           }
         }
+        continue
       }
       if (typeof componentData[entry[0]] === 'undefined') {
         console.warn(`Unknown property @'${entry[0]}' in '${fileName}' docs, skipping`)
+        continue
       }
       if (Array.isArray(componentData[entry[0]])) {
         (componentData[entry[0]] as string[]).push(entry[1])

@@ -2,7 +2,10 @@
 @name Paintbrush
 @version 1.0.0
 @description Main component to be used everywhere
-@usage <Paintbrush></Paintbrush>
+@usage
+  <Paintbrush>
+    <Text>Hello world</Text>
+  </Paintbrush>
 
 @note This component should be wrapping every other Paintbrush component used
 -->
