@@ -5,7 +5,13 @@
       <Text>{{ component.version }}</Text>
       <Text>{{ component.description }}</Text>
       <MultilineCode :code="component.usage" language="html" />
-      <div v-for="property in component.property" :key="property.name" />
+      <div v-for="property in component.property" :key="property.name">
+        <Text>{{ property.name }}</Text>
+        <Text>{{ property.type }}</Text>
+        <Text>{{ property.description }}</Text>
+        <Text>{{ property.required ? '*' : '' }}</Text>
+        <Text>{{ property.default }}</Text>
+      </div>
       <AutoLink v-for="related in component.see" :key="related" :href="related">
         {{ related }}
       </AutoLink>
