@@ -1,6 +1,9 @@
 name: Lint repository
 
 on:
+  push:
+    branches:
+    - main
   pull_request:
     branches:
     - main
