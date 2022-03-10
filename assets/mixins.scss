@@ -75,6 +75,8 @@
   } @else if $family == 'phosphor-icons' {
     // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
     font-family: Phosphor-icons;
+  } @else if $family == 'inter' {
+    font-family: Inter, sans-serif;
   }
 }
 

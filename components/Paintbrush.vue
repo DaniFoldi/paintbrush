@@ -149,6 +149,9 @@ defineExpose({ colorMap, theme })
 @use '../node_modules/phosphor-icons/src/css/icons.css';
 
 @include reset.paintbrush;
+@include fonts.inter;
+@include fonts.playfair-display;
+@include fonts.raleway;
 
 body {
   @include mixins.font('raleway');
