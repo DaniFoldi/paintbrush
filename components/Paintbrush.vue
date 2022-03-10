@@ -40,7 +40,7 @@
       <Meta :content="twitterType" property="twitter:card" />
       <Meta :content="largeImageAlt" property="twitter:image:alt" />
       <Meta :content="twitterHandle" property="twitter:creator" />
-      <Title>{{ pageTitle }}</Title>
+      <title>{{ pageTitle }}</title>
       <Link :href="canonical" rel="canonical" />
       <Link :href="favicon" rel="icon" type="image/png" />
       <Link :href="favicon" rel="apple-touch-icon" />

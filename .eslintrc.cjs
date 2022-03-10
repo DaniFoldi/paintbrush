@@ -22,7 +22,8 @@ module.exports = {
         useAsyncData: 'readonly',
         useFetch: 'readonly',
         useLazyAsyncData: 'readonly',
-        useLazyFetch: 'readonly'
+        useLazyFetch: 'readonly',
+        useRoute: 'readonly'
       }
     },
     {

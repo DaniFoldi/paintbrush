@@ -19,7 +19,7 @@
           <SidebarEntry color="green" href="/tutorial" icon="code">
             Basic Use
           </SidebarEntry>
-          <SidebarEntry color="orange" href="/components" icon="flask">
+          <SidebarEntry color="orange" href="/docs" icon="flask">
             Components
           </SidebarEntry>
           <SidebarEntry
