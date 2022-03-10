@@ -70,11 +70,9 @@
 @mixin font($family) {
   @if $family == 'raleway' {
     font-family: Raleway, 'Helvetica Neue', sans-serif;
-  }
-  @else if $family == 'playfair' {
+  } @else if $family == 'playfair' {
     font-family: 'Playfair Display', 'Times New Roman', sans-serif;
-  }
-  @else if $family == 'phosphor-icons' {
+  } @else if $family == 'phosphor-icons' {
     // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
     font-family: Phosphor-icons;
   }

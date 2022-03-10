@@ -16,7 +16,7 @@ module.exports = {
     'at-rule-no-unknown': null,
     'at-rule-semicolon-newline-after': 'always',
     'block-closing-brace-empty-line-before': 'never',
-    'block-closing-brace-newline-after': 'always',
+    'block-closing-brace-newline-after': [ 'always', { ignoreAtRules: [ 'if', 'else' ] }],
     'block-closing-brace-newline-before': 'always',
     'block-no-empty': true,
     'block-opening-brace-space-before': 'always',
