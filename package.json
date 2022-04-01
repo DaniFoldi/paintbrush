@@ -47,7 +47,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-rulesdir": "^0.2.1",
-    "eslint-plugin-unicorn": "^41.0.1",
+    "eslint-plugin-unicorn": "^42.0.0",
     "eslint-plugin-vue": "^8.4.1",
     "globby": "^13.1.1",
     "nuxt3": "latest",
@@ -72,7 +72,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.5",
     "@fontsource/playfair-display": "^4.5.6",
-    "@fontsource/raleway": "^4.5.3",
+    "@fontsource/raleway": "^4.5.5",
     "highlight.js": "^11.5.0",
     "phosphor-icons": "^1.4.2"
   }
