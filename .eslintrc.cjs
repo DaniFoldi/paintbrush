@@ -63,7 +63,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     sourceType: 'module'
   },
-  plugins: [ '@typescript-eslint', 'eslint-plugin-rulesdir' ],
+  plugins: [ '@typescript-eslint', 'rulesdir', 'jest' ],
   rules: {
     '@typescript-eslint/member-delimiter-style': [
       'error', {
