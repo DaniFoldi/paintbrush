@@ -1,5 +1,4 @@
 import { get, setupTest } from '@nuxt/test-utils'
-import { describe, expect, it } from 'ts-jest'
 
 
 describe('paintbrush docs app', () => {

@@ -10,3 +10,5 @@ node_modules
 # Caches
 .eslintcache
 .stylelintcache
+# Test output
+coverage
