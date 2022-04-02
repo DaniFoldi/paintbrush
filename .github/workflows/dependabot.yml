@@ -1,0 +1,38 @@
+name: Approve and auto-merge dependabot PRs
+
+permissions:
+  pull-requests: write
+  contents: write
+
+on:
+  workflow_run:
+    branches:
+    - dependabot/*
+    workflows:
+    - Validate repository
+    types:
+    - completed
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+
+    steps:
+    - name: Fetch dependabot metadata
+      id: metadata
+      uses: dependabot/fetch-metadata@v1
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+    - name: Approve PR
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh pr review --approve "${{ github.event.workflow_run.head_branch }}"
+
+    - name: Let Dependabot merge PR
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: | 
+        gh pr comment --b "@dependabot merge" "${{ github.event.workflow_run.head_branch }}"
