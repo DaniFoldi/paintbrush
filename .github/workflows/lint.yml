@@ -1,9 +1,7 @@
-name: Lint repository
+name: Validate repository
 
 on:
   push:
-    branches:
-    - main
   pull_request:
     branches:
     - main
@@ -12,7 +10,12 @@ on:
     - synchronize
 
 jobs:
-  lint:
+  validate:
+    strategy:
+      matrix:
+        task: [lint:css, lint:js, test]
+    fail-fast: false
+
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +29,7 @@ jobs:
 
     - name: Cache dependencies
       id: cache
-      uses: actions/cache@v3.0.1
+      uses: actions/cache@v3
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -37,12 +40,6 @@ jobs:
       run: |
         npm ci
 
-    - name: Run eslint
-      if: always()
+    - name: Run task
       run: |
-        npm run lint:js
-
-    - name: Run stylelint
-      if: always()
-      run: |
-        npm run lint:css
+        npm run ${{ matrix.task }}
