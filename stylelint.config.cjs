@@ -4,7 +4,7 @@ module.exports = {
   overrides: [
     {
       customSyntax: 'postcss-scss',
-      extends: [ 'stylelint-config-standard-scss', 'stylelint-config-recommended-scss' ],
+      extends: [ 'stylelint-config-recommended-scss' ],
       files: [ '**/*.scss', '*.scss' ],
       plugins: [ 'stylelint-order', 'stylelint-high-performance-animation', 'stylelint-scss', './lint/stylelint-comment.cjs' ]
     }

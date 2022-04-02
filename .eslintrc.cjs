@@ -17,16 +17,6 @@ module.exports = {
   ignorePatterns: [  'node_modules/', '.nuxt/', '.output' ],
   overrides: [
     {
-      files: [ '*.vue' ],
-      globals: {
-        useAsyncData: 'readonly',
-        useFetch: 'readonly',
-        useLazyAsyncData: 'readonly',
-        useLazyFetch: 'readonly',
-        useRoute: 'readonly'
-      }
-    },
-    {
       env: { node: true },
       files: [ '*.ts', '*.json', '*.js', 'build/*' ]
     },
@@ -50,6 +40,18 @@ module.exports = {
       files: [ 'components/**.vue' ],
       rules: {
         'unicorn/filename-case': [ 'warn', { cases: { pascalCase: true } }]
+      }
+    },
+    {
+      files: [ 'components/**.vue', 'pages/**.vue', 'pages/**/*.vue' ],
+      globals: {
+        definePageMeta: 'readonly',
+        useFetch: 'readonly',
+        useLazyFetch: 'readonly',
+        useRoute: 'readonly',
+        useRouter: 'readonly',
+        useStore: 'readonly',
+        watch: 'readonly'
       }
     }
   ],
