@@ -1,17 +1,17 @@
 <template>
-  <div>
+  <PageContainer>
     <div v-for="(component, path) in components" :key="component.name">
       <h3>{{ component.name }}</h3>
-      <AutoLink :href="path.replace(/^components/,'docs').replace(/\.vue$/, '')">
+      <AutoLink :href="path.replace(/^components/,'doc').replace(/\.vue$/, '')">
         {{ component.name }}
       </AutoLink>
     </div>
-  </div>
+  </PageContainer>
 </template>
 
 <script lang="ts" setup>
-import type { ComponentDocs } from '../build/component-docs'
+import type { Docs } from '../build/component-docs'
 
 
-const { data: components } = await useFetch<Record<string, ComponentDocs>>('/docs.json')
+const { data: components } = useFetch<Docs>('/docs.json')
 </script>
