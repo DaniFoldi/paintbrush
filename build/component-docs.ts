@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { globbyStream } from 'globby'
 
 
-export interface ComponentDocs {
+export interface Component {
   description: string
   example: string[]
   name: string
@@ -22,10 +22,16 @@ export interface ComponentDocs {
   version: string
 }
 
-export default async () => {
-  const components: Record<string, ComponentDocs> = {}
+export type Docs = Record<string, Component>
 
-  for await (const file of globbyStream('components/**.vue')) {
+export default async () => {
+  await generateComponentDocs()
+}
+
+export async function generateComponentDocs(componentFiles = 'components/**.vue', output = '../public/docs.json') {
+  const components: Docs = {}
+
+  for await (const file of globbyStream(componentFiles)) {
     const fileName = file.toString()
     try {
       await access(file)
@@ -35,7 +41,7 @@ export default async () => {
 
     const buffer = await readFile(file, 'utf8')
     const text = buffer.toString()
-    const doc: [keyof ComponentDocs, string][] = [ ...text.matchAll(/<!--!(?<value>.*?)-->/gisu) ]
+    const doc: [keyof Component, string][] = [ ...text.matchAll(/<!--!(?<value>.*?)-->/gisu) ]
       .map(match => match.groups?.value)
       .join('\n')
       .split(/^@/gm)
@@ -45,13 +51,13 @@ export default async () => {
       .map(entry => {
         if (entry.includes('\n')) {
           const lines = entry.split('\n')
-          return [ lines[0] as keyof ComponentDocs, lines.slice(1).join('\n').replace(/^ {2}/gm, '') ]
+          return [ lines[0] as keyof Component, lines.slice(1).join('\n').replace(/^ {2}/gm, '') ]
         }
         const lines = entry.split(' ')
-        return [ lines[0] as keyof ComponentDocs, lines.slice(1).join(' ').replace(/^ {2}/gm, '') ]
+        return [ lines[0] as keyof Component, lines.slice(1).join(' ').replace(/^ {2}/gm, '') ]
       })
 
-    const componentData: ComponentDocs = {
+    const componentData: Component = {
       description: '',
       example: [],
       name: '',
@@ -116,6 +122,6 @@ export default async () => {
     }
   }
 
-  const target = fileURLToPath(new URL('../public/docs.json', import.meta.url))
+  const target = fileURLToPath(new URL(output, import.meta.url))
   await writeFile(target, JSON.stringify(components), 'utf8')
 }
