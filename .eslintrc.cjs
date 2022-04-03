@@ -14,7 +14,7 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:unicorn/recommended'
   ],
-  ignorePatterns: [  'node_modules/', '.nuxt/', '.output' ],
+  ignorePatterns: [ 'coverage', 'node_modules/', '.nuxt/', '.output' ],
   overrides: [
     {
       env: { node: true },
@@ -63,7 +63,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     sourceType: 'module'
   },
-  plugins: [ '@typescript-eslint', 'rulesdir', 'jest' ],
+  plugins: [ '@typescript-eslint', 'rulesdir' ],
   rules: {
     '@typescript-eslint/member-delimiter-style': [
       'error', {
