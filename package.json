@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "A flat UI component library",
   "scripts": {
-    "analyze": "nuxi analyze",
     "build": "nuxi build",
     "clean": "rimraf .nuxt .output",
     "dev": "nuxi dev",
