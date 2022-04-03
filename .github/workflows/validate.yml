@@ -20,7 +20,7 @@ jobs:
         - 'lint:css'
         - 'lint:js'
         - 'test'
-    fail-fast: false
+      fail-fast: false
 
     runs-on: ubuntu-latest
 
