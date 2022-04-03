@@ -18,7 +18,14 @@ module.exports = {
   overrides: [
     {
       env: { node: true },
-      files: [ '*.ts', '*.json', '*.js', 'build/*' ]
+      files: [ '*.ts', '*.js', 'build/*' ]
+    },
+    {
+      files: [ '*.json' ],
+      rules: {
+        'quotes': [ 'error', 'double' ],
+        'vue/sort-keys': 'off'
+      }
     },
     {
       files: [ '**lint**' ],
