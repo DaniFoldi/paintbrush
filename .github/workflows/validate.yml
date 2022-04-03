@@ -13,7 +13,13 @@ jobs:
   validate:
     strategy:
       matrix:
-        task: [lint:css, lint:js, test]
+        task:
+        - 'analyze'
+        - 'license:all'
+        - 'license:prod'
+        - 'lint:css'
+        - 'lint:js'
+        - 'test'
     fail-fast: false
 
     runs-on: ubuntu-latest
