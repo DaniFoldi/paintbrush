@@ -14,7 +14,7 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:unicorn/recommended'
   ],
-  ignorePatterns: [ 'coverage', 'node_modules/', '.nuxt/', '.output' ],
+  ignorePatterns: [ 'package-lock.json', 'coverage/', 'node_modules/', 'public/', '.nuxt/', '.output/' ],
   overrides: [
     {
       env: { node: true },
