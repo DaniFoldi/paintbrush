@@ -1,7 +1,9 @@
-import { access, readFile, writeFile } from 'node:fs/promises'
-import { fileURLToPath } from 'node:url'
+import { IncomingMessage, ServerResponse } from 'node:http'
+import { access, readFile } from 'node:fs/promises'
 import { globbyStream } from 'globby'
 
+
+const docs: Docs = {}
 
 export interface Component {
   description: string
@@ -24,14 +26,16 @@ export interface Component {
 
 export type Docs = Record<string, Component>
 
-export default async () => {
-  await generateComponentDocs()
+export default async (req: IncomingMessage, res: ServerResponse) => {
+  if (Object.keys(docs).length === 0) {
+    await generateComponentDocs()
+  }
+
+  res.writeHead(200, { 'Content-Type': 'application/json' }).end(JSON.stringify(docs))
 }
 
-export async function generateComponentDocs(componentFiles = 'components/**.vue', output = '../public/docs.json') {
-  const components: Docs = {}
-
-  for await (const file of globbyStream(componentFiles)) {
+export async function generateComponentDocs() {
+  for await (const file of globbyStream('components/**.vue')) {
     const fileName = file.toString()
     try {
       await access(file)
@@ -102,7 +106,7 @@ export async function generateComponentDocs(componentFiles = 'components/**.vue'
     if (componentData.name === '') {
       console.warn(`Component ${fileName} has no @name`)
     } else {
-      const duplicates = Object.entries(components).filter(component => component[1].name === componentData.name)
+      const duplicates = Object.entries(docs).filter(component => component[1].name === componentData.name)
       if (duplicates.length > 0) {
         console.warn(`Component ${fileName} has duplicate @name (${duplicates.map(component => component[0]).join(', ')})`)
       }
@@ -111,17 +115,14 @@ export async function generateComponentDocs(componentFiles = 'components/**.vue'
       console.info(`Component ${fileName} has no @version, defaulting to 0.0.1`)
       componentData.version = '0.0.1'
     }
-    components[fileName] = componentData
+    docs[fileName] = componentData
   }
 
-  for (const component of Object.values(components)) {
+  for (const component of Object.values(docs)) {
     for (const see of component.see) {
-      if (!components[see]) {
+      if (!docs[see]) {
         console.warn(`Component ${component} has invalid @see ${see}`)
       }
     }
   }
-
-  const target = fileURLToPath(new URL(output, import.meta.url))
-  await writeFile(target, JSON.stringify(components), 'utf8')
 }

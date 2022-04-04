@@ -29,33 +29,17 @@
         :code="example"
         language="html"
       />-->
-      <!--<Text>{{ component.note }}</Text>-->
+      <Text>{{ component.note }}</Text>
     </template>
   </PageContainer>
 </template>
 
 <script lang="ts" setup async>
-import type { Docs, Component } from '../../build/component-docs'
+import type { Docs } from '../../server/api/docs'
 
 
-const path = useRoute().params.path.toString().replace(/^\/doc/, 'components').replace(/.vue$/, '')
-const { data } = useLazyFetch('/docs.json')
-let components: Docs | null = null
-let component: Component = {
-  description: '',
-  example: [],
-  name: '',
-  note: '',
-  property: [],
-  renderedExample: [],
-  see: [],
-  tags: [],
-  usage: '',
-  version: ''
-}
-
-watch(data, newData => {
-  components = newData as Docs
-  component = components[path]
-})
+const path = useRoute().params.path.toString()
+const { data } = await useFetch('/api/docs')
+const components: Docs = data.value
+const component = components[`components/${path}.vue`]
 </script>
