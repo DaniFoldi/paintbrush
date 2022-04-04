@@ -27,7 +27,7 @@ export interface Component {
 export type Docs = Record<string, Component>
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
-  if (Object.keys(docs).length === 0) {
+  if (Object.keys(docs).length === 0 || process.env.NODE_ENV !== 'production') {
     await generateComponentDocs()
   }
 
@@ -37,6 +37,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
 export async function generateComponentDocs() {
   for await (const file of globbyStream('components/**.vue')) {
     const fileName = file.toString()
+    delete docs[fileName]
     try {
       await access(file)
     } catch {
@@ -105,6 +106,8 @@ export async function generateComponentDocs() {
 
     if (componentData.name === '') {
       console.warn(`Component ${fileName} has no @name`)
+    } else if (componentData.name.toLowerCase() !== fileName.toLowerCase().replace(/^components\//, '').replace(/\.vue$/, '').replaceAll('/', '')) {
+      console.warn(`Component ${fileName} has incorrect @name '${componentData.name}' which does not match the file name '${fileName.toLowerCase().replace(/^components\//, '').replace(/\.vue$/, '').replaceAll('/', '')}'`)
     } else {
       const duplicates = Object.entries(docs).filter(component => component[1].name === componentData.name)
       if (duplicates.length > 0) {
