@@ -1,5 +1,5 @@
 <!--!
-@name SidebarEntry
+@name SidebarLink
 @version 1.0.0
 -->
 <template>

@@ -44,7 +44,7 @@ module.exports = {
       }
     },
     {
-      files: [ 'components/**.vue' ],
+      files: [ 'components/*.vue', 'components/**/*.vue' ],
       rules: {
         'unicorn/filename-case': [ 'warn', { cases: { pascalCase: true } }]
       }

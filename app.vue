@@ -11,7 +11,7 @@
       twitter-handle="danifoldi"
       url="https://paintbrush.danifoldi.com"
     >
-      <Sidebar>
+      <SidebarContainer>
         <template #sidebar-middle>
           <SidebarEntry href="/" icon="rocket-launch">
             Welcome
@@ -37,7 +37,7 @@
         <template #content>
           <NuxtPage />
         </template>
-      </Sidebar>
+      </SidebarContainer>
     </Paintbrush>
   </div>
 </template>

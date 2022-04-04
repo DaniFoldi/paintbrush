@@ -1,5 +1,5 @@
 <!--!
-@name Sidebar
+@name SidebarContainer
 @version 1.0.0
 -->
 <template>
