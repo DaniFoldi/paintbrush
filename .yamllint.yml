@@ -8,6 +8,11 @@ rules:
     forbid: non-empty
   comments:
     min-spaces-from-content: 1
+  document-end: false
+  document-start: false
+  line-length:
+    ignore: |
+      .github/workflows/*
   indentation:
     spaces: 2
     indent-sequences: false
