@@ -182,6 +182,7 @@ jobs:
     if: github.actor == 'dependabot[bot]'
 
     needs:
+    - build
     - all-licenses
     - prod-licenses
     - stylelint
@@ -221,7 +222,10 @@ jobs:
   deploy:
     if: github.repository == 'DaniFoldi/paintbrush' && github.actor == 'DaniFoldi'
     name: Update production deployment
+    runs-on: ubuntu-latest
+    
     needs:
+    - build
     - all-licenses
     - prod-licenses
     - stylelint
