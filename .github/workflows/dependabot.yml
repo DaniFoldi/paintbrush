@@ -5,34 +5,37 @@ permissions:
   contents: write
 
 on:
-  workflow_run:
+  pull_request:
     branches:
-    - dependabot/**
-    workflows:
-    - Validate repository
-    types:
-    - completed
+    - main
 
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
+    if: github.actor == 'dependabot[bot]'
 
     steps:
     - name: Fetch dependabot metadata
       id: metadata
       uses: dependabot/fetch-metadata@v1
       with:
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Approve PR
+      if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh pr review --approve "${{ github.event.workflow_run.head_branch }}"
+        gh pr checkout "${{ github.event.pull_request.html_url }}"
+        if [ "$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)" != "APPROVED" ];
+        then gh pr review --approve "${{ github.event.pull_request.html_url }}"
+        else echo "PR already approved.";
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Let Dependabot merge PR
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
-        gh pr comment --b "@dependabot merge" "${{ github.event.workflow_run.head_branch }}"
+        gh pr comment --b "@dependabot merge" "${{ github.event.pull_request.html_url }}"
