@@ -11,5 +11,8 @@ routes = ["paintbrush.danifoldi.com/*"]
 bucket = ".output/public"
 entry-point = ".output"
 
+[build]
+command = "ls .output"
+
 [build.upload]
 format = "service-worker"
