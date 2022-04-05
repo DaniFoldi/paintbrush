@@ -9,14 +9,8 @@
   </label>
 </template>
 
-<script lang="ts">
-export default {
-  data() {
-    return {
-      checked: false
-    }
-  }
-}
+<script lang="ts" setup>
+const checked = false
 </script>
 
 <style lang="scss" scoped>
