@@ -1,9 +1,13 @@
-import { IncomingMessage, ServerResponse } from 'node:http'
-import { access, readFile } from 'node:fs/promises'
+import { access, readFile, writeFile } from 'node:fs/promises'
+import { fileURLToPath, URL } from 'node:url'
 import { globbyStream } from 'globby'
 
 
 const docs: Docs = {}
+
+await generateComponentDocs()
+
+await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
 
 export interface Component {
   description: string
@@ -26,16 +30,8 @@ export interface Component {
 
 export type Docs = Record<string, Component>
 
-export default async (req: IncomingMessage, res: ServerResponse) => {
-  if (Object.keys(docs).length === 0 || process.env.NODE_ENV !== 'production') {
-    await generateComponentDocs()
-  }
-
-  res.writeHead(200, { 'Content-Type': 'application/json' }).end(JSON.stringify(docs))
-}
-
 export async function generateComponentDocs() {
-  for await (const file of globbyStream('components/**.vue')) {
+  for await (const file of globbyStream([ 'components/*.vue', 'components/**/*.vue' ])) {
     const fileName = file.toString()
     delete docs[fileName]
     try {

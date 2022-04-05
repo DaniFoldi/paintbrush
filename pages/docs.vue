@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Docs } from '../server/api/docs'
+import type { Docs } from '../scripts/docs'
 
 
 const { data } =  await useFetch('/api/docs')

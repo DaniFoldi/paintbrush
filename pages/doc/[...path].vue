@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts" setup async>
-import type { Docs } from '../../server/api/docs'
+import type { Docs } from '../../scripts/docs'
 
 
 const path = useRoute().params.path.toString()
