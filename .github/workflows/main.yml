@@ -239,6 +239,9 @@ jobs:
     - typecheck
 
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
     - name: Fetch dependabot metadata
       id: metadata
       uses: dependabot/fetch-metadata@v1
