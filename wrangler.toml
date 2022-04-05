@@ -1,8 +1,11 @@
-name = "Paintbrush Deployment"
+name = "paintbrush"
 type = "javascript"
 account_id = "ACCOUNT_ID"
-routes = ["paintbrush.danifoldi.com/*"]
 zone_id = "ZONE_ID"
+compatibility_date = "2022-04-05"
+
+[env.production]
+routes = ["paintbrush.danifoldi.com/*"]
 
 [site]
 bucket = ".output/public"
