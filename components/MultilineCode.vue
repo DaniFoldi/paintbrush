@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import hljs from 'highlight.js'
+import hljs from 'highlight.js/lib/common'
 
 
 interface MultilineCodeProps {

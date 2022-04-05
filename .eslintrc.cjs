@@ -50,11 +50,12 @@ module.exports = {
       }
     },
     {
-      files: [ 'components/**.vue', 'pages/**.vue', 'pages/**/*.vue' ],
+      files: [ 'components/*.vue', 'components/**/*.vue', 'pages/**.vue', 'pages/**/*.vue' ],
       globals: {
         definePageMeta: 'readonly',
         useFetch: 'readonly',
         useLazyFetch: 'readonly',
+        useNuxtApp: 'readonly',
         useRoute: 'readonly',
         useRouter: 'readonly',
         useStore: 'readonly',

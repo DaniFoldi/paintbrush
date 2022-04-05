@@ -13,23 +13,23 @@
     >
       <SidebarContainer>
         <template #sidebar-middle>
-          <SidebarEntry href="/" icon="rocket-launch">
+          <SidebarLink href="/" icon="rocket-launch">
             Welcome
-          </SidebarEntry>
-          <SidebarEntry color="green" href="/tutorial" icon="code">
+          </SidebarLink>
+          <SidebarLink color="green" href="/tutorial" icon="code">
             Basic Use
-          </SidebarEntry>
-          <SidebarEntry color="orange" href="/docs" icon="flask">
+          </SidebarLink>
+          <SidebarLink color="orange" href="/docs" icon="flask">
             Components
-          </SidebarEntry>
-          <SidebarEntry
+          </SidebarLink>
+          <SidebarLink
             color="purple"
             href="https://github.com/DaniFoldi/Paintbrush"
             icon="github-logo"
             :reload="true"
           >
             Source
-          </SidebarEntry>
+          </SidebarLink>
         </template>
         <template #sidebar-bottom>
           <PoweredBy />
