@@ -1,0 +1,15 @@
+name = "Paintbrush Deployment"
+type = "javascript"
+account_id = "ACCOUNT_ID"
+routes = ["paintbrush.danifoldi.com/*"]
+zone_id = "ZONE_ID"
+
+[site]
+bucket = ".output/public"
+entry-point = ".output"
+
+[build]
+command = "npm run build"
+
+[build.upload]
+format = "service-worker"
