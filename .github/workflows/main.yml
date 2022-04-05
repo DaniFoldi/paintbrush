@@ -259,16 +259,12 @@ jobs:
         else echo "PR already approved.";
         fi
 
-    - name: Let Dependabot merge PR
+    - name: Merge PR
       if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh pr checkout "${{ github.event.pull_request.html_url }}"
-        if [ "$(gh pr status --json comments -q .currentBranch.comments | grep "@dependabot merge" | wc -l)" == "0" ];
-        then gh pr comment -b "@dependabot merge" "${{ github.event.pull_request.html_url }}"
-        else echo "PR merge already requested.";
-        fi
+        gh pr merge --auto --merge "${{ github.event.pull_request.html_url }}"
 
   deploy:
     if: github.repository == 'DaniFoldi/paintbrush' && github.actor == 'DaniFoldi'
