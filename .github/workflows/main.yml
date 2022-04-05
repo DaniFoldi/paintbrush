@@ -258,7 +258,7 @@ jobs:
         NODE_ENV: production
       run: |
         npm run build
-    
+
     - name: Set wrangler account details
       run: |
         sed -i 's/ACCOUNT_ID/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/I' wrangler.toml
