@@ -1,0 +1,17 @@
+extends: default
+
+ignore: |
+  node_modules/
+
+rules:
+  braces:
+    forbid: non-empty
+  comments:
+    min-spaces-from-content: 1
+  indentation:
+    spaces: 2
+    indent-sequences: false
+    check-multi-line-strings: true
+  quoted-strings:
+    quote-type: double
+    required: only-when-needed

@@ -1,0 +1,241 @@
+name: Validate repository
+
+permissions:
+  pull-requests: write
+  contents: write
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+    types:
+    - opened
+    - synchronize
+
+jobs:
+  build:
+
+
+  all-licenses:
+    name: Check all licenses
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
+    - name: Install dependencies
+      run: |
+        npm ci --no-progress
+
+    - name: Run task
+      run: |
+        npm run license:all
+
+  prod-licenses:
+    name: Check production licenses
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
+    - name: Install dependencies
+      run: |
+        npm ci --no-progress
+
+    - name: Run task
+      run: |
+        npm run license:prod
+        
+  stylelint:
+    name: Check stylelint
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
+    - name: Install dependencies
+      run: |
+        npm ci --no-progress
+
+    - name: Run task
+      run: |
+        npm run lint:css
+
+  eslint:
+    name: Check eslint
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
+    - name: Install dependencies
+      run: |
+        npm ci --no-progress
+
+    - name: Run task
+      run: |
+        npm run lint:js
+
+  yamllint:
+    name: Check yamllint
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install yamllint
+      run: |
+        pip install --user yamllint
+
+    - name: Run task
+      run: |
+        yamllint -c .yamllint.yml .
+
+  test:
+    name: Run test suite
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+        - 14
+        - 16
+        - 17
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
+    - name: Install dependencies
+      run: |
+        npm ci --no-progress
+
+    - name: Run task
+      run: |
+        npm run test
+  
+  dependabot-pr:
+    name: Approve and merge Dependabot PRs
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+
+    needs:
+    - all-licenses
+    - prod-licenses
+    - stylelint
+    - eslint
+    - yamllint
+    - test
+    
+    steps:
+    - name: Fetch dependabot metadata
+      id: metadata
+      uses: dependabot/fetch-metadata@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Approve PR
+      if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh pr checkout "${{ github.event.pull_request.html_url }}"
+        if [ "$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)" != "APPROVED" ];
+        then gh pr review --approve "${{ github.event.pull_request.html_url }}"
+        else echo "PR already approved.";
+        fi
+
+    - name: Let Dependabot merge PR
+      if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: | 
+        gh pr checkout "${{ github.event.pull_request.html_url }}"
+        if [ "$(gh pr status --json comments -q .currentBranch.comments | grep "@dependabot merge" | wc -l)" == "0" ];
+        then gh pr comment --b "@dependabot merge" "${{ github.event.pull_request.html_url }}"
+        else echo "PR merge already requested.";
+        fi
+
+# TODO coverage report
+# TODO test report
+# TODO eslint, stylelint, yamllint report
+# TODO new dependency report
+# TODO license report
+# TODO new contributor welcome
