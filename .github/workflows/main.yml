@@ -266,7 +266,7 @@ jobs:
       run: |
         gh pr checkout "${{ github.event.pull_request.html_url }}"
         if [ "$(gh pr status --json comments -q .currentBranch.comments | grep "@dependabot merge" | wc -l)" == "0" ];
-        then gh pr comment --b "@dependabot merge" "${{ github.event.pull_request.html_url }}"
+        then gh pr comment -b "@dependabot merge" "${{ github.event.pull_request.html_url }}"
         else echo "PR merge already requested.";
         fi
 
