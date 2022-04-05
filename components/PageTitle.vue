@@ -1,8 +1,8 @@
 <!--!
-@name Title
+@name PageTitle
 @version 1.0.0
-@description Title component to display titles
-@usage <Title>Hello</Title>
+@description PageTitle component to display the main page title
+@usage <PageTitle>Hello</PageTitle>
 -->
 <template>
   <h1><slot /></h1>

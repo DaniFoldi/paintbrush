@@ -40,11 +40,11 @@
       <Meta :content="twitterType" property="twitter:card" />
       <Meta :content="largeImageAlt" property="twitter:image:alt" />
       <Meta :content="twitterHandle" property="twitter:creator" />
-      <!--<title>{{ pageTitle }}</title>-->
+      <Title>{{ pageTitle }}</Title>
       <Link :href="canonical" rel="canonical" />
       <Link :href="favicon" rel="icon" type="image/png" />
       <Link :href="favicon" rel="apple-touch-icon" />
-      <Link :href="manifest" rel="manifest" />
+      <Link v-if="manifest" :href="manifest" rel="manifest" />
       <Link href="https://cdnjs.com" rel="dns-prefetch" />
     </Head>
   </Html>
