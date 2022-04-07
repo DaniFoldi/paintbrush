@@ -13,6 +13,6 @@
 import type { Docs } from '../scripts/docs'
 
 
-const { data } = await useFetch<Docs>('/docs.json')
+const { data } = await useFetch<Docs>('/api/docs')
 const components = data.value
 </script>

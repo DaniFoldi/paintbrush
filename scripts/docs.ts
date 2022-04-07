@@ -5,9 +5,14 @@ import { globbyStream } from 'globby'
 
 const docs: Docs = {}
 
-await generateComponentDocs()
+// eslint-disable-next-line no-extra-parens
+;(async () => {
 
-await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
+  await generateComponentDocs()
+
+  await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
+
+})
 
 export interface Component {
   description: string
@@ -124,4 +129,6 @@ export async function generateComponentDocs() {
       }
     }
   }
+
+  return docs
 }
