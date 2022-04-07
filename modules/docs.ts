@@ -6,7 +6,7 @@ import { defineNuxtModule } from '@nuxt/kit'
 import { generateComponentDocs } from '../scripts/docs'
 
 
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule({
   setup(options, nuxt) {
     nuxt.hook('build:before', async () => {
       const docs = await generateComponentDocs()

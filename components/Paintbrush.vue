@@ -12,7 +12,7 @@
 <!-- TODO add props to documentation -->
 <template>
   <slot />
-  <Html :lang="lang" :style="styleVariables">
+  <Html :lang="lang.split('-')[0].split('_')[0]" :style="styleVariables">
     <Head>
       <Meta charset="UTF-8" />
       <Meta :content="colorMap.theme" name="theme-color" />

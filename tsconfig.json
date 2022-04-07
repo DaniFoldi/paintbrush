@@ -3,7 +3,7 @@
     "strict": true,
     "alwaysStrict": true,
     "baseUrl": ".",
-    "allowJs": true,
+    "allowJs": false,
     "jsx": "preserve",
     "target": "ESNext",
     "module": "ESNext",
