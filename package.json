@@ -47,7 +47,7 @@
   "homepage": "https://github.com/DaniFoldi/paintbrush#readme",
   "devDependencies": {
     "@nuxt/test-utils": "^0.2.2",
-    "@nuxt/test-utils-edge": "^3.0.0-27486226.7a70644",
+    "@nuxt/test-utils-edge": "^3.0.0-27488206.1ffcc74",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.15.0",
     "c8": "^7.11.0",
