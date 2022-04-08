@@ -346,13 +346,6 @@ jobs:
       run: |
         npm ci --no-progress
 
-    - name: Build nuxt
-      env:
-        NITRO_PRESET: cloudflare
-        NODE_ENV: production
-      run: |
-        npm run build
-
     - name: Run CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 

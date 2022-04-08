@@ -1,6 +1,6 @@
 <template>
   <PageContainer>
-    <Heading>{{ component.name }}</Heading>
+    <PageTitle>{{ component.name }}</PageTitle>
     <Text>{{ component.version }}</Text>
     <Text>{{ component.description }}</Text>
     <MultilineCode :code="component.usage" language="html" />
