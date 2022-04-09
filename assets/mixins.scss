@@ -100,3 +100,19 @@
     align-self: center;
   }
 }
+
+@mixin italic {
+  font-style: italic;
+}
+
+@mixin underline {
+  text-decoration: underline;
+}
+
+@mixin bold {
+  font-weight: 600;
+}
+
+@mixin light {
+  font-weight: 300;
+}
