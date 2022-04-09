@@ -1,9 +1,9 @@
 <template>
-  <PageContainer>
+  <Container article>
     <KeyText>How To Install <GradientText>Paintbrush</GradientText></KeyText>
     <MultilineCode :code="install" language="bash" />
     <MultilineCode :code="basic1" language="html" />
-  </PageContainer>
+  </Container>
 </template>
 
 <script lang="ts" setup>

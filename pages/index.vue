@@ -1,5 +1,5 @@
 <template>
-  <PageContainer>
+  <Container>
     <ThemeToggle />
     <Text>asd</Text>
     <Icon name="gear" />
@@ -10,5 +10,5 @@
       button
     </PrimaryButton>
     <Checkbox>Test</Checkbox>s
-  </PageContainer>
+  </Container>
 </template>

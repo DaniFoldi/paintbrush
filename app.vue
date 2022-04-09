@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <Container>
     <Paintbrush
       app-name="Paintbrush UI Docs"
       canonical="https://paintbrush.danifoldi.com"
@@ -39,7 +39,7 @@
         </template>
       </SidebarContainer>
     </Paintbrush>
-  </div>
+  </Container>
 </template>
 
 <script lang="ts" setup>

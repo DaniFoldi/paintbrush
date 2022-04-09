@@ -1,12 +1,12 @@
 <template>
-  <PageContainer>
+  <Container article>
     <div v-for="(component, path) in components" :key="component.name">
       <h3>{{ component.name }}</h3>
       <AutoLink :href="path.replace(/^components/,'/doc').replace(/\.vue$/, '')">
         {{ component.name }}
       </AutoLink>
     </div>
-  </PageContainer>
+  </Container>
 </template>
 
 <script lang="ts" setup>

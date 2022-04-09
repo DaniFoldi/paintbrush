@@ -1,19 +1,51 @@
 <template>
-  <PageContainer>
-    <PageTitle>{{ component.name }}</PageTitle>
-    <Text>{{ component.version }}</Text>
-    <Text>{{ component.description }}</Text>
-    <MultilineCode :code="component.usage" language="html" />
-    <div v-for="property in component.property" :key="property.name">
-      <Text>{{ property.name }}</Text>
-      <Text>{{ property.type }}</Text>
-      <Text>{{ property.description }}</Text>
-      <Text>{{ property.required ? '*' : '' }}</Text>
-      <Text>{{ property.default }}</Text>
+  <Container article>
+    <Glue>
+      <Text title>
+        {{ component.name }}
+      </Text>
+      <Text>{{ component.version }}</Text>
+    </Glue>
+    <Text italic>
+      {{ component.description }}
+    </Text>
+    <MultilineCode v-if="component.usage !== ''" :code="component.usage" language="html" />
+    <!-- TODO render example -->
+
+    <Text v-if="Object.keys(component.property).length > 0" subtitle>
+      Properties
+    </Text>
+
+    <div v-for="property in component.property" :key="property.name" class="property">
+      <Glue>
+        <Text bold>
+          {{ property.name }}
+        </Text>
+        <Text>: {{ property.type }}</Text>
+      </Glue>
+      <Text light>
+        {{ property.required ? '(required)' : '' }}
+      </Text>
+      <Text italic>
+        {{ property.description }}
+      </Text>
+      <Text v-if="property.default !== ''">
+        default: {{ property.default }}
+      </Text>
     </div>
+
+    <Text v-if="Object.keys(component.see).length > 0" subtitle>
+      Related components
+    </Text>
+
     <AutoLink v-for="related in component.see" :key="related" :href="related">
       {{ related }}
     </AutoLink>
+
+    <Text v-if="Object.keys(component.renderedExample).length + Object.keys(component.example).length > 0" subtitle>
+      Examples
+    </Text>
+
     <template v-for="example in component.renderedExample" :key="example">
       <MultilineCode
         :code="example"
@@ -22,16 +54,16 @@
       <!-- TODO find a way to render components -->
       <!-- eslint-disable-next-line vue/no-v-html -->
       <!-- <div v-html="example" /> -->
-      <!--</template>
-      <MultilineCode
-        v-for="example in component.example"
-        :key="example"
-        :code="example"
-        language="html"
-      />-->
-      <Text>{{ component.note }}</Text>
     </template>
-  </PageContainer>
+    <MultilineCode
+      v-for="example in component.example"
+      :key="example"
+      :code="example"
+      language="html"
+    />
+
+    <Text>{{ component.note }}</Text>
+  </Container>
 </template>
 
 <script lang="ts" setup async>
