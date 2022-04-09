@@ -25,11 +25,12 @@
       <Meta :content="colorMap.background" name="msapplication-TileColor" />
       <Meta :content="favicon" name="msapplication-TileImage" />
       <Meta :content="description" name="description" />
-      <Meta :content="keywords" name="keywords" />
+      <Meta :content="keywords.join(',')" name="keywords" />
       <Meta content="width=device-width, initial-scale=1.0 viewport-fit=cover" name="viewport" />
       <Meta :content="pageTitle" property="og:title" />
       <Meta :content="description" property="og:description" />
       <Meta :content="largeImage" property="og:image" />
+      <Meta :content="largeImageAlt" property="og:image:alt" />
       <Meta :content="url" property="og:url" />
       <Meta :content="ogType" property="og:type" />
       <Meta :content="appName" property="og:site_name" />
@@ -62,7 +63,7 @@ interface PaintbrushProps {
   darkColors?: Record<string, string>
   description?: string
   favicon?: string
-  keywords?: string
+  keywords?: string[]
   lang?: string
   largeImage?: string
   largeImageAlt?: string
@@ -110,7 +111,7 @@ const props = withDefaults(defineProps<PaintbrushProps>(), {
   }),
   description: '',
   favicon: '',
-  keywords: '',
+  keywords: () => [],
   lang: 'en_US',
   largeImage: '',
   largeImageAlt: '',
