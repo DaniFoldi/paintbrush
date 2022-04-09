@@ -75,10 +75,4 @@
 
     @include mixins.full-size;
   }
-
-  .container {
-    @include mixins.full-size;
-    @include mixins.no-margin;
-    @include mixins.no-padding;
-  }
 }
