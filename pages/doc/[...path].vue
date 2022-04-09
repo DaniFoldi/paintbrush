@@ -22,14 +22,14 @@
           {{ property.name }}
         </Text>
         <Text>: {{ property.type }}</Text>
+        <Text light>
+          {{ property.required ? ' (required)' : '' }}
+        </Text>
       </Glue>
-      <Text light>
-        {{ property.required ? '(required)' : '' }}
-      </Text>
       <Text italic>
         {{ property.description }}
       </Text>
-      <Text v-if="property.default !== ''">
+      <Text v-if="property.default && property.default !== ''">
         default: {{ property.default }}
       </Text>
     </div>

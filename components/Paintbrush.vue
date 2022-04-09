@@ -43,6 +43,7 @@
       <Meta :content="twitterHandle" property="twitter:creator" />
       <Title>{{ pageTitle }}</Title>
       <Link :href="canonical" rel="canonical" />
+      <Link :href="faviconSvg" rel="icon" type="image/svg" />
       <Link :href="favicon" rel="icon" type="image/png" />
       <Link :href="favicon" rel="apple-touch-icon" />
       <Link v-if="manifest" :href="manifest" rel="manifest" />
@@ -63,6 +64,7 @@ interface PaintbrushProps {
   darkColors?: Record<string, string>
   description?: string
   favicon?: string
+  faviconSvg?: string
   keywords?: string[]
   lang?: string
   largeImage?: string
@@ -111,6 +113,7 @@ const props = withDefaults(defineProps<PaintbrushProps>(), {
   }),
   description: '',
   favicon: '',
+  faviconSvg: '',
   keywords: () => [],
   lang: 'en_US',
   largeImage: '',
