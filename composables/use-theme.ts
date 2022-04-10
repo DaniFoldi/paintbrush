@@ -1,3 +1,6 @@
+import { useState } from '#app'
+
+
 export default function() {
-  return useState('paintBrushTheme', () => 'default')
+  return useState('paintbrushTheme', () => 'default')
 }
