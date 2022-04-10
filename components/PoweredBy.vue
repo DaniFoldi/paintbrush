@@ -4,12 +4,12 @@
 -->
 <template>
   <AutoLink href="https://paintbrush.danifoldi.com" :reload="true">
-    <KeyText>
+    <Text important>
       Powered by
-      <GradientText>
+      <Text gradient>
         Paintbrush
-      </GradientText>
-    </KeyText>
+      </Text>
+    </Text>
   </AutoLink>
 </template>
 

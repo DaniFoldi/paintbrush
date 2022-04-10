@@ -1,6 +1,10 @@
 <template>
   <Container article>
-    <KeyText>How To Install <GradientText>Paintbrush</GradientText></KeyText>
+    <Text important>
+      How To Install <Text gradient>
+        Paintbrush
+      </Text>
+    </Text>
     <MultilineCode :code="install" language="bash" />
     <MultilineCode :code="basic1" language="html" />
   </Container>
