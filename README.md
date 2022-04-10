@@ -20,7 +20,7 @@ Use commit names starting with
 
 - :zap: `:zap:` implement or extend functionality (components, styles, etc.)
 - :toolbox: `:toolbox:` for features meant to simplify downstream usage
-- :hammer: `:vertical_traffic_light:` for bug fixes
+- :hammer: `:hammer:` for bug fixes
 - :wrench: `:wrench:` for configurations
 - :vertical_traffic_light: `:vertical_traffic_light:` for tests
 - :memo: `:memo:` for docs
