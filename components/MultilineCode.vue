@@ -8,22 +8,22 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import hljs from 'highlight.js/lib/common'
+  import { computed } from 'vue'
+  import hljs from 'highlight.js/lib/common'
 
 
-interface MultilineCodeProps {
-  code: string
-  language?: string
-}
+  interface MultilineCodeProps {
+    code: string
+    language?: string
+  }
 
-const props = withDefaults(defineProps<MultilineCodeProps>(), {
-  language: 'auto'
-})
+  const props = withDefaults(defineProps<MultilineCodeProps>(), {
+    language: 'auto'
+  })
 
-const highlight = computed(() => {
-  return props.language === 'auto' ? hljs.highlightAuto(props.code) : hljs.highlight(props.code, { language: props.language })
-})
+  const highlight = computed(() => {
+    return props.language === 'auto' ? hljs.highlightAuto(props.code) : hljs.highlight(props.code, { language: props.language })
+  })
 </script>
 
 <style lang="scss">

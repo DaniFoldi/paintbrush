@@ -19,23 +19,23 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject } from 'vue'
-import { resolve } from '../scripts/color'
+  import { computed, inject } from 'vue'
+  import { resolve } from '../scripts/color'
 
 
-const colorScheme: Record<string, string> = inject('colorScheme', {})
+  const colorScheme: Record<string, string> = inject('colorScheme', {})
 
-interface IconProps {
-  color?: string
-  name: string
-  size?: string
-}
+  interface IconProps {
+    color?: string
+    name: string
+    size?: string
+  }
 
-const props = withDefaults(defineProps<IconProps>(), {
-  color: 'primary',
-  size: '16px'
-})
-const computedcolor = computed(() => resolve(colorScheme, props.color))
+  const props = withDefaults(defineProps<IconProps>(), {
+    color: 'primary',
+    size: '16px'
+  })
+  const computedcolor = computed(() => resolve(colorScheme, props.color))
 </script>
 
 <style lang="scss" scoped>

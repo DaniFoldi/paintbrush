@@ -20,64 +20,64 @@
 </template>
 
 <script lang="ts" setup>
-interface TextProps {
-  bold?: boolean
-  gradient?: boolean
-  important?: boolean
-  italic?: boolean
-  light?: boolean
-  sectiontitle?: boolean
-  subtitle?: boolean
-  title?: boolean
-  underline?: boolean
-}
-
-const props = withDefaults(defineProps<TextProps>(), {
-  bold: false,
-  gradient: false,
-  important: false,
-  italic: false,
-  light: false,
-  sectiontitle: false,
-  subtitle: false,
-  title: false,
-  underline: false
-})
-
-let mode = 'body'
-if (props.title) {
-  mode = 'h1'
-  if (props.subtitle || props.sectiontitle) {
-    console.warn('Text: Only one of the following props should be set: title, subtitle, sectiontitle')
+  interface TextProps {
+    bold?: boolean
+    gradient?: boolean
+    important?: boolean
+    italic?: boolean
+    light?: boolean
+    sectiontitle?: boolean
+    subtitle?: boolean
+    title?: boolean
+    underline?: boolean
   }
-} else if (props.subtitle) {
-  mode = 'h2'
-  if (props.sectiontitle) {
-    console.warn('Text: Only one of the following props should be set: title, subtitle, sectiontitle')
-  }
-} else if (props.sectiontitle) {
-  mode = 'h3'
-}
 
-if (props.bold) {
-  if (props.light) {
+  const props = withDefaults(defineProps<TextProps>(), {
+    bold: false,
+    gradient: false,
+    important: false,
+    italic: false,
+    light: false,
+    sectiontitle: false,
+    subtitle: false,
+    title: false,
+    underline: false
+  })
+
+  let mode = 'body'
+  if (props.title) {
+    mode = 'h1'
+    if (props.subtitle || props.sectiontitle) {
+      console.warn('Text: Only one of the following props should be set: title, subtitle, sectiontitle')
+    }
+  } else if (props.subtitle) {
+    mode = 'h2'
+    if (props.sectiontitle) {
+      console.warn('Text: Only one of the following props should be set: title, subtitle, sectiontitle')
+    }
+  } else if (props.sectiontitle) {
+    mode = 'h3'
+  }
+
+  if (props.bold) {
+    if (props.light) {
+      console.warn('Text: Only one of the following props should be set: bold, light')
+    }
+    if (props.important) {
+      console.warn('Text: Only one of the following props should be set: bold, important')
+    }
+  } else if (props.light && props.important) {
     console.warn('Text: Only one of the following props should be set: bold, light')
   }
-  if (props.important) {
-    console.warn('Text: Only one of the following props should be set: bold, important')
-  }
-} else if (props.light && props.important) {
-  console.warn('Text: Only one of the following props should be set: bold, light')
-}
 
-const classes = [
-  props.bold ? 'bold' : '',
-  props.gradient ? 'gradient' : '',
-  props.important ? 'important' : '',
-  props.italic ? 'italic' : '',
-  props.light ? 'light' : '',
-  props.underline ? 'underline' : ''
-]
+  const classes = [
+    props.bold ? 'bold' : '',
+    props.gradient ? 'gradient' : '',
+    props.important ? 'important' : '',
+    props.italic ? 'italic' : '',
+    props.light ? 'light' : '',
+    props.underline ? 'underline' : ''
+  ]
 </script>
 
 <style lang="scss" scoped>

@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-const checked = false
+  const checked = false
 </script>
 
 <style lang="scss" scoped>

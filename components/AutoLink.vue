@@ -10,14 +10,14 @@
 </template>
 
 <script lang="ts" setup>
-interface AutoLinkProps {
-  href?: string
-  reload?: boolean
-}
-withDefaults(defineProps<AutoLinkProps>(), {
-  href: '',
-  reload: false
-})
+  interface AutoLinkProps {
+    href?: string
+    reload?: boolean
+  }
+  withDefaults(defineProps<AutoLinkProps>(), {
+    href: '',
+    reload: false
+  })
 </script>
 
 <style lang="scss" scoped>

@@ -12,33 +12,33 @@
 </template>
 
 <script lang="ts" setup>
-interface ContainerProps {
-  article?: boolean
-  center?: boolean
-  max?: boolean
-}
+  interface ContainerProps {
+    article?: boolean
+    center?: boolean
+    max?: boolean
+  }
 
-const props = withDefaults(defineProps<ContainerProps>(), {
-  article: false,
-  center: false,
-  max: false
-})
+  const props = withDefaults(defineProps<ContainerProps>(), {
+    article: false,
+    center: false,
+    max: false
+  })
 
-let type = ''
+  let type = ''
 
-if (Object.values(props).filter(Boolean).length > 1) {
-  console.warn('Container: Only one of the following props should be set: article, center, max')
-}
+  if (Object.values(props).filter(Boolean).length > 1) {
+    console.warn('Container: Only one of the following props should be set: article, center, max')
+  }
 
-if (!props.article && !props.center && !props.max) {
-  type = 'max'
-} else if (props.article) {
-  type = 'article'
-} else if (props.center) {
-  type = 'center'
-} else if (props.max) {
-  type = 'max'
-}
+  if (!props.article && !props.center && !props.max) {
+    type = 'max'
+  } else if (props.article) {
+    type = 'article'
+  } else if (props.center) {
+    type = 'center'
+  } else if (props.max) {
+    type = 'max'
+  }
 </script>
 
 <style lang="scss" scoped>

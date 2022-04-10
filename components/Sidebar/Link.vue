@@ -15,17 +15,17 @@
 </template>
 
 <script lang="ts" setup>
-interface SidebarEntryProps {
-  color?: string
-  href: string
-  icon: string
-  reload?: boolean
-}
+  interface SidebarEntryProps {
+    color?: string
+    href: string
+    icon: string
+    reload?: boolean
+  }
 
-withDefaults(defineProps<SidebarEntryProps>(), {
-  color: 'primary',
-  reload: false
-})
+  withDefaults(defineProps<SidebarEntryProps>(), {
+    color: 'primary',
+    reload: false
+  })
 
 </script>
 

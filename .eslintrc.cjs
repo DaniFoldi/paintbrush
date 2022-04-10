@@ -198,6 +198,7 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'valid-typeof': [ 'error', { requireStringLiterals: true }],
     'vue/attributes-order': [ 'warn', { alphabetical: true }],
+    'vue/block-lang': [ 'error', { script: { lang: 'ts' }, style: { lang: 'scss' } }],
     'vue/max-attributes-per-line': [ 'warn', { multiline: 1, singleline: 3 }],
     'vue/multi-word-component-names': 'off',
     'vue/order-in-components': 'warn',

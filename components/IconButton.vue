@@ -10,17 +10,17 @@
 </template>
 
 <script lang="ts" setup>
-interface IconProps {
-  color?: string
-  icon?: string
-  iconColor?: string
-}
+  interface IconProps {
+    color?: string
+    icon?: string
+    iconColor?: string
+  }
 
-withDefaults(defineProps<IconProps>(), {
-  color: 'primary',
-  icon: '',
-  iconColor: 'white'
-})
+  withDefaults(defineProps<IconProps>(), {
+    color: 'primary',
+    icon: '',
+    iconColor: 'white'
+  })
 </script>
 
 <style lang="scss" scoped>
