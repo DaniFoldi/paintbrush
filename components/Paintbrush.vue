@@ -11,10 +11,13 @@
 -->
 <!-- TODO add props to documentation -->
 <template>
-  <slot />
+  <Container v-if="container">
+    <slot />
+  </Container>
+  <slot v-else />
+
   <Html :lang="lang.split('-')[0].split('_')[0]" :style="styleVariables">
     <Head>
-      <Meta charset="UTF-8" />
       <Meta :content="colorMap.theme" name="theme-color" />
       <Meta :content="colorMap.background" name="apple-mobile-web-app-status-bar-style" />
       <Meta :content="colorMap.primary" name="msapplication-navbutton-color" />
@@ -61,6 +64,7 @@ interface PaintbrushProps {
   appName?: string
   canonical?: string
   colorScheme?: Record<string, string>
+  container?: boolean
   darkColors?: Record<string, string>
   description?: string
   favicon?: string
@@ -99,6 +103,7 @@ const props = withDefaults(defineProps<PaintbrushProps>(), {
     teal: '#22E0FF',
     white: '#FFF'
   }),
+  container: true,
   darkColors: () => ({
     background: 'black',
     background2: 'darkestgray',
@@ -109,6 +114,7 @@ const props = withDefaults(defineProps<PaintbrushProps>(), {
     text: 'white',
     textOnPrimary: 'white',
     textOnSecondary: 'white',
+    theme: 'black',
     unit: '4px'
   }),
   description: '',
@@ -128,6 +134,7 @@ const props = withDefaults(defineProps<PaintbrushProps>(), {
     text: 'black',
     textOnPrimary: 'white',
     textOnSecondary: 'white',
+    theme: 'blue',
     unit: '4px'
   }),
   manifest: '',
@@ -138,8 +145,7 @@ const props = withDefaults(defineProps<PaintbrushProps>(), {
   url: ''
 })
 
-// TODO persistent dark theme
-const theme = ref('dark')
+const theme = useTheme()
 const colorMap = computed(() => theme.value === 'dark' ? props.darkColors : props.lightColors)
 const styleVariables = computed(() => Object.keys(colorMap.value).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, colorMap.value[color])};`).join(' '))
 
