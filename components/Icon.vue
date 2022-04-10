@@ -1,21 +1,21 @@
 <!--!
-@name Icon
-@version 1.0.0
-@description Icon component from Phosphor Icons
-@usage
+  @name Icon
+  @version 1.0.0
+  @description Icon component from Phosphor Icons
+  @usage
   <Icon name="gear" />
-@property
+  @property
   color?: string ['primary'] (Icon color, can be from the color palette)
   name: string (Icon name as it appears in Phosphor Icons)
   size?: string ['16px'] (Icon size, can be any valid CSS value)
-@renderedExample
+  @renderedExample
   <Icon name="chat-dots" size="32px" />
-@renderedExample
+  @renderedExample
   <Icon color="white" name="mouse" size="24px" />
-@note For an icon list see https://phosphoricons.com/
+  @note For an icon list see https://phosphoricons.com/
 -->
 <template>
-  <i :class="'ph-' + name" />
+  <i :class="`ph-${name}`" />
 </template>
 
 <script lang="ts" setup>

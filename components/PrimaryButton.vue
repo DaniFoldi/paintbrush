@@ -1,9 +1,9 @@
 <!--!
-@name PrimaryButton
-@version 1.0.0
+  @name PrimaryButton
+  @version 1.0.0
 -->
 <template>
-  <button>
+  <button type="button">
     <slot />
   </button>
 </template>

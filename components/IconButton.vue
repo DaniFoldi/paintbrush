@@ -1,9 +1,9 @@
 <!--!
-@name IconButton
-@version 1.0.0
+  @name IconButton
+  @version 1.0.0
 -->
 <template>
-  <button>
+  <button type="button">
     <Icon :color="iconColor" :name="icon" size="20px" />
     <Text><slot /></Text>
   </button>

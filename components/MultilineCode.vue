@@ -1,10 +1,10 @@
 <!--!
-@name MultilineCode
-@version 1.0.0
+  @name MultilineCode
+  @version 1.0.0
 -->
 <template>
   <!-- eslint-disable-next-line vue/no-v-html -->
-  <pre><code :class="['hljs', highlight.language]" v-html="highlight.value" /></pre>
+  <pre><code :class="[ 'hljs', highlight.language ]" v-html="highlight.value" /></pre>
 </template>
 
 <script lang="ts" setup>

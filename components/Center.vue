@@ -1,6 +1,6 @@
 <!--!
-@name Center
-@version 1.0.0
+  @name Center
+  @version 1.0.0
 -->
 <template>
   <div class="center">

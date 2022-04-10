@@ -1,13 +1,13 @@
 <!--!
-@name Paintbrush
-@version 1.0.0
-@description Main component to be used everywhere
-@usage
+  @name Paintbrush
+  @version 1.0.0
+  @description Main component to be used everywhere
+  @usage
   <Paintbrush>
-    <Text>Hello world</Text>
+  <Text>Hello world</Text>
   </Paintbrush>
 
-@note This component should be wrapping every other Paintbrush component used
+  @note This component should be wrapping every other Paintbrush component used
 -->
 <!-- TODO add props to documentation -->
 <template>

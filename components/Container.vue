@@ -1,12 +1,12 @@
 <!--!
-@name Container
-@version 1.0.0
-@description Container component for pages, main content and elements
-@usage <Container>Summary</Container>
+  @name Container
+  @version 1.0.0
+  @description Container component for pages, main content and elements
+  @usage <Container>Summary</Container>
 -->
 
 <template>
-  <div :class="['container', type]">
+  <div :class="[ 'container', type ]">
     <slot />
   </div>
 </template>

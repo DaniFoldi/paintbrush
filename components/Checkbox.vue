@@ -1,6 +1,6 @@
 <!--!
-@name Checkbox
-@version 1.0.0
+  @name Checkbox
+  @version 1.0.0
 -->
 <template>
   <label>

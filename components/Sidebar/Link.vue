@@ -1,6 +1,6 @@
 <!--!
-@name SidebarLink
-@version 1.0.0
+  @name SidebarLink
+  @version 1.0.0
 -->
 <template>
   <AutoLink :href="href" :reload="reload">
@@ -26,7 +26,6 @@
     color: 'primary',
     reload: false
   })
-
 </script>
 
 <style lang="scss" scoped>
@@ -58,5 +57,4 @@ a {
     background: var(--background-highlight);
   }
 }
-
 </style>

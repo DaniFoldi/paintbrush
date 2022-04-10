@@ -1,6 +1,6 @@
 <!--!
-@name SidebarContainer
-@version 1.0.0
+  @name SidebarContainer
+  @version 1.0.0
 -->
 <template>
   <div class="sidebar-container">

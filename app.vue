@@ -26,7 +26,7 @@
           color="purple"
           href="https://github.com/DaniFoldi/Paintbrush"
           icon="github-logo"
-          :reload="true"
+          reload
         >
           Source
         </SidebarLink>

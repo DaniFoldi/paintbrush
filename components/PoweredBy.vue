@@ -1,9 +1,9 @@
 <!--!
-@name PoweredBy
-@version 1.0.0
+  @name PoweredBy
+  @version 1.0.0
 -->
 <template>
-  <AutoLink href="https://paintbrush.danifoldi.com" :reload="true">
+  <AutoLink href="https://paintbrush.danifoldi.com" reload>
     <Text important>
       Powered by
       <Text gradient>

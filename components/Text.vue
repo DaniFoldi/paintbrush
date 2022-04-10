@@ -1,17 +1,17 @@
 <!--!
-@name Text
-@version 1.0.0
-@description Text component to display text
-@usage <Text>Lorem ipsum dolor sit amet</Text>
+  @name Text
+  @version 1.0.0
+  @description Text component to display text
+  @usage <Text>Lorem ipsum dolor sit amet</Text>
 -->
 <template>
-  <h1 v-if="mode==='h1'" :class="classes">
+  <h1 v-if="mode === 'h1'" :class="classes">
     <slot />
   </h1>
-  <h2 v-else-if="mode==='h2'" :class="classes">
+  <h2 v-else-if="mode === 'h2'" :class="classes">
     <slot />
   </h2>
-  <h3 v-else-if="mode==='h3'" :class="classes">
+  <h3 v-else-if="mode === 'h3'" :class="classes">
     <slot />
   </h3>
   <p v-else :class="classes">
@@ -70,6 +70,7 @@
     console.warn('Text: Only one of the following props should be set: bold, light')
   }
 
+// TODO rewrite with :class object
   const classes = [
     props.bold ? 'bold' : '',
     props.gradient ? 'gradient' : '',

@@ -1,6 +1,6 @@
 <!--!
-@name AutoLink
-@version 1.0.0
+  @name AutoLink
+  @version 1.0.0
 -->
 <template>
   <a v-if="reload" :href="href"><slot /></a>

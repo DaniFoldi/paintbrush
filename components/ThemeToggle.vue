@@ -1,6 +1,6 @@
 <!--!
-@name ThemeToggle
-@version 1.0.0
+  @name ThemeToggle
+  @version 1.0.0
 -->
 <template>
   <IconButton :icon="theme.includes('dark') ? 'moon' : 'sun'" @click="$emit('toggle'); toggle()">
@@ -12,7 +12,11 @@
   import { ref } from 'vue'
 
 
-  defineEmits([ 'toggle' ])
+  interface ThemeToggleEmits {
+    toggle: () => void
+  }
+
+  defineEmits<ThemeToggleEmits>()
 
   // TODO implement this properly
   const theme = ref('dark')
