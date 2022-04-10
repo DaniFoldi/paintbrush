@@ -28,5 +28,5 @@ Use commit names starting with
 - :recycle: `:recycle:` for refactoring
 - :paperclip: `:paperclip:` for dependencies
 - :octocat: `:octocat:` for workflows
-- :construction: `:construction:` for experimental things
+- :construction: `:construction:` for experimental/temporary things
 - :paintbrush: `:paintbrush:` for everything else (=there should be another category here)
