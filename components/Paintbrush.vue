@@ -56,7 +56,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
   import { kebabCaseName, resolve } from '../scripts/color'
 
 
@@ -145,7 +145,8 @@
     url: ''
   })
 
-  const theme = useTheme()
+  // TODO implement this properly
+  const theme = ref('light')
   const colorMap = computed(() => theme.value === 'dark' ? props.darkColors : props.lightColors)
   const styleVariables = computed(() => Object.keys(colorMap.value).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, colorMap.value[color])};`).join(' '))
 
