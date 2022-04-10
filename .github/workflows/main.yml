@@ -349,6 +349,36 @@ jobs:
     - name: Run CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
+  npm-publish:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    if: contains( join( github.event.commits.*.message, ', ' ), '[ci release]' )
+
+    needs:
+    - build
+    - audit
+    - all-licenses
+    - prod-licenses
+    - stylelint
+    - eslint
+    - yamllint
+    - test
+    - typecheck
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: npm
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+
 
 # TODO coverage report
 # TODO test report
@@ -356,4 +386,3 @@ jobs:
 # TODO new dependency report
 # TODO license report
 # TODO new contributor welcome
-# TODO npm release
