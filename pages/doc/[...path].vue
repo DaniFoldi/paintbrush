@@ -62,6 +62,9 @@
       language="html"
     />
 
+    <Text v-if="component.note && component.note !== ''" subtitle>
+      Examples
+    </Text>
     <Text>{{ component.note }}</Text>
   </Container>
 </template>
