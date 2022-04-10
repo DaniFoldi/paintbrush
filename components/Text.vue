@@ -22,6 +22,7 @@
 <script lang="ts" setup>
 interface TextProps {
   bold?: boolean
+  gradient?: boolean
   important?: boolean
   italic?: boolean
   light?: boolean
@@ -33,6 +34,7 @@ interface TextProps {
 
 const props = withDefaults(defineProps<TextProps>(), {
   bold: false,
+  gradient: false,
   important: false,
   italic: false,
   light: false,
@@ -70,6 +72,7 @@ if (props.bold) {
 
 const classes = [
   props.bold ? 'bold' : '',
+  props.gradient ? 'gradient' : '',
   props.important ? 'important' : '',
   props.italic ? 'italic' : '',
   props.light ? 'light' : '',
@@ -103,6 +106,13 @@ h1, h2, h3, p {
   &.important {
     font-weight: 800;
     @include mixins.font('inter');
+  }
+
+  &.gradient {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background-clip: text;
+    color: transparent;
+    font-style: normal;
   }
 }
 </style>
