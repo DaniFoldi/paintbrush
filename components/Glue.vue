@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-::v-deep(*) {
+div::v-deep(*) {
   display: inline;
   margin-inline: 0;
 }
