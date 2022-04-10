@@ -67,11 +67,11 @@
 </template>
 
 <script lang="ts" setup async>
-import type { Docs } from '../../scripts/docs'
+  import type { Docs } from '../../scripts/docs'
 
 
-const path = useRoute().params.path.toString()
-const { data } = await useFetch<Docs>('/api/docs')
-const components = data.value
-const component = components[`components/${path}.vue`]
+  const path = useRoute().params.path.toString()
+  const { data } = await useFetch<Docs>('/api/docs')
+  const components = data.value
+  const component = components[`components/${path}.vue`]
 </script>

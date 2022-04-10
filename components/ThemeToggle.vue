@@ -9,12 +9,16 @@
 </template>
 
 <script lang="ts" setup>
-defineEmits([ 'toggle' ])
+  import { ref } from 'vue'
 
-const theme = useTheme()
 
-function toggle() {
-  theme.value = theme.value.split('dark').map((x: string) => x.replaceAll('light', 'dark')).join('light')
-  console.log(theme)
-}
+  defineEmits([ 'toggle' ])
+
+  // TODO implement this properly
+  const theme = ref('dark')
+
+  function toggle() {
+    theme.value = theme.value.split('dark').map((x: string) => x.replaceAll('light', 'dark')).join('light')
+    console.log(theme)
+  }
 </script>

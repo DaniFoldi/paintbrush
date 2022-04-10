@@ -63,6 +63,12 @@ module.exports = {
         useState: 'readonly',
         watch: 'readonly'
       }
+    },
+    {
+      files: [ '*.vue', '**/*.vue' ],
+      rules: {
+        indent: 'off'
+      }
     }
   ],
   parser: 'vue-eslint-parser',
@@ -195,6 +201,7 @@ module.exports = {
     'vue/max-attributes-per-line': [ 'warn', { multiline: 1, singleline: 3 }],
     'vue/multi-word-component-names': 'off',
     'vue/order-in-components': 'warn',
+    'vue/script-indent': [ 'warn', 2, { baseIndent: 1 }],
     'vue/sort-keys': [ 'warn', 'asc', { caseSensitive: true, natural: true }]
   }
 }
