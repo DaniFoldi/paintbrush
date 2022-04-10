@@ -1,9 +1,7 @@
 <template>
   <Container article>
-    <Text important>
-      How To Install <Text gradient>
-        Paintbrush
-      </Text>
+    <Text gradient important title>
+      How To Install Paintbrush
     </Text>
     <MultilineCode :code="install" language="bash" />
     <MultilineCode :code="basic1" language="html" />
