@@ -22,6 +22,7 @@
 <script lang="ts" setup>
 interface TextProps {
   bold?: boolean
+  important?: boolean
   italic?: boolean
   light?: boolean
   sectiontitle?: boolean
@@ -32,6 +33,7 @@ interface TextProps {
 
 const props = withDefaults(defineProps<TextProps>(), {
   bold: false,
+  important: false,
   italic: false,
   light: false,
   sectiontitle: false,
@@ -55,8 +57,20 @@ if (props.title) {
   mode = 'h3'
 }
 
+if (props.bold) {
+  if (props.light) {
+    console.warn('Text: Only one of the following props should be set: bold, light')
+  }
+  if (props.important) {
+    console.warn('Text: Only one of the following props should be set: bold, important')
+  }
+} else if (props.light && props.important) {
+  console.warn('Text: Only one of the following props should be set: bold, light')
+}
+
 const classes = [
   props.bold ? 'bold' : '',
+  props.important ? 'important' : '',
   props.italic ? 'italic' : '',
   props.light ? 'light' : '',
   props.underline ? 'underline' : ''
@@ -84,6 +98,11 @@ h1, h2, h3, p {
 
   &.underline {
     @include mixins.underline;
+  }
+
+  &.important {
+    font-weight: 800;
+    @include mixins.font('inter');
   }
 }
 </style>
