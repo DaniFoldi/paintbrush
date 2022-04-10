@@ -1,25 +1,37 @@
-@use '../node_modules/@fontsource/inter/scss/mixins' as inter;
-@use '../node_modules/@fontsource/playfair-display/scss/mixins' as playfair;
-@use '../node_modules/@fontsource/raleway/scss/mixins' as raleway;
+@use '~/node_modules/@fontsource/inter/scss/mixins' as inter;
+@use '~/node_modules/@fontsource/playfair-display/scss/mixins' as playfair;
+@use '~/node_modules/@fontsource/raleway/scss/mixins' as raleway;
 
 
 @mixin inter {
-  // @include inter.fontFace($weight: 300, $display: fallback);
-  // @include inter.fontFace($weight: 400, $display: fallback);
-  // @include inter.fontFace($weight: 500, $display: fallback);
-  // @include inter.fontFace($weight: 600, $display: fallback);
+  @include inter.fontFace($weight: 300, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFace($weight: 400, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFace($weight: 500, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFace($weight: 600, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
 }
 
 @mixin playfair-display {
-  // @include playfair.fontFace($weight: 300, $display: fallback);
-  // @include playfair.fontFace($weight: 400, $display: fallback);
-  // @include playfair.fontFace($weight: 500, $display: fallback);
-  // @include playfair.fontFace($weight: 600, $display: fallback);
+  @include playfair.fontFace(
+    $weight: 300,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/playfair-display/files');
+  @include playfair.fontFace(
+    $weight: 400,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/playfair-display/files');
+  @include playfair.fontFace(
+    $weight: 500,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/playfair-display/files');
+  @include playfair.fontFace(
+    $weight: 600,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/playfair-display/files');
 }
 
 @mixin raleway {
-  // @include raleway.fontFace($weight: 300, $display: fallback);
-  // @include raleway.fontFace($weight: 400, $display: fallback);
-  // @include raleway.fontFace($weight: 500, $display: fallback);
-  // @include raleway.fontFace($weight: 600, $display: fallback);
+  @include raleway.fontFace($weight: 300, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 400, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 500, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFace($weight: 600, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
 }
