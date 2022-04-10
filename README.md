@@ -30,3 +30,7 @@ Use commit names starting with
 - :octocat: `:octocat:` for workflows
 - :construction: `:construction:` for experimental/temporary things
 - :paintbrush: `:paintbrush:` for everything else (=there should be another category here)
+
+## Note: WIP
+
+**Paintbrush is currently in alpha.** Using it in production is not recommended, as most updates break everything from the previous one. Once considered stable, semver-minor updates should not break existing code unless a deprecation warning for a feature has been in place for a few months.
