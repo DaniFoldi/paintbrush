@@ -50,7 +50,7 @@ export async function generateComponentDocs() {
     const doc: [keyof Component, string][] = [ ...text.matchAll(/<!--!(?<value>.*?)-->/gisu) ]
       .map(match => match.groups?.value)
       .join('\n')
-      .split(/^@/gm)
+      .split(/^( {2})?@/gm)
       .map(entry => entry.trim())
       .filter(entry => entry.length > 0)
       .map(entry => entry.replace(/(^\n|\n$)/g, ''))
