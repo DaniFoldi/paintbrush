@@ -61,6 +61,7 @@ module.exports = {
         useRoute: 'readonly',
         useRouter: 'readonly',
         useState: 'readonly',
+        useTheme: 'readonly',
         watch: 'readonly'
       }
     },
