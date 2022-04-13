@@ -63,7 +63,7 @@
     />
 
     <Text v-if="component.note && component.note !== ''" subtitle>
-      Examples
+      Note
     </Text>
     <Text>{{ component.note }}</Text>
   </Container>
