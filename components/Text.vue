@@ -24,6 +24,7 @@
     bold?: boolean
     gradient?: boolean
     important?: boolean
+    inline?: boolean
     italic?: boolean
     light?: boolean
     sectiontitle?: boolean
@@ -36,6 +37,7 @@
     bold: false,
     gradient: false,
     important: false,
+    inline: false,
     italic: false,
     light: false,
     sectiontitle: false,
@@ -75,6 +77,7 @@
     props.bold ? 'bold' : '',
     props.gradient ? 'gradient' : '',
     props.important ? 'important' : '',
+    props.inline ? 'inline' : '',
     props.italic ? 'italic' : '',
     props.light ? 'light' : '',
     props.underline ? 'underline' : ''
@@ -98,6 +101,10 @@ h1, h2, h3, p {
 
   &.light {
     @include mixins.light;
+  }
+
+  &.inline {
+    display: inline;
   }
 
   &.underline {
