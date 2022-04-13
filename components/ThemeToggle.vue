@@ -3,26 +3,19 @@
   @version 1.0.0
 -->
 <template>
-  <IconButton :icon="theme.includes('dark') ? 'moon' : 'sun'" @click="$emit('toggle'); toggle()">
-    Switch
-  </IconButton>
+  {{ theme }}
+  <PrimaryButton @click="theme = 'system'">
+    System
+  </PrimaryButton>
+  <PrimaryButton @click="theme = 'light'">
+    Light
+  </PrimaryButton>
+  <PrimaryButton @click="theme = 'dark'">
+    Dark
+  </PrimaryButton>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-
-  interface ThemeToggleEmits {
-    toggle: () => void
-  }
-
-  defineEmits<ThemeToggleEmits>()
-
-  // TODO implement this properly
-  const theme = ref('dark')
-
-  function toggle() {
-    theme.value = theme.value.split('dark').map((x: string) => x.replaceAll('light', 'dark')).join('light')
-    console.log(theme)
-  }
+// TODO implement this properly
+  const theme = useTheme()
 </script>
