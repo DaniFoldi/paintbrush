@@ -2,7 +2,7 @@
   <Container article>
     <div v-for="(component, path) in components" :key="component.name">
       <h3>{{ component.name }}</h3>
-      <AutoLink :href="path.replace(/^components/, '/doc').replace(/\.vue$/, '')">
+      <AutoLink :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')">
         {{ component.name }}
       </AutoLink>
     </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-  import type { Docs } from '../scripts/docs'
+  import type { Docs } from '../../scripts/docs'
 
 
   const { data } = await useFetch<Docs>('/api/docs')
