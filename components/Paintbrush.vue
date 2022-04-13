@@ -16,20 +16,23 @@
   </Container>
   <slot v-else />
 
-  <Html :lang="lang.split('-')[0].split('_')[0]" :style="styleVariables">
+  <Html :lang="lang.split('-')[0].split('_')[0]">
     <Head>
-      <Meta :content="colorMap.theme" name="theme-color" />
-      <Meta :content="colorMap.background" name="apple-mobile-web-app-status-bar-style" />
-      <Meta :content="colorMap.primary" name="msapplication-navbutton-color" />
+      <!-- stylelint-disable no-empty-source -->
+      <!-- eslint-disable-next-line vue/html-self-closing -- IDE syntax higlighting gets broken with self-closing -->
+      <Style :children="htmlStyle"></Style>
+      <!-- <Meta :content="colorMap.theme" name="theme-color" /> -->
+      <!-- <Meta :content="colorMap.background" name="apple-mobile-web-app-status-bar-style" /> -->
+      <!-- <Meta :content="colorMap.primary" name="msapplication-navbutton-color" /> -->
       <Meta :content="appName" name="apple-mobile-web-app-title" />
       <Meta content="yes" name="apple-mobile-web-app-capable" />
       <Meta content="yes" name="mobile-web-app-capable" />
       <Meta :content="appName" name="application-name" />
-      <Meta :content="colorMap.background" name="msapplication-TileColor" />
+      <!-- <Meta :content="colorMap.background" name="msapplication-TileColor" /> -->
       <Meta :content="favicon" name="msapplication-TileImage" />
       <Meta :content="description" name="description" />
       <Meta :content="keywords.join(',')" name="keywords" />
-      <Meta content="width=device-width, initial-scale=1.0 viewport-fit=cover" name="viewport" />
+      <Meta content="width=device-width, initial-scale=1.0, max-scale=1.0, viewport-fit=cover" name="viewport" />
       <Meta :content="pageTitle" property="og:title" />
       <Meta :content="description" property="og:description" />
       <Meta :content="largeImage" property="og:image" />
@@ -56,7 +59,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref } from 'vue'
+  import { computed } from 'vue'
   import { kebabCaseName, resolve } from '../scripts/color'
 
 
@@ -145,12 +148,29 @@
     url: ''
   })
 
-  // TODO implement this properly
-  const theme = ref('light')
-  const colorMap = computed(() => theme.value === 'dark' ? props.darkColors : props.lightColors)
-  const styleVariables = computed(() => Object.keys(colorMap.value).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, colorMap.value[color])};`).join(' '))
+  const lightVariables = computed(() => Object.keys(props.lightColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.lightColors[color])};`).join(' '))
+  const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
 
-  defineExpose({ colorMap, theme })
+  const htmlStyle = `
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme=light]):not([data-theme=dark]) {
+      ${lightVariables.value}
+    }
+  }
+
+  :root[data-theme=light] {
+    ${lightVariables.value}
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme=light]):not([data-theme=dark]) {
+      ${darkVariables.value}
+    }
+  }
+
+  :root[data-theme=dark] {
+    ${darkVariables.value}
+  }`
 </script>
 
 <style lang="scss">
