@@ -9,6 +9,6 @@
     <PrimaryButton>
       button
     </PrimaryButton>
-    <Checkbox>Test</Checkbox>s
+    <Checkbox>Test</Checkbox>
   </Container>
 </template>
