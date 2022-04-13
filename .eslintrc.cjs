@@ -50,7 +50,7 @@ module.exports = {
       }
     },
     {
-      files: [ 'components/*.vue', 'components/**/*.vue', 'pages/**.vue', 'pages/**/*.vue' ],
+      files: [ '*.vue', '**/*.vue' ],
       globals: {
         definePageMeta: 'readonly',
         localePath: 'readonly',
@@ -63,10 +63,7 @@ module.exports = {
         useState: 'readonly',
         useTheme: 'readonly',
         watch: 'readonly'
-      }
-    },
-    {
-      files: [ '*.vue', '**/*.vue' ],
+      },
       rules: {
         indent: 'off'
       }
