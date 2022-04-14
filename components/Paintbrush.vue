@@ -32,7 +32,7 @@
       <Meta :content="favicon" name="msapplication-TileImage" />
       <Meta :content="description" name="description" />
       <Meta :content="keywords.join(',')" name="keywords" />
-      <Meta content="width=device-width, initial-scale=1.0, max-scale=1.0, viewport-fit=cover" name="viewport" />
+      <Meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport" />
       <Meta :content="pageTitle" property="og:title" />
       <Meta :content="description" property="og:description" />
       <Meta :content="largeImage" property="og:image" />
