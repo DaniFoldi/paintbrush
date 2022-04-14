@@ -156,6 +156,7 @@
   const theme = useTheme()
 
   useHead({
+    // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags utf-8 is needed
     charset: 'UTF-8',
     htmlAttrs: { 'data-theme': theme }
   })
