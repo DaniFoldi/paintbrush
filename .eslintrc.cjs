@@ -56,6 +56,7 @@ module.exports = {
         localePath: 'readonly',
         switchLocalePath: 'readonly',
         useFetch: 'readonly',
+        useHead: 'readonly',
         useLazyFetch: 'readonly',
         useNuxtApp: 'readonly',
         useRoute: 'readonly',
