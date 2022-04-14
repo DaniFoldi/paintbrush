@@ -153,6 +153,12 @@
   const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
 
   const htmlStyle = style(lightVariables.value, darkVariables.value)
+  const theme = useTheme()
+
+  useHead({
+    charset: 'UTF-8',
+    htmlAttrs: { 'data-theme': theme }
+  })
 </script>
 
 <style lang="scss">

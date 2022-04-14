@@ -16,6 +16,5 @@
 </template>
 
 <script lang="ts" setup>
-// TODO implement this properly
   const theme = useTheme()
 </script>
