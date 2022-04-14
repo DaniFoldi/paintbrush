@@ -157,13 +157,9 @@ jobs:
       run: |
         npm ci --no-progress
 
-    - name: Allow js modules
+    - name: Prepare nuxt types
       run: |
-        sed -i 's/"allowJs": false/"allowJs": true/' tsconfig.json
-
-    - name: Build nuxt
-      run: |
-        npm run build
+        npm run prepare
 
     - name: Run task
       run: |

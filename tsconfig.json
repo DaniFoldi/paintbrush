@@ -1,46 +1,8 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "strict": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
-    "allowJs": false,
-    "jsx": "preserve",
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "skipLibCheck": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "types": [ "node" ],
-    "paths": {
-      "~~": [ "." ],
-      "~~/*": [ "./*" ],
-      "@@": [ "." ],
-      "@@/*": [ "./*" ],
-      "~": [ "." ],
-      "~/*": [ "./*" ],
-      "@": [ "." ],
-      "@/*": [ "./*" ],
-      "assets": [ "assets" ],
-      "assets/*": [ "assets/*" ],
-      "public": [ "public" ],
-      "public/*": [ "public/*" ],
-      "#app": [ "node_modules/nuxt3/dist/app" ],
-      "#app/*": [ "node_modules/nuxt3/dist/app/*" ],
-      "vue-demi": [ "node_modules/nuxt3/dist/app/compat/vue-demi" ],
-      "#meta": [ "node_modules/nuxt3/dist/meta/runtime" ],
-      "#meta/*": [ "node_modules/nuxt3/dist/meta/runtime/*" ],
-      "#imports": [ ".nuxt/imports" ],
-      "#build": [ ".nuxt" ],
-      "#build/*": [ ".nuxt/*" ],
-      "#config": [ "@nuxt/nitro" ],
-      "#storage": [ "@nuxt/nitro" ],
-      "#assets": [ "@nuxt/nitro" ]
-    }
-  },
-  "include": [
-    ".nuxt/nuxt.d.ts",
-    "./**/*"
-  ]
+    "allowJs": false
+  }
 }

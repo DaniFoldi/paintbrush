@@ -17,6 +17,7 @@
     "lint:js": "eslint --ext .cjs,.js,.json,.ts,.vue --cache --cache-location .stylelintcache --report-unused-disable-directives .",
     "lintw:js": "chokidar \"**/*.{cjs,js,json,ts,vue}\" -i \"{coverage,node_modules,.nuxt,.output}/**\" -c \"npm run lint:js -- --fix\"",
     "lintw": "npm-run-all --parallel lintw:*",
+    "prepare": "nuxi prepare",
     "start": "node .output/server/index.mjs",
     "test": "vitest --coverage --run",
     "typecheck": "nuxi typecheck"
