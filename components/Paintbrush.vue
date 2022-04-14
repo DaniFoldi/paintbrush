@@ -61,6 +61,7 @@
 <script lang="ts" setup>
   import { computed } from 'vue'
   import { kebabCaseName, resolve } from '../scripts/color'
+  import { style } from '../scripts/theme'
 
 
   interface PaintbrushProps {
@@ -151,26 +152,7 @@
   const lightVariables = computed(() => Object.keys(props.lightColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.lightColors[color])};`).join(' '))
   const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
 
-  const htmlStyle = `
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme=light]):not([data-theme=dark]) {
-      ${lightVariables.value}
-    }
-  }
-
-  :root[data-theme=light] {
-    ${lightVariables.value}
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme=light]):not([data-theme=dark]) {
-      ${darkVariables.value}
-    }
-  }
-
-  :root[data-theme=dark] {
-    ${darkVariables.value}
-  }`
+  const htmlStyle = style(lightVariables.value, darkVariables.value)
 </script>
 
 <style lang="scss">
