@@ -18,7 +18,6 @@
 
   <Html :lang="lang.split('-')[0].split('_')[0]">
     <Head>
-      <!-- stylelint-disable no-empty-source -->
       <!-- eslint-disable-next-line vue/html-self-closing -- IDE syntax higlighting gets broken with self-closing -->
       <Style :children="htmlStyle"></Style>
       <!-- <Meta :content="colorMap.theme" name="theme-color" /> -->
