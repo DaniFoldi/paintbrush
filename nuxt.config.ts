@@ -4,10 +4,9 @@ import { defineNuxtConfig } from 'nuxt3'
 
 export default defineNuxtConfig({
   i18n: {
-    'lazy': true,
+    defaultLocale: 'en',
     langDir: 'lang/',
-    defaultLocale: 'en'
+    lazy: true
   },
-  modules: [ './modules/docs' ],
-  publicRuntimeConfig: { ENV: process.env.NODE_ENV }
+  modules: [ './modules/docs' ]
 })
