@@ -47,9 +47,9 @@
   },
   "homepage": "https://github.com/DaniFoldi/paintbrush#readme",
   "devDependencies": {
-    "@danifoldi/eslint-presets": "^0.1.0",
-    "@danifoldi/stylelint-presets": "^0.2.0",
     "@nuxt/test-utils": "^0.2.2",
+    "@danifoldi/eslint-plugin-eslint-presets": "^1.0.0",
+    "@danifoldi/stylelint-presets": "^1.0.0",
     "@nuxt/test-utils-edge": "^3.0.0-27497942.c519cee",
     "@nuxtjs/i18n-edge": "^8.0.0-alpha.0-27477179.2af6fd2",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
