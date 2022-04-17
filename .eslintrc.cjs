@@ -1,3 +1,3 @@
 module.exports = {
-  extends: [ './node_modules/@danifoldi/eslint-presets/config/paintbrush.js' ]
+  extends: [ 'plugin:@danifoldi/eslint-presets/paintbrush' ]
 }
