@@ -72,7 +72,6 @@
     console.warn('Text: Only one of the following props should be set: bold, light')
   }
 
-  // TODO rewrite with :class object
   const classes = [
     props.bold ? 'bold' : '',
     props.gradient ? 'gradient' : '',
