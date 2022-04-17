@@ -147,7 +147,7 @@ $color-map: (
         }
 
         &[class*=-dark] {
-          background: #B10AFF;
+          background: #b10aff;
 
           &::after {
             filter: saturate(100);
@@ -158,7 +158,7 @@ $color-map: (
         &[class*=-light] {
 
           &::after {
-            background: #A37FC7;
+            background: #a37fc7;
             filter: saturate(520%) brightness(10.5) contrast(350) !important;
           }
         }
@@ -169,14 +169,14 @@ $color-map: (
         &[class*=-dark] {
 
           &::after {
-            background: #1D0E14;
+            background: #1d0e14;
           }
         }
 
         &[class*=-light] {
 
           &::after {
-            background: #FF468D;
+            background: #ff468d;
             filter: contrast(1) saturate(250%) !important;
             mix-blend-mode: lighten !important;
           }
@@ -186,7 +186,7 @@ $color-map: (
       @if $color == 'blue-yellow' {
 
         &:not([class*=-dark]):not([class*=-light]) {
-          background: linear-gradient(to top left, #55ACEE, #FEDD31);
+          background: linear-gradient(to top left, #55acee, #fedd31);
         }
 
         &[class*=-dark] {
@@ -208,7 +208,7 @@ $color-map: (
       @if $color == 'pink-yellow' {
 
         &:not([class*=-dark]):not([class*=-light]) {
-          background: linear-gradient(to bottom right, #FAA6FB, #FBBC05) !important;
+          background: linear-gradient(to bottom right, #faa6fb, #fbbc05) !important;
         }
 
         &[class*=-dark] {
@@ -231,7 +231,7 @@ $color-map: (
       @if $color == 'red-blue' {
 
         &:not([class*=-dark]):not([class*=-light]) {
-          background: linear-gradient(to bottom right, #3993E2, #E2544B);
+          background: linear-gradient(to bottom right, #3993e2, #e2544b);
 
           &::after {
             filter: none;
@@ -269,35 +269,35 @@ $color-map: (
         }
 
         @if $color == 'blue' {
-          background: #93EF90;
+          background: #93ef90;
         }
 
         @if $color == 'yellow' {
-          background: #EF3CB4;
+          background: #ef3cb4;
         }
 
         @if $color == 'green' {
-          background: #2D3181;
+          background: #2d3181;
         }
 
         @if $color == 'purple' {
-          background: #ACFCEE;
+          background: #acfcee;
         }
 
         @if $color == 'pink' {
-          background: #EA4C89;
+          background: #ea4c89;
         }
 
         @if $color == 'blue-yellow' {
-          background: linear-gradient(to top left, #55ACEE, #FEDD31) !important;
+          background: linear-gradient(to top left, #55acee, #fedd31) !important;
         }
 
         @if $color == 'pink-yellow' {
-          background: linear-gradient(to top left, #FAA6FB, #FBBC05) !important;
+          background: linear-gradient(to top left, #faa6fb, #fbbc05) !important;
         }
 
         @if $color == 'red-blue' {
-          background: linear-gradient(to bottom right, #3993E2, #E2544B);
+          background: linear-gradient(to bottom right, #3993e2, #e2544b);
         }
       }
     }
@@ -309,7 +309,7 @@ $color-map: (
 
   &::before {
     background: rgba(#000, .4);
-    color: #FFF;
+    color: #fff;
     font-size: 14px;
     padding: .2em;
     position: absolute;
