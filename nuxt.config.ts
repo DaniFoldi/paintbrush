@@ -8,6 +8,6 @@ export default defineNuxtConfig({
     langDir: 'lang/',
     defaultLocale: 'en'
   },
-  modules: [ './modules/docs', '@nuxtjs/i18n-edge' ],
+  modules: [ './modules/docs' ],
   publicRuntimeConfig: { ENV: process.env.NODE_ENV }
 })
