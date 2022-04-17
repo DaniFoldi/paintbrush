@@ -14,7 +14,7 @@
     "lint": "npm-run-all lint:*",
     "lint:css": "stylelint --cache --cache-location .stylelintcache --report-descriptionless-disables --report-needless-disables --report-invalid-scope-disables \"**/*.{scss,vue}\" \"*.{scss,vue}\"",
     "lintw:css": "chokidar \"**/*.{scss,vue}\" -i \"{coverage,node_modules,.nuxt,.output}/**\" -c \"npm run lint:css -- --fix\"",
-    "lint:js": "eslint --ext .cjs,.js,.json,.ts,.vue --cache --cache-file .eslintcache --report-unused-disable-directives .",
+    "lint:js": "eslint --ext .cjs,.js,.json,.mjs,.ts,.vue --cache --cache-file .eslintcache --report-unused-disable-directives .",
     "lintw:js": "chokidar \"**/*.{cjs,js,json,ts,vue}\" -i \"{coverage,node_modules,.nuxt,.output}/**\" -c \"npm run lint:js -- --fix\"",
     "lintw": "npm-run-all --parallel lintw:*",
     "prepare": "nuxi prepare",
