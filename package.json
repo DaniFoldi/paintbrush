@@ -50,7 +50,7 @@
     "@danifoldi/eslint-plugin-eslint-presets": "^1.0.3",
     "@danifoldi/stylelint-presets": "^1.0.0",
     "@nuxt/test-utils-edge": "^3.0.0-27497942.c519cee",
-    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "c8": "^7.11.0",
     "chokidar-cli": "^3.0.0",
