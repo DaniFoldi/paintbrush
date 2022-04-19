@@ -30,6 +30,10 @@
 
 @mixin primary {
   background: var(--primary);
+  @include primary-color;
+}
+
+@mixin primary-color {
   color: var(--text-on-primary);
 }
 
@@ -115,4 +119,12 @@
 
 @mixin light {
   font-weight: 300;
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+}
+
+@mixin capitalize {
+  text-transform: capitalize;
 }
