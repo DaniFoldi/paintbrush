@@ -4,15 +4,15 @@
 -->
 <template>
   {{ theme }}
-  <PrimaryButton @click="theme = 'system'">
+  <Button @click="theme = 'system'">
     System
-  </PrimaryButton>
-  <PrimaryButton @click="theme = 'light'">
+  </Button>
+  <Button @click="theme = 'light'">
     Light
-  </PrimaryButton>
-  <PrimaryButton @click="theme = 'dark'">
+  </Button>
+  <Button @click="theme = 'dark'">
     Dark
-  </PrimaryButton>
+  </Button>
 </template>
 
 <script lang="ts" setup>
