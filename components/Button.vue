@@ -11,10 +11,11 @@
   color?: string ['primary'] (Button color, can be from the color palette)
   ghost?: boolean [false] (Add a ghost effect)
   gradient?: string ['primary'] (Button gradient color, can be from the color palette)
+  type?: string ['button'] (Button type, can be button, submit, reset)
   uppercase?: boolean [false] (Uppercase the text)
 -->
 <template>
-  <button :class="{ ghost: ghost, capitalize: capitalize, uppercase: uppercase }" type="button">
+  <button :class="{ ghost: ghost, capitalize: capitalize, uppercase: uppercase }" :type="type">
     <slot />
   </button>
 </template>
@@ -28,6 +29,7 @@
     color?: string
     ghost?: boolean
     gradient?: string
+    type?: 'button' | 'submit' | 'reset'
     uppercase?: boolean
   }
 
@@ -36,6 +38,7 @@
     color: 'primary',
     ghost: false,
     gradient: '',
+    type: 'button',
     uppercase: false
   })
 
