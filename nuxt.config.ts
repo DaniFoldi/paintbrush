@@ -1,6 +1,6 @@
 import { defineNuxtConfig } from 'nuxt3'
 
-// TODO remove docs module once useFetch works properly
+// #MARK(PB-2)
 
 export default defineNuxtConfig({
   i18n: {

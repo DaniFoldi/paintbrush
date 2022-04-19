@@ -1,4 +1,4 @@
-// TODO get rid of this once useFetch works properly
+// #MARK(PB-2)
 
 import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
