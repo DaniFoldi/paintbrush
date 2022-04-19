@@ -21,10 +21,15 @@
 
 
   interface RuntimeProps {
-    class: string
+    class?: string
+    element?: string
     rendered: string
   }
 
-  const props = defineProps<RuntimeProps>()
-  const VNode = () => h('div', { class: props.class, innerHTML: props.rendered })
+  const props = withDefaults(defineProps<RuntimeProps>(), {
+    class: '',
+    element: 'div'
+  })
+
+  const VNode = () => h(props.element, { class: props.class, innerHTML: props.rendered })
 </script>
