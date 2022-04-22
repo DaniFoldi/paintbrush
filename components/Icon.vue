@@ -23,6 +23,12 @@
   import { resolve } from '../scripts/color'
 
 
+  const props = withDefaults(defineProps<IconProps>(), {
+    color: 'primary',
+    size: '16px'
+  })
+
+
   const colorScheme: Record<string, string> = inject('colorScheme', {})
 
   interface IconProps {
@@ -31,10 +37,6 @@
     size?: string
   }
 
-  const props = withDefaults(defineProps<IconProps>(), {
-    color: 'primary',
-    size: '16px'
-  })
   const computedcolor = computed(() => resolve(colorScheme, props.color))
 </script>
 
