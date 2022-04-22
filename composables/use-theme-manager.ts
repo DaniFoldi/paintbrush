@@ -1,21 +1,21 @@
-export function style(light: string, dark: string) {
+export default function(lightMode: string, darkMode: string) {
   return `@media (prefers-color-scheme: light) {
   :root:not([data-theme=light]):not([data-theme=dark]) {
-    ${light}
+    ${lightMode}
   }
 }
 
 :root[data-theme=light] {
-  ${light}
+  ${lightMode}
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme=light]):not([data-theme=dark]) {
-    ${dark}
+    ${darkMode}
   }
 }
 
 :root[data-theme=dark] {
-  ${dark}
+  ${darkMode}
 }`
 }
