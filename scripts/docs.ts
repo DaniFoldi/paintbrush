@@ -106,7 +106,8 @@ export async function generateComponentDocs() {
     }
 
     if (componentData.name === '') {
-      console.warn(`Component ${fileName} has no @name`)
+      console.warn(`Component ${fileName} has no @name, excluding`)
+      continue
     } else if (componentData.name.toLowerCase() !== fileName.toLowerCase().replace(/^components\//, '').replace(/\.vue$/, '').replaceAll('/', '')) {
       console.warn(`Component ${fileName} has incorrect @name '${componentData.name}' which does not match the file name '${fileName.toLowerCase().replace(/^components\//, '').replace(/\.vue$/, '').replaceAll('/', '')}'`)
     } else {
