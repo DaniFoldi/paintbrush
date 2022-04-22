@@ -60,7 +60,7 @@
 <script lang="ts" setup>
   import { computed } from 'vue'
   import { kebabCaseName, resolve } from '../scripts/color'
-  import { style } from '../scripts/theme'
+  import { useTheme } from '../stores/theme'
 
 
   interface PaintbrushProps {
@@ -151,13 +151,13 @@
   const lightVariables = computed(() => Object.keys(props.lightColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.lightColors[color])};`).join(' '))
   const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
 
-  const htmlStyle = style(lightVariables.value, darkVariables.value)
+  const htmlStyle = useThemeManager(lightVariables.value, darkVariables.value)
   const theme = useTheme()
 
   useHead({
     // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags utf-8 is needed
     charset: 'UTF-8',
-    htmlAttrs: { 'data-theme': theme }
+    htmlAttrs: { 'data-theme': theme.theme }
   })
 </script>
 

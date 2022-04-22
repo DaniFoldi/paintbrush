@@ -4,17 +4,20 @@
 -->
 <template>
   {{ theme }}
-  <Button @click="theme = 'system'">
+  <Button @click="theme.theme = 'system'">
     System
   </Button>
-  <Button @click="theme = 'light'">
+  <Button @click="theme.theme = 'light'">
     Light
   </Button>
-  <Button @click="theme = 'dark'">
+  <Button @click="theme.theme = 'dark'">
     Dark
   </Button>
 </template>
 
 <script lang="ts" setup>
+  import { useTheme } from '../stores/theme'
+
+
   const theme = useTheme()
 </script>
