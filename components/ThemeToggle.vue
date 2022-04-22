@@ -1,9 +1,9 @@
 <!--!
   @name ThemeToggle
-  @version 1.0.0
+  @version 0.1.0
 -->
 <template>
-  {{ theme }}
+  {{ theme.theme }}
   <Button @click="theme.theme = 'system'">
     System
   </Button>
