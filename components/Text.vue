@@ -87,7 +87,7 @@
 @use '../assets/mixins';
 
 h1, h2, h3, p {
-  @include mixins.vertical-unit-margin;
+  @include mixins.unit-block-margin;
   @include mixins.standard-text;
 
   &.bold {

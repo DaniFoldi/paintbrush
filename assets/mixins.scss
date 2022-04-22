@@ -53,18 +53,32 @@
   padding: calc(2 * var(--unit));
 }
 
+@mixin double-unit-block-padding {
+  padding-block: calc(2 * var(--unit));
+}
+
+@mixin no-inline-padding {
+  padding-inline: 0;
+}
+
+@mixin no-block-padding {
+  padding-block: 0;
+}
+
+@mixin double-unit-inline-padding {
+  padding-inline: calc(2 * var(--unit));
+}
+
 @mixin double-unit-margin {
   margin: calc(var(--unit));
 }
 
-@mixin vertical-unit-margin {
-  margin-bottom: var(--unit);
-  margin-top: var(--unit);
+@mixin unit-block-margin {
+  margin-block: var(--unit);
 }
 
-@mixin horizontal-unit-margin {
-  margin-left: var(--unit);
-  margin-right: var(--unit);
+@mixin unit-inline-margin {
+  margin-inline: var(--unit);
 }
 
 @mixin with-fade {

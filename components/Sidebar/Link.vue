@@ -41,7 +41,7 @@ a {
   @include mixins.two-items;
 
   i {
-    @include mixins.horizontal-unit-margin;
+    @include mixins.unit-inline-margin;
   }
 
   p {
