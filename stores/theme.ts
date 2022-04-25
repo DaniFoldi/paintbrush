@@ -5,7 +5,12 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 export const useTheme = defineStore('paintbrush-theme', {
   state: () => ({
     theme: 'system'
-  })
+  }),
+  actions: {
+    use(theme: string) {
+      this.theme = theme
+    }
+  }
 })
 
 if (import.meta.hot) {
