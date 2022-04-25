@@ -31,7 +31,7 @@
   })
 
   function onInput(event: Event) {
-    emit('pb-value-changed', event?.target?.value)
+    emit('pb-value-changed', (event?.target as HTMLInputElement).value)
   }
 </script>
 
