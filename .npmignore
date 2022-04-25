@@ -1,0 +1,15 @@
+.github/
+.nuxt/
+.output/
+
+lang/
+pages/
+test/
+
+.eslint*
+.yamllint*
+.stylelint*
+stylelint*
+planned-components.md
+TODO.md
+wrangler.toml
