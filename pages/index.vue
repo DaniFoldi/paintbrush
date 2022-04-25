@@ -19,5 +19,9 @@
       ghost
     </Button>
     <Checkbox>Test</Checkbox>
+    <Form>
+      <Input label="Username" />
+      <Input label="Password" type="password" />
+    </Form>
   </Container>
 </template>
