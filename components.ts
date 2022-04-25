@@ -7,7 +7,7 @@ export default defineNuxtModule({
     'components:dirs'(dirs) {
       dirs.push({
         path: fileURLToPath(new URL('components', import.meta.url)),
-        prefix: 'paintbrush'
+        prefix: 'pb'
       })
     }
   }
