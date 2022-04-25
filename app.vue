@@ -20,8 +20,11 @@
           Basic Use
         </SidebarLink>
         <SidebarLink color="orange" href="/docs" icon="flask">
-          Components
+          Docs
         </SidebarLink>
+        <SidebarCategory title="Components">
+          test
+        </SidebarCategory>
         <SidebarLink
           color="purple"
           href="https://github.com/DaniFoldi/Paintbrush"

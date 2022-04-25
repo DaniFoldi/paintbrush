@@ -117,6 +117,7 @@
       text: 'white',
       textOnPrimary: 'white',
       textOnSecondary: 'white',
+      textShade: 'gray',
       theme: 'black',
       unit: '4px'
     }),
@@ -137,6 +138,7 @@
       text: 'black',
       textOnPrimary: 'white',
       textOnSecondary: 'white',
+      textShade: 'gray',
       theme: 'blue',
       unit: '4px'
     }),
