@@ -8,5 +8,5 @@ export default defineNuxtConfig({
     langDir: 'lang/',
     lazy: true
   },
-  modules: [ './modules/docs', '@pinia/nuxt' ]
+  modules: [ './modules/docs' ]
 })

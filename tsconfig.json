@@ -3,7 +3,6 @@
   "compilerOptions": {
     "strict": true,
     "alwaysStrict": true,
-    "allowJs": false,
-    "types": [ "@pinia/nuxt" ]
+    "allowJs": false
   }
 }
