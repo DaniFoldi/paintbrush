@@ -4,13 +4,13 @@
 -->
 <template>
   {{ theme.theme }}
-  <Button @click="theme.theme = 'system'">
+  <Button @click="theme.use('system')">
     System
   </Button>
-  <Button @click="theme.theme = 'light'">
+  <Button @click="theme.use('light')">
     Light
   </Button>
-  <Button @click="theme.theme = 'dark'">
+  <Button @click="theme.use('dark')">
     Dark
   </Button>
 </template>
