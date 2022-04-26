@@ -18,18 +18,18 @@ Bug reports are welcome via Issues. Feel free to create PRs to fix them, impleme
 
 Use commit names starting with
 
-- :zap: `:zap:` implement or extend functionality (components, styles, etc.)
-- :toolbox: `:toolbox:` for features meant to simplify downstream usage
-- :hammer: `:hammer:` for bug fixes
-- :wrench: `:wrench:` for configurations
-- :vertical_traffic_light: `:vertical_traffic_light:` for tests
-- :memo: `:memo:` for docs
-- :mag: `:mag:` for lint fixes
-- :recycle: `:recycle:` for refactoring
-- :paperclip: `:paperclip:` for dependencies
-- :octocat: `:octocat:` for workflows
-- :construction: `:construction:` for experimental/temporary things
-- :paintbrush: `:paintbrush:` for everything else (=there should be another category here)
+|Emoji|Prefix|Description|
+|-----|------|-----------|
+|:zap:                   |`:zap:`                   |for implementing or extending functionality|
+|:hammer:                |`:hammer:`                |for bug fixes and non-breaking improvements|
+|:wrench:                |`:wrench:`                |for configurations                         |
+|:vertical_traffic_light:|`:vertical_traffic_light:`|for tests                                  |
+|:memo:                  |`:memo:`                  |for documentations                         |
+|:mag:                   |`:mag:`                   |for lint fixes                             |
+|:recycle:               |`:recycle:`               |for non-breaking refactoring               |
+|:paperclip:             |`:paperclip:`             |for dependencies                           |
+|:octocat:               |`:octocat:`               |for workflows                              |
+|:construction:          |`:construction:`          |for experimental or temporary changes      |
 
 ## Note: WIP
 
