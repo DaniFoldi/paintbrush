@@ -1,3 +1,15 @@
+let theme = 'system'
+
+export function useTheme() {
+  return {
+    theme,
+    use(newTheme: string) {
+      theme = newTheme
+    }
+  }
+}
+
+/*
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
 
@@ -16,3 +28,5 @@ export const useTheme = defineStore('paintbrush-theme', {
 if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useTheme, import.meta.hot))
 }
+
+*/
