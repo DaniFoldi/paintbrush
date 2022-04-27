@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-  import type { Docs } from '../../scripts/docs'
+  import type { Docs } from '../scripts/docs'
 
 
   const { data } = await useFetch<Docs>('/api/docs')
