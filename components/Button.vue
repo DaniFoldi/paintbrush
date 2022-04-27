@@ -15,7 +15,7 @@
   uppercase?: boolean [false] (Uppercase the text)
 -->
 <template>
-  <button :class="{ ghost: ghost, capitalize: capitalize, uppercase: uppercase }" :type="type">
+  <button :class="{ capitalize, ghost, uppercase }" :type="type">
     <slot />
   </button>
 </template>
