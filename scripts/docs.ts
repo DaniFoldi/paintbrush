@@ -15,6 +15,7 @@ const docs: Docs = {}
 })
 
 export interface Component {
+  category: string
   description: string
   example: string[]
   name: string
@@ -51,19 +52,26 @@ export async function generateComponentDocs() {
       .map(match => match.groups?.value)
       .join('\n')
       .split(/^( {2})?@/gm)
-      .map(entry => entry.trim())
+      .map(entry => entry.trimEnd())
+      .map(entry => entry.replace(/^\s{2}/gm, ''))
+      .map(entry => entry.replace(/^_+/gm, (underscore, ...args) => {
+        console.log(underscore)
+        console.log(args)
+        return ' '.repeat(underscore.length)
+      }))
       .filter(entry => entry.length > 0)
       .map(entry => entry.replace(/(^\n|\n$)/g, ''))
       .map(entry => {
         if (entry.includes('\n')) {
           const lines = entry.split('\n')
-          return [ lines[0] as keyof Component, lines.slice(1).join('\n').replace(/^ {2}/gm, '') ]
+          return [ lines[0] as keyof Component, lines.slice(1).join('\n') ]
         }
         const lines = entry.split(' ')
-        return [ lines[0] as keyof Component, lines.slice(1).join(' ').replace(/^ {2}/gm, '') ]
+        return [ lines[0] as keyof Component, lines.slice(1).join(' ') ]
       })
 
     const componentData: Component = {
+      category: '',
       description: '',
       example: [],
       name: '',

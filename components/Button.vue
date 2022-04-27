@@ -4,7 +4,7 @@
   @description Button component with optional gradient or ghost effect
   @usage
   <Button color="primary">
-  button
+  __button
   </Button>
   @property
   capitalize?: boolean [false] (Capitalize the text)
