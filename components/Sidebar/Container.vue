@@ -31,7 +31,7 @@
   grid-template-columns: 260px 1fr;
   grid-template-rows: 100%;
   row-gap: calc(2 * var(--unit));
-  @include mixins.full-size;
+  @include mixins.absolute-full-size;
 }
 
 div.sidebar-top, div.sidebar-middle, div.sidebar-bottom {
@@ -49,23 +49,22 @@ aside, main {
   @include mixins.with-fade;
 }
 
-aside {
-  grid-template-rows: 1fr auto 1fr;
-  background: var(--background);
-}
-
 main {
   background: var(--background-2);
   grid-template-rows: 1fr;
+
+  & > div {
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 
-aside > div, main > div {
-  @include mixins.double-unit-padding;
-}
-
-main > div {
-  max-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+aside {
+  grid-template-rows: 1fr auto 1fr;
+  background: var(--background);
+  & > div:not(:empty) {
+    @include mixins.double-unit-padding;
+  }
 }
 </style>
