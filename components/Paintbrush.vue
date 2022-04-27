@@ -46,10 +46,15 @@
       <Meta :content="twitterType" property="twitter:card" />
       <Meta :content="largeImageAlt" property="twitter:image:alt" />
       <Meta :content="twitterHandle" property="twitter:creator" />
+      <Meta content="True" name="HandheldFriendly" />
+      <!-- <Link color"colorMap.primary" href="faviconSvg" rel="mask-icon"/> -->
+      <Meta content="no-referrer-when-downgrade" name="referrer" />
+      <Meta :content="`Paintbrush ${version}`" name="generator" />
       <Title>{{ pageTitle }}</Title>
       <Link :href="canonical" rel="canonical" />
       <Link :href="faviconSvg" rel="icon" type="image/svg" />
       <Link :href="favicon" rel="icon" type="image/png" />
+      <Link :href="favicon" rel="shortcut icon" type="image/png" />
       <Link :href="favicon" rel="apple-touch-icon" />
       <Link v-if="manifest" :href="manifest" rel="manifest" />
       <Link href="https://cdnjs.com" rel="dns-prefetch" />
@@ -61,6 +66,7 @@
   import { computed } from 'vue'
   import { kebabCaseName, resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
+  import packageJson from '../package.json'
 
 
   interface PaintbrushProps {
@@ -149,6 +155,8 @@
     twitterType: 'summary_large_image',
     url: ''
   })
+
+  const version = packageJson.version
 
   const lightVariables = computed(() => Object.keys(props.lightColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.lightColors[color])};`).join(' '))
   const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
