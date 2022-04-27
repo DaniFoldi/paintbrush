@@ -1,13 +1,14 @@
 <template>
   <SidebarContainer>
     <template #sidebar-middle>
-      <AutoLink
+      <SidebarLink
         v-for="(component, path) in components"
         :key="component.name"
         :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')"
+        :icon="component.icon"
       >
         {{ component.name }}
-      </AutoLink>
+      </SidebarLink>
     </template>
     <template #content>
       <Container article>
