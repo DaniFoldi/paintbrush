@@ -18,6 +18,7 @@ export interface Component {
   category: string
   description: string
   example: string[]
+  icon: string
   name: string
   note: string
   property: {
@@ -74,6 +75,7 @@ export async function generateComponentDocs() {
       category: '',
       description: '',
       example: [],
+      icon: '',
       name: '',
       note: '',
       property: [],
