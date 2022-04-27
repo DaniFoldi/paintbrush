@@ -1,12 +1,20 @@
 <template>
-  <Container article>
-    <div v-for="(component, path) in components" :key="component.name">
-      <h3>{{ component.name }}</h3>
-      <AutoLink :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')">
+  <SidebarContainer>
+    <template #sidebar-middle>
+      <AutoLink
+        v-for="(component, path) in components"
+        :key="component.name"
+        :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')"
+      >
         {{ component.name }}
       </AutoLink>
-    </div>
-  </Container>
+    </template>
+    <template #content>
+      <Container article>
+        <NuxtChild />
+      </Container>
+    </template>
+  </SidebarContainer>
 </template>
 
 <script lang="ts" setup>

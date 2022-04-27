@@ -22,9 +22,6 @@
         <SidebarLink color="orange" href="/docs" icon="flask">
           Docs
         </SidebarLink>
-        <SidebarCategory title="Components">
-          test
-        </SidebarCategory>
         <SidebarLink
           color="purple"
           href="https://github.com/DaniFoldi/Paintbrush"
