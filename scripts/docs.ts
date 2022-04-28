@@ -55,11 +55,7 @@ export async function generateComponentDocs() {
       .split(/^( {2})?@/gm)
       .map(entry => entry.trimEnd())
       .map(entry => entry.replace(/^\s{2}/gm, ''))
-      .map(entry => entry.replace(/^_+/gm, (underscore, ...args) => {
-        console.log(underscore)
-        console.log(args)
-        return ' '.repeat(underscore.length)
-      }))
+      .map(entry => entry.replace(/^_+/gm, underscore => ' '.repeat(underscore.length)))
       .filter(entry => entry.length > 0)
       .map(entry => entry.replace(/(^\n|\n$)/g, ''))
       .map(entry => {
