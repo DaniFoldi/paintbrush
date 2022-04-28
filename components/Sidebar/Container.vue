@@ -52,10 +52,9 @@ aside, main {
 main {
   background: var(--background-2);
   grid-template-rows: 1fr;
+  max-height: 100vh;
 
   & > div {
-    max-height: 100vh;
-    overflow-x: hidden;
     overflow-y: auto;
   }
 }
@@ -63,6 +62,10 @@ main {
 aside {
   grid-template-rows: 1fr auto 1fr;
   background: var(--background);
+  max-height:100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
   & > div:not(:empty) {
     @include mixins.double-unit-padding;
   }

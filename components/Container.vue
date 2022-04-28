@@ -49,7 +49,7 @@
   @include mixins.no-padding;
 
   &.max {
-    @include mixins.full-size;
+    @include mixins.absolute-full-size;
   }
 
   &.article {
