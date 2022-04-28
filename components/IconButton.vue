@@ -15,13 +15,12 @@
 
   interface IconProps {
     color?: string
-    icon?: IconTypes
+    icon: IconTypes
     iconColor?: string
   }
 
   withDefaults(defineProps<IconProps>(), {
     color: 'primary',
-    icon: '',
     iconColor: 'white'
   })
 </script>
