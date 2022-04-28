@@ -21,6 +21,7 @@
 <script lang="ts" setup>
   import { computed, inject } from 'vue'
   import { resolve } from '../scripts/color'
+  import { IconTypes } from '../modules/icon-types'
 
 
   const props = withDefaults(defineProps<IconProps>(), {
@@ -33,7 +34,7 @@
 
   interface IconProps {
     color?: string
-    name: string
+    name: IconTypes
     size?: string
   }
 

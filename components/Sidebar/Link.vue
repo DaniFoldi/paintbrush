@@ -15,10 +15,13 @@
 </template>
 
 <script lang="ts" setup>
+  import { IconTypes } from '../../modules/icon-types'
+
+
   interface SidebarEntryProps {
     color?: string
     href: string
-    icon: string
+    icon: IconTypes
     reload?: boolean
   }
 
