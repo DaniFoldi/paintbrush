@@ -10,9 +10,12 @@
 </template>
 
 <script lang="ts" setup>
+  import { IconTypes } from '../modules/icon-types'
+
+
   interface IconProps {
     color?: string
-    icon?: string
+    icon?: IconTypes
     iconColor?: string
   }
 
