@@ -43,28 +43,29 @@
     uppercase: false
   })
 
-  const primaryColor = computed(() => {
-    return `var(--${props.color})`
-  })
-  const secondaryColor = computed(() => {
-    if (props.gradient === '') {
+  const colors = {
+    primary: computed(() => {
       return `var(--${props.color})`
-    }
-    return `var(--${props.gradient})`
-  })
-
-  const textColor = computed(() => {
-    return `var(--text-on-${props.color})`
-  })
+    }),
+    secondary: computed(() => {
+      if (props.gradient === '') {
+        return `var(--${props.color})`
+      }
+      return `var(--${props.gradient})`
+    }),
+    text: computed(() => {
+      return `var(--text-on-${props.color})`
+    })
+  }
 </script>
 
 <style lang="scss" scoped>
 @use '../assets/mixins.scss';
 
 button {
-  background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind(secondarycolor));
+  background-image: linear-gradient(45deg, v-bind('colors.primary'), v-bind('colors.secondary'));
 
-  color: v-bind(textcolor);
+  color: v-bind('colors.text');
   min-height: 32px;
   min-width: 80px;
   @include mixins.rounded;
