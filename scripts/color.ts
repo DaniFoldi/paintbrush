@@ -21,6 +21,4 @@ const textColor = (backgroundColor: string, dark: string, light: string): string
   return (Math.round(r * 299) + Math.round(g * 587) + Math.round(b * 114)) >= 128000 ? dark : light
 }
 
-export {
-  kebabCaseName, resolve, textColor
-}
+export { kebabCaseName, resolve, textColor }
