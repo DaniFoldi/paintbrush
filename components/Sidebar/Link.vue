@@ -37,32 +37,32 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/mixins.scss';
+  @use '../assets/mixins.scss';
 
-a {
-  font-size: 20px;
-  user-select: none;
+  a {
+    font-size: 20px;
+    user-select: none;
 
-  @include mixins.rounded;
-  @include mixins.with-fade;
-  @include mixins.unit-padding;
-  @include mixins.two-items;
+    @include mixins.rounded;
+    @include mixins.with-fade;
+    @include mixins.unit-padding;
+    @include mixins.two-items;
 
-  i {
-    @include mixins.unit-inline-margin;
+    i {
+      @include mixins.unit-inline-margin;
+    }
+
+    p {
+      @include mixins.no-margin;
+    }
+
+    &:hover, &.router-link-active {
+      background: var(--background-2);
+      text-decoration: none;
+    }
+
+    &:active {
+      background: var(--background-highlight);
+    }
   }
-
-  p {
-    @include mixins.no-margin;
-  }
-
-  &:hover, &.router-link-active {
-    background: var(--background-2);
-    text-decoration: none;
-  }
-
-  &:active {
-    background: var(--background-highlight);
-  }
-}
 </style>

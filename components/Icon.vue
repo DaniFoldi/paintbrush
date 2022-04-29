@@ -46,12 +46,12 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/mixins';
+  @use '../assets/mixins';
 
-i {
-  color: v-bind(computedcolor);
-  font-size: v-bind(size);
-  vertical-align: middle;
-  @include mixins.font('phosphor-icons');
-}
+  i {
+    color: v-bind(computedcolor);
+    font-size: v-bind(size);
+    vertical-align: middle;
+    @include mixins.font('phosphor-icons');
+  }
 </style>

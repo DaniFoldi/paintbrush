@@ -49,36 +49,36 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/mixins.scss';
+  @use '../assets/mixins.scss';
 
-.container {
-  @include mixins.no-margin;
-  @include mixins.no-padding;
+  .container {
+    @include mixins.no-margin;
+    @include mixins.no-padding;
 
-  &.max {
-    @include mixins.absolute-full-size;
-  }
+    &.max {
+      @include mixins.absolute-full-size;
+    }
 
-  &.article {
-    display: grid;
-    grid-template-columns: 1fr minmax(min-content, 850px) 1fr;
+    &.article {
+      display: grid;
+      grid-template-columns: 1fr minmax(min-content, 850px) 1fr;
 
-    & > ::v-deep(*) {
-      grid-column: 2 / 3;
+      & > ::v-deep(*) {
+        grid-column: 2 / 3;
+      }
+    }
+
+    &.center {
+      @include mixins.grid-center-items;
+    }
+
+    &.padded {
+      @include mixins.double-unit-padding;
+    }
+
+    &.split {
+      display: grid;
+      grid-template-columns: auto auto;
     }
   }
-
-  &.center {
-    @include mixins.grid-center-items;
-  }
-
-  &.padded {
-    @include mixins.double-unit-padding;
-  }
-
-  &.split {
-    display: grid;
-    grid-template-columns: auto auto;
-  }
-}
 </style>

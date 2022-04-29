@@ -17,12 +17,12 @@
 </template>
 
 <style lang="scss" scoped>
-:deep(p) {
-  display: inline;
-}
+  :deep(p) {
+    display: inline;
+  }
 
-a {
-  display: grid;
-  place-items: center;
-}
+  a {
+    display: grid;
+    place-items: center;
+  }
 </style>

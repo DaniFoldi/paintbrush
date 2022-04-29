@@ -42,13 +42,13 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/mixins.scss';
+  @use '../assets/mixins.scss';
 
-input {
-  height: 32px;
+  input {
+    height: 32px;
 
-  @include mixins.rounded;
-  @include mixins.no-border;
-  @include mixins.double-unit-inline-padding;
-}
+    @include mixins.rounded;
+    @include mixins.no-border;
+    @include mixins.double-unit-inline-padding;
+  }
 </style>

@@ -177,19 +177,19 @@
 </script>
 
 <style lang="scss">
-@use '../assets/fonts';
-@use '../assets/mixins';
-@use '../assets/reset';
-@use '../node_modules/phosphor-icons/src/css/icons.css';
+  @use '../assets/fonts';
+  @use '../assets/mixins';
+  @use '../assets/reset';
+  @use '../node_modules/phosphor-icons/src/css/icons.css';
 
-@include reset.paintbrush;
-@include fonts.inter;
-@include fonts.playfair-display;
-@include fonts.raleway;
+  @include reset.paintbrush;
+  @include fonts.inter;
+  @include fonts.playfair-display;
+  @include fonts.raleway;
 
-body {
-  @include mixins.font('raleway');
-  @include mixins.standard;
-  @include mixins.with-fade;
-}
+  body {
+    @include mixins.font('raleway');
+    @include mixins.standard;
+    @include mixins.with-fade;
+  }
 </style>

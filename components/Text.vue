@@ -85,42 +85,42 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/mixins';
+  @use '../assets/mixins';
 
-h1, h2, h3, p {
-  @include mixins.unit-block-margin;
-  @include mixins.standard-text;
+  h1, h2, h3, p {
+    @include mixins.unit-block-margin;
+    @include mixins.standard-text;
 
-  &.bold {
-    @include mixins.bold;
+    &.bold {
+      @include mixins.bold;
+    }
+
+    &.italic {
+      @include mixins.italic;
+    }
+
+    &.light {
+      @include mixins.light;
+    }
+
+    &.inline {
+      display: inline;
+    }
+
+    &.underline {
+      @include mixins.underline;
+    }
+
+    &.important {
+      font-weight: 800;
+      @include mixins.font('inter');
+    }
+
+    &.gradient {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      background-clip: text;
+      color: transparent;
+      font-style: normal;
+    }
   }
-
-  &.italic {
-    @include mixins.italic;
-  }
-
-  &.light {
-    @include mixins.light;
-  }
-
-  &.inline {
-    display: inline;
-  }
-
-  &.underline {
-    @include mixins.underline;
-  }
-
-  &.important {
-    font-weight: 800;
-    @include mixins.font('inter');
-  }
-
-  &.gradient {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    background-clip: text;
-    color: transparent;
-    font-style: normal;
-  }
-}
 </style>

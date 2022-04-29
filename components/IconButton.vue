@@ -35,11 +35,11 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/mixins.scss';
+  @use '../assets/mixins.scss';
 
-button {
-  @include mixins.no-border;
-  @include mixins.rounded;
-  @include mixins.two-items;
-}
+  button {
+    @include mixins.no-border;
+    @include mixins.rounded;
+    @include mixins.two-items;
+  }
 </style>
