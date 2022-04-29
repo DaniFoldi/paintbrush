@@ -6,7 +6,7 @@
         :key="component.name"
         :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')"
         :icon="component.icon"
-        :icon-color="$route.path.includes(component.name) ? 'var(--secondary)' : 'var(--text)'"
+        :icon-color="$route.path.endsWith(`/${component.name}`) ? 'var(--secondary)' : 'var(--text)'"
       >
         <Glue split>
           <Text>{{ component.name }}</Text>
