@@ -6,7 +6,7 @@
 -->
 
 <template>
-  <div class="container" :class="type">
+  <div class="container" :class="[ type, padded ? 'padded' : '' ]">
     <slot />
   </div>
 </template>
@@ -16,6 +16,7 @@
     article?: boolean
     center?: boolean
     max?: boolean
+    padded?: boolean
     split?: boolean
   }
 
@@ -23,6 +24,7 @@
     article: false,
     center: false,
     max: false,
+    padded: false,
     split: false
   })
 
@@ -67,6 +69,10 @@
 
   &.center {
     @include mixins.grid-center-items;
+  }
+
+  &.padded {
+    @include mixins.unit-padding;
   }
 
   &.split {
