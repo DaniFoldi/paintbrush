@@ -1,6 +1,7 @@
 import { access, readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
 import { globbyStream } from 'globby'
+import { IconTypes } from '../modules/icon-types'
 
 
 const docs: Docs = {}
@@ -18,7 +19,7 @@ export interface Component {
   category: string
   description: string
   example: string[]
-  icon: string
+  icon: IconTypes
   name: string
   note: string
   property: {
@@ -71,7 +72,7 @@ export async function generateComponentDocs() {
       category: '',
       description: '',
       example: [],
-      icon: '',
+      icon: 'question',
       name: '',
       note: '',
       property: [],
