@@ -1,6 +1,6 @@
 <!--!
   @name Container
-  @version 1.0.0
+  @version 1.1.0
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
