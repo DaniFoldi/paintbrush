@@ -16,11 +16,13 @@
 </template>
 
 <script lang="ts" setup>
+  import { IconStyles } from '../../modules/icons'
   import { IconTypes } from '../../modules/icon-types'
 
 
   interface SidebarEntryProps {
     iconColor?: string
+    iconStyle?: IconStyles
     href: string
     icon: IconTypes
     reload?: boolean
@@ -28,6 +30,7 @@
 
   withDefaults(defineProps<SidebarEntryProps>(), {
     iconColor: 'primary',
+    iconStyle: 'regular',
     reload: false
   })
 </script>

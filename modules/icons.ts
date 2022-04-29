@@ -3,6 +3,8 @@ import { fileURLToPath } from 'node:url'
 import { defineNuxtModule } from '@nuxt/kit'
 
 
+export type IconStyles = 'bold' | 'duotone' | 'fill' | 'light' | 'regular' | 'thin'
+
 export default defineNuxtModule({
   setup(options, nuxt) {
     nuxt.hook('build:before', async () => {

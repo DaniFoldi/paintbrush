@@ -11,6 +11,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { IconStyles } from '../modules/icons'
   import { IconTypes } from '../modules/icon-types'
 
 
@@ -18,11 +19,13 @@
     color?: string
     icon: IconTypes
     iconColor?: string
+    iconStyle?: IconStyles
   }
 
   withDefaults(defineProps<IconProps>(), {
     color: 'primary',
-    iconColor: 'white'
+    iconColor: 'white',
+    iconStyle: 'regular'
   })
 </script>
 
