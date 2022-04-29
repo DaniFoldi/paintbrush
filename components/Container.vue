@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <div class="container" :class="[ type, padded ? 'padded' : '' ]">
+  <div class="container" :class="[ type, center ? 'center' : '', padded ? 'padded' : '' ]">
     <slot />
   </div>
 </template>
@@ -32,15 +32,13 @@
   let type = ''
 
   if (Object.values(props).filter(Boolean).length > 1) {
-    console.warn('Container: Only one of the following props should be set: article, center, max, split')
+    console.warn('Container: Only one of the following props should be set: article, max, split')
   }
 
-  if (!props.article && !props.center && !props.max) {
+  if (!props.article && !props.max && !props.split) {
     type = 'max'
   } else if (props.article) {
     type = 'article'
-  } else if (props.center) {
-    type = 'center'
   } else if (props.max) {
     type = 'max'
   } else if (props.split) {
