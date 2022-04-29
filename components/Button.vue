@@ -49,31 +49,31 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/mixins.scss';
+  @use '../assets/mixins.scss';
 
-button {
+  button {
     background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind(secondarycolor));
 
-  min-height: 32px;
-  min-width: 80px;
-  @include mixins.rounded;
-  @include mixins.primary-color;
-  @include mixins.no-border;
-  @include mixins.double-unit-inline-padding;
-  @include mixins.no-block-padding;
     color: v-bind(textcolor);
+    min-height: 32px;
+    min-width: 80px;
+    @include mixins.rounded;
+    @include mixins.primary-color;
+    @include mixins.no-border;
+    @include mixins.double-unit-inline-padding;
+    @include mixins.no-block-padding;
 
-  &.ghost {
-    background: transparent;
-    color: var(--text);
-  }
+    &.ghost {
+      background: transparent;
+      color: var(--text);
+    }
 
-  &.capitalize {
-    @include mixins.capitalize;
-  }
+    &.capitalize {
+      @include mixins.capitalize;
+    }
 
-  &.uppercase {
-    @include mixins.uppercase;
+    &.uppercase {
+      @include mixins.uppercase;
+    }
   }
-}
 </style>
