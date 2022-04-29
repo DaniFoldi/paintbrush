@@ -6,7 +6,7 @@
   <AutoLink :href="href" :reload="reload">
     <Icon
       center
-      :color="color"
+      :color="iconColor"
       :name="icon"
       size="16px"
     />
@@ -19,14 +19,14 @@
 
 
   interface SidebarEntryProps {
-    color?: string
+    iconColor?: string
     href: string
     icon: IconTypes
     reload?: boolean
   }
 
   withDefaults(defineProps<SidebarEntryProps>(), {
-    color: 'primary',
+    iconColor: 'primary',
     reload: false
   })
 </script>

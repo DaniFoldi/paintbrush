@@ -16,16 +16,16 @@
         <SidebarLink href="/" icon="rocket-launch">
           Welcome
         </SidebarLink>
-        <SidebarLink color="green" href="/tutorial" icon="code">
+        <SidebarLink href="/tutorial" icon="code" icon-color="green">
           Basic Use
         </SidebarLink>
-        <SidebarLink color="orange" href="/docs" icon="flask">
+        <SidebarLink href="/docs" icon="flask" icon-color="orange">
           Docs
         </SidebarLink>
         <SidebarLink
-          color="purple"
           href="https://github.com/DaniFoldi/Paintbrush"
           icon="github-logo"
+          icon-color="purple"
           reload
         >
           Source
