@@ -15,9 +15,9 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/mixins.scss';
+  @use '../assets/mixins.scss';
 
-label {
-  @include mixins.two-items;
-}
+  label {
+    @include mixins.two-items;
+  }
 </style>
