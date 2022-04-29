@@ -6,8 +6,14 @@
         :key="component.name"
         :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')"
         :icon="component.icon"
+        :icon-color="$route.path.includes(component.name) ? 'var(--secondary)' : 'var(--text)'"
       >
-        {{ component.name }}
+        <Glue split>
+          <Text>{{ component.name }}</Text>
+          <Text light>
+            {{ component.version }}
+          </Text>
+        </Glue>
       </SidebarLink>
     </template>
     <template #content>
@@ -25,3 +31,13 @@
   const { data } = await useFetch<Docs>('/api/docs')
   const components = data.value
 </script>
+
+<style lang="scss" scoped>
+/*a {
+  color: var(--text-2);
+
+  &.router-link-active {
+    color: var(--secondary);
+  }
+}*/
+</style>
