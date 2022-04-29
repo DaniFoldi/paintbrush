@@ -6,7 +6,7 @@
 -->
 
 <template>
-  <div :class="[ 'container', type ]">
+  <div class="container" :class="type">
     <slot />
   </div>
 </template>
@@ -16,18 +16,20 @@
     article?: boolean
     center?: boolean
     max?: boolean
+    split?: boolean
   }
 
   const props = withDefaults(defineProps<ContainerProps>(), {
     article: false,
     center: false,
-    max: false
+    max: false,
+    split: false
   })
 
   let type = ''
 
   if (Object.values(props).filter(Boolean).length > 1) {
-    console.warn('Container: Only one of the following props should be set: article, center, max')
+    console.warn('Container: Only one of the following props should be set: article, center, max, split')
   }
 
   if (!props.article && !props.center && !props.max) {
@@ -38,6 +40,8 @@
     type = 'center'
   } else if (props.max) {
     type = 'max'
+  } else if (props.split) {
+    type = 'split'
   }
 </script>
 
@@ -63,6 +67,11 @@
 
   &.center {
     @include mixins.grid-center-items;
+  }
+
+  &.split {
+    display: grid;
+    grid-template-columns: auto auto;
   }
 }
 </style>
