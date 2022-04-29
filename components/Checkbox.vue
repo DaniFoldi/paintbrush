@@ -1,6 +1,7 @@
 <!--!
   @name Checkbox
   @version 1.0.0
+  @icon check-square
 -->
 <template>
   <label>

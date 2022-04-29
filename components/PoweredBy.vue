@@ -1,6 +1,7 @@
 <!--!
   @name PoweredBy
   @version 1.0.0
+  @icon plug
 -->
 <template>
   <AutoLink href="https://paintbrush.danifoldi.com" reload>

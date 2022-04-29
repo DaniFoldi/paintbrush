@@ -1,3 +1,10 @@
+<!--!
+  @name Form
+  @version 1.0.0
+  @icon cursor-text
+-->
+
+
 <template>
   <form @submit.prevent="$emit('pb-submit', $event.target as HTMLFormElement)">
     <slot />

@@ -1,6 +1,7 @@
 <!--!
   @name MultilineCode
   @version 1.0.0
+  @icon code
 -->
 <template>
   <!-- eslint-disable-next-line vue/no-v-html -->

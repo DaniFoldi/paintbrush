@@ -1,3 +1,9 @@
+<!--!
+  @name Glue
+  @version 0.1.0
+  @icon columns
+-->
+
 <template>
   <div :class="{ split }">
     <slot />

@@ -1,6 +1,7 @@
 <!--!
   @name IconButton
   @version 1.0.0
+  @icon hand-pointing
 -->
 <template>
   <button type="button">

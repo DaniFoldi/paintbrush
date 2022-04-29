@@ -1,6 +1,7 @@
 <!--!
   @name SidebarContainer
   @version 1.0.0
+  @icon sidebar-simple
 -->
 <template>
   <div class="sidebar-container">

@@ -1,3 +1,9 @@
+<!--!
+  @name Input
+  @version 0.0.1
+  @icon textbox
+-->
+
 <template>
   <label>
     <p>{{ label }}</p>

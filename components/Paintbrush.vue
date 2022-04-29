@@ -1,6 +1,7 @@
 <!--!
   @name Paintbrush
   @version 1.0.0
+  @icon paintbrush
   @description Main component to be used everywhere
   @usage
   <Paintbrush>

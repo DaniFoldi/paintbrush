@@ -1,6 +1,7 @@
 <!--!
   @name Icon
   @version 1.0.0
+  @icon palette
   @description Icon component from Phosphor Icons
   @usage
   <Icon name="gear" />

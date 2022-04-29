@@ -1,3 +1,8 @@
+<!--!
+  @name SidebarCategory
+  @version 1.0.0
+  @icon sticker
+-->
 <template>
   <Text bold uppercase>
     <slot />

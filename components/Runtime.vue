@@ -1,6 +1,7 @@
 <!--!
   @name Runtime
   @version 1.0.0
+  @icon brain
   @description Render any html at runtime
   @usage <Runtime element="h1" html="Hello World" />
   @property

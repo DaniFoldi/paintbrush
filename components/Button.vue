@@ -2,6 +2,7 @@
   @name Button
   @version 1.1.0
   @description Button component with optional gradient or ghost effect
+  @icon hand-pointing
   @usage
   <Button color="primary">
   __button
