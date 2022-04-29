@@ -1,11 +1,10 @@
 <!--!
   @name MultilineCode
-  @version 1.0.0
+  @version 1.1.0
   @icon code
 -->
 <template>
-  <!-- eslint-disable-next-line vue/no-v-html -->
-  <pre><code :class="[ 'hljs', highlight.language ]" v-html="highlight.value" /></pre>
+  <pre><Runtime :class="classes" element="code" :rendered="highlight.value" /></pre>
 </template>
 
 <script lang="ts" setup>
@@ -25,6 +24,7 @@
   const highlight = computed(() => {
     return props.language === 'auto' ? hljs.highlightAuto(props.code) : hljs.highlight(props.code, { language: props.language })
   })
+  const classes = [ 'hljs', highlight.value.language ].filter(Boolean).join(' ')
 </script>
 
 <style lang="scss">
