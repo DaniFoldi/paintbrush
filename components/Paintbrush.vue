@@ -164,6 +164,8 @@
   const htmlStyle = useThemeManager(lightVariables.value, darkVariables.value)
   const theme = useTheme()
 
+  // TODO tell eslint about setThemeColors
+  // eslint-disable-next-line no-undef
   setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
 
   useHead({
