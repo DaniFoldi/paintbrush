@@ -71,7 +71,7 @@
     @include mixins.grid-center-items;
   }
 
-  &.padded {
+  &.padded {
     @include mixins.unit-padding;
   }
 
