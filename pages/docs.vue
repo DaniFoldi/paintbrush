@@ -18,9 +18,7 @@
       </SidebarLink>
     </template>
     <template #content>
-      <Container article>
-        <NuxtChild />
-      </Container>
+      <NuxtChild />
     </template>
   </SidebarContainer>
 </template>
