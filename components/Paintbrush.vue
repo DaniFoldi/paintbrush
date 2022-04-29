@@ -164,6 +164,8 @@
   const htmlStyle = useThemeManager(lightVariables.value, darkVariables.value)
   const theme = useTheme()
 
+  setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
+
   useHead({
     // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags utf-8 is needed
     charset: 'UTF-8',
