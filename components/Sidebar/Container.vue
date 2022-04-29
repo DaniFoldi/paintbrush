@@ -61,9 +61,9 @@ main {
 }
 
 aside {
-  grid-template-rows: 1fr auto 1fr;
   background: var(--background);
-  max-height:100vh;
+  grid-template-rows: 1fr auto 1fr;
+  max-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
 

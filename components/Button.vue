@@ -62,16 +62,16 @@
 @use '../assets/mixins.scss';
 
 button {
+  background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind(secondarycolor));
+
+  color: v-bind(textcolor);
+  min-height: 32px;
+  min-width: 80px;
   @include mixins.rounded;
   @include mixins.primary-color;
   @include mixins.no-border;
   @include mixins.double-unit-inline-padding;
   @include mixins.no-block-padding;
-
-  color: v-bind(textColor);
-  background-image: linear-gradient(45deg, v-bind(primaryColor), v-bind(secondaryColor));
-  min-width: 80px;
-  min-height: 32px;
 
   &.ghost {
     background: transparent;

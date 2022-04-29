@@ -21,24 +21,27 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+@use '../assets/mixins.scss';
 
-div{
-&.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: var(--unit);
+div {
 
-  ::v-deep(:last-child) {
-    justify-self: end;
+  &.split {
+    display: grid;
+    grid-gap: var(--unit);
+    grid-template-columns: 1fr 1fr;
+
+    ::v-deep(:last-child) {
+      justify-self: end;
+    }
   }
-}
-::v-deep(*) {
-  display: inline;
-  margin-inline: 0;
-}
-::v-deep(p) {
-  @include mixins.no-margin;
-}
+
+  ::v-deep(*) {
+    display: inline;
+    margin-inline: 0;
+  }
+
+  ::v-deep(p) {
+    @include mixins.no-margin;
+  }
 }
 </style>
