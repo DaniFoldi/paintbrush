@@ -43,29 +43,17 @@
     uppercase: false
   })
 
-  const colors = {
-    primary: computed(() => {
-      return `var(--${props.color})`
-    }),
-    secondary: computed(() => {
-      if (props.gradient === '') {
-        return `var(--${props.color})`
-      }
-      return `var(--${props.gradient})`
-    }),
-    text: computed(() => {
-      return `var(--text-on-${props.color})`
-    })
-  }
+  const primarycolor = computed(() => `var(--${props.color})`)
+  const secondarycolor = computed(() => props.gradient ? `var(--${props.gradient})` : `var(--${props.color})`)
+  const textcolor = computed(() => `var(--text-on-${props.color})`)
 </script>
 
 <style lang="scss" scoped>
 @use '../assets/mixins.scss';
 
 button {
-  background-image: linear-gradient(45deg, v-bind('colors.primary'), v-bind('colors.secondary'));
+    background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind(secondarycolor));
 
-  color: v-bind('colors.text');
   min-height: 32px;
   min-width: 80px;
   @include mixins.rounded;
@@ -73,6 +61,7 @@ button {
   @include mixins.no-border;
   @include mixins.double-unit-inline-padding;
   @include mixins.no-block-padding;
+    color: v-bind(textcolor);
 
   &.ghost {
     background: transparent;
