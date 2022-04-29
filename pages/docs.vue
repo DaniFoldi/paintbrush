@@ -31,13 +31,3 @@
   const { data } = await useFetch<Docs>('/api/docs')
   const components = data.value
 </script>
-
-<style lang="scss" scoped>
-/*a {
-  color: var(--text-2);
-
-  &.router-link-active {
-    color: var(--secondary);
-  }
-}*/
-</style>
