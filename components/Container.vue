@@ -72,7 +72,7 @@
   }
 
   &.padded {
-    @include mixins.unit-padding;
+    @include mixins.double-unit-padding;
   }
 
   &.split {

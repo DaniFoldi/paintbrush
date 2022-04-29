@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container padded>
     <ThemeToggle />
     <Text>asd</Text>
     <Icon name="gear" />

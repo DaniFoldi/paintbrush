@@ -1,5 +1,5 @@
 <template>
-  <Container article>
+  <Container article padded>
     <Text gradient important title>
       How To Install Paintbrush
     </Text>

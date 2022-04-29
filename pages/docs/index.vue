@@ -1,5 +1,5 @@
 <template>
-  <Container center>
+  <Container center padded>
     <Glue>
       <Text important title>
         Choose a
