@@ -10,6 +10,7 @@
       :color="iconColor"
       :name="icon"
       size="16px"
+      :style="iconStyle"
     />
     <Text><slot /></Text>
   </AutoLink>

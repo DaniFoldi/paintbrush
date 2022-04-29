@@ -5,7 +5,12 @@
 -->
 <template>
   <button type="button">
-    <Icon :color="iconColor" :name="icon" size="20px" />
+    <Icon
+      :color="iconColor"
+      :name="icon"
+      size="20px"
+      :style="iconStyle"
+    />
     <Text><slot /></Text>
   </button>
 </template>

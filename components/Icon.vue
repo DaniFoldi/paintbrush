@@ -16,7 +16,7 @@
   @note For an icon list see https://phosphoricons.com/
 -->
 <template>
-  <i :class="`ph-${name}`" />
+  <i :class="`ph-${name}${style !== 'regular' ? `-${style}` : ''}`" />
 </template>
 
 <script lang="ts" setup>
