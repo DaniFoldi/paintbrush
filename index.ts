@@ -1,26 +1,26 @@
 import { fileURLToPath } from 'node:url'
-import { readdirSync } from 'node:fs'
-import { defineNuxtModule } from '@nuxt/kit'
-import camelCase from 'camelcase'
+import { addComponentsDir, addAutoImportDir, defineNuxtModule } from '@nuxt/kit'
 
 
 export default defineNuxtModule({
-  hooks: {
-    'components:dirs'(dirs) {
-      dirs.push({
-        path: fileURLToPath(new URL('components', import.meta.url)),
-        prefix: 'pb'
-      })
-    },
-    'autoImports:sources'(sources) {
-      const imports = readdirSync(fileURLToPath(new URL('composables', import.meta.url))).map(file => camelCase(`use-${file.split('.', 1)}`))
-
-      sources.push({
-        from: 'paintbrush-ui',
-        names: imports,
-        imports,
-        priority: -1
-      })
+  defaults: {
+    mountComponents: true,
+    prefixComponents: true,
+    mountComposables: true
+  },
+  meta: {
+    name: 'paintbrush-ui',
+    configKey: 'paintbrush',
+    compatibility: {
+      nuxt: '^3.0.0'
+    }
+  },
+  async setup(moduleOptions, nuxt) {
+    if (moduleOptions.mountComposables) {
+      await addAutoImportDir(fileURLToPath(new URL('composables', import.meta.url)))
+    }
+    if (moduleOptions.mountComponents) {
+      await (moduleOptions.prefixComponents ? addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)), prefix: 'Pb' }) : addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)) }))
     }
   }
 })
