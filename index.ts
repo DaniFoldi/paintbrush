@@ -13,7 +13,7 @@ export default defineNuxtModule({
       })
     },
     'autoImports:sources'(sources) {
-      const imports = readdirSync(fileURLToPath(new URL('composables', import.meta.url))).map(file => camelCase(`use-${file}`))
+      const imports = readdirSync(fileURLToPath(new URL('composables', import.meta.url))).map(file => camelCase(`use-${file.split('.', 1)}`))
 
       sources.push({
         from: 'paintbrush-ui',
