@@ -1,6 +1,6 @@
 <!--!
   @name Container
-  @version 1.1.0
+  @version 1.1.1
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
@@ -31,7 +31,7 @@
 
   let type = ''
 
-  if (Object.values(props).filter(Boolean).length > 1) {
+  if (Object.values({ article: props.article, max: props.max, split: props.split }).filter(Boolean).length > 1) {
     console.warn('Container: Only one of the following props should be set: article, max, split')
   }
 
