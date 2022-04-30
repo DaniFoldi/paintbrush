@@ -2,6 +2,7 @@
   @name SidebarLink
   @version 1.0.0
   @icon link-simple
+  @category Navigation
 -->
 <template>
   <AutoLink :href="href" :reload="reload">

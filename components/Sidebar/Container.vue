@@ -2,6 +2,7 @@
   @name SidebarContainer
   @version 1.0.0
   @icon sidebar-simple
+  @category Navigation
 -->
 <template>
   <div class="sidebar-container">
