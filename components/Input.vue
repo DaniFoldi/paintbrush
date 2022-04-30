@@ -10,7 +10,7 @@
     <input
       :placeholder="placeholder"
       :type="type"
-      :value="value"
+      :value="modelValue"
       @input="onInput"
     >
   </label>
@@ -18,26 +18,26 @@
 
 <script lang="ts" setup>
   interface InputEmits {
-    (e: 'pb-value-changed', value: string): void
+    (e: 'update:modelValue', value: string): void
   }
 
   interface InputProps {
     label: string
     placeholder?: string
+    modelValue?: string
     type?: string
-    value?: string
   }
 
   const emit = defineEmits<InputEmits>()
 
   withDefaults(defineProps<InputProps>(), {
     placeholder: '',
-    type: 'text',
-    value: ''
+    modelValue: '',
+    type: 'text'
   })
 
   function onInput(event: Event) {
-    emit('pb-value-changed', (event?.target as HTMLInputElement).value)
+    emit('update:modelValue', (event?.target as HTMLInputElement).value)
   }
 </script>
 
