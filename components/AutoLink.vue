@@ -12,13 +12,16 @@
 
 <script lang="ts" setup>
   interface AutoLinkProps {
-    href?: string
-    reload?: boolean
+    href: string
   }
-  withDefaults(defineProps<AutoLinkProps>(), {
-    href: '',
-    reload: false
-  })
+
+  const props = defineProps<AutoLinkProps>()
+  let reload = true
+  try {
+    new URL(props.href)
+  } catch {
+    reload = false
+  }
 </script>
 
 <style lang="scss" scoped>

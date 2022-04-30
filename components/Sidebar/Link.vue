@@ -1,11 +1,11 @@
 <!--!
   @name SidebarLink
-  @version 1.0.0
+  @version 1.1.0
   @icon link-simple
   @category Navigation
 -->
 <template>
-  <AutoLink :href="href" :reload="reload">
+  <AutoLink :href="href">
     <Icon
       center
       :color="iconColor"
@@ -27,13 +27,11 @@
     iconStyle?: IconStyles
     href: string
     icon: IconTypes
-    reload?: boolean
   }
 
   withDefaults(defineProps<SidebarEntryProps>(), {
     iconColor: 'primary',
-    iconStyle: 'regular',
-    reload: false
+    iconStyle: 'regular'
   })
 </script>
 
