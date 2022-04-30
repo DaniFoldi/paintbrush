@@ -371,6 +371,10 @@ jobs:
         node-version: 16
         cache: npm
 
+    - name: Install dependencies
+      run: |
+        npm ci --no-progress
+
     - uses: JS-DevTools/npm-publish@v1
       with:
         token: ${{ secrets.NPM_TOKEN }}
