@@ -6,18 +6,20 @@
     <AutoLink href="https://paintbrush.danifoldi.com" reload>
       link
     </AutoLink>
-    <Button color="primary">
-      button
-    </Button>
-    <Button capitalize color="secondary">
-      second button
-    </Button>
-    <Button color="primary" gradient="secondary">
-      gradient
-    </Button>
-    <Button ghost uppercase>
-      ghost
-    </Button>
+    <ButtonGroup>
+      <Button color="primary">
+        button
+      </Button>
+      <Button capitalize color="secondary">
+        second button
+      </Button>
+      <Button color="primary" gradient="secondary">
+        gradient
+      </Button>
+      <Button ghost uppercase>
+        ghost
+      </Button>
+    </ButtonGroup>
     <Checkbox>Test</Checkbox>
     <Form>
       <Input label="Username" />

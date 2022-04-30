@@ -4,16 +4,18 @@
   @icon moon
 -->
 <template>
-  {{ theme.theme }}
-  <Button @click="theme.use('system')">
-    System
-  </Button>
-  <Button @click="theme.use('light')">
-    Light
-  </Button>
-  <Button @click="theme.use('dark')">
-    Dark
-  </Button>
+  <Text>{{ theme.theme }}</Text>
+  <ButtonGroup>
+    <Button @click="theme.use('system')">
+      System
+    </Button>
+    <Button @click="theme.use('light')">
+      Light
+    </Button>
+    <Button @click="theme.use('dark')">
+      Dark
+    </Button>
+  </ButtonGroup>
 </template>
 
 <script lang="ts" setup>
