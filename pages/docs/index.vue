@@ -1,15 +1,15 @@
 <template>
   <Container center max padded>
-    <Glue>
-      <Text important title>
+    <Text important title>
+      <Text part>
         Choose a
       </Text>
-      <Text gradient important title>
+      <Text gradient part>
         component
       </Text>
-      <Text important title>
+      <Text part>
         on the left
       </Text>
-    </Glue>
+    </Text>
   </Container>
 </template>

@@ -1,11 +1,9 @@
 <template>
   <Container article>
-    <Glue>
-      <Text title>
-        {{ component.name }}
-      </Text>
-      <Text>{{ component.version }}</Text>
-    </Glue>
+    <Text title>
+      {{ component.name }}
+    </Text>
+    <Text>{{ component.version }}</Text>
     <Text italic>
       {{ component.description }}
     </Text>
@@ -17,15 +15,15 @@
     </Text>
 
     <div v-for="property in component.property" :key="property.name" class="property">
-      <Glue>
-        <Text bold>
+      <Text>
+        <Text bold part>
           {{ property.name }}
         </Text>
         <Text>: {{ property.type }}</Text>
-        <Text light>
-          {{ property.required ? ' (required)' : '' }}
+        <Text v-if="property.required" light part>
+          (required)
         </Text>
-      </Glue>
+      </Text>
       <Text italic>
         {{ property.description }}
       </Text>

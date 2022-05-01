@@ -15,6 +15,9 @@
   <h3 v-else-if="mode === 'h3'" :class="classes">
     <slot />
   </h3>
+  <span v-else-if="mode === 'part'" :class="classes">
+    <slot />
+  </span>
   <p v-else :class="classes">
     <slot />
   </p>
@@ -28,6 +31,7 @@
     inline?: boolean
     italic?: boolean
     light?: boolean
+    part?: boolean
     sectiontitle?: boolean
     subtitle?: boolean
     title?: boolean
@@ -41,13 +45,14 @@
     inline: false,
     italic: false,
     light: false,
+    part: false,
     sectiontitle: false,
     subtitle: false,
     title: false,
     underline: false
   })
 
-  let mode = 'body'
+  let mode = 'normal'
   if (props.title) {
     mode = 'h1'
     if (props.subtitle || props.sectiontitle) {
@@ -60,6 +65,8 @@
     }
   } else if (props.sectiontitle) {
     mode = 'h3'
+  } else if (props.part) {
+    mode = 'part'
   }
 
   if (props.bold) {
@@ -87,7 +94,7 @@
 <style lang="scss" scoped>
   @use '../assets/mixins';
 
-  h1, h2, h3, p {
+  h1, h2, h3, p, span {
     @include mixins.unit-block-margin;
     @include mixins.standard-text;
 
