@@ -100,8 +100,8 @@
     colorScheme: () => ({
       black: '#111',
       blue: '#3E56F4',
-      darkergray: '#252525',
-      darkestgray: '#1A1A1A',
+      darkergray: '#363636',
+      darkestgray: '#252525',
       darkgray: '#555',
       gray: '#AAA',
       green: '#11E454',
