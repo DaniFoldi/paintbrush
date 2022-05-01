@@ -1,6 +1,6 @@
 <!--!
   @name Container
-  @version 1.3.0
+  @version 1.3.1
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
@@ -106,7 +106,7 @@
 
       &::before {
         background: var(--badge);
-        border-radius: 50px;
+        border-radius: 9px;
         color: var(--text-on-badge);
         content: attr(data-left-badge);
         display: inline;
@@ -114,11 +114,12 @@
         height: 18px;
         left: -7px;
         line-height: 18px;
+        min-width: 18px;
+        padding-inline: 2px;
         position: absolute;
         text-align: center;
         top: -7px;
         vertical-align: middle;
-        width: 18px;
 
         @include mixins.font('inter');
       }
@@ -129,19 +130,20 @@
 
       &::after {
         background: var(--badge);
-        border-radius: 50%;
+        border-radius: 9px;
         color: var(--text-on-badge);
         content: attr(data-right-badge);
         display: inline;
         font-size: 11px;
         height: 18px;
         line-height: 18px;
+        min-width: 18px;
+        padding-inline: 2px;
         position: absolute;
         right: -7px;
         text-align: center;
         top: -7px;
         vertical-align: middle;
-        width: 18px;
 
         @include mixins.font('inter');
       }
