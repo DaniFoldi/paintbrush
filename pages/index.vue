@@ -2,6 +2,7 @@
   <Container padded>
     <ThemeToggle />
     <Text>asd</Text>
+    <Separator />
     <Icon name="gear" />
     <AutoLink href="https://paintbrush.danifoldi.com" reload>
       link
