@@ -82,11 +82,11 @@
 }
 
 @mixin double-unit-block-margin {
-  margin: calc(var(--unit) * 2);
+  margin-block: calc(var(--unit) * 2);
 }
 
 @mixin double-unit-inline-margin {
-  margin: calc(var(--unit) * 2);
+  margin-inline: calc(var(--unit) * 2);
 }
 
 @mixin unit-block-margin {
