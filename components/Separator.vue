@@ -23,6 +23,8 @@
   hr {
     border-color: var(--background-2);
     border-radius: 1px;
+    transition: border-color .25s ease-in-out;
+
     @include mixins.double-unit-block-margin;
 
     &.spaced {
