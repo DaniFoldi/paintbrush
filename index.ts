@@ -15,7 +15,7 @@ export default defineNuxtModule({
       nuxt: '^3.0.0'
     }
   },
-  async setup(moduleOptions, nuxt) {
+  async setup(moduleOptions) {
     if (moduleOptions.mountComposables) {
       await addAutoImportDir(fileURLToPath(new URL('composables', import.meta.url)))
     }

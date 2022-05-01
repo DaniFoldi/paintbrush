@@ -23,16 +23,16 @@
 
   interface InputProps {
     label: string
-    placeholder?: string
     modelValue?: string
+    placeholder?: string
     type?: string
   }
 
   const emit = defineEmits<InputEmits>()
 
   withDefaults(defineProps<InputProps>(), {
-    placeholder: '',
     modelValue: '',
+    placeholder: '',
     type: 'text'
   })
 

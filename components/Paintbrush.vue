@@ -88,8 +88,8 @@
     manifest?: string
     ogType?: string
     pageTitle?: string
-    twitterType?: string
     twitterHandle?: string
+    twitterType?: string
     url?: string
   }
 

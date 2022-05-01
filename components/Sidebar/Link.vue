@@ -23,10 +23,10 @@
 
 
   interface SidebarEntryProps {
-    iconColor?: string
-    iconStyle?: IconStyles
     href: string
     icon: IconTypes
+    iconColor?: string
+    iconStyle?: IconStyles
   }
 
   withDefaults(defineProps<SidebarEntryProps>(), {
