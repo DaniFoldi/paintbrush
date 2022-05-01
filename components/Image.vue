@@ -5,8 +5,8 @@
 <script lang="ts" setup>
   interface ImageProps {
     alt: string
-    maxWidth?: string
     maxHeight?: string
+    maxWidth?: string
     source: string
   }
 
