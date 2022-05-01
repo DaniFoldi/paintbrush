@@ -49,6 +49,9 @@
 
     @include mixins.rounded;
     @include mixins.no-border;
+    @include mixins.with-fade;
+    @include mixins.standard-background;
+    @include mixins.standard-text;
     @include mixins.double-unit-inline-padding;
   }
 </style>
