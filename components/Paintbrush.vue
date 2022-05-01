@@ -65,6 +65,7 @@
 
 <script lang="ts" setup>
   import { computed } from 'vue'
+  import { storeToRefs } from 'pinia'
   import { kebabCaseName, resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
@@ -168,7 +169,7 @@
   const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
 
   const htmlStyle = useThemeManager(lightVariables.value, darkVariables.value)
-  const theme = useTheme()
+  const theme = storeToRefs(useTheme())
 
   setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
 
