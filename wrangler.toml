@@ -1,18 +1,18 @@
-name = "paintbrush"
-type = "javascript"
-account_id = "ACCOUNT_ID"
-zone_id = "ZONE_ID"
-compatibility_date = "2022-04-14"
+name = 'paintbrush'
+type = 'javascript'
+account_id = 'ACCOUNT_ID'
+zone_id = 'ZONE_ID'
+compatibility_date = '2022-04-30'
 
 [env.production]
-routes = ["paintbrush.danifoldi.com/*"]
+routes = [ 'paintbrush.danifoldi.com/*' ]
 
 [site]
-bucket = ".output/public"
-entry-point = ".output"
+bucket = '.output/public'
+entry-point = '.output'
 
 [build]
-command = "ls .output"
+command = 'ls .output'
 
 [build.upload]
-format = "service-worker"
+format = 'service-worker'
