@@ -12,6 +12,11 @@
     url="https://paintbrush.danifoldi.com"
   >
     <SidebarContainer>
+      <template #sidebar-top>
+        <Container center>
+          <Image alt="Paintbrush UI Logo" max-width="50%" source="/paintbrush.png" />
+        </Container>
+      </template>
       <template #sidebar-middle>
         <SidebarLink href="/" icon="rocket-launch">
           Welcome
@@ -28,6 +33,13 @@
           icon-color="purple"
         >
           Source
+        </SidebarLink>
+        <SidebarLink
+          href="/test"
+          icon="gear"
+          icon-color="lightergray"
+        >
+          Test
         </SidebarLink>
       </template>
       <template #sidebar-bottom>
