@@ -1,6 +1,6 @@
 <!--!
   @name Container
-  @version 1.2.0
+  @version 1.3.0
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
@@ -10,7 +10,8 @@
   <div
     class="container"
     :class="[
-      center ? 'center' : '',
+      centerBlock ? 'center-block' : '',
+      centerInline ? 'center-inline' : '',
       leftBadge ? 'left-badge' : '', padded ? 'padded' : '', rightBadge ? 'right-badge' : '', type
     ]"
     :data-left-badge="leftBadge"
@@ -23,7 +24,7 @@
 <script lang="ts" setup>
   interface ContainerProps {
     article?: boolean
-    center?: boolean
+    center?: boolean | 'block' | 'inline'
     leftBadge?: string
     max?: boolean
     padded?: boolean
@@ -56,6 +57,9 @@
   } else if (props.split) {
     type = 'split'
   }
+
+  const centerBlock = props.center === 'block' || props.center === true
+  const centerInline = props.center === 'inline' || props.center === true
 </script>
 
 <style lang="scss" scoped>
@@ -78,8 +82,14 @@
       }
     }
 
-    &.center {
-      @include mixins.grid-center-items;
+    &.center-block {
+      align-items: center;
+      display: grid;
+    }
+
+    &.center-inline {
+      display: grid;
+      justify-items: center;
     }
 
     &.padded {
