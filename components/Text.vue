@@ -1,6 +1,6 @@
 <!--!
   @name Text
-  @version 1.0.0
+  @version 1.1.0
   @icon text-aa
   @description Text component to display text
   @usage <Text>Lorem ipsum dolor sit amet</Text>
@@ -26,6 +26,7 @@
 <script lang="ts" setup>
   interface TextProps {
     bold?: boolean
+    capitalize?: boolean
     gradient?: boolean
     important?: boolean
     inline?: boolean
@@ -36,10 +37,12 @@
     subtitle?: boolean
     title?: boolean
     underline?: boolean
+    uppercase?: boolean
   }
 
   const props = withDefaults(defineProps<TextProps>(), {
     bold: false,
+    capitalize: false,
     gradient: false,
     important: false,
     inline: false,
@@ -49,7 +52,8 @@
     sectiontitle: false,
     subtitle: false,
     title: false,
-    underline: false
+    underline: false,
+    uppercase: false
   })
 
   let mode = 'normal'
@@ -82,12 +86,14 @@
 
   const classes = [
     props.bold ? 'bold' : '',
+    props.capitalize ? 'capitalize' : '',
     props.gradient ? 'gradient' : '',
     props.important ? 'important' : '',
     props.inline ? 'inline' : '',
     props.italic ? 'italic' : '',
     props.light ? 'light' : '',
-    props.underline ? 'underline' : ''
+    props.underline ? 'underline' : '',
+    props.uppercase ? 'uppercase' : ''
   ]
 </script>
 
