@@ -14,7 +14,7 @@
     <SidebarContainer>
       <template #sidebar-top>
         <Container center>
-          <Image alt="Paintbrush UI Logo" max-width="50%" source="/paintbrush.png" />
+          <Image alt="Paintbrush UI Logo" max-width="50%" source="/paintbrush.svg" />
         </Container>
       </template>
       <template #sidebar-middle>
