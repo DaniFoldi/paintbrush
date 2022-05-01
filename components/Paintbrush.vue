@@ -68,6 +68,7 @@
   import { kebabCaseName, resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
+  import { useThemeManager, setThemeColors } from '#imports'
 
 
   interface PaintbrushProps {
@@ -165,8 +166,6 @@
   const htmlStyle = useThemeManager(lightVariables.value, darkVariables.value)
   const theme = useTheme()
 
-  // TODO tell eslint about setThemeColors
-  // eslint-disable-next-line no-undef
   setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
 
   useHead({
