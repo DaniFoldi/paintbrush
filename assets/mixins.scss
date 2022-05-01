@@ -45,6 +45,14 @@
   padding: var(--unit);
 }
 
+@mixin inline-unit-padding {
+  padding-inline: var(--unit);
+}
+
+@mixin block-unit-padding {
+  padding-block: var(--unit);
+}
+
 @mixin unit-margin {
   margin: var(--unit);
 }
@@ -70,7 +78,15 @@
 }
 
 @mixin double-unit-margin {
-  margin: calc(var(--unit));
+  margin: var(--unit);
+}
+
+@mixin double-unit-block-margin {
+  margin: calc(var(--unit) * 2);
+}
+
+@mixin double-unit-inline-margin {
+  margin: calc(var(--unit) * 2);
 }
 
 @mixin unit-block-margin {
