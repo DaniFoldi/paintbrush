@@ -71,8 +71,12 @@
   import type { Docs } from '../../../scripts/docs'
 
 
-  const path = useRoute().params.path.toString()
+  function useFullParam(param: string): string {
+    const piece = useRoute().params[param]
+    return typeof piece === 'string' ? piece : piece.join('/')
+  }
+
   const { data } = await useFetch<Docs>('/api/docs')
   const components = data.value
-  const component = components[`components/${path}.vue`]
+  const component = components[`components/${useFullParam('path')}.vue`]
 </script>
