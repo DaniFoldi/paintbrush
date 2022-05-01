@@ -68,7 +68,7 @@
   import { kebabCaseName, resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
-  import { useThemeManager, setThemeColors } from '#imports'
+  import { useHead, useThemeManager, setThemeColors } from '#imports'
 
 
   interface PaintbrushProps {
