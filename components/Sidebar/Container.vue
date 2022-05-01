@@ -26,7 +26,7 @@
 </template>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins';
+  @use '../../assets/mixins';
 
   .sidebar-container {
     display: grid;
