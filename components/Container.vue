@@ -7,7 +7,15 @@
 -->
 
 <template>
-  <div class="container" :class="[ type, center ? 'center' : '', padded ? 'padded' : '' ]">
+  <div
+    class="container"
+    :class="[
+      center ? 'center' : '',
+      leftBadge ? 'left-badge' : '', padded ? 'padded' : '', rightBadge ? 'right-badge' : '', type
+    ]"
+    :data-left-badge="leftBadge"
+    :data-right-badge="rightBadge"
+  >
     <slot />
   </div>
 </template>
@@ -16,16 +24,20 @@
   interface ContainerProps {
     article?: boolean
     center?: boolean
+    leftBadge?: string
     max?: boolean
     padded?: boolean
+    rightBadge?: string
     split?: boolean
   }
 
   const props = withDefaults(defineProps<ContainerProps>(), {
     article: false,
     center: false,
+    leftBadge: '',
     max: false,
     padded: false,
+    rightBadge: '',
     split: false
   })
 
@@ -77,6 +89,52 @@
     &.split {
       display: grid;
       grid-template-columns: auto auto;
+    }
+
+    &.left-badge {
+      position: relative;
+
+      &::before {
+        background: var(--badge);
+        border-radius: 50px;
+        color: var(--text-on-badge);
+        content: attr(data-left-badge);
+        display: inline;
+        font-size: 11px;
+        height: 18px;
+        left: -7px;
+        line-height: 18px;
+        position: absolute;
+        text-align: center;
+        top: -7px;
+        vertical-align: middle;
+        width: 18px;
+
+        @include mixins.font('inter');
+      }
+    }
+
+    &.right-badge {
+      position: relative;
+
+      &::after {
+        background: var(--badge);
+        border-radius: 50%;
+        color: var(--text-on-badge);
+        content: attr(data-right-badge);
+        display: inline;
+        font-size: 11px;
+        height: 18px;
+        line-height: 18px;
+        position: absolute;
+        right: -7px;
+        text-align: center;
+        top: -7px;
+        vertical-align: middle;
+        width: 18px;
+
+        @include mixins.font('inter');
+      }
     }
   }
 </style>
