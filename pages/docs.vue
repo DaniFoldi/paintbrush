@@ -8,6 +8,7 @@
         <SidebarLink
           v-for="(component, path) in categorized[category]"
           :key="component.name"
+          :auto-title="false"
           :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')"
           :icon="component.icon"
           :icon-color="`${$route.path}.vue` === `/docs/${path}` ? 'var(--secondary)' : 'var(--text)'"

@@ -1,6 +1,6 @@
 <!--!
   @name SidebarLink
-  @version 1.1.0
+  @version 1.2.0
   @icon link-simple
   @category Navigation
 -->
@@ -13,7 +13,10 @@
       size="16px"
       :style="iconStyle"
     />
-    <Text><slot /></Text>
+    <Text v-if="autoTitle">
+      <slot />
+    </Text>
+    <slot v-else />
   </AutoLink>
 </template>
 
@@ -23,6 +26,7 @@
 
 
   interface SidebarEntryProps {
+    autoTitle?: boolean
     href: string
     icon: IconTypes
     iconColor?: string
@@ -30,6 +34,7 @@
   }
 
   withDefaults(defineProps<SidebarEntryProps>(), {
+    autoTitle: true,
     iconColor: 'primary',
     iconStyle: 'regular'
   })
