@@ -9,7 +9,7 @@
       :color="iconColor"
       :name="icon"
       size="20px"
-      :style="iconStyle"
+      :variant="iconStyle"
     />
     <Text><slot /></Text>
   </button>

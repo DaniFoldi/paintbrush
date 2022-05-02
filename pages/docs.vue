@@ -12,7 +12,7 @@
           :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')"
           :icon="component.icon"
           :icon-color="`${$route.path}.vue` === `/docs/${path}` ? 'var(--secondary)' : 'var(--text)'"
-          :icon-style="`${$route.path}.vue` === `/docs/${path}` ? 'bold' : 'regular'"
+          :variant="`${$route.path}.vue` === `/docs/${path}` ? 'bold' : 'regular'"
         >
           <Glue split>
             <Text>{{ component.name }}</Text>

@@ -11,7 +11,7 @@
       :color="iconColor"
       :name="icon"
       size="16px"
-      :style="iconStyle"
+      :variant="iconStyle"
     />
     <Text v-if="autoTitle">
       <slot />
