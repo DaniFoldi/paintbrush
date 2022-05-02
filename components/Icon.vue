@@ -1,6 +1,6 @@
 <!--!
   @name Icon
-  @version 1.0.0
+  @version 1.0.1
   @icon palette
   @description Icon component from Phosphor Icons
   @usage
@@ -16,7 +16,7 @@
   @note For an icon list see https://phosphoricons.com/
 -->
 <template>
-  <i :class="`ph-${name}${style !== 'regular' ? `-${style}` : ''}`" />
+  <i :class="`ph-${name}${variant !== 'regular' ? `-${variant}` : ''}`" />
 </template>
 
 <script lang="ts" setup>
@@ -30,13 +30,13 @@
     color?: string
     name: IconTypes
     size?: string
-    style?: IconStyles
+    variant?: IconStyles
   }
 
   const props = withDefaults(defineProps<IconProps>(), {
     color: 'primary',
     size: '16px',
-    style: 'regular'
+    variant: 'regular'
   })
 
 
