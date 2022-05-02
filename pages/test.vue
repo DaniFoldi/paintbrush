@@ -32,7 +32,7 @@
       <Input label="Number" type="number" />
       <Input label="Password" type="password" />
     </Form>
-    <TableContainer :layout="[{ width: '20px', place: 'center' }, { width: '40%' }, { width: 'auto', justify: 'end' }]" :separator="true">
+    <TableContainer :layout="[{ width: '20px', place: 'center' }, { width: '40%' }, { width: 'auto', justify: 'end' }]">
       <template #content>
         <TableRow v-for="i in 5" :key="i">
           <Icon color="red" name="check" />
