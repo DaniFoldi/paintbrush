@@ -1,6 +1,6 @@
 <!--!
   @name Icon
-  @version 1.0.1
+  @version 1.1.0
   @icon palette
   @description Icon component from Phosphor Icons
   @usage
@@ -20,10 +20,9 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, inject } from 'vue'
-  import { resolve } from '../scripts/color'
   import { IconStyles } from '../modules/icons'
   import { IconTypes } from '../modules/icon-types'
+  import { useThemeColor } from '#imports'
 
 
   interface IconProps {
@@ -40,16 +39,14 @@
   })
 
 
-  const colorScheme: Record<string, string> = inject('colorScheme', {})
-
-  const computedcolor = computed(() => resolve(colorScheme, props.color))
+  const color = useThemeColor(props.color)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins';
 
   i {
-    color: v-bind(computedcolor);
+    color: v-bind(color);
     font-size: v-bind(size);
     vertical-align: middle;
     @include mixins.font('phosphor-icons');
