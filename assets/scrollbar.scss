@@ -7,17 +7,17 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: var(--background-second);
+    background: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--text-second);
-    border: 3px solid var(--background-second);
+    background-color: var(--background-highlight);
+    border: 3px solid transparent;
     border-radius: 8px;
   }
 }
 
 @mixin spec {
-  scrollbar-color: var(--text-second) var(--background-second);
+  scrollbar-color: var(--background-highlight) transparent;
   scrollbar-width: auto;
 }
