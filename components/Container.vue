@@ -12,7 +12,9 @@
     :class="[
       centerBlock ? 'center-block' : '',
       centerInline ? 'center-inline' : '',
-      leftBadge ? 'left-badge' : '', padded ? 'padded' : '', rightBadge ? 'right-badge' : '', type
+      leftBadge ? 'left-badge' : '',
+      padded ? 'padded' : '',
+      rightBadge ? 'right-badge' : '', type
     ]"
     :data-left-badge="leftBadge"
     :data-right-badge="rightBadge"
