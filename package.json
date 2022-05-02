@@ -49,6 +49,7 @@
   "devDependencies": {
     "@danifoldi/eslint-plugin-eslint-presets": "^1.1.0",
     "@danifoldi/stylelint-presets": "^1.0.2",
+    "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
     "@nuxt/test-utils-edge": "^3.0.0-27507520.e006c56",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
