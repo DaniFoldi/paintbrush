@@ -1,6 +1,8 @@
+// TODO remove global
 /* global process */
-import { Ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useTheme } from '../stores/theme'
+import type { Ref } from 'vue'
 
 
 let _scheme = {} as Record<string, string>
