@@ -21,14 +21,14 @@
     <Head>
       <!-- eslint-disable-next-line vue/html-self-closing -- IDE syntax higlighting gets broken with self-closing -->
       <Style :children="htmlStyle"></Style>
-      <!-- <Meta :content="colorMap.theme" name="theme-color" /> -->
-      <!-- <Meta :content="colorMap.background" name="apple-mobile-web-app-status-bar-style" /> -->
-      <!-- <Meta :content="colorMap.primary" name="msapplication-navbutton-color" /> -->
+      <Meta :content="themeColor" name="theme-color" />
+      <Meta :content="backgroundColor" name="apple-mobile-web-app-status-bar-style" />
+      <Meta :content="primaryColor" name="msapplication-navbutton-color" />
       <Meta :content="appName" name="apple-mobile-web-app-title" />
       <Meta content="yes" name="apple-mobile-web-app-capable" />
       <Meta content="yes" name="mobile-web-app-capable" />
       <Meta :content="appName" name="application-name" />
-      <!-- <Meta :content="colorMap.background" name="msapplication-TileColor" /> -->
+      <Meta :content="backgroundColor" name="msapplication-TileColor" />
       <Meta :content="favicon" name="msapplication-TileImage" />
       <Meta :content="description" name="description" />
       <Meta :content="keywords.join(',')" name="keywords" />
@@ -48,7 +48,7 @@
       <Meta :content="largeImageAlt" property="twitter:image:alt" />
       <Meta :content="twitterHandle" property="twitter:creator" />
       <Meta content="True" name="HandheldFriendly" />
-      <!-- <Link color"colorMap.primary" href="faviconSvg" rel="mask-icon"/> -->
+      <Link :color="primaryColor" href="faviconSvg" rel="mask-icon" />
       <Meta content="no-referrer-when-downgrade" name="referrer" />
       <Meta :content="`Paintbrush ${version}`" name="generator" />
       <Title>{{ pageTitle }}</Title>
@@ -69,7 +69,7 @@
   import { kebabCaseName, resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
-  import { useHead, useThemeManager, setThemeColors } from '#imports'
+  import { useHead, useThemeManager, setThemeColors, useThemeColor } from '#imports'
 
 
   interface PaintbrushProps {
@@ -174,6 +174,10 @@
 
   const htmlStyle = useThemeManager(lightVariables.value, darkVariables.value)
   const theme = storeToRefs(useTheme())
+
+  const themeColor = useThemeColor('theme')
+  const backgroundColor = useThemeColor('background')
+  const primaryColor = useThemeColor('primary')
 
   setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
 
