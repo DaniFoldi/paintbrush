@@ -11,6 +11,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
+    background-clip: content-box;
     background-color: var(--background-highlight);
     border: 3px solid transparent;
     border-radius: 8px;
