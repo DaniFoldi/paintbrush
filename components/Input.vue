@@ -1,12 +1,14 @@
 <!--!
   @name Input
-  @version 0.2.0
+  @version 0.3.0
   @icon textbox
 -->
 
 <template>
   <label>
-    <slot />
+    <Text v-if="autoWrap">
+      <slot /></Text>
+    <slot v-else />
     <input
       :placeholder="placeholder"
       :type="type"
@@ -22,6 +24,7 @@
   }
 
   interface InputProps {
+    autoWrap?: boolean
     modelValue?: string
     placeholder?: string
     type?: string
@@ -30,6 +33,7 @@
   const emit = defineEmits<InputEmits>()
 
   withDefaults(defineProps<InputProps>(), {
+    autoWrap: true,
     modelValue: '',
     placeholder: '',
     type: 'text'
