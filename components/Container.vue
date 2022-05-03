@@ -1,6 +1,6 @@
 <!--!
   @name Container
-  @version 1.3.1
+  @version 1.3.2
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
@@ -100,7 +100,7 @@
 
     &.split {
       display: grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: 1fr auto;
     }
 
     &.left-badge {
