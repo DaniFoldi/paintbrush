@@ -58,5 +58,15 @@
     <Text subtitle>
       {{ $t('test') }}
     </Text>
+    <Card>
+      <Form>
+        <Input type="email">
+          Email address
+        </Input>
+        <Input type="password">
+          Password
+        </Input>
+      </Form>
+    </Card>
   </Container>
 </template>
