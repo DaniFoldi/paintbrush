@@ -25,23 +25,30 @@
     </ButtonGroup>
     <Checkbox>Test</Checkbox>
     <Form>
-      <Input type="text">
-        <Text>Text</Text>
+      <Input :auto-wrap="false" type="text">
+        <Text>
+          <Text important part>
+            Text
+          </Text>
+          <Text italic part>
+            input
+          </Text>
+        </Text>
       </Input>
       <Input type="email">
-        <Text>Email</Text>
+        Email
       </Input>
       <Input type="datetime">
-        <Text>Datetime</Text>
+        Datetime
       </Input>
       <Input type="tel">
-        <Text>Tel</Text>
+        Tel
       </Input>
       <Input type="number">
-        <Text>Number</Text>
+        Number
       </Input>
       <Input type="password">
-        <Text>Password</Text>
+        Password
       </Input>
     </Form>
     <TableContainer :layout="[{ width: '20px', place: 'center' }, { width: '40%' }, { width: 'auto', justify: 'end' }]">
