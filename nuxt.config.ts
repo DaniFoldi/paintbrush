@@ -10,7 +10,17 @@ export default defineNuxtConfig({
   i18n: {
     defaultLocale: 'en',
     langDir: 'lang/',
-    lazy: true
+    lazy: true,
+    locales: [
+      {
+        code: 'en',
+        file: 'en-US.js'
+      },
+      {
+        code: 'hu',
+        file: 'hu-HU.js'
+      }
+    ]
   },
-  modules: [ './modules/icons', './modules/docs', '@pinia/nuxt' ]
+  modules: [ './modules/icons', './modules/docs', '@pinia/nuxt', '@nuxtjs/i18n' ]
 })
