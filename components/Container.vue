@@ -9,13 +9,16 @@
 <template>
   <div
     class="container"
-    :class="[
-      centerBlock ? 'center-block' : '',
-      centerInline ? 'center-inline' : '',
-      leftBadge ? 'left-badge' : '',
-      padded ? 'padded' : '',
-      rightBadge ? 'right-badge' : '', type
-    ]"
+    :class="{
+      'center-block': centerBlock,
+      'center-inline': centerInline,
+      'left-badge': leftBadge,
+      'padded': padded,
+      'right-badge': rightBadge,
+      'max': max,
+      'article': article,
+      'split': split
+    }"
     :data-left-badge="leftBadge"
     :data-right-badge="rightBadge"
   >
@@ -50,9 +53,7 @@
     console.warn('Container: Only one of the following props should be set: article, max, split')
   }
 
-  if (!props.article && !props.max && !props.split) {
-    type = 'max'
-  } else if (props.article) {
+  if (props.article) {
     type = 'article'
   } else if (props.max) {
     type = 'max'

@@ -24,7 +24,11 @@
 </script>
 
 <style lang="scss" scoped>
-  div {
+  @use '../assets/mixins';
+
+  div.container {
     background: v-bind(background);
+    @include mixins.rounded;
+    @include mixins.double-unit-padding;
   }
 </style>
