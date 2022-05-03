@@ -55,5 +55,8 @@
         </TableRow>
       </template>
     </TableContainer>
+    <Text subtitle>
+      {{ $t('test') }}
+    </Text>
   </Container>
 </template>
