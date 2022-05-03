@@ -1,18 +1,20 @@
 <!--!
   @name Separator
   @icon arrows-horizontal
-  @version 1.0.0
+  @version 1.1.0
 -->
 <template>
-  <hr>
+  <hr :class="{ rounded }">
 </template>
 
 <script lang="ts" setup>
   interface SeparatorProps {
+    rounded?: boolean
     spaced?: boolean
   }
 
   withDefaults(defineProps<SeparatorProps>(), {
+    rounded: true,
     spaced: false
   })
 </script>
@@ -21,11 +23,15 @@
   @use '../assets/mixins.scss';
 
   hr {
-    border-color: var(--background-2);
-    border-radius: 1px;
+    border-color: var(--background-highlight);
+    border-style: solid;
     transition: border-color .25s ease-in-out;
 
     @include mixins.double-unit-block-margin;
+
+    &.rounded {
+      border-radius: 1px;
+    }
 
     &.spaced {
       @include mixins.unit-inline-margin;
