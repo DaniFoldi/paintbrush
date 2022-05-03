@@ -1,13 +1,32 @@
 <!--!
   @name Container
-  @version 1.3.2
+  @version 1.4.0
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
 -->
 
 <template>
+  <span
+    v-if="inline"
+    class="container"
+    :class="{
+      'center-block': centerBlock,
+      'center-inline': centerInline,
+      'left-badge': leftBadge,
+      'padded': padded,
+      'right-badge': rightBadge,
+      'max': max,
+      'article': article,
+      'split': split
+    }"
+    :data-left-badge="leftBadge"
+    :data-right-badge="rightBadge"
+  >
+    <slot />
+  </span>
   <div
+    v-else
     class="container"
     :class="{
       'center-block': centerBlock,
@@ -30,6 +49,7 @@
   interface ContainerProps {
     article?: boolean
     center?: boolean | 'block' | 'inline'
+    inline?: boolean
     leftBadge?: string
     max?: boolean
     padded?: boolean
@@ -40,6 +60,7 @@
   const props = withDefaults(defineProps<ContainerProps>(), {
     article: false,
     center: false,
+    inline: false,
     leftBadge: '',
     max: false,
     padded: false,
@@ -47,18 +68,8 @@
     split: false
   })
 
-  let type = ''
-
   if (Object.values({ article: props.article, max: props.max, split: props.split }).filter(Boolean).length > 1) {
     console.warn('Container: Only one of the following props should be set: article, max, split')
-  }
-
-  if (props.article) {
-    type = 'article'
-  } else if (props.max) {
-    type = 'max'
-  } else if (props.split) {
-    type = 'split'
   }
 
   const centerBlock = props.center === 'block' || props.center === true
@@ -151,5 +162,9 @@
         @include mixins.font('inter');
       }
     }
+  }
+
+  span {
+    display: inline-block;
   }
 </style>

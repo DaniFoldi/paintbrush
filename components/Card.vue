@@ -3,7 +3,7 @@
   @version 1.0.0
 -->
 <template>
-  <Container>
+  <Container :inline="inline">
     <slot />
   </Container>
 </template>
@@ -14,6 +14,7 @@
 
   interface CardProps {
     background?: string
+    inline?: boolean
   }
 
   const props = withDefaults(defineProps<CardProps>(), {
@@ -26,7 +27,7 @@
 <style lang="scss" scoped>
   @use '../assets/mixins';
 
-  div.container {
+  div.container, span.container {
     background: v-bind(background);
     @include mixins.rounded;
     @include mixins.double-unit-padding;

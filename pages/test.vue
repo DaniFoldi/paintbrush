@@ -65,7 +65,7 @@
     <Text subtitle>
       {{ $t('test') }}
     </Text>
-    <Card>
+    <Card inline>
       <Form>
         <Input type="email">
           Email address
