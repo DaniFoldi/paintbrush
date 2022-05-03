@@ -12,7 +12,7 @@
 -->
 <!-- TODO add props to documentation -->
 <template>
-  <Container v-if="container">
+  <Container v-if="container" max>
     <slot />
   </Container>
   <slot v-else />
