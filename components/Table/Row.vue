@@ -1,6 +1,10 @@
+<!--!
+  @name TableRow
+  @version 0.1.0
+-->
 <template>
   <slot />
-  <Separator v-if="separator" />
+  <Separator v-if="separator" :rounded="false" />
 </template>
 
 <script lang="ts" setup>
@@ -12,7 +16,7 @@
 
 <style lang="scss" scoped>
   hr {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
     justify-self: stretch;
     margin-inline: calc(-1 * var(--double-unit));
 
