@@ -1,12 +1,12 @@
 <!--!
   @name Input
-  @version 0.0.1
+  @version 0.1.0
   @icon textbox
 -->
 
 <template>
   <label>
-    <p>{{ label }}</p>
+    <slot />
     <input
       :placeholder="placeholder"
       :type="type"
@@ -22,7 +22,6 @@
   }
 
   interface InputProps {
-    label: string
     modelValue?: string
     placeholder?: string
     type?: string
@@ -45,6 +44,7 @@
   @use '../assets/mixins.scss';
 
   input {
+    border: 1px solid var(--background-highlight);
     height: 32px;
 
     @include mixins.rounded;
