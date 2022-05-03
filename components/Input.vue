@@ -44,14 +44,13 @@
   @use '../assets/mixins.scss';
 
   input {
-    border: 1px solid var(--background-highlight);
+    border: 2px solid var(--background-highlight);
     height: 32px;
+    padding-inline: 4px;
 
     @include mixins.rounded;
-    @include mixins.no-border;
     @include mixins.with-fade;
     @include mixins.standard-background;
     @include mixins.standard-text;
-    @include mixins.double-unit-inline-padding;
   }
 </style>

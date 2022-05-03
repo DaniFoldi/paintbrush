@@ -55,7 +55,7 @@
   div {
     align-items: center;
     background: var(--background);
-    border: 1px solid var(--background-highlight);
+    border: 2px solid var(--background-highlight);
     border-radius: var(--unit);
     column-gap: v-bind('props.columnGap');
     display: grid;
