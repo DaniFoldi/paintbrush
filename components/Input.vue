@@ -47,14 +47,22 @@
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
-  input {
-    border: 2px solid var(--background-highlight);
-    height: 32px;
-    padding-inline: 4px;
+  label {
+    display: block;
 
-    @include mixins.rounded;
-    @include mixins.with-fade;
-    @include mixins.standard-background;
-    @include mixins.standard-text;
+    &:not(:first-child) {
+      margin-top: var(--unit);
+    }
+
+    input {
+      border: 2px solid var(--background-highlight);
+      height: 32px;
+      padding-inline: 4px;
+
+      @include mixins.rounded;
+      @include mixins.with-fade;
+      @include mixins.standard-background;
+      @include mixins.standard-text;
+    }
   }
 </style>
