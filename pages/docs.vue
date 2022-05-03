@@ -14,12 +14,12 @@
           :icon-color="`${$route.path}.vue` === `/docs/${path}` ? 'var(--secondary)' : 'var(--text)'"
           :variant="`${$route.path}.vue` === `/docs/${path}` ? 'bold' : 'regular'"
         >
-          <Glue split>
+          <Container split>
             <Text>{{ component.name }}</Text>
             <Text light>
               {{ component.version }}
             </Text>
-          </Glue>
+          </Container>
         </SidebarLink>
       </template>
     </template>
