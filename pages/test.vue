@@ -25,12 +25,24 @@
     </ButtonGroup>
     <Checkbox>Test</Checkbox>
     <Form>
-      <Input label="Text" type="text" />
-      <Input label="Email" type="email" />
-      <Input label="Datetime" type="datetime" />
-      <Input label="Tel" type="tel" />
-      <Input label="Number" type="number" />
-      <Input label="Password" type="password" />
+      <Input type="text">
+        <Text>Text</Text>
+      </Input>
+      <Input type="email">
+        <Text>Email</Text>
+      </Input>
+      <Input type="datetime">
+        <Text>Datetime</Text>
+      </Input>
+      <Input type="tel">
+        <Text>Tel</Text>
+      </Input>
+      <Input type="number">
+        <Text>Number</Text>
+      </Input>
+      <Input type="password">
+        <Text>Password</Text>
+      </Input>
     </Form>
     <TableContainer :layout="[{ width: '20px', place: 'center' }, { width: '40%' }, { width: 'auto', justify: 'end' }]">
       <template #content>
