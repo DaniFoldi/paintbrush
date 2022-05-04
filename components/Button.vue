@@ -49,6 +49,7 @@
     background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind(secondarycolor));
 
     color: v-bind(textcolor);
+    cursor: pointer;
     min-height: 32px;
     min-width: 80px;
     @include mixins.rounded;

@@ -37,6 +37,7 @@
 <style lang="scss" scoped>
   a, a:visited {
     color: var(--primary);
+    cursor: pointer;
     text-decoration: none;
   }
 </style>
