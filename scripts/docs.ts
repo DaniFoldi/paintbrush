@@ -75,14 +75,12 @@ export async function generateComponentDocs() {
         const lines = entry.split(' ')
         return [ lines[0] as keyof Component, lines.slice(1).join(' ') ]
       })
-    // TODO change includes to regex word match
     const scriptSetup = [ ...text.matchAll(/<script(?<attrs>.*?)>(?<value>.*?)<\/script>/gisu) ]
-      .filter(match => match.groups?.attrs.includes('lang="ts"' || console.warn(`${fileName} Only ts scripts are supprted`)))
-      .filter(match => match.groups?.attrs.includes('setup') || console.warn(`${fileName} Only setup scripts are supported`))
+      .filter(match => match.groups?.attrs.match(/\blang\s*=\s*('ts'|"ts")\b/) || console.warn(`${fileName} Only ts scripts are supprted`))
+      .filter(match => match.groups?.attrs.match(/\bsetup\b/) || console.warn(`${fileName} Only setup scripts are supported`))
       .join('\n')
 
     const emits = /defineEmits<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
-    // TODO find no default definitions
     let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),(?<defaults>.*?)\)/gisu.exec(scriptSetup)
     if (!props) {
       props = /defineProps<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
@@ -106,27 +104,9 @@ export async function generateComponentDocs() {
 
     for (const entry of doc) {
       if (entry[0] === 'emit' || entry[0] === 'name' || entry[0] === 'property') {
-        console.warn(`component ${fileName}: @${entry[0]} is deprecated`)
+        console.warn(`Overriding ${fileName}: @${entry[0]} is generated from source`)
         continue
       }
-      /* if (entry[0] === 'property') {
-        const regex = /^\s*(?<name>[\w-]+)\s*(?<optional>\?)?:\s*(?<type>[\w"'-]+)\s*(\[\s*(?<default>.*?)\s*])?\s*(\((?<desc>.*?)\))?\s*$/
-        for (const line of entry[1].split('\n')) {
-          const data = regex.exec(line)?.groups
-          if (data) {
-            componentData.property.push({
-              default: data.default,
-              description: data.desc,
-              name: data.name,
-              required: !data.optional,
-              type: data.type
-            })
-          } else {
-            console.warn(`Unable to parse @property line: ${line}`)
-          }
-        }
-        continue
-      }*/
       if (!Object.hasOwn(componentData, entry[0])) {
         console.warn(`Unknown property @${entry[0]} in '${fileName}' docs, skipping`)
         continue
