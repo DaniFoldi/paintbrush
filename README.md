@@ -8,15 +8,13 @@ Visit https://paintbrush.danifoldi.com for the latest version
 
 `npm i -D paintbrush-ui`
 
+## Usage
 
-
-## Bugs
-
-Bug reports are welcome via Issues. Feel free to create PRs to fix them, implement new functionality or improve existing. Speaking of which..
+Most of the "magic" comes from the `<Paintbrush>` component, which should be wrapping everything else in your page - the best place to use it is in app.vue.
 
 ## Contributing
 
-Use commit names starting with
+Feel free to open Issues for any bugs/visual inconsistencies/glitches that you find. Pull Requests are also welcome, however in this case please use commit names starting with emojis as described below:
 
 |Emoji|Prefix|Description|
 |-----|------|-----------|
@@ -33,4 +31,4 @@ Use commit names starting with
 
 ## Note: WIP
 
-**Paintbrush is currently in alpha.** Using it in production is not recommended, as most updates break everything from the previous one. Once considered stable, semver-minor updates should not break existing code unless a deprecation warning for a feature has been in place for a few months.
+**Paintbrush is currently in beta.**
