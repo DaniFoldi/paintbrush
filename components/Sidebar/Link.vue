@@ -5,7 +5,7 @@
   @category Navigation
 -->
 <template>
-  <AutoLink :class="{ 'two-items': icon !== undefined }" :href="href">
+  <AutoLink :class="{ 'with-icon': icon }" :href="href">
     <Icon
       v-if="icon"
       center
@@ -53,7 +53,6 @@
     @include mixins.unit-padding;
 
     &.with-icon {
-      background: red;
       @include mixins.two-items;
     }
 
