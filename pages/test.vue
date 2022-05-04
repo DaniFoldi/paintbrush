@@ -121,5 +121,27 @@
     >
       With icon color
     </Stat>
+    <FocusMark
+      v-if="focusActive"
+      height="300px"
+      left="400px"
+      rounded
+      top="300px"
+      width="300px"
+    />
+    <Button @click="toggleFocus">
+      Toggle focus
+    </Button>
   </Container>
 </template>
+
+<script lang="ts" setup>
+  import {  useState } from '#imports'
+
+
+  const focusActive = useState('focus-active', () => false)
+
+  function toggleFocus() {
+    focusActive.value = !focusActive.value
+  }
+</script>
