@@ -11,6 +11,9 @@ let _dark = {} as Record<string, string>
 
 export default function(color: string): Ref<string> {
   return computed(() => {
+    if (color === 'inherit') {
+      return color
+    }
     if (process.client) {
       const preferredTheme = useTheme()
       if (preferredTheme.theme === 'light') {
