@@ -30,7 +30,7 @@
   withDefaults(defineProps<IconProps>(), {
     color: 'primary',
     iconColor: 'white',
-    iconStyle: 'regular'
+    iconVariant: 'regular'
   })
 </script>
 
