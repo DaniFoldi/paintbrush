@@ -76,8 +76,8 @@ export async function generateComponentDocs() {
         return [ lines[0] as keyof Component, lines.slice(1).join(' ') ]
       })
     const scriptSetup = [ ...text.matchAll(/<script(?<attrs>.*?)>(?<value>.*?)<\/script>/gisu) ]
-      .filter(match => match.groups?.attrs.match(/\blang\s*=\s*('ts'|"ts")\b/) || console.warn(`${fileName} Only ts scripts are supprted`))
-      .filter(match => match.groups?.attrs.match(/\bsetup\b/) || console.warn(`${fileName} Only setup scripts are supported`))
+      .filter(match => match && match.groups && /\blang\s*=\s*('ts'|"ts")/.test(match.groups?.attrs) || console.warn(`${fileName} Only ts scripts are supprted`))
+      .filter(match => match && match.groups && /\bsetup\b/.test(match.groups?.attrs) || console.warn(`${fileName} Only setup scripts are supported`))
       .join('\n')
 
     const emits = /defineEmits<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
