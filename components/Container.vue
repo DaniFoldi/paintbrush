@@ -46,6 +46,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed } from '#imports'
+
+
   interface ContainerProps {
     article?: boolean // Display container as article mode, with a maximum width
     center?: boolean | 'block' | 'inline' // Center container along axes
@@ -67,6 +70,7 @@
     rightBadge: '',
     split: false
   })
+
 
   const centerBlock = computed(() => props.center === 'block' || props.center === true)
   const centerInline = computed(() => props.center === 'inline' || props.center === true)
