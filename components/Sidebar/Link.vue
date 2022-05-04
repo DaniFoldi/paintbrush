@@ -1,12 +1,13 @@
 <!--!
   @name SidebarLink
-  @version 1.2.0
+  @version 1.2.1
   @icon link-simple
   @category Navigation
 -->
 <template>
-  <AutoLink :href="href">
+  <AutoLink :class="{ 'two-items': icon !== undefined }" :href="href">
     <Icon
+      v-if="icon"
       center
       :color="iconColor"
       :name="icon"
@@ -28,7 +29,7 @@
   interface SidebarEntryProps {
     autoTitle?: boolean
     href: string
-    icon: IconTypes
+    icon: undefined | IconTypes
     iconColor?: string
     iconStyle?: IconStyles
   }
@@ -50,7 +51,11 @@
     @include mixins.rounded;
     @include mixins.with-fade;
     @include mixins.unit-padding;
-    @include mixins.two-items;
+
+    &.with-icon {
+      background: red;
+      @include mixins.two-items;
+    }
 
     i {
       @include mixins.unit-inline-margin;
