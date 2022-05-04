@@ -103,14 +103,6 @@
   h1, h2, h3, p, span {
     @include mixins.standard-text;
 
-    &:not(:first-child) {
-      margin-top: var(--unit);
-    }
-
-    &:not(:last-child) {
-      margin-bottom: var(--unit);
-    }
-
     &.bold {
       @include mixins.bold;
     }

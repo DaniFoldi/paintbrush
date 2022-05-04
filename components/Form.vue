@@ -16,3 +16,13 @@
   }
   defineEmits<FormEmits>()
 </script>
+
+<style lang="scss" scoped>
+  form > :not(:first-child) {
+    margin-top: var(--unit);
+  }
+
+  form > :not(:last-child) {
+    margin-bottom: var(--unit);
+  }
+</style>
