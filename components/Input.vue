@@ -1,5 +1,4 @@
 <!--!
-  @name Input
   @version 0.4.0
   @icon textbox
 -->
@@ -20,15 +19,15 @@
 
 <script lang="ts" setup>
   interface InputEmits {
-    (e: 'update:modelValue', value: string): void
+    (e: 'update:modelValue', value: string): void // v-model update
   }
 
   interface InputProps {
-    autoWrap?: boolean
-    modelValue?: string
-    placeholder?: string
-    type?: string
-    width?: string
+    autoWrap?: boolean // Wrap text in Text component
+    modelValue?: string // v-model value
+    placeholder?: string // Placeholder text
+    type?: string // Input type
+    width?: string // Width of input
   }
 
   const emit = defineEmits<InputEmits>()

@@ -8,11 +8,11 @@
 
 <script lang="ts" setup>
   interface ImageProps {
-    alt: string
-    maxHeight?: string
-    maxWidth?: string
-    rounded?: boolean
-    source: string
+    alt: string // Image alt text
+    maxHeight?: string // Max height of the image
+    maxWidth?: string // Max width of the image
+    rounded?: boolean // Round the corners
+    source: string // Image source
   }
 
   const props = withDefaults(defineProps<ImageProps>(), {

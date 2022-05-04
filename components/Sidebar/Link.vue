@@ -1,5 +1,4 @@
 <!--!
-  @name SidebarLink
   @version 1.2.1
   @icon link-simple
   @category Navigation
@@ -12,7 +11,7 @@
       :color="iconColor"
       :name="icon"
       size="16px"
-      :variant="iconStyle"
+      :variant="iconVariant"
     />
     <Text v-if="autoTitle">
       <slot />
@@ -22,22 +21,22 @@
 </template>
 
 <script lang="ts" setup>
-  import { IconStyles } from '../../modules/icons'
+  import { IconVariants } from '../../modules/icons'
   import { IconTypes } from '../../modules/icon-types'
 
 
   interface SidebarEntryProps {
-    autoTitle?: boolean
-    href: string
-    icon: undefined | IconTypes
-    iconColor?: string
-    iconStyle?: IconStyles
+    autoTitle?: boolean // Wrap text in Text component
+    href: string // Link to navigate to
+    icon: undefined | IconTypes // Icon to display
+    iconColor?: string // Color of icon
+    iconVariant?: IconVariants // Variant of icon
   }
 
   withDefaults(defineProps<SidebarEntryProps>(), {
     autoTitle: true,
     iconColor: 'primary',
-    iconStyle: 'regular'
+    iconVariant: 'regular'
   })
 </script>
 

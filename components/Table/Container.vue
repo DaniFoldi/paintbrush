@@ -1,5 +1,4 @@
 <!--!
-  @name TableContainer
   @version 0.1.0
   @category
 -->
@@ -25,10 +24,10 @@
   }
 
   interface TableContainerProps {
-    columnGap?: string
-    layout: TableColumn[]
-    rowHeight?: string
-    separator?: boolean
+    columnGap?: string // Space between columns
+    layout: TableColumn[] // Column layout: {align?: string, justify?: string, place?: string, width: string}
+    rowHeight?: string // Height of rows
+    separator?: boolean // Display separator between rows
   }
 
   const props = withDefaults(defineProps<TableContainerProps>(), {

@@ -1,5 +1,4 @@
 <!--!
-  @name Separator
   @icon arrows-horizontal
   @version 1.1.0
 -->
@@ -9,8 +8,8 @@
 
 <script lang="ts" setup>
   interface SeparatorProps {
-    rounded?: boolean
-    spaced?: boolean
+    rounded?: boolean // Round the edges
+    spaced?: boolean // Apply spacing on both sides
   }
 
   withDefaults(defineProps<SeparatorProps>(), {

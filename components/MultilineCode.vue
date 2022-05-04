@@ -1,5 +1,4 @@
 <!--!
-  @name MultilineCode
   @version 1.1.0
   @icon code
 -->
@@ -13,8 +12,8 @@
 
 
   interface MultilineCodeProps {
-    code: string
-    language?: string
+    code: string // Source code to highlight
+    language?: string // Language to use
   }
 
   const props = withDefaults(defineProps<MultilineCodeProps>(), {

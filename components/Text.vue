@@ -1,5 +1,4 @@
 <!--!
-  @name Text
   @version 1.1.0
   @icon text-aa
   @description Text component to display text
@@ -25,19 +24,19 @@
 
 <script lang="ts" setup>
   interface TextProps {
-    bold?: boolean
-    capitalize?: boolean
-    gradient?: boolean
-    important?: boolean
-    inline?: boolean
-    italic?: boolean
-    light?: boolean
-    part?: boolean
-    sectiontitle?: boolean
-    subtitle?: boolean
-    title?: boolean
-    underline?: boolean
-    uppercase?: boolean
+    bold?: boolean // Bold text
+    capitalize?: boolean // Capitalize text
+    gradient?: boolean // Gradient text
+    important?: boolean // Important text
+    inline?: boolean // Inline text
+    italic?: boolean // Italic text
+    light?: boolean // Light text
+    part?: boolean // Render as span within other Text component
+    sectiontitle?: boolean // Render as h3
+    subtitle?: boolean // Render as h2
+    title?: boolean // Render as h1
+    underline?: boolean // Underline text
+    uppercase?: boolean // Uppercase text
   }
 
   const props = withDefaults(defineProps<TextProps>(), {

@@ -1,5 +1,4 @@
 <!--!
-  @name ThemeToggle
   @version 0.0.1
   @icon moon
 -->
