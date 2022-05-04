@@ -19,12 +19,14 @@
         <Text bold part>
           {{ property.name }}
         </Text>
-        <Text>: {{ property.type }}</Text>
+        <Text part>
+          {{ `: ${property.type}` }}
+        </Text>
         <Text v-if="property.required" light part>
           (required)
         </Text>
       </Text>
-      <Text italic>
+      <Text v-if="property.description" italic>
         {{ property.description }}
       </Text>
       <Text v-if="property.default && property.default !== ''">
