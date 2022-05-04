@@ -75,5 +75,19 @@
         </Input>
       </Form>
     </Card>
+    <Stat :max="800" :value="500">
+      With max
+    </Stat>
+    <Stat icon-name="airplane-tilt" :value="500">
+      Without max
+    </Stat>
+    <Stat
+      icon-color="red"
+      icon-name="key"
+      :max="20"
+      :value="20"
+    >
+      With icon color
+    </Stat>
   </Container>
 </template>
