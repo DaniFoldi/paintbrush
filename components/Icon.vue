@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { IconStyles } from '../modules/icons'
+  import { IconVariants } from '../modules/icons'
   import { IconTypes } from '../modules/icon-types'
   import { useThemeColor } from '#imports'
 
@@ -30,7 +30,7 @@
     color?: string
     name: IconTypes
     size?: string
-    variant?: IconStyles
+    variant?: IconVariants // Icon variant
   }
 
   const props = withDefaults(defineProps<IconProps>(), {
