@@ -1,5 +1,4 @@
 <!--!
-  @name Button
   @version 1.1.0
   @description Button component with optional gradient or ghost effect
   @icon hand-pointing
@@ -7,13 +6,6 @@
   <Button color="primary">
   __button
   </Button>
-  @property
-  capitalize?: boolean [false] (Capitalize the text)
-  color?: string ['primary'] (Button color, can be from the color palette)
-  ghost?: boolean [false] (Add a ghost effect)
-  gradient?: string ['primary'] (Button gradient color, can be from the color palette)
-  type?: string ['button'] (Button type, can be button, submit, reset)
-  uppercase?: boolean [false] (Uppercase the text)
 -->
 
 <template>
@@ -27,12 +19,12 @@
 
 
   interface ButtonProps {
-    capitalize?: boolean
-    color?: string
-    ghost?: boolean
-    gradient?: string
-    type?: 'button' | 'submit' | 'reset'
-    uppercase?: boolean
+    capitalize?: boolean // Capitalize the button text
+    color?: string // Background color of the button
+    ghost?: boolean // Add a ghost effect to the button
+    gradient?: string  // Set the 2nd gradient color
+    type?: 'button' | 'submit' | 'reset' // Button type
+    uppercase?: boolean // Uppercase the button text
   }
 
   const props = withDefaults(defineProps<ButtonProps>(), {

@@ -1,5 +1,4 @@
 <!--!
-  @name ButtonGroup
   @version 1.0.0
   @icon arrows-in-line-vertical
 -->

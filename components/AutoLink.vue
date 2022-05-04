@@ -1,7 +1,8 @@
 <!--!
-  @name AutoLink
   @version 1.0.0
   @icon link
+  @description SSR/SPA-friendly link component
+  @usage <AutoLink href="/dashboard">Dashboard</AutoLink>
 -->
 
 <template>
@@ -13,7 +14,7 @@
 
 <script lang="ts" setup>
   interface AutoLinkProps {
-    href: string
+    href: string // URL to navigate to
   }
 
   const props = defineProps<AutoLinkProps>()

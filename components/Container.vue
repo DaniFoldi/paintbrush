@@ -1,5 +1,4 @@
 <!--!
-  @name Container
   @version 1.4.0
   @icon package
   @description Container component for pages, main content and elements
@@ -47,14 +46,14 @@
 
 <script lang="ts" setup>
   interface ContainerProps {
-    article?: boolean
-    center?: boolean | 'block' | 'inline'
-    inline?: boolean
-    leftBadge?: string
-    max?: boolean
-    padded?: boolean
-    rightBadge?: string
-    split?: boolean
+    article?: boolean // Display container as article mode, with a maximum width
+    center?: boolean | 'block' | 'inline' // Center container along axes
+    inline?: boolean // Display container as inline
+    leftBadge?: string // Badge in top left corner
+    max?: boolean // Stretch container to maximum width and height
+    padded?: boolean // Apply padding
+    rightBadge?: string // Badge in top right corner
+    split?: boolean // Split container into two halves
   }
 
   const props = withDefaults(defineProps<ContainerProps>(), {

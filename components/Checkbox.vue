@@ -1,6 +1,5 @@
 <!--!
-  @name Checkbox
-  @version 1.0.0
+  @version 0.1.0
   @icon check-square
 -->
 
@@ -12,6 +11,7 @@
 </template>
 
 <script lang="ts" setup>
+// TODO expose checked as a prop
   const checked = false
 </script>
 

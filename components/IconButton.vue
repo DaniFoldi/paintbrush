@@ -21,9 +21,9 @@
 
 
   interface IconProps {
-    color?: string
-    icon: IconTypes
-    iconColor?: string
+    color?: string // Button color
+    icon: IconTypes // Icon name
+    iconColor?: string // Icon color
     iconVariant?: IconVariants // Icon variant
   }
 

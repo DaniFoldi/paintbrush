@@ -1,5 +1,4 @@
 <!--!
-  @name Card
   @version 1.0.0
 -->
 
@@ -14,8 +13,8 @@
 
 
   interface CardProps {
-    background?: string
-    inline?: boolean
+    background?: string // Background color of card
+    inline?: boolean // Display card as inline
   }
 
   const props = withDefaults(defineProps<CardProps>(), {

@@ -1,5 +1,4 @@
 <!--!
-  @name Form
   @version 1.0.0
   @icon cursor-text
 -->
@@ -12,7 +11,7 @@
 
 <script lang="ts" setup>
   interface FormEmits {
-    (e: 'pb-submit', target: HTMLFormElement): void
+    (e: 'pb-submit', target: HTMLFormElement): void // Form is submitted
   }
   defineEmits<FormEmits>()
 </script>
