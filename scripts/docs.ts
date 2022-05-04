@@ -6,11 +6,11 @@ import { IconTypes } from '../modules/icon-types'
 
 const docs: Docs = {}
 
-// eslint-disable-next-line no-extra-parens
+
 ;(async () => {
   await generateComponentDocs()
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
-})
+})()
 
 function findInterface(name: string, script: string): string[] {
   const definition = new RegExp(`interface\\s*?${name}\\s*?\\{(?<definition>.*?)\\}`, 'gisu').exec(script)?.groups?.definition ?? ''
@@ -24,6 +24,7 @@ export interface Component {
     description: string
     name: string
     payload: string
+    type: string
   }[]
   example: string[]
   icon: IconTypes | undefined
@@ -82,7 +83,10 @@ export async function generateComponentDocs() {
 
     const emits = /defineEmits<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
     // TODO find no default definitions
-    const props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),(?<defaults>.*?)\)/gisu.exec(scriptSetup)
+    let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),(?<defaults>.*?)\)/gisu.exec(scriptSetup)
+    if (!props) {
+      props = /defineProps<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
+    }
 
     const componentData: Component = {
       category: '',
@@ -136,25 +140,36 @@ export async function generateComponentDocs() {
 
     if (emits) {
       const emitInterface = findInterface(emits?.groups?.interface ?? '', scriptSetup)
-      console.log(emitInterface)
       for (const emit of emitInterface) {
+        const emitData = /\(e:\s*'(?<name>.*?)',\s*(?<payload>\w+):\s*(?<type>.*)\): void\s*?(\/\/\s*(?<description>.*))/.exec(emit)
+        if (!emitData) {
+          console.warn(`Unable to parse emit interface: ${fileName}/'${emit}'`)
+          continue
+        }
         componentData.emit.push({
-          description: emit,
-          name: emit,
-          payload: emit
+          description: emitData?.groups?.description ?? '',
+          name: emitData?.groups?.name ?? '',
+          payload: emitData?.groups?.payload ?? '',
+          type: emitData?.groups?.type ?? ''
         })
       }
     }
 
     if (props) {
       const propInterface = findInterface(props?.groups?.interface ?? '', scriptSetup)
+      const defaults = props?.groups?.defaults ?? ''
       for (const prop of propInterface) {
+        const propData = /(?<name>\w+)(?<optional>\?)?:\s*(?<type>.+)\s*?(\/\/\s*(?<description>.*))/.exec(prop)
+        if (!propData) {
+          console.error(`Unable to parse prop: ${fileName}/'${prop}'`)
+          continue
+        }
         componentData.property.push({
-          default: prop,
-          description: prop,
-          name: prop,
-          required: !!prop,
-          type: prop
+          default: defaults,
+          description: propData?.groups?.description ?? '',
+          name: propData?.groups?.name ?? '',
+          required: propData?.groups?.optional?.length === 0 ?? true,
+          type: propData?.groups?.type ?? ''
         })
       }
     }
