@@ -65,16 +65,48 @@
     <Text subtitle>
       {{ $t('test') }}
     </Text>
-    <Card inline>
-      <Form>
-        <Input type="email">
-          Email address
-        </Input>
-        <Input type="password">
-          Password
-        </Input>
-      </Form>
-    </Card>
+    <ParallaxDisplay>
+      <ParallaxItem :initial-opacity="0.7">
+        <Card inline>
+          <Form>
+            <Input type="email">
+              Email address
+            </Input>
+            <Input type="password">
+              Password
+            </Input>
+          </Form>
+        </Card>
+      </ParallaxItem>
+    </ParallaxDisplay>
+    <ParallaxDisplay>
+      <ParallaxItem :offset="-1">
+        <Card inline>
+          <Form>
+            <Input type="email">
+              Email address
+            </Input>
+            <Input type="password">
+              Password
+            </Input>
+          </Form>
+        </Card>
+      </ParallaxItem>
+    </ParallaxDisplay>
+    <ParallaxDisplay>
+      <ParallaxItem :rotated-opacity="0">
+        <Card inline>
+          <Form>
+            <Input type="email">
+              Email address
+            </Input>
+            <Input type="password">
+              Password
+            </Input>
+          </Form>
+        </Card>
+      </ParallaxItem>
+    </ParallaxDisplay>
     <Stat :max="800" :value="500">
       With max
     </Stat>
