@@ -1,5 +1,5 @@
 <!--!
-  @icon arrows-horizontal
+  @icon text-align-justify
   @version 1.1.0
   @category Layout
 -->

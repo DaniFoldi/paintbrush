@@ -1,3 +1,8 @@
+<!--!
+  @version 1.0.0
+  @icon presentation-chart
+  @category Display
+-->
 <template>
   <div class="stat-container">
     <Text v-if="autoWrap">
@@ -22,13 +27,13 @@
 
 
   interface StatProps {
-    autoWrap?: boolean
-    color?: string
-    iconColor?: string
-    iconName?: IconTypes | undefined
-    iconVariant?: IconVariants
-    max?: number | undefined
-    value: number
+    autoWrap?: boolean // Wrap text in Text component
+    color?: string // Color of text
+    iconColor?: string // Color of icon
+    iconName?: IconTypes | undefined // Icon to display
+    iconVariant?: IconVariants // Variant of icon
+    max?: number | undefined // Maximum value
+    value: number // Current value
   }
 
   const props = withDefaults(defineProps<StatProps>(), {
