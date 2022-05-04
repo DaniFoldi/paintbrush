@@ -1,5 +1,5 @@
 <!--!
-  @version 1.0.0
+  @version 1.1.0
   @icon sidebar-simple
   @category Navigation
 -->
@@ -24,6 +24,21 @@
   </div>
 </template>
 
+<script lang="ts" setup>
+  import { useThemeColor } from '#imports'
+
+
+  interface ContainerProps {
+    sidebarSpacing?: string
+  }
+
+  const props = withDefaults(defineProps<ContainerProps>(), {
+    sidebarSpacing: 'double-unit'
+  })
+
+  const spacing = useThemeColor(props.sidebarSpacing)
+</script>
+
 <style lang="scss" scoped>
   @use '../../assets/mixins';
 
@@ -31,7 +46,7 @@
     display: grid;
     grid-template-columns: 260px 1fr;
     grid-template-rows: 100%;
-    row-gap: calc(2 * var(--unit));
+    row-gap: v-bind(spacing);
     @include mixins.absolute-full-size;
   }
 
