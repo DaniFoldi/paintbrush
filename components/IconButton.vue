@@ -2,6 +2,7 @@
   @version 1.1.0
   @icon hand-pointing
   @category Basic
+  @require phosphor-icons
 -->
 <template>
   <button type="button">

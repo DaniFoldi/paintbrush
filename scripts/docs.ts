@@ -38,6 +38,7 @@ export interface Component {
     type: string
   }[]
   renderedExample: string[]
+  require: string[]
   see: string[]
   tag: string[]
   usage: string
@@ -96,6 +97,7 @@ export async function generateComponentDocs() {
       note: '',
       property: [],
       renderedExample: [],
+      require: [],
       see: [],
       tag: [],
       usage: '',

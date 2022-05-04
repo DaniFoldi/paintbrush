@@ -3,6 +3,7 @@
   @icon palette
   @description Icon component from Phosphor Icons
   @category Display
+  @require phosphor-icons
   @usage
   <Icon name="gear" />
   @renderedExample

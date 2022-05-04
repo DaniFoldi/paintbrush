@@ -2,6 +2,7 @@
   @version 1.1.0
   @icon code
   @category Display
+  @require highlight.js
 -->
 <template>
   <pre><Runtime :class="classes" element="code" :rendered="highlight.value" /></pre>

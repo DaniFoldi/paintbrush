@@ -2,6 +2,7 @@
   @version 1.2.1
   @icon link-simple
   @category Navigation
+  @require phosphor-icons
 -->
 <template>
   <AutoLink :class="{ 'with-icon': icon }" :href="href">
