@@ -9,14 +9,14 @@
       :color="iconColor"
       :name="icon"
       size="20px"
-      :variant="iconStyle"
+      :variant="iconVariant"
     />
     <Text><slot /></Text>
   </button>
 </template>
 
 <script lang="ts" setup>
-  import { IconStyles } from '../modules/icons'
+  import { IconVariants } from '../modules/icons'
   import { IconTypes } from '../modules/icon-types'
 
 
@@ -24,7 +24,7 @@
     color?: string
     icon: IconTypes
     iconColor?: string
-    iconStyle?: IconStyles
+    iconVariant?: IconVariants // Icon variant
   }
 
   withDefaults(defineProps<IconProps>(), {
