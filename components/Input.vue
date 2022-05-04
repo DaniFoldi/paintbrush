@@ -57,6 +57,7 @@
     input {
       border: 2px solid var(--background-highlight);
       height: 32px;
+      margin-inline: 0;
       padding-inline: 4px;
 
       @include mixins.rounded;
