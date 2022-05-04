@@ -8,6 +8,7 @@
     "build": "npm-run-all build:docs build:nuxt",
     "clean": "rimraf coverage .nuxt .output",
     "dev": "nuxi dev",
+    "docsw": "chokidar \"components/**.vue\" -c \"npm run build:docs\"",
     "license": "npm-run-all license:*",
     "license:prod": "license-checker --summary --production --unknown --onlyAllow \"0BSD;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;MIT\"",
     "license:all": "license-checker --summary --onlyAllow \"0BSD;Apache*;Apache-2.0;BSD-2-Clause;BSD-3-Clause;CC0-1.0;CC-BY-3.0;CC-BY-4.0;CC-BY-ND-4.0;ISC;MIT;Python-2.0\"",
