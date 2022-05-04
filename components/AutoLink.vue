@@ -3,6 +3,7 @@
   @version 1.0.0
   @icon link
 -->
+
 <template>
   <a v-if="reload" :href="href"><slot /></a>
   <NuxtLink v-else :to="href">

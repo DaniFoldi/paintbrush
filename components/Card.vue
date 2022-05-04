@@ -2,6 +2,7 @@
   @name Card
   @version 1.0.0
 -->
+
 <template>
   <Container :inline="inline">
     <slot />

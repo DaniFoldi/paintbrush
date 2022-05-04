@@ -15,6 +15,7 @@
   type?: string ['button'] (Button type, can be button, submit, reset)
   uppercase?: boolean [false] (Uppercase the text)
 -->
+
 <template>
   <button :class="{ capitalize, ghost, uppercase }" :type="type">
     <slot />

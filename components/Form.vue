@@ -4,7 +4,6 @@
   @icon cursor-text
 -->
 
-
 <template>
   <form @submit.prevent="$emit('pb-submit', $event.target as HTMLFormElement)">
     <slot />

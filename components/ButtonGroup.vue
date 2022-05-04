@@ -3,6 +3,7 @@
   @version 1.0.0
   @icon arrows-in-line-vertical
 -->
+
 <template>
   <div class="button-group">
     <slot />

@@ -15,6 +15,7 @@
   <Icon color="white" name="mouse" size="24px" />
   @note For an icon list see https://phosphoricons.com/
 -->
+
 <template>
   <i :class="`ph-${name}${variant !== 'regular' ? `-${variant}` : ''}`" />
 </template>
