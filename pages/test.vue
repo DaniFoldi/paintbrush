@@ -136,7 +136,7 @@
 </template>
 
 <script lang="ts" setup>
-  import {  useState } from '#imports'
+  import { useState } from '#imports'
 
 
   const focusActive = useState('focus-active', () => false)
