@@ -68,12 +68,8 @@
     split: false
   })
 
-  if (Object.values({ article: props.article, max: props.max, split: props.split }).filter(Boolean).length > 1) {
-    console.warn('Container: Only one of the following props should be set: article, max, split')
-  }
-
-  const centerBlock = props.center === 'block' || props.center === true
-  const centerInline = props.center === 'inline' || props.center === true
+  const centerBlock = computed(() => props.center === 'block' || props.center === true)
+  const centerInline = computed(() => props.center === 'inline' || props.center === true)
 </script>
 
 <style lang="scss" scoped>

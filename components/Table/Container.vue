@@ -53,7 +53,7 @@
 
   provide('table-use-separator', props.separator)
 
-  const rows = props.separator ? `${props.rowHeight} 2px` : props.rowHeight
+  const rows = computed(() => props.separator ? `${props.rowHeight} 2px` : props.rowHeight)
 </script>
 
 <style lang="scss" scoped>

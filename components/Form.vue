@@ -14,6 +14,7 @@
   interface FormEmits {
     (e: 'pb-submit', target: HTMLFormElement): void // Form is submitted
   }
+
   defineEmits<FormEmits>()
 </script>
 

@@ -24,7 +24,7 @@
   const highlight = computed(() => {
     return props.language === 'auto' ? hljs.highlightAuto(props.code) : hljs.highlight(props.code, { language: props.language })
   })
-  const classes = [ 'hljs', highlight.value.language ].filter(Boolean).join(' ')
+  const classes = computed(() => [ 'hljs', highlight.value.language ].filter(Boolean).join(' '))
 </script>
 
 <style lang="scss">

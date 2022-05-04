@@ -14,17 +14,24 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed } from '#imports'
+
+
   interface AutoLinkProps {
     href: string // URL to navigate to
   }
 
   const props = defineProps<AutoLinkProps>()
-  let reload = true
-  try {
-    new URL(props.href)
-  } catch {
-    reload = false
-  }
+
+
+  const reload = computed(() => {
+    try {
+      new URL(props.href)
+      return true
+    } catch {
+      return false
+    }
+  })
 </script>
 
 <style lang="scss" scoped>

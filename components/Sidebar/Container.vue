@@ -36,6 +36,7 @@
     sidebarSpacing: 'double-unit'
   })
 
+
   const spacing = useThemeColor(props.sidebarSpacing)
 </script>
 

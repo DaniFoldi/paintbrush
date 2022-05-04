@@ -24,6 +24,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed } from '#imports'
+
+
   interface TextProps {
     bold?: boolean // Bold text
     capitalize?: boolean // Capitalize text
@@ -84,7 +87,7 @@
     console.warn('Text: Only one of the following props should be set: bold, light')
   }
 
-  const classes = [
+  const classes = computed(() => [
     props.bold ? 'bold' : '',
     props.capitalize ? 'capitalize' : '',
     props.gradient ? 'gradient' : '',
@@ -94,7 +97,7 @@
     props.light ? 'light' : '',
     props.underline ? 'underline' : '',
     props.uppercase ? 'uppercase' : ''
-  ]
+  ])
 </script>
 
 <style lang="scss" scoped>
