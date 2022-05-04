@@ -8,18 +8,16 @@ const docs: Docs = {}
 
 // eslint-disable-next-line no-extra-parens
 ;(async () => {
-
   await generateComponentDocs()
 
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
-
 })
 
 export interface Component {
   category: string
   description: string
   example: string[]
-  icon: IconTypes
+  icon: IconTypes | undefined
   name: string
   note: string
   property: {
@@ -31,7 +29,7 @@ export interface Component {
   }[]
   renderedExample: string[]
   see: string[]
-  tags: string[]
+  tag: string[]
   usage: string
   version: string
 }
@@ -72,13 +70,13 @@ export async function generateComponentDocs() {
       category: '',
       description: '',
       example: [],
-      icon: 'question',
+      icon: undefined,
       name: '',
       note: '',
       property: [],
       renderedExample: [],
       see: [],
-      tags: [],
+      tag: [],
       usage: '',
       version: ''
     }
