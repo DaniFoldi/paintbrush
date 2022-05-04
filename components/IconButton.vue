@@ -1,6 +1,7 @@
 <!--!
   @version 1.1.0
   @icon hand-pointing
+  @category Basic
 -->
 <template>
   <button type="button">

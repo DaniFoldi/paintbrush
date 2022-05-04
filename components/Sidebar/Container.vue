@@ -29,7 +29,7 @@
 
 
   interface ContainerProps {
-    sidebarSpacing?: string
+    sidebarSpacing?: string // Spacing between sidebar parts
   }
 
   const props = withDefaults(defineProps<ContainerProps>(), {

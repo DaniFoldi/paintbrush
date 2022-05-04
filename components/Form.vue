@@ -1,6 +1,7 @@
 <!--!
   @version 1.0.0
   @icon cursor-text
+  @category Form
 -->
 
 <template>

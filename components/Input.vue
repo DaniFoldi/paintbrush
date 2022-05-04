@@ -1,6 +1,7 @@
 <!--!
   @version 0.4.0
   @icon textbox
+  @category Form
 -->
 
 <template>

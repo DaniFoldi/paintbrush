@@ -2,6 +2,7 @@
   @version 1.1.0
   @icon palette
   @description Icon component from Phosphor Icons
+  @category Display
   @usage
   <Icon name="gear" />
   @renderedExample

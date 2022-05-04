@@ -3,6 +3,7 @@
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
+  @category Layout
 -->
 
 <template>

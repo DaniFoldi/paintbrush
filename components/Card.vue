@@ -1,5 +1,7 @@
 <!--!
   @version 1.0.0
+  @category Layout
+  @icon card
 -->
 
 <template>

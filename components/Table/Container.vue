@@ -1,6 +1,7 @@
 <!--!
   @version 0.1.0
-  @category
+  @category Layout
+  @icon table
 -->
 <template>
   <div :id="id">

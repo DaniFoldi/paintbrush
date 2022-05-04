@@ -1,6 +1,7 @@
 <!--!
   @icon arrows-horizontal
   @version 1.1.0
+  @category Layout
 -->
 <template>
   <hr :class="{ rounded }">

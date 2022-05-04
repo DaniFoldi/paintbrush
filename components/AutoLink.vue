@@ -3,6 +3,7 @@
   @icon link
   @description SSR/SPA-friendly link component
   @usage <AutoLink href="/dashboard">Dashboard</AutoLink>
+  @category Basic
 -->
 
 <template>

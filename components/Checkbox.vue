@@ -1,6 +1,7 @@
 <!--!
   @version 0.1.0
   @icon check-square
+  @category Form
 -->
 
 <template>

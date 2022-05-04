@@ -6,6 +6,7 @@
   <Button color="primary">
   __button
   </Button>
+  @category Basic
 -->
 
 <template>

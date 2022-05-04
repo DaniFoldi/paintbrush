@@ -2,6 +2,7 @@
   @version 1.0.0
   @icon brain
   @description Render any html at runtime
+  @category Misc
   @usage <Runtime element="h1" html="Hello World" />
   @renderedExample
   <Runtime html="Hello World" />

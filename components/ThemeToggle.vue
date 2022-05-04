@@ -1,6 +1,7 @@
 <!--!
   @version 0.0.1
   @icon moon
+  @category Paintbrush
 -->
 <template>
   <Text>{{ theme.theme }}</Text>

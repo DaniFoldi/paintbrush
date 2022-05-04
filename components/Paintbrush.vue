@@ -3,12 +3,10 @@
   @description Main component to be used everywhere
   @usage
   <Paintbrush>
-  <Text>Hello world</Text>
+  __<Text>Hello world</Text>
   </Paintbrush>
-
   @note This component should be wrapping every other Paintbrush component used
 -->
-<!-- TODO add props to documentation -->
 <template>
   <Container v-if="container" max>
     <slot />
