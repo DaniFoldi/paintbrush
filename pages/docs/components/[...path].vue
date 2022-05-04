@@ -1,5 +1,5 @@
 <template>
-  <Container article>
+  <Container article padded>
     <Text title>
       {{ component.name }}
     </Text>
@@ -30,6 +30,18 @@
       <Text v-if="property.default && property.default !== ''">
         default: {{ property.default }}
       </Text>
+    </div>
+
+    <Text v-if="Object.keys(component.emit).length > 0" subtitle>
+      Emits
+    </Text>
+
+    <div v-for="event in component.emit" :key="event.name">
+      <Text>
+        {{ event.name }}
+      </Text>
+      <Text>{{ event.description }}</Text>
+      <Text>{{ event.payload }}</Text>
     </div>
 
     <Text v-if="Object.keys(component.see).length > 0" subtitle>

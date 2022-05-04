@@ -14,7 +14,7 @@
           :icon-color="`${$route.path}.vue` === `/docs/${path}` ? 'var(--secondary)' : 'var(--text)'"
           :variant="`${$route.path}.vue` === `/docs/${path}` ? 'bold' : 'regular'"
         >
-          <Container split>
+          <Container center-vertical split>
             <Text>{{ component.name }}</Text>
             <Text light>
               {{ component.version }}

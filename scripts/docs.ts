@@ -9,13 +9,22 @@ const docs: Docs = {}
 // eslint-disable-next-line no-extra-parens
 ;(async () => {
   await generateComponentDocs()
-
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
 })
+
+function findInterface(name: string, script: string): string[] {
+  const definition = new RegExp(`interface\\s*?${name}\\s*?\\{(?<definition>.*?)\\}`, 'gisu').exec(script)?.groups?.definition ?? ''
+  return definition.split('\n').map(line => line.trim()).filter(line => line.length > 0)
+}
 
 export interface Component {
   category: string
   description: string
+  emit: {
+    description: string
+    name: string
+    payload: string
+  }[]
   example: string[]
   icon: IconTypes | undefined
   name: string
@@ -65,10 +74,20 @@ export async function generateComponentDocs() {
         const lines = entry.split(' ')
         return [ lines[0] as keyof Component, lines.slice(1).join(' ') ]
       })
+    // TODO change includes to regex word match
+    const scriptSetup = [ ...text.matchAll(/<script(?<attrs>.*?)>(?<value>.*?)<\/script>/gisu) ]
+      .filter(match => match.groups?.attrs.includes('lang="ts"' || console.warn(`${fileName} Only ts scripts are supprted`)))
+      .filter(match => match.groups?.attrs.includes('setup') || console.warn(`${fileName} Only setup scripts are supported`))
+      .join('\n')
+
+    const emits = /defineEmits<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
+    // TODO find no default definitions
+    const props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),(?<defaults>.*?)\)/gisu.exec(scriptSetup)
 
     const componentData: Component = {
       category: '',
       description: '',
+      emit: [],
       example: [],
       icon: undefined,
       name: '',
@@ -80,8 +99,13 @@ export async function generateComponentDocs() {
       usage: '',
       version: ''
     }
+
     for (const entry of doc) {
-      if (entry[0] === 'property') {
+      if (entry[0] === 'emit' || entry[0] === 'name' || entry[0] === 'property') {
+        console.warn(`component ${fileName}: @${entry[0]} is deprecated`)
+        continue
+      }
+      /* if (entry[0] === 'property') {
         const regex = /^\s*(?<name>[\w-]+)\s*(?<optional>\?)?:\s*(?<type>[\w"'-]+)\s*(\[\s*(?<default>.*?)\s*])?\s*(\((?<desc>.*?)\))?\s*$/
         for (const line of entry[1].split('\n')) {
           const data = regex.exec(line)?.groups
@@ -98,9 +122,9 @@ export async function generateComponentDocs() {
           }
         }
         continue
-      }
-      if (typeof componentData[entry[0]] === 'undefined') {
-        console.warn(`Unknown property @'${entry[0]}' in '${fileName}' docs, skipping`)
+      }*/
+      if (!Object.hasOwn(componentData, entry[0])) {
+        console.warn(`Unknown property @${entry[0]} in '${fileName}' docs, skipping`)
         continue
       }
       if (Array.isArray(componentData[entry[0]])) {
@@ -110,21 +134,48 @@ export async function generateComponentDocs() {
       }
     }
 
-    if (componentData.name === '') {
-      console.warn(`Component ${fileName} has no @name, excluding`)
-      continue
-    } else if (componentData.name.toLowerCase() !== fileName.toLowerCase().replace(/^components\//, '').replace(/\.vue$/, '').replaceAll('/', '')) {
-      console.warn(`Component ${fileName} has incorrect @name '${componentData.name}' which does not match the file name '${fileName.toLowerCase().replace(/^components\//, '').replace(/\.vue$/, '').replaceAll('/', '')}'`)
-    } else {
-      const duplicates = Object.entries(docs).filter(component => component[1].name === componentData.name)
-      if (duplicates.length > 0) {
-        console.warn(`Component ${fileName} has duplicate @name (${duplicates.map(component => component[0]).join(', ')})`)
+    if (emits) {
+      const emitInterface = findInterface(emits?.groups?.interface ?? '', scriptSetup)
+      console.log(emitInterface)
+      for (const emit of emitInterface) {
+        componentData.emit.push({
+          description: emit,
+          name: emit,
+          payload: emit
+        })
       }
     }
+
+    if (props) {
+      const propInterface = findInterface(props?.groups?.interface ?? '', scriptSetup)
+      for (const prop of propInterface) {
+        componentData.property.push({
+          default: prop,
+          description: prop,
+          name: prop,
+          required: !!prop,
+          type: prop
+        })
+      }
+    }
+
+    componentData.name = fileName.replace(/^components\//, '').replace(/\.vue$/, '').replaceAll('/', '')
+
+
     if (componentData.version === '') {
       console.info(`Component ${fileName} has no @version, defaulting to 0.0.1`)
       componentData.version = '0.0.1'
     }
+    if (componentData.icon === undefined) {
+      console.info(`Component ${fileName} has no @icon`)
+    }
+    if (componentData.description === '') {
+      console.warn(`Component ${fileName} has no @description`)
+    }
+    if (componentData.usage === '') {
+      console.warn(`Component ${fileName} has no @usage`)
+    }
+
     docs[fileName] = componentData
   }
 
