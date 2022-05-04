@@ -1,6 +1,6 @@
 <!--!
   @name Input
-  @version 0.3.0
+  @version 0.4.0
   @icon textbox
 -->
 
@@ -28,15 +28,17 @@
     modelValue?: string
     placeholder?: string
     type?: string
+    width?: string
   }
 
   const emit = defineEmits<InputEmits>()
 
-  withDefaults(defineProps<InputProps>(), {
+  const props = withDefaults(defineProps<InputProps>(), {
     autoWrap: true,
     modelValue: '',
     placeholder: '',
-    type: 'text'
+    type: 'text',
+    width: '100%'
   })
 
   function onInput(event: Event) {
@@ -59,6 +61,7 @@
       height: 32px;
       margin-inline: 0;
       padding-inline: 4px;
+      width: v-bind('props.width');
 
       @include mixins.rounded;
       @include mixins.with-fade;
