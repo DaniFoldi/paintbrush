@@ -86,10 +86,10 @@
     "@fontsource/inter": "^4.5.10",
     "@fontsource/playfair-display": "^4.5.9",
     "@fontsource/raleway": "^4.5.8",
-    "@pinia/nuxt": "^0.1.8",
+    "@pinia/nuxt": "^0.1.9",
     "atropos": "^1.0.2",
     "highlight.js": "^11.5.1",
     "phosphor-icons": "^1.4.2",
-    "pinia": "^2.0.13"
+    "pinia": "^2.0.14"
   }
 }
