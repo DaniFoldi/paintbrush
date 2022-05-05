@@ -129,7 +129,7 @@
       top="300px"
       width="300px"
     />
-    <Button @click="toggleFocus">
+    <Button color="pink" @click="toggleFocus">
       Toggle focus
     </Button>
   </Container>

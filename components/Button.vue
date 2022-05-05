@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.0
+  @version 1.2.0
   @description Button component with optional gradient or ghost effect
   @icon hand-pointing
   @usage
@@ -16,7 +16,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
+  import { textColor } from '../scripts/color'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface ButtonProps {
@@ -37,17 +38,16 @@
     uppercase: false
   })
 
-  const primarycolor = computed(() => `var(--${props.color})`)
-  const secondarycolor = computed(() => props.gradient ? `var(--${props.gradient})` : `var(--${props.color})`)
-  const textcolor = computed(() => `var(--text-on-${props.color})`)
+  const primarycolor = useThemeColor(props.color)
+  const secondarycolor = computed(() => useThemeColor(props.gradient ? props.gradient : props.color))
+  const textcolor = computed(() => useThemeColor(textColor(primarycolor.value, 'text', 'background')))
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   button {
-    background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind(secondarycolor));
-
+    background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind('secondarycolor.value'));
     color: v-bind(textcolor);
     cursor: pointer;
     min-height: 32px;
