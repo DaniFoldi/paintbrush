@@ -44,6 +44,7 @@
     pointer-events: none;
     position: fixed;
     top: v-bind('position.top');
+    // stylelint-disable-next-line plugin/no-low-performance-animation-properties -- should only have 1 such element
     transition: top .3s, height .3s, left .3s, width .3s;
     width: v-bind('position.width');
     z-index: 10;
