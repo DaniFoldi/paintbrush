@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.0
+  @version 1.2.0
   @icon text-aa
   @description Text component to display text
   @usage <Text>Lorem ipsum dolor sit amet</Text>
@@ -30,7 +30,8 @@
   interface TextProps {
     bold?: boolean // Bold text
     capitalize?: boolean // Capitalize text
-    gradient?: boolean // Gradient text
+    color?: string
+    gradient?: boolean | string // Gradient text
     important?: boolean // Important text
     inline?: boolean // Inline text
     italic?: boolean // Italic text
@@ -46,6 +47,7 @@
   const props = withDefaults(defineProps<TextProps>(), {
     bold: false,
     capitalize: false,
+    color: 'text',
     gradient: false,
     important: false,
     inline: false,
@@ -98,6 +100,9 @@
     props.underline ? 'underline' : '',
     props.uppercase ? 'uppercase' : ''
   ])
+
+  const primarycolor = computed(() => `var(--${props.gradient === true ? 'primary' : props.color})`)
+  const secondarycolor = computed(() => props.gradient ? `var(--${props.gradient === true ? 'secondary' : props.gradient})` : `var(--${props.color})`)
 </script>
 
 <style lang="scss" scoped>
@@ -132,7 +137,7 @@
     }
 
     &.gradient {
-      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      background: linear-gradient(45deg, v-bind(primarycolor), v-bind(secondarycolor));
       background-clip: text;
       color: transparent;
       font-style: normal;
