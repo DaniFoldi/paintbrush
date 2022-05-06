@@ -1,6 +1,6 @@
 {
   "name": "paintbrush-ui",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A flat UI component library",
   "scripts": {
     "build:docs": "ts-node-esm scripts/docs.ts",
