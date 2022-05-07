@@ -1,19 +1,19 @@
 <!--!
-  @version 1.0.0
+  @version 1.1.0
   @icon keyboard
 -->
 <template>
   <span>
     <template v-for="key in keys" :key="key">
       <Icon
-        v-if="key === 'meta'"
+        v-if="key === 'meta' || (key === 'mod' && isApple())"
         :name="isApple() ? 'command' : 'windows-logo'"
         variant="bold"
       />
       <Icon v-else-if="(key === 'alt' || key === 'option') && isApple()" name="option" variant="bold" />
       <kbd v-else-if="key === 'alt' || key === 'option'">Alt</kbd>
       <kbd v-else-if="key === 'ctrl' && isApple()">^</kbd>
-      <kbd v-else-if="key === 'ctrl'">Ctrl</kbd>
+      <kbd v-else-if="key === 'ctrl' || key === 'mod'">Ctrl</kbd>
       <Icon v-else-if="key === 'shift'" name="arrow-fat-up" variant="bold" />
       <Icon v-else-if="key === 'caps'" name="arrow-fat-line-up" variant="bold" />
       <Icon v-else-if="key === 'tab'" name="arrow-line-right" variant="bold" />

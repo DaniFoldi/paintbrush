@@ -139,13 +139,10 @@
       :options="{ maintainAspectRatio: false }"
       width="800px"
     />
-    <Shortcut color="primary" :keys="[ 'ctrl', 'shift', 'k' ]" />
+    <Shortcut color="secondary" :keys="[ 'mod', 'shift', 'k' ]" />
     <Copyright :start-year="2022">
       Dániel Földi.
     </Copyright>
-    <Text highlighted>
-      highlight this
-    </Text>
   </Container>
 </template>
 
