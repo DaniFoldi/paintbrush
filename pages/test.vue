@@ -133,10 +133,24 @@
       Toggle focus
     </Button>
     <MultilineCode :code="code" />
+    <ChartBar
+      :data="chart"
+      height="400px"
+      :options="{ maintainAspectRatio: false }"
+      width="800px"
+    />
+    <Shortcut color="primary" :keys="[ 'ctrl', 'shift', 'k' ]" />
+    <Copyright :start-year="2022">
+      Dániel Földi.
+    </Copyright>
+    <Text highlighted>
+      highlight this
+    </Text>
   </Container>
 </template>
 
 <script lang="ts" setup>
+  import type { TChartData } from 'vue-chartjs/dist/types'
   import { useState } from '#imports'
 
 
@@ -144,6 +158,22 @@
   const code = `<div>
   hi
 </div>`
+
+  const chart: TChartData<'bar'> = {
+    labels: [
+      'A',
+      'B',
+      'C',
+      'D'
+    ],
+    datasets: [
+      {
+        label: 'Data One',
+        backgroundColor: 'red',
+        data: [ 20, -9, 7, 10 ]
+      }
+    ]
+  }
 
   function toggleFocus() {
     focusActive.value = !focusActive.value
