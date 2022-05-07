@@ -9,14 +9,9 @@
       scroll-behavior: auto;
     }
 
-    // stylelint-disable declaration-no-important -- Disable animations for motion reduction
     *, *::before, *::after {
-      animation-duration: .01ms !important;
-      animation-iteration-count: 1 !important;
-      scroll-behavior: auto !important;
-      transition-duration: .01ms !important;
+      @include mixins.reduced-motion;
     }
-    // stylelint-enable declaration-no-important
   }
 
   html, body {

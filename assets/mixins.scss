@@ -163,3 +163,12 @@
 @mixin capitalize {
   text-transform: capitalize;
 }
+
+// stylelint-disable declaration-no-important -- Disable animations for motion reduction
+@mixin reduced-motion {
+  animation-duration: .01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: .01ms !important;
+}
+// stylelint-enable declaration-no-important

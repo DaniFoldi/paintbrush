@@ -56,6 +56,7 @@
       <Link v-if="manifest" :href="manifest" rel="manifest" />
       <Link href="https://cdnjs.com" rel="dns-prefetch" />
     </Head>
+    <Body :class="bodyClass" />
   </Html>
 </template>
 
@@ -65,7 +66,7 @@
   import { kebabCaseName, resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
-  import { useHead, useThemeManager, setThemeColors, useThemeColor } from '#imports'
+  import { onMounted, ref, useHead, useThemeManager, setThemeColors, useThemeColor } from '#imports'
 
 
   interface PaintbrushProps {
@@ -169,6 +170,12 @@
   const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
 
   const htmlStyle = useThemeManager(lightVariables.value, darkVariables.value)
+  const bodyClass = ref('motion-reduced')
+
+  onMounted(() => {
+    setTimeout(() => bodyClass.value = '', 250)
+  })
+
   const theme = storeToRefs(useTheme())
 
   const themeColor = useThemeColor('theme')
@@ -199,5 +206,12 @@
     @include mixins.font('raleway');
     @include mixins.standard;
     @include mixins.with-fade;
+  }
+
+  .motion-reduced {
+
+    &, &::before, &::after {
+      @include mixins.reduced-motion;
+    }
   }
 </style>
