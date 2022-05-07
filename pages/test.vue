@@ -65,48 +65,42 @@
     <Text subtitle>
       {{ $t('test') }}
     </Text>
-    <ParallaxDisplay>
-      <ParallaxItem :initial-opacity="0.7">
-        <Card inline>
-          <Form>
-            <Input type="email">
-              Email address
-            </Input>
-            <Input type="password">
-              Password
-            </Input>
-          </Form>
-        </Card>
-      </ParallaxItem>
-    </ParallaxDisplay>
-    <ParallaxDisplay>
-      <ParallaxItem :offset="-1">
-        <Card inline>
-          <Form>
-            <Input type="email">
-              Email address
-            </Input>
-            <Input type="password">
-              Password
-            </Input>
-          </Form>
-        </Card>
-      </ParallaxItem>
-    </ParallaxDisplay>
-    <ParallaxDisplay>
-      <ParallaxItem :rotated-opacity="0">
-        <Card inline>
-          <Form>
-            <Input type="email">
-              Email address
-            </Input>
-            <Input type="password">
-              Password
-            </Input>
-          </Form>
-        </Card>
-      </ParallaxItem>
-    </ParallaxDisplay>
+    <Container grid="repeat(auto-fit, minmax(250px, 1fr))">
+      <ParallaxDisplay>
+        <ParallaxItem :initial-opacity="0.7">
+          <Card inline>
+            <Form>
+              <Input type="email">
+                Email address
+              </Input>
+              <Input type="password">
+                Password
+              </Input>
+            </Form>
+          </Card>
+        </ParallaxItem>
+      </ParallaxDisplay>
+      <Card inline>
+        <Form>
+          <Input type="email">
+            Email address
+          </Input>
+          <Input type="password">
+            Password
+          </Input>
+        </Form>
+      </Card>
+      <Card inline>
+        <Form>
+          <Input type="email">
+            Email address
+          </Input>
+          <Input type="password">
+            Password
+          </Input>
+        </Form>
+      </Card>
+    </Container>
     <Stat :max="800" :value="500">
       With max
     </Stat>

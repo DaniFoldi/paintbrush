@@ -1,5 +1,5 @@
 <!--!
-  @version 1.4.0
+  @version 1.5.0
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
@@ -13,6 +13,7 @@
     :class="{
       'center-block': centerBlock,
       'center-inline': centerInline,
+      'grid': grid,
       'left-badge': leftBadge,
       'padded': padded,
       'right-badge': rightBadge,
@@ -31,6 +32,7 @@
     :class="{
       'center-block': centerBlock,
       'center-inline': centerInline,
+      'grid': grid,
       'left-badge': leftBadge,
       'padded': padded,
       'right-badge': rightBadge,
@@ -52,6 +54,7 @@
   interface ContainerProps {
     article?: boolean // Display container as article mode, with a maximum width
     center?: boolean | 'block' | 'inline' // Center container along axes
+    grid?: string
     inline?: boolean // Display container as inline
     leftBadge?: string // Badge in top left corner
     max?: boolean // Stretch container to maximum width and height
@@ -63,6 +66,7 @@
   const props = withDefaults(defineProps<ContainerProps>(), {
     article: false,
     center: false,
+    grid: '',
     inline: false,
     leftBadge: '',
     max: false,
@@ -108,6 +112,11 @@
 
     &.padded {
       @include mixins.double-unit-padding;
+    }
+
+    &.grid {
+      display: grid;
+      grid-template-columns: v-bind(grid);
     }
 
     &.split {
