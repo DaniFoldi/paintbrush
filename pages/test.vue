@@ -132,6 +132,7 @@
     <Button color="pink" @click="toggleFocus">
       Toggle focus
     </Button>
+    <MultilineCode :code="code" />
   </Container>
 </template>
 
@@ -140,6 +141,9 @@
 
 
   const focusActive = useState('focus-active', () => false)
+  const code = `<div>
+  hi
+</div>`
 
   function toggleFocus() {
     focusActive.value = !focusActive.value
