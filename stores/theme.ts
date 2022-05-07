@@ -10,7 +10,8 @@ export const useTheme = defineStore('paintbrush-theme', {
     use(theme: string) {
       this.theme = theme
     }
-  }
+  },
+  persist: true
 })
 
 if (import.meta.hot) {

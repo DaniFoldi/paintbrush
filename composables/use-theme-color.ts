@@ -14,14 +14,14 @@ export default function(color: string): Ref<string> {
     if (color === 'inherit') {
       return color
     }
-    if (process.client) {
-      const preferredTheme = useTheme()
-      if (preferredTheme.theme === 'light') {
-        return _scheme[_light[color]] || _scheme[color] || color
-      } else if (preferredTheme.theme === 'dark') {
-        return _scheme[_dark[color]] || _scheme[color] || color
-      }
+    const preferredTheme = useTheme()
+    if (preferredTheme.theme === 'light') {
+      return _scheme[_light[color]] || _scheme[color] || color
+    } else if (preferredTheme.theme === 'dark') {
+      return _scheme[_dark[color]] || _scheme[color] || color
+    }
 
+    if (process.client) {
       return (window.matchMedia('(prefers-color-scheme: dark)').matches ? _scheme[_dark[color]] : _scheme[_light[color]]) || _scheme[color] || color
     }
     return _scheme[color] || color
