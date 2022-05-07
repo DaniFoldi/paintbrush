@@ -92,6 +92,7 @@
     "highlight.js": "^11.5.1",
     "phosphor-icons": "^1.4.2",
     "pinia": "^2.0.14",
+    "pinia-plugin-persistedstate": "^1.5.1",
     "vue-chartjs": "^4.0.7"
   }
 }
