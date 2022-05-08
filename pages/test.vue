@@ -139,6 +139,28 @@
     </Copyright>
     <Pagination :page="page" :total-items="100" />
     <Breadcrumbs :path="path" />
+    <Highlight warning>
+      This is a warning
+    </Highlight>
+    <Highlight error>
+      Error
+    </Highlight>
+    <Highlight quote>
+      Quote
+    </Highlight>
+    <Highlight success>
+      Success
+    </Highlight>
+    <Highlight :auto-wrap="false" info>
+      <Text>
+        <Text bold part>
+          Bold
+        </Text>
+        <Text italic part>
+          italic
+        </Text>
+      </Text>
+    </Highlight>
   </Container>
 </template>
 
