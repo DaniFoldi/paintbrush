@@ -1,6 +1,7 @@
 <!--!
   @version 0.1.0
   @icon chart-pie
+  @category Chart
 -->
 <template>
   <Doughnut :chart-data="data" :chart-options="options" />

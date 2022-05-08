@@ -1,6 +1,7 @@
 <!--!
   @icon chart-line
   @version 0.1.0
+  @category Chart
 -->
 
 <template>

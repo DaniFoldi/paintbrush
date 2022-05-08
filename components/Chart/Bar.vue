@@ -1,6 +1,7 @@
 <!--!
   @icon chart-bar
   @version 0.1.0
+  @category Chart
 -->
 <template>
   <Bar :chart-data="data" :chart-options="options" />

@@ -1,6 +1,7 @@
 <!--!
   @version 0.1.0
   @icon globe-hemisphere-west
+  @category Chart
 -->
 <template>
   <Radar :chart-data="data" :chart-options="options" />

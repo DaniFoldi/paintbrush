@@ -1,6 +1,8 @@
 <!--!
   @version 0.1.0
   @require atropos
+  @icon stack-simple
+  @category Visual
 -->
 
 <template>

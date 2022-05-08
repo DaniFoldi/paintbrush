@@ -1,6 +1,7 @@
 <!--!
   @version 0.1.0
   @icon dots-six-vertical
+  @category Chart
 -->
 <template>
   <Bubble :chart-data="data" :chart-options="options" />

@@ -1,6 +1,7 @@
 <!--!
   @version 0.1.0
   @icon dots-nine
+  @category Chart
 -->
 
 <template>

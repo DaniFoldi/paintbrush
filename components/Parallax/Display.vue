@@ -1,6 +1,8 @@
 <!--!
   @version 0.1.0
   @require atropos
+  @icon stack
+  @category Visual
 -->
 <template>
   <atropos @enter="$emit('pb-enter')" @leave="$emit('pb-leave')" @rotate="(x, y) => $emit('pb-rotate', x, y)">

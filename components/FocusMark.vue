@@ -1,5 +1,7 @@
 <!--!
   @version: 0.1.0
+  @icon hand-waving
+  @category Misc
 -->
 <template>
   <div />

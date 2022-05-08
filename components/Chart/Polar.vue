@@ -1,6 +1,7 @@
 <!--!
   @version 0.1.0
   @icon chart-pie-slice
+  @category Chart
 -->
 
 <template>
