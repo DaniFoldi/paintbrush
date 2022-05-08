@@ -3,8 +3,10 @@
     <Text title>
       {{ component.name }}
     </Text>
-    <Text>{{ component.version }}</Text>
-    <Text italic>
+    <Text v-if="component.version">
+      {{ component.version }}
+    </Text>
+    <Text v-if="component.description" italic>
       {{ component.description }}
     </Text>
     <MultilineCode v-if="component.usage !== ''" :code="component.usage" language="html" />
@@ -29,7 +31,7 @@
       <Text v-if="property.description" italic>
         {{ property.description }}
       </Text>
-      <Text v-if="property.default && property.default !== ''">
+      <Text v-if="property.default">
         default: {{ property.default }}
       </Text>
     </div>
@@ -74,10 +76,12 @@
       language="html"
     />
 
-    <Text v-if="component.note && component.note !== ''" subtitle>
+    <Text v-if="component.note" subtitle>
       Note
     </Text>
-    <Text>{{ component.note }}</Text>
+    <Text v-if="component.note">
+      {{ component.note }}
+    </Text>
   </Container>
 </template>
 
@@ -94,3 +98,9 @@
   const components = data.value
   const component = components[`components/${useFullParam('path')}.vue`]
 </script>
+
+<style lang="scss" scoped>
+  div.property {
+    margin-block: var(--unit);
+  }
+</style>

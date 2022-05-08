@@ -1,15 +1,23 @@
 import { access, readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
 import { globbyStream } from 'globby'
+import JSON5 from 'json5'
 import { IconTypes } from '../modules/icon-types'
 
 
 const docs: Docs = {}
 
+const messageCount = { error: 0, warn: 0 }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function log(type: 'error' | 'warn', ...message: any) {
+  messageCount[type]++
+  console[type](...message)
+}
 
-;(async () => {
+(async () => {
   await generateComponentDocs()
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
+  console.warn(`\nDocs generation completed with ${messageCount.error} errors, ${messageCount.warn} warnings\n`)
 })()
 
 function findInterface(name: string, script: string): string[] {
@@ -77,12 +85,12 @@ export async function generateComponentDocs() {
         return [ lines[0] as keyof Component, lines.slice(1).join(' ') ]
       })
     const scriptSetup = [ ...text.matchAll(/<script(?<attrs>.*?)>(?<value>.*?)<\/script>/gisu) ]
-      .filter(match => match && match.groups && /\blang\s*=\s*('ts'|"ts")/.test(match.groups?.attrs) || console.warn(`${fileName} Only ts scripts are supprted`))
-      .filter(match => match && match.groups && /\bsetup\b/.test(match.groups?.attrs) || console.warn(`${fileName} Only setup scripts are supported`))
+      .filter(match => match && match.groups && /\blang\s*=\s*('ts'|"ts")/.test(match.groups?.attrs) || log('warn', `${fileName} Only ts scripts are supprted`))
+      .filter(match => match && match.groups && /\bsetup\b/.test(match.groups?.attrs) || log('warn', `${fileName} Only setup scripts are supported`))
       .join('\n')
 
     const emits = /defineEmits<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
-    let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),(?<defaults>.*?)\)/gisu.exec(scriptSetup)
+    let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),\s*(?<defaults>.*?)\)/gisu.exec(scriptSetup)
     if (!props) {
       props = /defineProps<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
     }
@@ -106,11 +114,11 @@ export async function generateComponentDocs() {
 
     for (const entry of doc) {
       if (entry[0] === 'emit' || entry[0] === 'name' || entry[0] === 'property') {
-        console.warn(`Overriding ${fileName}: @${entry[0]} is generated from source`)
+        log('warn', `Overriding ${fileName}: @${entry[0]} is generated from source`)
         continue
       }
       if (!Object.hasOwn(componentData, entry[0])) {
-        console.warn(`Unknown property @${entry[0]} in '${fileName}' docs, skipping`)
+        log('warn', `Unknown property @${entry[0]} in '${fileName}' docs, skipping`)
         continue
       }
       if (Array.isArray(componentData[entry[0]])) {
@@ -125,7 +133,7 @@ export async function generateComponentDocs() {
       for (const emit of emitInterface) {
         const emitData = /\(e:\s*'(?<name>.*?)',\s*(?<payload>\w+):\s*(?<type>.*)\): void\s*?(\/\/\s*(?<description>.*))/.exec(emit)
         if (!emitData) {
-          console.warn(`Unable to parse emit interface: ${fileName}/'${emit}'`)
+          log('warn', `Unable to parse emit interface: ${fileName}/'${emit}'`)
           continue
         }
         componentData.emit.push({
@@ -139,18 +147,24 @@ export async function generateComponentDocs() {
 
     if (props) {
       const propInterface = findInterface(props?.groups?.interface ?? '', scriptSetup)
-      const defaults = props?.groups?.defaults ?? ''
+      const defaultString = props?.groups?.defaults?.replaceAll(': undefined', ': \'undefined\'') ?? '{}'
+      let defaults: Record<string, string> = {}
+      try {
+        defaults = JSON5.parse(defaultString ?? '{}')
+      } catch {
+        log('warn', `Unable to parse prop defaults: ${fileName} '${defaultString}'`)
+      }
       for (const prop of propInterface) {
         const propData = /(?<name>\w+)(?<optional>\?)?:\s*(?<type>.+)\s*?(\/\/\s*(?<description>.*))/.exec(prop)
         if (!propData) {
-          console.error(`Unable to parse prop: ${fileName}/'${prop}'`)
+          log('error', `Unable to parse prop: ${fileName} '${prop}'`)
           continue
         }
         componentData.property.push({
-          default: defaults,
+          default: defaults[propData?.groups?.name ?? ''] ?? '',
           description: propData?.groups?.description ?? '',
           name: propData?.groups?.name ?? '',
-          required: propData?.groups?.optional?.length === 0 ?? true,
+          required: propData?.groups?.optional?.length === 0 ?? false,
           type: propData?.groups?.type ?? ''
         })
       }
@@ -160,17 +174,17 @@ export async function generateComponentDocs() {
 
 
     if (componentData.version === '') {
-      console.info(`Component ${fileName} has no @version, defaulting to 0.0.1`)
+      log('warn', `Component ${fileName} has no @version, defaulting to 0.0.1`)
       componentData.version = '0.0.1'
     }
     if (componentData.icon === undefined) {
-      console.info(`Component ${fileName} has no @icon`)
+      log('warn', `Component ${fileName} has no @icon`)
     }
     if (componentData.description === '') {
-      console.warn(`Component ${fileName} has no @description`)
+      log('warn', `Component ${fileName} has no @description`)
     }
     if (componentData.usage === '') {
-      console.warn(`Component ${fileName} has no @usage`)
+      log('warn', `Component ${fileName} has no @usage`)
     }
 
     docs[fileName] = componentData
@@ -179,7 +193,7 @@ export async function generateComponentDocs() {
   for (const component of Object.values(docs)) {
     for (const see of component.see) {
       if (!docs[see]) {
-        console.warn(`Component ${component} has invalid @see ${see}`)
+        log('warn', `Component ${component} has invalid @see ${see}`)
       }
     }
   }
