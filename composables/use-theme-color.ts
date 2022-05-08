@@ -1,5 +1,3 @@
-// TODO remove global
-/* global process */
 import { computed } from 'vue'
 import { useTheme } from '../stores/theme'
 import type { Ref } from 'vue'
@@ -21,6 +19,7 @@ export default function(color: string): Ref<string> {
       return _scheme[_dark[color]] || _scheme[color] || color
     }
 
+    // eslint-disable-next-line no-undef -- process will be added to globals
     if (process.client) {
       return (window.matchMedia('(prefers-color-scheme: dark)').matches ? _scheme[_dark[color]] : _scheme[_light[color]]) || _scheme[color] || color
     }
