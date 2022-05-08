@@ -95,22 +95,22 @@
     appName: '',
     canonical: '',
     colorScheme: () => ({
-      black: '#111',
+      black: '#111111',
       blue: '#3E56F4',
       darkergray: '#363636',
       darkestgray: '#252525',
-      darkgray: '#555',
-      gray: '#AAA',
+      darkgray: '#555555',
+      gray: '#AAAAAA',
       green: '#11E454',
       lightergray: '#E2E2E2',
       lightestgray: '#EFEFEF',
-      lightgray: '#DDD',
+      lightgray: '#DDDDDD',
       orange: '#FF6D1F',
       pink: '#EC368D',
       purple: '#7E09EC',
-      red: '#F33',
+      red: '#FF3333',
       teal: '#22E0FF',
-      white: '#FFF'
+      white: '#FFFFFF'
     }),
     container: true,
     darkColors: () => ({
