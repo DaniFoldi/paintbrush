@@ -137,12 +137,15 @@
     <Copyright :start-year="2022">
       Dániel Földi.
     </Copyright>
+    <Pagination :page="page" :total-items="100" />
+    <Breadcrumbs :path="path" />
   </Container>
 </template>
 
 <script lang="ts" setup>
+  import { IconTypes } from '../modules/icon-types'
   import type { TChartData } from 'vue-chartjs/dist/types'
-  import { useState } from '#imports'
+  import { useState, ref } from '#imports'
 
 
   const focusActive = useState('focus-active', () => false)
@@ -169,4 +172,7 @@
   function toggleFocus() {
     focusActive.value = !focusActive.value
   }
+
+  const page = ref(1)
+  const path = [{ iconName: 'folder' as IconTypes, text: 'Home' }, { iconName: 'file' as IconTypes, text: 'File' }]
 </script>
