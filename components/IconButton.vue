@@ -1,19 +1,24 @@
 <!--!
-  @version 1.1.0
+  @version 1.2.0
   @icon hand-pointing
   @category Basic
   @require phosphor-icons
 -->
 <template>
-  <button type="button">
+  <Button :class="{ 'flip': !leftIcon && rightIcon }">
+    <Text v-if="!leftIcon && rightIcon">
+      <slot />
+    </Text>
     <Icon
       :color="iconColor"
       :name="icon"
-      size="20px"
+      :size="iconSize"
       :variant="iconVariant"
     />
-    <Text><slot /></Text>
-  </button>
+    <Text v-if="leftIcon">
+      <slot />
+    </Text>
+  </Button>
 </template>
 
 <script lang="ts" setup>
@@ -25,13 +30,19 @@
     color?: string // Button color
     icon: IconTypes // Icon name
     iconColor?: string // Icon color
+    iconSize?: string // Icon size
     iconVariant?: IconVariants // Icon variant
+    leftIcon?: boolean
+    rightIcon?: boolean
   }
 
   withDefaults(defineProps<IconProps>(), {
     color: 'primary',
     iconColor: 'white',
-    iconVariant: 'regular'
+    iconSize: '20px',
+    iconVariant: 'regular',
+    leftIcon: true,
+    rightIcon: false
   })
 </script>
 
@@ -39,8 +50,6 @@
   @use '../assets/mixins.scss';
 
   button {
-    @include mixins.no-border;
-    @include mixins.rounded;
     @include mixins.two-items;
   }
 </style>
