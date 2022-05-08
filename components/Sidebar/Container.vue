@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.0
+  @version 1.2.0
   @icon sidebar-simple
   @category Navigation
 -->
@@ -17,9 +17,10 @@
       </div>
     </aside>
     <main>
-      <div>
+      <div v-if="wrapContent">
         <slot name="content" />
       </div>
+      <slot v-else name="content" />
     </main>
   </div>
 </template>
@@ -28,12 +29,14 @@
   import { useThemeColor } from '#imports'
 
 
-  interface ContainerProps {
+  interface SidebarContainerProps {
     sidebarSpacing?: string // Spacing between sidebar parts
+    wrapContent?: boolean
   }
 
-  const props = withDefaults(defineProps<ContainerProps>(), {
-    sidebarSpacing: 'double-unit'
+  const props = withDefaults(defineProps<SidebarContainerProps>(), {
+    sidebarSpacing: 'double-unit',
+    wrapContent: true
   })
 
 
@@ -71,7 +74,7 @@
     grid-template-rows: 1fr;
     max-height: 100vh;
 
-    & > div {
+    & > ::v-deep(div) {
       overflow-y: auto;
     }
   }
