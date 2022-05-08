@@ -14,6 +14,7 @@
 - Dialog
 - Divider
 - Dropdown
+- Emoji
 - FileInput
 - Gallery
 - Gauge
@@ -23,7 +24,7 @@
 - ItemList
 - ItemPicker
 - LoadingSpinner
-- Menubar
+- Map
 - Message
 - Modal
 - NewsArticle
