@@ -130,13 +130,29 @@
   grid-template-columns: auto 1fr;
   grid-template-rows: auto;
 
-  & > :first-child {
-    aspect-ratio: 1 / 1;
-    place-self: center;
+  &:not(.flip) {
+
+    & > :first-child {
+      aspect-ratio: 1 / 1;
+      place-self: center;
+    }
+
+    & > :not(:first-child) {
+      align-self: center;
+    }
   }
 
-  & > :not(:first-child) {
-    align-self: center;
+  &.flip {
+    grid-template-columns: 1fr auto;
+
+    & > :last-child {
+      aspect-ratio: 1 / 1;
+      place-self: center;
+    }
+
+    & > :not(:last-child) {
+      align-self: center;
+    }
   }
 }
 
