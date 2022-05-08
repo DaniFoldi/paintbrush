@@ -12,7 +12,6 @@
 - CodeEditor
 - Comment
 - Confirmation
-- Copyright
 - DatePicker
 - Details
 - Diagram
@@ -20,7 +19,6 @@
 - Divider
 - Dropdown
 - FileInput
-- FocusMark
 - Gallery
 - Gauge
 - Grid
@@ -36,7 +34,6 @@
 - NewsArticle
 - Notification
 - NumberField
-- Pagination
 - PaintbrushLogo
 - PaintbrushTitle
 - Placeholder
