@@ -89,10 +89,10 @@ export async function generateComponentDocs() {
       .filter(match => match && match.groups && /\bsetup\b/.test(match.groups?.attrs) || log('warn', `${fileName} Only setup scripts are supported`))
       .join('\n')
 
-    const emits = /defineEmits<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
-    let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),\s*(?<defaults>.*?)\)/gisu.exec(scriptSetup)
+    const emits = /defineEmits<(?<interface>.*?)>\(\)\s*$/gmisu.exec(scriptSetup)
+    let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),\s*(?<defaults>.*?)\)\s*$/gmisu.exec(scriptSetup)
     if (!props) {
-      props = /defineProps<(?<interface>.*?)>\(\)/gisu.exec(scriptSetup)
+      props = /defineProps<(?<interface>.*?)>\(\)\s*$/gmisu.exec(scriptSetup)
     }
 
     const componentData: Component = {
@@ -131,7 +131,7 @@ export async function generateComponentDocs() {
     if (emits) {
       const emitInterface = findInterface(emits?.groups?.interface ?? '', scriptSetup)
       for (const emit of emitInterface) {
-        const emitData = /\(e:\s*'(?<name>.*?)',\s*(?<payload>\w+):\s*(?<type>.*)\): void\s*?(\/\/\s*(?<description>.*))/.exec(emit)
+        const emitData = /\(e:\s*'(?<name>.*?)',\s*(?<payload>\w+):\s*(?<type>.*)\): void\s*?(\/\/\s*(?<description>.*))\s*$/su.exec(emit)
         if (!emitData) {
           log('warn', `Unable to parse emit interface: ${fileName}/'${emit}'`)
           continue
@@ -155,7 +155,7 @@ export async function generateComponentDocs() {
         log('warn', `Unable to parse prop defaults: ${fileName} '${defaultString}'`)
       }
       for (const prop of propInterface) {
-        const propData = /(?<name>\w+)(?<optional>\?)?:\s*(?<type>.+)\s*?(\/\/\s*(?<description>.*))/.exec(prop)
+        const propData = /(?<name>\w+)(?<optional>\?)?:\s*(?<type>.+)\s*?(\/\/\s*(?<description>.*))\s*$/su.exec(prop)
         if (!propData) {
           log('error', `Unable to parse prop: ${fileName} '${prop}'`)
           continue
