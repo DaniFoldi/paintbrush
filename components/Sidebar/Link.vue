@@ -1,5 +1,5 @@
 <!--!
-  @version 1.2.1
+  @version 1.2.2
   @icon link-simple
   @category Navigation
   @require phosphor-icons
@@ -14,7 +14,7 @@
       size="16px"
       :variant="iconVariant"
     />
-    <Text v-if="autoTitle">
+    <Text v-if="autoWrap">
       <slot />
     </Text>
     <slot v-else />
@@ -26,16 +26,16 @@
   import { IconTypes } from '../../modules/icon-types'
 
 
-  interface SidebarEntryProps {
-    autoTitle?: boolean // Wrap text in Text component
+  interface SidebarLinkProps {
+    autoWrap?: boolean // Wrap text in Text component
     href: string // Link to navigate to
     icon: undefined | IconTypes // Icon to display
     iconColor?: string // Color of icon
     iconVariant?: IconVariants // Variant of icon
   }
 
-  withDefaults(defineProps<SidebarEntryProps>(), {
-    autoTitle: true,
+  withDefaults(defineProps<SidebarLinkProps>(), {
+    autoWrap: true,
     iconColor: 'primary',
     iconVariant: 'regular'
   })
