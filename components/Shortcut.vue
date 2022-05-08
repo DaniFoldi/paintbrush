@@ -1,18 +1,19 @@
 <!--!
   @version 1.1.0
   @icon keyboard
+  @category Visual
 -->
 <template>
   <span>
     <template v-for="key in keys" :key="key">
       <Icon
-        v-if="key === 'meta' || (key === 'mod' && isApple())"
-        :name="isApple() ? 'command' : 'windows-logo'"
+        v-if="key === 'meta' || (key === 'mod' && isApple)"
+        :name="isApple ? 'command' : 'windows-logo'"
         variant="bold"
       />
-      <Icon v-else-if="(key === 'alt' || key === 'option') && isApple()" name="option" variant="bold" />
+      <Icon v-else-if="(key === 'alt' || key === 'option') && isApple" name="option" variant="bold" />
       <kbd v-else-if="key === 'alt' || key === 'option'">Alt</kbd>
-      <kbd v-else-if="key === 'ctrl' && isApple()">^</kbd>
+      <kbd v-else-if="key === 'ctrl' && isApple">^</kbd>
       <kbd v-else-if="key === 'ctrl' || key === 'mod'">Ctrl</kbd>
       <Icon v-else-if="key === 'shift'" name="arrow-fat-up" variant="bold" />
       <Icon v-else-if="key === 'caps'" name="arrow-fat-line-up" variant="bold" />
@@ -32,7 +33,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, useThemeColor } from '#imports'
+  /* global process -- TODO remove */
+  import { computed, useThemeColor, useRequestHeaders } from '#imports'
 
 
   interface ShortcutProps {
@@ -45,10 +47,10 @@
   })
 
 
-  function isApple() {
-    const platform = navigator.platform
+  const isApple = computed(() => {
+    const platform = process.client ? navigator.platform : useRequestHeaders()['user-agent']
     return [ 'iPhone', 'iPod', 'iPad', 'Mac' ].some(p => platform.includes(p))
-  }
+  })
 
   const color = computed(() => useThemeColor(props.color))
 </script>
