@@ -48,7 +48,7 @@
 
   button {
     background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind('secondarycolor.value'));
-    color: v-bind(textcolor);
+    color: v-bind('textcolor.value');
     cursor: pointer;
     min-height: 32px;
     min-width: 80px;
