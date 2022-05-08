@@ -23,6 +23,9 @@ export default defineNuxtConfig({
     ]
   },
   modules: [ './modules/icons', './modules/docs', '@pinia/nuxt', '@nuxtjs/i18n' ],
+  typescript: {
+    shim: false
+  },
   vite: {
     define: {
       __VUE_I18N_FULL_INSTALL__: false,
