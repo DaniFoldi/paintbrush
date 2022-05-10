@@ -30,7 +30,10 @@
             ghost
           </Button>
         </ButtonGroup>
-        <Checkbox>Test</Checkbox>
+        <Text>Checkbox is {{ check }}</Text>
+        <Checkbox v-model="check">
+          Test
+        </Checkbox>
         <Form>
           <Input :auto-wrap="false" type="text">
             <Text>
@@ -180,6 +183,7 @@
   import { useState, ref } from '#imports'
 
 
+  const check = ref(false)
   const focusActive = useState('focus-active', () => false)
   const code = `<div>
   hi
