@@ -19,7 +19,8 @@ Feel free to open Issues for any bugs/visual inconsistencies/glitches that you f
 |Emoji|Prefix|Description|
 |-----|------|-----------|
 |:zap:                   |`:zap:`                   |for implementing or extending functionality|
-|:hammer:                |`:hammer:`                |for bug fixes and non-breaking improvements|
+|:zap::zap:              |`:zap::zap:`              |for breaking changes                       |
+|:hammer:                |`:hammer:`                |for bug fixes                              |
 |:wrench:                |`:wrench:`                |for configurations                         |
 |:vertical_traffic_light:|`:vertical_traffic_light:`|for tests                                  |
 |:memo:                  |`:memo:`                  |for documentations                         |
