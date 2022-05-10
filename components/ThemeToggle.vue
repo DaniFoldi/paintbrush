@@ -6,13 +6,13 @@
 <template>
   <Text>{{ theme.theme }}</Text>
   <ButtonGroup>
-    <Button @click="theme.use('system')">
+    <Button @click="theme.theme = 'system'">
       System
     </Button>
-    <Button @click="theme.use('light')">
+    <Button @click="theme.theme = 'light'">
       Light
     </Button>
-    <Button @click="theme.use('dark')">
+    <Button @click="theme.theme = 'dark'">
       Dark
     </Button>
   </ButtonGroup>
