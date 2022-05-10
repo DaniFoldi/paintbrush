@@ -6,14 +6,36 @@
 
 <template>
   <label>
-    <input v-model="checked" type="checkbox">
-    <Text><slot /></Text>
+    <input
+      type="checkbox"
+      :value="modelValue"
+      @change="onChange"
+    >
+    <Text v-if="autoWrap"><slot /></Text>
+    <slot v-else />
   </label>
 </template>
 
 <script lang="ts" setup>
-// TODO expose checked as a prop
-  const checked = false
+  interface CheckboxEmits {
+    (e: 'update:modelValue', value: boolean): void // v-model update
+  }
+
+  interface CheckboxProps {
+    autoWrap?: boolean
+    modelValue?: boolean // v-model value
+  }
+
+  const emit = defineEmits<CheckboxEmits>()
+
+  withDefaults(defineProps<CheckboxProps>(), {
+    autoWrap: true,
+    checked: false
+  })
+
+  function onChange(event: Event) {
+    emit('update:modelValue', (event?.target as HTMLInputElement).checked)
+  }
 </script>
 
 <style lang="scss" scoped>
