@@ -172,6 +172,12 @@
             </Text>
           </Text>
         </Highlight>
+        <ChartLine
+          :data="chart2"
+          height="400px"
+          :options="{ maintainAspectRatio: false }"
+          width="800px"
+        />
       </Container>
     </template>
   </MenubarContainer>
@@ -203,6 +209,17 @@
         label: 'Data One',
         backgroundColor: 'red',
         data: [ 20, -9, 7, 10 ]
+      }
+    ]
+  }
+
+  const chart2: TChartData<'line'> = {
+    labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ],
+    datasets: [
+      {
+        label: 'Data One',
+        backgroundColor: '#f87979',
+        data: [ 40, 39, 10, 40, 39, 80, 40 ]
       }
     ]
   }
