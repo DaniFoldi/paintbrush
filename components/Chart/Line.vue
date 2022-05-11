@@ -1,6 +1,6 @@
 <!--!
   @icon chart-line
-  @version 0.1.0
+  @version 0.1.1
   @category Chart
 -->
 
@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
   import { Line } from 'vue-chartjs'
-  import { Chart, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+  import { Chart, Title, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js'
   import type { ScatterDataPoint } from 'chart.js'
   import type { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
 
@@ -28,7 +28,7 @@
   })
 
 
-  Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+  Chart.register(Title, Tooltip, Legend, LineElement, PointElement, CategoryScale, LinearScale)
 </script>
 
 <style lang="scss" scoped>
