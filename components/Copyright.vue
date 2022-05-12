@@ -1,6 +1,6 @@
 <!--!
   @icon copyright
-  @version 1.0.0
+  @version 1.1.0
   @category Misc
 -->
 
@@ -15,26 +15,33 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from '#imports'
+  import { useThemeColor, computed } from '#imports'
 
 
   interface CopyrightProps {
+    color?: string
     endYear?: number
     startYear?: number
   }
 
   const props = withDefaults(defineProps<CopyrightProps>(), {
+    color: 'text',
     startYear: new Date().getFullYear(),
     endYear: new Date().getFullYear()
   })
 
 
+  const color = useThemeColor(props.color)
   const years = computed(() => props.startYear === props.endYear ? props.startYear : `${props.startYear} - ${props.endYear}`)
 </script>
 
 <style lang="scss" scoped>
-  i {
-    margin-right: 1px;
-    vertical-align: middle;
+  blockquote {
+    color: v-bind(color);
+
+    i {
+      margin-right: 1px;
+      vertical-align: middle;
+    }
   }
 </style>
