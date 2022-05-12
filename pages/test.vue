@@ -1,5 +1,5 @@
 <template>
-  <MenubarContainer>
+  <MenubarContainer :wrap-content="false">
     <template #menubar-left>
       <MenubarLink href="https://paintbrush.danifoldi.com">
         Source
@@ -150,7 +150,12 @@
 
         <Pagination :page="page" :total-items="100" />
         <Breadcrumbs :path="path" />
-        <Highlight warning>
+        <Highlight
+          icon-color="orange"
+          icon-name="warning"
+          icon-variant="bold"
+          warning
+        >
           This is a warning
         </Highlight>
         <Highlight error>
@@ -159,7 +164,7 @@
         <Highlight quote>
           Quote
         </Highlight>
-        <Highlight success>
+        <Highlight icon-name="check-circle" success>
           Success
         </Highlight>
         <Highlight :auto-wrap="false" info>
