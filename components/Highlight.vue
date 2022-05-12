@@ -1,11 +1,12 @@
 <!--!
   @category Visual
   @icon traffic-sign
-  @version 1.0.0
+  @version 1.1.0
 -->
 
 <template>
-  <blockquote>
+  <blockquote :class="{ 'with-icon': iconName }">
+    <Icon v-if="iconName" :color="iconColor" :name="iconName" />
     <Text v-if="autoWrap">
       <slot />
     </Text>
@@ -14,12 +15,17 @@
 </template>
 
 <script lang="ts" setup>
+  import { IconTypes } from '../modules/icon-types'
+  import { IconVariants } from '../modules/icons'
   import { computed, useThemeColor } from '#imports'
 
 
   interface HighlightProps {
     autoWrap?: boolean
     error?: boolean
+    iconColor?: string
+    iconName?: IconTypes | undefined
+    iconVariant?: IconVariants
     info?: boolean
     quote?: boolean
     success?: boolean
@@ -29,6 +35,9 @@
   const props = withDefaults(defineProps<HighlightProps>(), {
     autoWrap: true,
     error: false,
+    iconColor: 'inherit',
+    iconName: undefined,
+    iconVariant: 'regular',
     info: false,
     quote: false,
     success: false,
@@ -59,10 +68,16 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '../assets/mixins.scss';
+
   blockquote {
     background: v-bind(background);
     border-left: 3px solid v-bind(border);
     margin-block: var(--double-unit);
     padding: var(--double-unit);
+
+    &.with-icon {
+      @include mixins.two-items;
+    }
   }
 </style>
