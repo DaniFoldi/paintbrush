@@ -1,5 +1,5 @@
 <!--!
-  @version 1.2.0
+  @version 1.3.0
   @description Button component with optional gradient or ghost effect
   @icon hand-pointing
   @usage
@@ -10,7 +10,7 @@
 -->
 
 <template>
-  <button :class="{ capitalize, ghost, uppercase }" :type="type">
+  <button :class="{ capitalize, ghost, uppercase, small, large }" :type="type">
     <slot />
   </button>
 </template>
@@ -25,6 +25,8 @@
     color?: string // Background color of the button
     ghost?: boolean // Add a ghost effect to the button
     gradient?: string  // Set the 2nd gradient color
+    large?: boolean // Make the button larger
+    small?: boolean // Make the button smaller
     type?: 'button' | 'submit' | 'reset' // Button type
     uppercase?: boolean // Uppercase the button text
   }
@@ -34,6 +36,8 @@
     color: 'primary',
     ghost: false,
     gradient: '',
+    large: false,
+    small: false,
     type: 'button',
     uppercase: false
   })
@@ -69,6 +73,16 @@
 
     &.uppercase {
       @include mixins.uppercase;
+    }
+
+    &.small {
+      min-height: 24px;
+      min-width: 40px;
+    }
+
+    &.large {
+      min-height: 48px;
+      min-width: 120px;
     }
   }
 </style>
