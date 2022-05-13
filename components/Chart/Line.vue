@@ -1,6 +1,6 @@
 <!--!
   @icon chart-line
-  @version 0.1.1
+  @version 0.1.2
   @category Chart
 -->
 
@@ -18,12 +18,13 @@
   interface LineChartProps {
     data: TChartData<'line', (number | ScatterDataPoint | null)[], unknown>
     height?: string
-    options: TChartOptions<'line'>
+    options?: TChartOptions<'line'>
     width?: string
   }
 
   withDefaults(defineProps<LineChartProps>(), {
     height: 'auto',
+    options: () => ({}),
     width: 'auto'
   })
 

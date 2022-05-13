@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.0
+  @version 0.1.1
   @icon chart-pie
   @category Chart
 -->
@@ -9,24 +9,25 @@
 
 <script lang="ts" setup>
   import { Doughnut } from 'vue-chartjs'
-  import { Chart, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+  import { Chart, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale } from 'chart.js'
   import type { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
 
 
   interface DoughnutChartProps {
     data: TChartData<'doughnut', number[], unknown>
     height?: string
-    options: TChartOptions<'doughnut'>
+    options?: TChartOptions<'doughnut'>
     width?: string
   }
 
   withDefaults(defineProps<DoughnutChartProps>(), {
     height: 'auto',
+    options: () => ({}),
     width: 'auto'
   })
 
 
-  Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+  Chart.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale)
 </script>
 
 <style lang="scss" scoped>

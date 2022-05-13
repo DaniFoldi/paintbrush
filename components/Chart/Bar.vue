@@ -1,6 +1,6 @@
 <!--!
   @icon chart-bar
-  @version 0.1.0
+  @version 0.1.1
   @category Chart
 -->
 <template>
@@ -16,12 +16,13 @@
   interface BarChartProps {
     data: TChartData<'bar', number[], unknown>
     height?: string
-    options: TChartOptions<'bar'>
+    options?: TChartOptions<'bar'>
     width?: string
   }
 
   withDefaults(defineProps<BarChartProps>(), {
     height: 'auto',
+    options: () => ({}),
     width: 'auto'
   })
 
