@@ -1,12 +1,12 @@
 <template>
   <MenubarContainer :wrap-content="false">
     <template #menubar-left>
-      <MenubarLink href="https://paintbrush.danifoldi.com">
-        Source
+      <MenubarLink href="/test2">
+        Test 2
       </MenubarLink>
     </template>
     <template #content>
-      <Container padded>
+      <Container ref="scrollAnchor" max padded>
         <ThemeToggle />
         <Text>asd</Text>
         <Separator />
@@ -133,9 +133,20 @@
           top="300px"
           width="300px"
         />
-        <Button color="pink" @click="toggleFocus">
+        <Button :ref="testRef" color="pink" @click="toggleFocus">
           Toggle focus
         </Button>
+        <Anchor
+          :x-anchor="testRef"
+          x-offset="200px"
+          :y-anchor="testRef"
+          :y-multiplier="1.2"
+          y-offset="20px"
+        >
+          <Copyright :start-year="2022">
+            Dániel Földi.
+          </Copyright>
+        </Anchor>
         <MultilineCode :code="code" />
         <ChartBar
           :data="chart"
@@ -144,10 +155,6 @@
           width="800px"
         />
         <Shortcut color="secondary" :keys="[ 'mod', 'shift', 'k' ]" />
-        <Copyright :start-year="2022">
-          Dániel Földi.
-        </Copyright>
-
         <Pagination :page="page" :total-items="100" />
         <Breadcrumbs :path="path" />
         <Highlight
@@ -199,6 +206,9 @@
   const code = `<div>
   hi
 </div>`
+
+  const testRef = ref(null)
+  const scrollAnchor = ref(null)
 
   const layout = [{ width: '20px', place: 'center' }, { width: '40%' }, { width: 'auto', justify: 'end' }]
 
