@@ -1,6 +1,7 @@
 <!--!
   @version 1.0.0
   @require phosphor-icons
+  @category Basic
 -->
 <template>
   <AutoLink :class="{ 'flip': !leftIcon && rightIcon }" :href="href">
