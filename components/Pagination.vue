@@ -1,6 +1,6 @@
 <!--!
   @icon dots-three
-  @version 1.0.0
+  @version 1.0.1
   @category Layout
 -->
 <template>
@@ -102,3 +102,11 @@
     emit('update:modelValue', newPage)
   }
 </script>
+
+<style lang="scss" scoped>
+  @use '../assets/mixins.scss';
+
+  button {
+    @include mixins.no-margin;
+  }
+</style>
