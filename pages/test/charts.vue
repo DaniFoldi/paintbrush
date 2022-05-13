@@ -1,18 +1,20 @@
 <template>
   <Container article max>
     <Container>
-      <IconLink href="/test" icon="confetti">
-        Link
-      </IconLink>
-      <Button small>
-        small
-      </Button>
-      <Button large>
-        large button
-      </Button>
-
+      <ChartBar
+        :data="bar"
+        height="400px"
+        :options="{ maintainAspectRatio: false }"
+        width="800px"
+      />
       <ChartBubble :data="bubble" />
       <ChartDoughnut :data="doughnut" />
+      <ChartLine
+        :data="line"
+        height="400px"
+        :options="{ maintainAspectRatio: false }"
+        width="800px"
+      />
       <ChartPie :data="pie" />
       <ChartPolar :data="polar" />
       <ChartRadar :data="radar" />
@@ -24,6 +26,22 @@
 <script lang="ts" setup>
   import type { TChartData } from 'vue-chartjs/dist/types'
 
+
+  const bar: TChartData<'bar'> = {
+    labels: [
+      'A',
+      'B',
+      'C',
+      'D'
+    ],
+    datasets: [
+      {
+        label: 'Data One',
+        backgroundColor: 'red',
+        data: [ 20, -9, 7, 10 ]
+      }
+    ]
+  }
 
   const bubble: TChartData<'bubble'> = {
     datasets: [
@@ -78,6 +96,17 @@
       {
         backgroundColor: [ '#41B883', '#E46651', '#00D8FF', '#DD1B16' ],
         data: [ 40, 20, 80, 10 ]
+      }
+    ]
+  }
+
+  const line: TChartData<'line'> = {
+    labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ],
+    datasets: [
+      {
+        label: 'Data One',
+        backgroundColor: '#f87979',
+        data: [ 40, 39, 10, 40, 39, 80, 40 ]
       }
     ]
   }
