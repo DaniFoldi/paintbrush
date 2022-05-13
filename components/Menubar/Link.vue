@@ -1,3 +1,8 @@
+<!--!
+  @version 1.0.0
+  @category Navigation
+-->
+
 <template>
   <AutoLink :class="{ 'with-icon': icon }" :href="href">
     <Icon
@@ -62,7 +67,7 @@
       @include mixins.no-margin;
     }
 
-    &:hover, &.router-link-active {
+    &:hover, &.router-link-exact-active {
       background: var(--background-2);
       text-decoration: none;
     }
