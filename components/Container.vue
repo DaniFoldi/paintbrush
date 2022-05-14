@@ -1,5 +1,5 @@
 <!--!
-  @version 1.5.0
+  @version 1.6.0
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
@@ -48,17 +48,17 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from '#imports'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface ContainerProps {
     article?: boolean // Display container as article mode, with a maximum width
     center?: boolean | 'block' | 'inline' // Center container along axes
-    grid?: string
+    grid?: string // Specify custom grid-template-columns
     inline?: boolean // Display container as inline
     leftBadge?: string // Badge in top left corner
     max?: boolean // Stretch container to maximum width and height
-    padded?: boolean // Apply padding
+    padded?: boolean | string // Apply padding
     rightBadge?: string // Badge in top right corner
     split?: boolean // Split container into two halves
   }
@@ -78,14 +78,16 @@
 
   const centerBlock = computed(() => props.center === 'block' || props.center === true)
   const centerInline = computed(() => props.center === 'inline' || props.center === true)
+  const padding = computed(() => props.padded === true ? 'var(--unit)' : (props.padded ? useThemeColor(props.padded) : '0px'))
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   .container {
+    padding: v-bind(padding);
+
     @include mixins.no-margin;
-    @include mixins.no-padding;
 
     &.max {
       @include mixins.absolute-full-size;
