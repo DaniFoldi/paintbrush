@@ -70,7 +70,7 @@
       margin-left: calc(var(--unit));
       margin-top: var(--unit);
       position: relative;
-      // stylelint-disable-next-line plugin/no-low-performance-animation-properties
+      // stylelint-disable-next-line plugin/no-low-performance-animation-properties -- Needed for animation
       transition: margin-left .2s;
       width: calc(24px - var(--double-unit));
       z-index: 1;
