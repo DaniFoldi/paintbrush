@@ -183,6 +183,10 @@
       </Text>
     </Highlight>
     <Toggle />
+    <ShapeCircle radius="200px" />
+    <Transform rotate="45deg">
+      <ShapeRectangle color="orange" width="150px" />
+    </Transform>
   </Container>
 </template>
 
