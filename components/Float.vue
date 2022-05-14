@@ -1,3 +1,8 @@
+<!--!
+  @version 0.1.0
+  @category Misc
+-->
+
 <template>
   <div><slot /></div>
 </template>

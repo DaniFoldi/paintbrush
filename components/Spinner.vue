@@ -1,3 +1,8 @@
+<!--!
+  @category Basic
+  @version 1.0.0
+-->
+
 <template>
   <div class="spinner-container" :class="containerClasses">
     <div class="spinner spinner1" />
