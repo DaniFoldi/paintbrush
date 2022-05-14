@@ -187,6 +187,7 @@
     <Transform rotate="45deg">
       <ShapeRectangle color="orange" width="150px" />
     </Transform>
+    <Spinner :progress="20" />
   </Container>
 </template>
 
