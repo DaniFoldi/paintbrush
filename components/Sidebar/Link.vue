@@ -4,6 +4,7 @@
   @category Navigation
   @require phosphor-icons
 -->
+
 <template>
   <AutoLink :class="{ 'with-icon': icon }" :href="href">
     <Icon

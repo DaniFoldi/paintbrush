@@ -3,6 +3,7 @@
   @version 0.1.0
   @description Basic toggle component
   @usage <Toggle color="lightergray" />
+  @icon toggle-right
 -->
 
 <template>
