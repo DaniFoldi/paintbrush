@@ -2,6 +2,8 @@
   @version 0.1.1
   @icon dots-nine
   @category Chart
+  @note For the height property to work, set { maintainAspectRatio: false } in options
+  @require vue-chartjs
 -->
 
 <template>
@@ -16,10 +18,10 @@
 
 
   interface ScatterChartProps {
-    data: TChartData<'scatter', (number | ScatterDataPoint | null)[], unknown>
-    height?: string
-    options?: TChartOptions<'scatter'>
-    width?: string
+    data: TChartData<'scatter', (number | ScatterDataPoint | null)[], unknown> // chart data to render
+    height?: string // height of chart
+    options?: TChartOptions<'scatter'> // options for chart
+    width?: string // width of chart
   }
 
   withDefaults(defineProps<ScatterChartProps>(), {

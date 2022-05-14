@@ -2,6 +2,12 @@
   @version 1.0.0
   @icon cursor-text
   @category Form
+  @description Form component with automatic submit prevention
+  @usage
+  <Form>
+  __<Input type="text">Username</Input>
+  __<Input type="password"Password</Input>
+  </Form>
 -->
 
 <template>

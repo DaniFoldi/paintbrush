@@ -2,6 +2,8 @@
   @icon chart-pie
   @version 0.1.1
   @category Chart
+  @note For the height property to work, set { maintainAspectRatio: false } in options
+  @require vue-chartjs
 -->
 
 <template>
@@ -15,10 +17,10 @@
 
 
   interface PieChartProps {
-    data: TChartData<'pie', number[], unknown>
-    height?: string
-    options?: TChartOptions<'pie'>
-    width?: string
+    data: TChartData<'pie', number[], unknown> // chart data to render
+    height?: string // height of chart
+    options?: TChartOptions<'pie'> // options for chart
+    width?: string // width of chart
   }
 
   withDefaults(defineProps<PieChartProps>(), {

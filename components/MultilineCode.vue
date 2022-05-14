@@ -3,7 +3,10 @@
   @icon code
   @category Display
   @require highlight.js
+  @description Highlight some source code
+  @usage <MultilineCode :code="let i = 0;" />
 -->
+
 <template>
   <pre><Runtime :class="classes" element="code" :rendered="highlight.value" /></pre>
 </template>

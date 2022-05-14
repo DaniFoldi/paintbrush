@@ -1,6 +1,12 @@
 <!--!
   @version 0.1.0
   @category Misc
+  @icon anchor
+  @description Display a floating border around an element
+  @usage
+  <Float :above="button" :distance="8" radius="8px" width="4px" />
+  <Button ref="button">Click</Button>
+  @note This component should be wrapped with <ClientOnly />
 -->
 
 <template>
@@ -12,11 +18,11 @@
 
 
   interface FloatProps {
-    above: HTMLElement | null
-    color?: string
-    distance?: number
-    radius?: string
-    width?: string
+    above: HTMLElement | null // Ref of element to highlight
+    color?: string // Border color
+    distance?: number // Distance around element
+    radius?: string // Border radius
+    width?: string // Border width
   }
 
   const props = withDefaults(defineProps<FloatProps>(), {

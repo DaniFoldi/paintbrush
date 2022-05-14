@@ -2,6 +2,8 @@
   @version 0.1.0
   @icon check-square
   @category Form
+  @description Simple checkbox component
+  @usage <Checkbox v-model="accepted">Accept terms of service</Checkbox>
 -->
 
 <template>
@@ -22,7 +24,7 @@
   }
 
   interface CheckboxProps {
-    autoWrap?: boolean
+    autoWrap?: boolean // wrap the contents in <Text>
     modelValue?: boolean // v-model value
   }
 

@@ -1,6 +1,12 @@
 <!--!
   @version 0.1.0
   @category Misc
+  @icon arrows-clockwise
+  @description Transform any component/html element.
+  @usage
+  <Transform rotate="45deg">
+  __<ShapeRectangle width="80px" />
+  </Transform>
 -->
 
 <template>

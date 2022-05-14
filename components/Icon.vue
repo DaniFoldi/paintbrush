@@ -10,7 +10,7 @@
   <Icon name="chat-dots" size="32px" />
   @renderedExample
   <Icon color="white" name="mouse" size="24px" />
-  @note For an icon list see https://phosphoricons.com/
+  @note For an icon list see https://phosphoricons.com
 -->
 
 <template>

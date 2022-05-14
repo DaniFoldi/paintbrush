@@ -2,7 +2,10 @@
   @version 0.1.1
   @icon dots-six-vertical
   @category Chart
+  @note For the height property to work, set { maintainAspectRatio: false } in options
+  @require vue-chartjs
 -->
+
 <template>
   <Bubble :chart-data="data" :chart-options="options" />
 </template>
@@ -15,10 +18,10 @@
 
 
   interface BubbleChartProps {
-    data: TChartData<'bubble', BubbleDataPoint[], unknown>
-    height?: string
-    options?: TChartOptions<'bubble'>
-    width?: string
+    data: TChartData<'bubble', BubbleDataPoint[], unknown> // chart data to render
+    height?: string // height of chart
+    options?: TChartOptions<'bubble'> // options for chart
+    width?: string // width of chart
   }
 
   withDefaults(defineProps<BubbleChartProps>(), {

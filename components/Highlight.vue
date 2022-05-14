@@ -2,6 +2,11 @@
   @category Visual
   @icon traffic-sign
   @version 1.1.0
+  @description Draw the user's attention to a piece of text
+  @usage
+  <Highlight warning iconName="warning">
+  __This feature is currently in beta.
+  </Highlight
 -->
 
 <template>
@@ -21,15 +26,15 @@
 
 
   interface HighlightProps {
-    autoWrap?: boolean
-    error?: boolean
-    iconColor?: string
-    iconName?: IconTypes | undefined
-    iconVariant?: IconVariants
-    info?: boolean
-    quote?: boolean
-    success?: boolean
-    warning?: boolean
+    autoWrap?: boolean // Wrap the text in Text
+    error?: boolean // Error highlight type
+    iconColor?: string // Icon color
+    iconName?: IconTypes | undefined // Icon name
+    iconVariant?: IconVariants // Icon variant
+    info?: boolean // Info highlight type
+    quote?: boolean // Quote highlight type
+    success?: boolean // Success highlight type
+    warning?: boolean // Warning highlight type
   }
 
   const props = withDefaults(defineProps<HighlightProps>(), {

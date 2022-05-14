@@ -2,6 +2,11 @@
   @version 0.2.0
   @icon hand-waving
   @category Misc
+  @description Dim the page except for target element
+  @usage
+  <FocusMark :target="button" :distance="8" rounded width="4px" />
+  <Button ref="button">Click</Button>
+  @note This component should be wrapped with <ClientOnly />
 -->
 <template>
   <div />
@@ -12,11 +17,11 @@
 
 
   interface FocusMarkProps {
-    distance?: number
-    off?: boolean
-    opacity?: number
-    rounded?: boolean | string
-    target: HTMLElement | null
+    distance?: number // Distance around element
+    off?: boolean // Toggle
+    opacity?: number // Shadow opacity
+    rounded?: boolean | string // Round borders
+    target: HTMLElement | null // Target element
   }
 
   const props = withDefaults(defineProps<FocusMarkProps>(), {

@@ -3,7 +3,10 @@
   @require phosphor-icons
   @category Basic
   @icon link
+  @description A link with an embedded and auto aligned icon
+  @usage <IconLink icon-name="question">What is this</IconLink>
 -->
+
 <template>
   <AutoLink :class="{ 'flip': !leftIcon && rightIcon }" :href="href">
     <Text v-if="!leftIcon && rightIcon" underline>

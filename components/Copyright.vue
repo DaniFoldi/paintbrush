@@ -2,6 +2,8 @@
   @icon copyright
   @version 1.1.0
   @category Misc
+  @description Display copyright information of a site
+  @usage <Copyright :startYear="2020">Author</Copyright>
 -->
 
 <template>
@@ -19,9 +21,9 @@
 
 
   interface CopyrightProps {
-    color?: string
-    endYear?: number
-    startYear?: number
+    color?: string // Icon and text color
+    endYear?: number // Displayed end year
+    startYear?: number // Displayed start year
   }
 
   const props = withDefaults(defineProps<CopyrightProps>(), {

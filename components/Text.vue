@@ -5,6 +5,7 @@
   @usage <Text>Lorem ipsum dolor sit amet</Text>
   @category Basic
 -->
+
 <template>
   <h1 v-if="mode === 'h1'" :class="classes">
     <slot />

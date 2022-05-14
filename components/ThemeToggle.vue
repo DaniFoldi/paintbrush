@@ -2,7 +2,10 @@
   @version 0.0.1
   @icon moon
   @category Paintbrush
+  @usage <ThemeToggle />
+  @description Display a toggle for the page theme
 -->
+
 <template>
   <Text>{{ theme.theme }}</Text>
   <ButtonGroup>

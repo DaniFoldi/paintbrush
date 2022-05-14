@@ -2,7 +2,10 @@
   @version 0.1.1
   @icon globe-hemisphere-west
   @category Chart
+  @note For the height property to work, set { maintainAspectRatio: false } in options
+  @require vue-chartjs
 -->
+
 <template>
   <Radar :chart-data="data" :chart-options="options" />
 </template>
@@ -14,10 +17,10 @@
 
 
   interface RadarChartProps {
-    data: TChartData<'radar', (number | null)[], unknown>
-    height?: string
-    options?: TChartOptions<'radar'>
-    width?: string
+    data: TChartData<'radar', (number | null)[], unknown> // chart data to render
+    height?: string // height of chart
+    options?: TChartOptions<'radar'> // options for chart
+    width?: string // width of chart
   }
 
   withDefaults(defineProps<RadarChartProps>(), {

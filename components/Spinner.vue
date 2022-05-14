@@ -1,6 +1,9 @@
 <!--!
   @category Basic
   @version 1.0.0
+  @icon circle-notch
+  @description Display a loading indicator
+  @usage <Spinner circles>
 -->
 
 <template>

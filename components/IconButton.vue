@@ -3,7 +3,10 @@
   @icon hand-pointing
   @category Basic
   @require phosphor-icons
+  @description A button with an embedded and auto aligned icon
+  @usage <IconButton icon-name="flask">Enable</IconButton>
 -->
+
 <template>
   <Button :class="{ 'flip': !leftIcon && rightIcon }">
     <Text v-if="!leftIcon && rightIcon">

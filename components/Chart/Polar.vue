@@ -2,6 +2,8 @@
   @version 0.1.1
   @icon chart-pie-slice
   @category Chart
+  @note For the height property to work, set { maintainAspectRatio: false } in options
+  @require vue-chartjs
 -->
 
 <template>
@@ -15,10 +17,10 @@
 
 
   interface PolarChartProps {
-    data: TChartData<'polarArea', number[], unknown>
-    height?: string
-    options?: TChartOptions<'polarArea'>
-    width?: string
+    data: TChartData<'polarArea', number[], unknown> // chart data to render
+    height?: string // height of chart
+    options?: TChartOptions<'polarArea'> // options for chart
+    width?: string // width of chart
   }
 
   withDefaults(defineProps<PolarChartProps>(), {

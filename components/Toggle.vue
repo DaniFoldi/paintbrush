@@ -1,7 +1,10 @@
 <!--!
   @category Form
   @version 0.1.0
+  @description Basic toggle component
+  @usage <Toggle color="lightergray" />
 -->
+
 <template>
   <input :checked="modelValue" type="checkbox" @change="onChange">
 </template>

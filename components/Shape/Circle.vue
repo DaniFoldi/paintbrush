@@ -1,6 +1,7 @@
 <!--!
   @version 1.0.0
   @category Visual
+  @icon circle
 -->
 
 <template>

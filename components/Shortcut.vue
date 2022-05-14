@@ -2,7 +2,10 @@
   @version 1.1.0
   @icon keyboard
   @category Visual
+  @description Elegantly present keyboard shortcuts
+  @usage <Shortcut color="secondary" :keys="[ 'mod', 'shift', 'k' ]" />
 -->
+
 <template>
   <span>
     <template v-for="key in keys" :key="key">
