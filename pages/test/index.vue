@@ -1,7 +1,16 @@
 <template>
-  <Container ref="scrollAnchor" max padded>
+  <Container
+    class="scroll"
+    max
+    padded
+  >
     <ThemeToggle />
-    <Text>asd</Text>
+    <ClientOnly>
+      <Float :above="testRef" />
+    </ClientOnly>
+    <Text>
+      asd
+    </Text>
     <Separator />
     <Icon name="gear" />
     <AutoLink href="https://paintbrush.danifoldi.com" reload>
@@ -19,7 +28,7 @@
       <Button color="primary" gradient="secondary">
         gradient
       </Button>
-      <Button ghost uppercase>
+      <Button ref="testRef" ghost uppercase>
         ghost
       </Button>
     </ButtonGroup>
@@ -127,32 +136,24 @@
     >
       With icon color
     </Stat>
-    <FocusMark
-      height="300px"
-      left="400px"
-      :off="!focusActive"
-      rounded
-      top="300px"
-      width="300px"
-    />
-    <Button :ref="testRef" color="pink" @click="toggleFocus">
+    <ClientOnly>
+      <FocusMark
+        :distance="12"
+        :off="!focusActive"
+        rounded="var(--double-unit)"
+        :target="testRef2"
+      />
+    </ClientOnly>
+    <Button color="pink" @click="toggleFocus">
       Toggle focus
     </Button>
-    <Anchor
-      :x-anchor="testRef"
-      x-offset="200px"
-      :y-anchor="testRef"
-      :y-multiplier="1.2"
-      y-offset="20px"
-    >
-      <Copyright :start-year="2022">
-        Dániel Földi.
-      </Copyright>
-    </Anchor>
+    <Copyright :start-year="2022">
+      Dániel Földi.
+    </Copyright>
     <MultilineCode :code="code" />
 
     <Shortcut color="secondary" :keys="[ 'mod', 'shift', 'k' ]" />
-    <Pagination :page="page" :total-items="100" />
+    <Pagination ref="testRef2" :page="page" :total-items="100" />
     <Breadcrumbs :path="path" />
     <Highlight
       icon-color="orange"
@@ -181,6 +182,7 @@
         </Text>
       </Text>
     </Highlight>
+    <Toggle />
   </Container>
 </template>
 
@@ -195,8 +197,8 @@
   hi
 </div>`
 
-  const testRef = ref(null)
-  const scrollAnchor = ref(null)
+  const testRef = ref<HTMLElement | null>(null)
+  const testRef2 = ref<HTMLElement | null>(null)
 
   const layout = [{ width: '20px', place: 'center' }, { width: '40%' }, { width: 'auto', justify: 'end' }]
 

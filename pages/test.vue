@@ -1,5 +1,5 @@
 <template>
-  <MenubarContainer :wrap-content="false">
+  <MenubarContainer ref="scrollAnchor" :wrap-content="false">
     <template #menubar-left>
       <MenubarLink href="/test">
         Test
@@ -13,3 +13,11 @@
     </template>
   </MenubarContainer>
 </template>
+
+<script lang="ts" setup>
+  import { provide, ref } from '#imports'
+
+
+  const scrollAnchor = ref<HTMLElement | null>()
+  provide('scrollAnchor', scrollAnchor)
+</script>
