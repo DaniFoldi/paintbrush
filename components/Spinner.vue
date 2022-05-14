@@ -8,18 +8,16 @@
 
 <script lang="ts" setup>
   interface SpinnerProps {
-    bounce?: boolean
     circles?: boolean
-    progress: number
+    progress?: number
   }
 
   const props = withDefaults(defineProps<SpinnerProps>(), {
-    bounce: false,
-    circles: true
+    circles: true,
+    progress: 0
   })
 
   const containerClasses = {
-    'spinner-bounce': props.bounce,
     'spinner-circles': props.circles
   }
 </script>
