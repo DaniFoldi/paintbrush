@@ -1,0 +1,68 @@
+<template>
+  <div class="spinner-container" :class="containerClasses">
+    <div class="spinner spinner1" />
+    <div class="spinner spinner2" />
+    <div class="spinner spinner3" />
+  </div>
+</template>
+
+<script lang="ts" setup>
+  interface SpinnerProps {
+    bounce?: boolean
+    circles?: boolean
+    progress: number
+  }
+
+  const props = withDefaults(defineProps<SpinnerProps>(), {
+    bounce: false,
+    circles: true
+  })
+
+  const containerClasses = {
+    'spinner-bounce': props.bounce,
+    'spinner-circles': props.circles
+  }
+</script>
+
+<style lang="scss" scoped>
+  @keyframes grow {
+
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(0);
+    }
+  }
+
+  div.spinner-circles {
+    display: inline-grid;
+    gap: var(--unit);
+    grid-template-columns: repeat(3, 1fr);
+
+    div.spinner {
+      animation-direction: alternate;
+      animation-duration: .6s;
+      animation-iteration-count: infinite;
+      animation-name: grow;
+      animation-timing-function: ease-in-out;
+      background: var(--primary);
+      border-radius: 50%;
+      height: 16px;
+      width: 16px;
+    }
+
+    div.spinner1 {
+      animation-delay: 0s;
+    }
+
+    div.spinner2 {
+      animation-delay: .2s;
+    }
+
+    div.spinner3 {
+      animation-delay: .4s;
+    }
+  }
+</style>
