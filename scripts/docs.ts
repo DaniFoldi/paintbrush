@@ -90,7 +90,7 @@ export async function generateComponentDocs() {
       .join('\n')
 
     const emits = /defineEmits<(?<interface>.*?)>\(\)\s*$/gmisu.exec(scriptSetup)
-    let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),\s*(?<defaults>.*?)\)\s*$/gmisu.exec(scriptSetup)
+    let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),\s*(?<defaults>.*?)\s{0,4}(?<=\})\)\s*$/gmisu.exec(scriptSetup)
     if (!props) {
       props = /defineProps<(?<interface>.*?)>\(\)\s*$/gmisu.exec(scriptSetup)
     }
