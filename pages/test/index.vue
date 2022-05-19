@@ -188,6 +188,12 @@
       <ShapeRectangle color="orange" width="150px" />
     </Transform>
     <Spinner :progress="20" />
+    <Popup v-if="popup">
+      <IconButton icon="x" @click="popup = false" />
+    </Popup>
+    <Button @click="popup = true">
+      Show popup
+    </Button>
   </Container>
 </template>
 
@@ -214,4 +220,6 @@
 
   const page = ref(1)
   const path = [{ iconName: 'folder' as IconTypes, text: 'Home' }, { iconName: 'file' as IconTypes, text: 'File' }]
+
+  const popup = ref(false)
 </script>
