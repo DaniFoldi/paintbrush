@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.0
+  @version 0.2.0
   @icon check-square
   @category Form
   @description Simple checkbox component
@@ -9,8 +9,8 @@
 <template>
   <label>
     <input
+      :checked="modelValue"
       type="checkbox"
-      :value="modelValue"
       @change="onChange"
     >
     <Text v-if="autoWrap"><slot /></Text>
@@ -35,6 +35,7 @@
     checked: false
   })
 
+
   function onChange(event: Event) {
     emit('update:modelValue', (event?.target as HTMLInputElement).checked)
   }
@@ -45,5 +46,28 @@
 
   label {
     @include mixins.two-items;
+
+    input[type=checkbox] {
+      appearance: none;
+      border: 2px solid var(--text-2);
+      border-radius: var(--unit);
+      cursor: pointer;
+      height: 24px;
+      margin-inline: 0;
+      width: 24px;
+
+      &:checked:after {
+        border-bottom-left-radius: var(--unit);
+        border-color: transparent transparent var(--primary) var(--primary) ;
+        border-style: solid;
+        border-width: 0 0 var(--unit) var(--unit);
+        content: '';
+        display: block;
+        height: 12px;
+        position: relative;
+        transform: rotate(-45deg);
+        width: 24px;
+      }
+    }
   }
 </style>
