@@ -1,6 +1,6 @@
 <!--!
   @category Form
-  @version 0.1.0
+  @version 1.0.0
   @description Basic toggle component
   @usage <Toggle color="lightergray" />
   @icon toggle-right
@@ -47,6 +47,7 @@
 
   input {
     appearance: none;
+    cursor: pointer;
     height: 24px;
     margin-inline: 0;
     width: 48px;
