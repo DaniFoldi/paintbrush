@@ -58,7 +58,7 @@
 
       &:checked:after {
         border-bottom-left-radius: var(--unit);
-        border-color: transparent transparent var(--primary) var(--primary) ;
+        border-color: transparent transparent var(--primary) var(--primary);
         border-style: solid;
         border-width: 0 0 var(--unit) var(--unit);
         content: '';
