@@ -1,5 +1,5 @@
 <!--!
-  @version 0.2.1
+  @version 0.2.2
   @icon hand-waving
   @category Misc
   @description Dim the page except for target element
@@ -21,7 +21,8 @@
     off?: boolean // Toggle
     opacity?: number // Shadow opacity
     rounded?: boolean | string // Round borders
-    target: HTMLElement | null // Target element
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    target: any // Target element
   }
 
   const props = withDefaults(defineProps<FocusMarkProps>(), {
@@ -68,11 +69,7 @@
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     top.value = props.off ? `calc(-100vmax + ${props.target.$el.offsetTop - (container.value?.$el?.scrollTop ?? 0) - props.distance}px)` : `${props.target.$el.offsetTop - (container.value?.$el?.scrollTop ?? 0) - props.distance}px`
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     width.value = props.off ? `calc(200vmax + ${props.target.$el.offsetWidth + 2 * props.distance}px)` : `${props.target.$el.offsetWidth + 2 * props.distance}px`
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     height.value = props.off ? `calc(200vmax + ${props.target.$el.offsetHeight + 2 * props.distance}px)` : `${props.target.$el.offsetHeight + 2 * props.distance}px`
   }
 </script>
