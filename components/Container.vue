@@ -1,5 +1,5 @@
 <!--!
-  @version 1.6.0
+  @version 1.7.0
   @icon package
   @description Container component for pages, main content and elements
   @usage <Container>Summary</Container>
@@ -54,6 +54,7 @@
   interface ContainerProps {
     article?: boolean // Display container as article mode, with a maximum width
     center?: boolean | 'block' | 'inline' // Center container along axes
+    gap?: string
     grid?: string // Specify custom grid-template-columns
     inline?: boolean // Display container as inline
     leftBadge?: string // Badge in top left corner
@@ -67,6 +68,7 @@
     article: false,
     center: false,
     grid: '',
+    gap: '0px',
     inline: false,
     leftBadge: '',
     max: false,
@@ -118,6 +120,7 @@
 
     &.grid {
       display: grid;
+      gap: v-bind(gap);
       grid-template-columns: v-bind(grid);
     }
 
