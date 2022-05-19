@@ -1,5 +1,5 @@
 <!--!
-  @version 0.2.0
+  @version 0.2.1
   @icon hand-waving
   @category Misc
   @description Dim the page except for target element
@@ -42,14 +42,20 @@
   const height = ref('100vmax')
 
   onMounted(() => {
+    draw()
+    if (!container.value) {
+      return
+    }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     container.value.$el.addEventListener('scroll', draw, { passive: true })
-    draw()
     watch(props, draw)
   })
 
   onBeforeUnmount(() => {
+    if (!container.value) {
+      return
+    }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     container.value.$el.removeEventListener('scroll', draw)
@@ -58,10 +64,10 @@
   function draw() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    left.value = props.off ? `calc(-100vmax + ${props.target.$el.offsetLeft - container.value.$el.scrollLeft - props.distance}px)` : `${props.target.$el.offsetLeft - container.value.$el.scrollLeft - props.distance}px`
+    left.value = props.off ? `calc(-100vmax + ${props.target.$el.offsetLeft - (container.value?.$el?.scrollLeft ?? 0) - props.distance}px)` : `${props.target.$el.offsetLeft - (container.value?.$el?.scrollLeft ?? 0) - props.distance}px`
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    top.value = props.off ? `calc(-100vmax + ${props.target.$el.offsetTop - container.value.$el.scrollTop - props.distance}px)` : `${props.target.$el.offsetTop - container.value.$el.scrollTop - props.distance}px`
+    top.value = props.off ? `calc(-100vmax + ${props.target.$el.offsetTop - (container.value?.$el?.scrollTop ?? 0) - props.distance}px)` : `${props.target.$el.offsetTop - (container.value?.$el?.scrollTop ?? 0) - props.distance}px`
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     width.value = props.off ? `calc(200vmax + ${props.target.$el.offsetWidth + 2 * props.distance}px)` : `${props.target.$el.offsetWidth + 2 * props.distance}px`
