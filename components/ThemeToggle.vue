@@ -63,7 +63,6 @@
       height: calc(24px - var(--double-unit));
       position: relative;
       transform: translateX(v-bind(offset));
-      // stylelint-disable-next-line plugin/no-low-performance-animation-properties -- Needed for animation
       transition: transform .2s;
       width: calc(24px - var(--double-unit));
     }
