@@ -194,6 +194,9 @@
     <Button @click="popup = true">
       Show popup
     </Button>
+    <Button disabled>
+      disabled
+    </Button>
   </Container>
 </template>
 

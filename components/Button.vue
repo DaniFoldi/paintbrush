@@ -1,5 +1,5 @@
 <!--!
-  @version 1.3.0
+  @version 1.4.0
   @description Button component with optional gradient or ghost effect
   @icon hand-pointing
   @usage
@@ -83,6 +83,10 @@
     &.large {
       min-height: 48px;
       min-width: 120px;
+    }
+
+    &:disabled {
+      background: var(--disabled);
     }
   }
 </style>
