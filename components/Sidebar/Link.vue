@@ -1,5 +1,5 @@
 <!--!
-  @version 1.2.2
+  @version 1.3.0
   @icon link-simple
   @category Navigation
   @require phosphor-icons
@@ -62,7 +62,7 @@
     }
 
     p {
-      @include mixins.no-margin;
+      margin: 0 var(--unit) 0 0;
     }
 
     &:hover, &.router-link-active {
