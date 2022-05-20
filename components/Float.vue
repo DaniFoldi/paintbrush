@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.0
+  @version 0.1.1
   @category Misc
   @icon anchor
   @description Display a floating border around an element
@@ -44,6 +44,9 @@
   const container = inject('scrollAnchor', ref<HTMLElement | null>())
 
   onMounted(() => {
+    if (!container.value) {
+      return
+    }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     container.value.$el.addEventListener('scroll', draw, { passive: true })
@@ -51,6 +54,9 @@
   })
 
   onBeforeUnmount(() => {
+    if (!container.value) {
+      return
+    }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     container.value.$el.removeEventListener('scroll', draw)
