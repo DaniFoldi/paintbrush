@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.0
+  @version 0.2.0
   @icon moon
   @category Paintbrush
   @usage <ThemeToggle />
@@ -16,7 +16,20 @@
 
 <script lang="ts" setup>
   import { useTheme } from '../stores/theme'
-  import { computed, ref } from '#imports'
+  import { computed, ref, useThemeColor } from '#imports'
+
+
+  interface ThemeToggleProps {
+    background?: string
+    border?: string
+    thumbColor?: string
+  }
+
+  const props = withDefaults(defineProps<ThemeToggleProps>(), {
+    background: 'backgroundHighlight',
+    border: 'textShade',
+    thumbColor: 'background'
+  })
 
 
   const theme = useTheme()
@@ -36,15 +49,18 @@
     }
   }
 
+  const thumb = useThemeColor(props.thumbColor)
   const offset = computed(() => theme.theme === 'system' ? '0px' : (theme.theme === 'light' ? '-20px' : '20px'))
+  const background = useThemeColor(props.background)
+  const border = useThemeColor(props.border)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   div.toggle {
-    background: var(--background-highlight);
-    border: 2px solid var(--text-shade);
+    background: v-bind(background);
+    border: 2px solid v-bind(border);
     border-radius: 16px;
     box-sizing: content-box;
     cursor: pointer;
@@ -58,7 +74,7 @@
     @include mixins.with-fade;
 
     & > .selected {
-      background: var(--background);
+      background: v-bind(thumb);
       border-radius: 50%;
       height: calc(24px - var(--double-unit));
       position: relative;
