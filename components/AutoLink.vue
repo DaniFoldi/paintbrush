@@ -1,5 +1,5 @@
 <!--!
-  @version 1.0.0
+  @version 1.1.0
   @icon link
   @description SSR/SPA-friendly link component
   @usage <AutoLink href="/dashboard">Dashboard</AutoLink>
@@ -7,7 +7,11 @@
 -->
 
 <template>
-  <a v-if="reload" :href="href"><slot /></a>
+  <a
+    v-if="reload"
+    :class="{ 'underline': underline === true, 'hover-underline': underline === 'hover' }"
+    :href="href"
+  ><slot /></a>
   <NuxtLink v-else :to="href">
     <slot />
   </NuxtLink>
@@ -19,9 +23,14 @@
 
   interface AutoLinkProps {
     href: string // URL to navigate to
+    underline?: boolean | 'hover'
+    weight?: number
   }
 
-  const props = defineProps<AutoLinkProps>()
+  const props = withDefaults(defineProps<AutoLinkProps>(), {
+    underline: 'hover',
+    weight: 400
+  })
 
 
   const reload = computed(() => {
@@ -38,6 +47,15 @@
   a, a:visited {
     color: var(--primary);
     cursor: pointer;
+    font-weight: v-bind(weight);
     text-decoration: none;
+
+    &.underline {
+      text-decoration: underline;
+    }
+
+    &.hover-underline:hover {
+      text-decoration: underline;
+    }
   }
 </style>
