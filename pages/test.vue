@@ -1,5 +1,5 @@
 <template>
-  <MenubarContainer ref="scrollAnchor" :wrap-content="false">
+  <MenubarContainer ref="scrollAnchor" :wrap-content="false" article>
     <template #menubar-left>
       <MenubarLink href="/test">
         Test

@@ -43,6 +43,13 @@
         </SidebarLink>
       </template>
       <template #sidebar-bottom>
+        <Container center><SidebarLink
+          href="https://github.com/DaniFoldi/Paintbrush"
+          icon="github-logo"
+          icon-color="purple"
+        >
+          Source
+        </SidebarLink></Container>
         <PoweredBy />
       </template>
       <template #content>
