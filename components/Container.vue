@@ -67,8 +67,8 @@
   const props = withDefaults(defineProps<ContainerProps>(), {
     article: false,
     center: false,
-    grid: '',
     gap: '0px',
+    grid: '',
     inline: false,
     leftBadge: '',
     max: false,
