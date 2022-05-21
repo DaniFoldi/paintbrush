@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.0
+  @version 1.1.1
   @icon link
   @description SSR/SPA-friendly link component
   @usage <AutoLink href="/dashboard">Dashboard</AutoLink>
@@ -28,7 +28,7 @@
   }
 
   const props = withDefaults(defineProps<AutoLinkProps>(), {
-    underline: 'hover',
+    underline: false,
     weight: 400
   })
 
