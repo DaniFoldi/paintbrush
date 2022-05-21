@@ -1,5 +1,5 @@
 <!--!
-  @version 0.2.0
+  @version 0.2.1
   @icon moon
   @category Paintbrush
   @usage <ThemeToggle />
@@ -76,6 +76,7 @@
     & > .selected {
       background: v-bind(thumb);
       border-radius: 50%;
+      cursor: pointer;
       height: calc(24px - var(--double-unit));
       position: relative;
       transform: translateX(v-bind(offset));
