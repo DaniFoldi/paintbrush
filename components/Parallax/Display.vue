@@ -26,10 +26,6 @@
   // TODO expose more of atropos' options as props
 </script>
 
-<style lang="scss">
-  @import 'atropos/scss';
-</style>
-
 <style lang="scss" scoped>
   div.atropos {
     width: fit-content;
@@ -42,4 +38,8 @@
       pointer-events: all;
     }
   }
+</style>
+
+<style lang="scss">
+  @import 'atropos/scss';
 </style>
