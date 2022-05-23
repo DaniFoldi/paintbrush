@@ -1,18 +1,13 @@
 name = 'paintbrush'
-type = 'javascript'
+main = '.output/server/index.mjs'
 account_id = 'ACCOUNT_ID'
-zone_id = 'ZONE_ID'
-compatibility_date = '2022-05-05'
+compatibility_date = '2022-05-23'
 
 [env.production]
 routes = [ 'paintbrush.danifoldi.com/*' ]
 
 [site]
 bucket = '.output/public'
-entry-point = '.output'
 
 [build]
-command = 'ls .output'
-
-[build.upload]
-format = 'service-worker'
+command = 'NITRO_PRESET=cloudflare npm run build'
