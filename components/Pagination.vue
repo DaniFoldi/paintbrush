@@ -1,8 +1,11 @@
 <!--!
   @icon dots-three
-  @version 1.0.0
+  @version 1.0.1
   @category Layout
+  @description Automatically paginate content
+  @usage <Pagination :total-items="110" :items-per-page="25" />
 -->
+
 <template>
   <ButtonGroup height="32px" width="32px">
     <IconButton
@@ -34,7 +37,6 @@
     />
   </ButtonGroup>
 </template>
-
 
 <script lang="ts" setup>
   import type{ ComputedRef } from 'vue'
@@ -102,3 +104,11 @@
     emit('update:modelValue', newPage)
   }
 </script>
+
+<style lang="scss" scoped>
+  @use '../assets/mixins.scss';
+
+  button {
+    @include mixins.no-margin;
+  }
+</style>

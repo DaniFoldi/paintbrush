@@ -2,6 +2,8 @@
   @icon text-align-justify
   @version 1.1.0
   @category Layout
+  @description Visually separate blocks of content with a line
+  @usage <Separator />
 -->
 <template>
   <hr :class="{ rounded }">

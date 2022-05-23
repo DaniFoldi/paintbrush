@@ -3,6 +3,7 @@
   @category Layout
   @icon table
 -->
+
 <template>
   <div :id="id">
     <slot name="header" />

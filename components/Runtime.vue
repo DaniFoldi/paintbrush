@@ -10,6 +10,7 @@
   <Runtime element="p" html="Some <em>text</em>" class="important" />
   @note Nuxt/vue does not process the given html
 -->
+
 <template>
   <VNode />
 </template>

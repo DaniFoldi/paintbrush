@@ -2,11 +2,13 @@
   @version 1.0.0
   @description Main component to be used everywhere
   @usage
-  <Paintbrush>
+  <Paintbrush ...>
   __<Text>Hello world</Text>
   </Paintbrush>
-  @note This component should be wrapping every other Paintbrush component used
+  @icon paintbrush
+  @note This component should be wrapping every other Paintbrush component used, see Getting Started
 -->
+
 <template>
   <Container v-if="container" max>
     <slot />
@@ -118,6 +120,7 @@
       background2: 'darkestgray',
       backgroundHighlight: 'darkergray',
       badge: 'red',
+      disabled: 'gray',
       doubleUnit: '8px',
       primary: 'blue',
       radius: '4px',
@@ -143,6 +146,7 @@
       background2: 'lightestgray',
       backgroundHighlight: 'lightergray',
       badge: 'red',
+      disabled: 'gray',
       doubleUnit: '8px',
       primary: 'blue',
       radius: '4px',

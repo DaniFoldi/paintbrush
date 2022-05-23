@@ -1,8 +1,11 @@
 <!--!
   @icon chart-bar
-  @version 0.1.0
+  @version 0.1.1
   @category Chart
+  @note For the height property to work, set { maintainAspectRatio: false } in options
+  @require vue-chartjs
 -->
+
 <template>
   <Bar :chart-data="data" :chart-options="options" />
 </template>
@@ -14,14 +17,15 @@
 
 
   interface BarChartProps {
-    data: TChartData<'bar', number[], unknown>
-    height?: string
-    options: TChartOptions<'bar'>
-    width?: string
+    data: TChartData<'bar', number[], unknown> // chart data to render
+    height?: string // height of chart
+    options?: TChartOptions<'bar'> // options for chart
+    width?: string // width of chart
   }
 
   withDefaults(defineProps<BarChartProps>(), {
     height: 'auto',
+    options: () => ({}),
     width: 'auto'
   })
 

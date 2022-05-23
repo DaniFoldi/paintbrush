@@ -1,10 +1,11 @@
 <!--!
-  @version 1.2.0
+  @version 1.3.0
   @icon text-aa
   @description Text component to display text
   @usage <Text>Lorem ipsum dolor sit amet</Text>
   @category Basic
 -->
+
 <template>
   <h1 v-if="mode === 'h1'" :class="classes">
     <slot />
@@ -30,6 +31,7 @@
   interface TextProps {
     bold?: boolean // Bold text
     capitalize?: boolean // Capitalize text
+    center?: boolean
     color?: string
     gradient?: boolean | string // Gradient text
     important?: boolean // Important text
@@ -47,6 +49,7 @@
   const props = withDefaults(defineProps<TextProps>(), {
     bold: false,
     capitalize: false,
+    center: false,
     color: 'text',
     gradient: false,
     important: false,
@@ -92,6 +95,7 @@
   const classes = computed(() => [
     props.bold ? 'bold' : '',
     props.capitalize ? 'capitalize' : '',
+    props.center ? 'center' : '',
     props.gradient ? 'gradient' : '',
     props.important ? 'important' : '',
     props.inline ? 'inline' : '',
@@ -134,6 +138,10 @@
     &.important {
       font-weight: 800;
       @include mixins.font('inter');
+    }
+
+    &.center {
+      text-align: center;
     }
 
     &.gradient {

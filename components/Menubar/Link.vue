@@ -1,3 +1,9 @@
+<!--!
+  @version 1.1.0
+  @category Navigation
+  @icon link-simple
+-->
+
 <template>
   <AutoLink :class="{ 'with-icon': icon }" :href="href">
     <Icon
@@ -18,28 +24,41 @@
 <script lang="ts" setup>
   import { IconVariants } from '../../modules/icons'
   import { IconTypes } from '../../modules/icon-types'
+  import { useThemeColor } from '#imports'
 
 
   interface MenubarLinkProps {
+    activeBackground?: string
     autoWrap?: boolean // Wrap text in Text component
+    background?: string
+    clickBackground?: string
     href: string // Link to navigate to
     icon?: IconTypes // Icon to display
     iconColor?: string // Color of icon
     iconVariant?: IconVariants // Variant of icon
   }
 
-  withDefaults(defineProps<MenubarLinkProps>(), {
+  const props = withDefaults(defineProps<MenubarLinkProps>(), {
+    activeBackground: 'background2',
     autoWrap: true,
+    background: 'transparent',
+    clickBackground: 'backgroundHighlight',
     icon: undefined,
     iconColor: 'primary',
     iconVariant: 'regular'
   })
+
+
+  const background = useThemeColor(props.background)
+  const active = useThemeColor(props.activeBackground)
+  const click = useThemeColor(props.clickBackground)
 </script>
 
 <style lang="scss" scoped>
   @use '../../assets/mixins.scss';
 
   a {
+    background: v-bind(background);
     display: grid;
     font-size: 20px;
     height: 40px;
@@ -62,13 +81,13 @@
       @include mixins.no-margin;
     }
 
-    &:hover, &.router-link-active {
-      background: var(--background-2);
+    &:hover, &.router-link-exact-active {
+      background: v-bind(active);
       text-decoration: none;
     }
 
     &:active {
-      background: var(--background-highlight);
+      background: v-bind(click);
     }
   }
   </style>

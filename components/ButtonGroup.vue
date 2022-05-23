@@ -1,7 +1,14 @@
 <!--!
   @version 1.1.0
   @icon arrows-in-line-vertical
+  @description Align a group of buttons
   @category Layout
+  @usage
+  <ButtonGroup width="50px">
+  __<Button>click</Button>
+  __<Button>some</Button>
+  __<Button>buttons</Button>
+  </ButtonGroup>
 -->
 
 <template>
@@ -12,8 +19,8 @@
 
 <script lang="ts" setup>
   interface ButtonGroupProps {
-    height?: string
-    width?: string
+    height?: string // height of buttons
+    width?: string // width of buttons
   }
 
   withDefaults(defineProps<ButtonGroupProps>(), {

@@ -3,15 +3,12 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 
 // eslint-disable-next-line import/exports-last
 export const useTheme = defineStore('paintbrush-theme', {
+  // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error, @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  persist: true,
   state: () => ({
     theme: 'system'
-  }),
-  actions: {
-    use(theme: string) {
-      this.theme = theme
-    }
-  },
-  persist: true
+  })
 })
 
 if (import.meta.hot) {

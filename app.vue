@@ -43,6 +43,9 @@
         </SidebarLink>
       </template>
       <template #sidebar-bottom>
+        <Container center>
+          <ThemeToggle />
+        </Container>
         <PoweredBy />
       </template>
       <template #content>

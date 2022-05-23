@@ -3,6 +3,7 @@
   @icon rows
   @category Layout
 -->
+
 <template>
   <slot />
   <Separator v-if="separator" :rounded="false" />

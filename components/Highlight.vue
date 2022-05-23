@@ -1,11 +1,17 @@
 <!--!
   @category Visual
   @icon traffic-sign
-  @version 1.0.0
+  @version 1.1.0
+  @description Draw the user's attention to a piece of text
+  @usage
+  <Highlight warning iconName="warning">
+  __This feature is currently in beta.
+  </Highlight
 -->
 
 <template>
-  <blockquote>
+  <blockquote :class="{ 'with-icon': iconName }">
+    <Icon v-if="iconName" :color="iconColor" :name="iconName" />
     <Text v-if="autoWrap">
       <slot />
     </Text>
@@ -14,21 +20,29 @@
 </template>
 
 <script lang="ts" setup>
+  import { IconTypes } from '../modules/icon-types'
+  import { IconVariants } from '../modules/icons'
   import { computed, useThemeColor } from '#imports'
 
 
   interface HighlightProps {
-    autoWrap?: boolean
-    error?: boolean
-    info?: boolean
-    quote?: boolean
-    success?: boolean
-    warning?: boolean
+    autoWrap?: boolean // Wrap the text in Text
+    error?: boolean // Error highlight type
+    iconColor?: string // Icon color
+    iconName?: IconTypes | undefined // Icon name
+    iconVariant?: IconVariants // Icon variant
+    info?: boolean // Info highlight type
+    quote?: boolean // Quote highlight type
+    success?: boolean // Success highlight type
+    warning?: boolean // Warning highlight type
   }
 
   const props = withDefaults(defineProps<HighlightProps>(), {
     autoWrap: true,
     error: false,
+    iconColor: 'inherit',
+    iconName: undefined,
+    iconVariant: 'regular',
     info: false,
     quote: false,
     success: false,
@@ -59,10 +73,16 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '../assets/mixins.scss';
+
   blockquote {
     background: v-bind(background);
     border-left: 3px solid v-bind(border);
     margin-block: var(--double-unit);
     padding: var(--double-unit);
+
+    &.with-icon {
+      @include mixins.two-items;
+    }
   }
 </style>

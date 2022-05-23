@@ -1,15 +1,15 @@
 <!--!
-  @version 1.2.0
-  @icon hand-pointing
-  @category Basic
+  @version 1.0.0
   @require phosphor-icons
-  @description A button with an embedded and auto aligned icon
-  @usage <IconButton icon-name="flask">Enable</IconButton>
+  @category Basic
+  @icon link
+  @description A link with an embedded and auto aligned icon
+  @usage <IconLink icon-name="question">What is this</IconLink>
 -->
 
 <template>
-  <Button :class="{ 'flip': !leftIcon && rightIcon }">
-    <Text v-if="!leftIcon && rightIcon">
+  <AutoLink :class="{ 'flip': !leftIcon && rightIcon }" :href="href">
+    <Text v-if="!leftIcon && rightIcon" underline>
       <slot />
     </Text>
     <Icon
@@ -18,19 +18,21 @@
       :size="iconSize"
       :variant="iconVariant"
     />
-    <Text v-if="leftIcon">
+    <Text v-if="leftIcon" underline>
       <slot />
     </Text>
-  </Button>
+  </AutoLink>
 </template>
 
 <script lang="ts" setup>
   import { IconVariants } from '../modules/icons'
   import { IconTypes } from '../modules/icon-types'
+  import { useThemeColor } from '#imports'
 
 
   interface IconProps {
     color?: string // Button color
+    href: string
     icon: IconTypes // Icon name
     iconColor?: string // Icon color
     iconSize?: string // Icon size
@@ -39,20 +41,23 @@
     rightIcon?: boolean
   }
 
-  withDefaults(defineProps<IconProps>(), {
-    color: 'primary',
-    iconColor: 'white',
-    iconSize: '20px',
+  const props = withDefaults(defineProps<IconProps>(), {
+    color: 'text',
+    iconColor: 'inherit',
+    iconSize: 'inherit',
     iconVariant: 'regular',
     leftIcon: true,
     rightIcon: false
   })
+
+  const text = useThemeColor(props.color)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
-  button {
+  a {
+    color: v-bind(text);
     @include mixins.two-items;
   }
 </style>

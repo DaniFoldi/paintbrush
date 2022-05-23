@@ -1,7 +1,9 @@
 <!--!
   @icon copyright
-  @version 1.0.0
+  @version 1.1.0
   @category Misc
+  @description Display copyright information of a site
+  @usage <Copyright :startYear="2020">Author</Copyright>
 -->
 
 <template>
@@ -15,26 +17,33 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from '#imports'
+  import { useThemeColor, computed } from '#imports'
 
 
   interface CopyrightProps {
-    endYear?: number
-    startYear?: number
+    color?: string // Icon and text color
+    endYear?: number // Displayed end year
+    startYear?: number // Displayed start year
   }
 
   const props = withDefaults(defineProps<CopyrightProps>(), {
+    color: 'text',
     startYear: new Date().getFullYear(),
     endYear: new Date().getFullYear()
   })
 
 
+  const color = useThemeColor(props.color)
   const years = computed(() => props.startYear === props.endYear ? props.startYear : `${props.startYear} - ${props.endYear}`)
 </script>
 
 <style lang="scss" scoped>
-  i {
-    margin-right: 1px;
-    vertical-align: middle;
+  blockquote {
+    color: v-bind(color);
+
+    i {
+      margin-right: 1px;
+      vertical-align: middle;
+    }
   }
 </style>
