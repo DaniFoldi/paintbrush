@@ -1,5 +1,5 @@
 <!--!
-  @version 1.3.0
+  @version 1.3.1
   @icon link-simple
   @category Navigation
   @require phosphor-icons
@@ -65,7 +65,7 @@
       margin: 0 var(--unit) 0 0;
     }
 
-    &:hover, &.router-link-active {
+    &:hover, &.router-link-exact-active {
       background: var(--background-2);
       text-decoration: none;
     }
