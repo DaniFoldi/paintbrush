@@ -1,5 +1,5 @@
 <!--!
-  @version 0.2.1
+  @version 0.2.2
   @icon moon
   @category Paintbrush
   @usage <ThemeToggle />
@@ -49,18 +49,18 @@
     }
   }
 
-  const thumb = useThemeColor(props.thumbColor)
+  const thumb = computed(() => useThemeColor(props.thumbColor))
   const offset = computed(() => theme.theme === 'system' ? '0px' : (theme.theme === 'light' ? '-20px' : '20px'))
-  const background = useThemeColor(props.background)
-  const border = useThemeColor(props.border)
+  const background = computed(() => useThemeColor(props.background))
+  const border = computed(() => useThemeColor(props.border))
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   div.toggle {
-    background: v-bind(background);
-    border: 2px solid v-bind(border);
+    background: v-bind('background.value');
+    border: 2px solid v-bind('border.value');
     border-radius: 16px;
     box-sizing: content-box;
     cursor: pointer;
@@ -74,7 +74,7 @@
     @include mixins.with-fade;
 
     & > .selected {
-      background: v-bind(thumb);
+      background: v-bind('thumb.value');
       border-radius: 50%;
       cursor: pointer;
       height: calc(24px - var(--double-unit));
