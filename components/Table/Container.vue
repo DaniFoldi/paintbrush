@@ -58,6 +58,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '../assets/mixins';
+  
   div {
     align-items: center;
     background: var(--background);
@@ -69,5 +71,6 @@
     grid-template-columns: v-bind('props.layout.map(col => col.width).join(" ")');
     margin-block: var(--unit);
     padding-inline: var(--double-unit);
+    @include mixins.with-fade;
   }
 </style>
