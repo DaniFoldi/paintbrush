@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.0
+  @version 1.1.1
   @category Layout
   @icon cards
   @description Visual building block with a separate background color
@@ -42,5 +42,6 @@
 
     @include mixins.rounded;
     @include mixins.double-unit-padding;
+    @include mixins.with-fade;
   }
 </style>
