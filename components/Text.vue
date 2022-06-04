@@ -1,5 +1,5 @@
 <!--!
-  @version 1.3.0
+  @version 1.4.0
   @icon text-aa
   @description Text component to display text
   @usage <Text>Lorem ipsum dolor sit amet</Text>
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from '#imports'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface TextProps {
@@ -105,6 +105,7 @@
     props.uppercase ? 'uppercase' : ''
   ])
 
+  const color = computed(() => useThemeColor(props.color))
   const primarycolor = computed(() => `var(--${props.gradient === true ? 'primary' : props.color})`)
   const secondarycolor = computed(() => props.gradient ? `var(--${props.gradient === true ? 'secondary' : props.gradient})` : `var(--${props.color})`)
 </script>
@@ -112,8 +113,13 @@
 <style lang="scss" scoped>
   @use '../assets/mixins';
 
+  h1, h2, h3 {
+    @include mixins.double-unit-block-margin;
+  }
+
   h1, h2, h3, p, span {
     @include mixins.standard-text;
+    color: v-bind('color.value');
 
     &.bold {
       @include mixins.bold;
