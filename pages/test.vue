@@ -1,7 +1,7 @@
 <template>
   <MenubarContainer ref="scrollAnchor" menu-element-spacing="8px" :wrap-content="false">
     <template #menubar-left>
-      <MenubarLink href="/test">
+      <MenubarLink active-background="orange" color="white" href="/test">
         Test
       </MenubarLink>
       <MenubarLink href="/test/charts">
