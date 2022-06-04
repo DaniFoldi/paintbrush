@@ -118,7 +118,6 @@
   }
 
   h1, h2, h3, p, span {
-    @include mixins.standard-text;
     color: v-bind('color.value');
 
     &.bold {

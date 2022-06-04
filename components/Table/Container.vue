@@ -59,7 +59,7 @@
 
 <style lang="scss" scoped>
   @use '../assets/mixins';
-  
+
   div {
     align-items: center;
     background: var(--background);
