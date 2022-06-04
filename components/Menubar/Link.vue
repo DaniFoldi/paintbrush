@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.0
+  @version 1.2.0
   @category Navigation
   @icon link-simple
 -->
@@ -24,14 +24,17 @@
 <script lang="ts" setup>
   import { IconVariants } from '../../modules/icons'
   import { IconTypes } from '../../modules/icon-types'
-  import { useThemeColor } from '#imports'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface MenubarLinkProps {
     activeBackground?: string
+    activeColor?: string
     autoWrap?: boolean // Wrap text in Text component
     background?: string
     clickBackground?: string
+    clickColor?: string
+    color?: string
     href: string // Link to navigate to
     icon?: IconTypes // Icon to display
     iconColor?: string // Color of icon
@@ -40,25 +43,32 @@
 
   const props = withDefaults(defineProps<MenubarLinkProps>(), {
     activeBackground: 'background2',
+    activeColor: 'text',
     autoWrap: true,
     background: 'transparent',
     clickBackground: 'backgroundHighlight',
+    clickColor: 'text',
+    color: 'text',
     icon: undefined,
     iconColor: 'primary',
     iconVariant: 'regular'
   })
 
 
-  const background = useThemeColor(props.background)
-  const active = useThemeColor(props.activeBackground)
-  const click = useThemeColor(props.clickBackground)
+  const background = computed(() => useThemeColor(props.background))
+  const color = computed(() => useThemeColor(props.color))
+  const active = computed(() => useThemeColor(props.activeBackground))
+  const click = computed(() => useThemeColor(props.clickBackground))
+  const acolor = computed(() => useThemeColor(props.activeColor))
+  const ccolor = computed(() => useThemeColor(props.clickColor))
 </script>
 
 <style lang="scss" scoped>
   @use '../../assets/mixins.scss';
 
   a {
-    background: v-bind(background);
+    background: v-bind('background.value');
+    color: v-bind('color.value');
     display: grid;
     font-size: 20px;
     height: 40px;
@@ -82,12 +92,14 @@
     }
 
     &:hover, &.router-link-exact-active {
-      background: v-bind(active);
+      background: v-bind('active.value');
+      color: v-bind('acolor.value');
       text-decoration: none;
     }
 
     &:active {
-      background: v-bind(click);
+      background: v-bind('click.value');
+      color: v-bind('ccolor.value');
     }
   }
   </style>
