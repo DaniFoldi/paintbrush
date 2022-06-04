@@ -98,7 +98,8 @@
 }
 
 @mixin with-fade {
-  transition: background .25s ease-in-out, color .25s ease-in-out;
+  // TODO specify properties
+  transition: background .25s ease-in-out, color .25s ease-in-out, border-color .25s ease-in-out;
 }
 
 @mixin font($family) {
