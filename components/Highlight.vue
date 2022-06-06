@@ -1,7 +1,7 @@
 <!--!
   @category Visual
   @icon traffic-sign
-  @version 1.1.1
+  @version 1.1.2
   @description Draw the user's attention to a piece of text
   @usage
   <Highlight warning iconName="warning">
@@ -74,7 +74,7 @@
   })
 
   const border = computed(() => useThemeColor(color.value))
-  const background = computed(() => border.value.value.startsWith('#') ? `${border.value}3f` : border.value)
+  const background = computed(() => border.value.value.startsWith('#') ? `${border.value.value}3f` : border.value.value)
 </script>
 
 <style lang="scss" scoped>
