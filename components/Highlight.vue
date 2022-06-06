@@ -1,7 +1,7 @@
 <!--!
   @category Visual
   @icon traffic-sign
-  @version 1.1.0
+  @version 1.1.1
   @description Draw the user's attention to a piece of text
   @usage
   <Highlight warning iconName="warning">
@@ -11,7 +11,12 @@
 
 <template>
   <blockquote :class="{ 'with-icon': iconName }">
-    <Icon v-if="iconName" :color="iconColor" :name="iconName" />
+    <Icon
+      v-if="iconName"
+      :color="iconColor"
+      :name="iconName"
+      :variant="iconVariant"
+    />
     <Text v-if="autoWrap">
       <slot />
     </Text>
@@ -68,8 +73,8 @@
     return 'text'
   })
 
-  const border = useThemeColor(color.value)
-  const background = computed(() => border.value.startsWith('#') ? `${border.value}3f` : border.value)
+  const border = computed(() => useThemeColor(color.value))
+  const background = computed(() => border.value.value.startsWith('#') ? `${border.value}3f` : border.value)
 </script>
 
 <style lang="scss" scoped>
@@ -77,7 +82,7 @@
 
   blockquote {
     background: v-bind(background);
-    border-left: 3px solid v-bind(border);
+    border-left: 3px solid v-bind('border.value');
     margin-block: var(--double-unit);
     padding: var(--double-unit);
 
