@@ -85,13 +85,11 @@
 
     &:hover, &.router-link-exact-active {
       background: v-bind('active.value');
-      color: v-bind('acolor.value');
       text-decoration: none;
     }
 
     &:active {
       background: v-bind('click.value');
-      color: v-bind('ccolor.value');
     }
   }
   </style>
