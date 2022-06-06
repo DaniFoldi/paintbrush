@@ -1,6 +1,6 @@
 <!--!
   @icon text-align-justify
-  @version 1.1.0
+  @version 1.2.0
   @category Layout
   @description Visually separate blocks of content with a line
   @usage <Separator />
@@ -10,22 +10,29 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed, useThemeColor } from '#imports'
+
+
   interface SeparatorProps {
+    color?: string
     rounded?: boolean // Round the edges
     spaced?: boolean // Apply spacing on both sides
   }
 
-  withDefaults(defineProps<SeparatorProps>(), {
+  const props = withDefaults(defineProps<SeparatorProps>(), {
+    color: 'backgroundHighlight',
     rounded: true,
     spaced: false
   })
+
+  const color = computed(() => useThemeColor(props.color))
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   hr {
-    border-color: var(--background-highlight);
+    border-color: v-bind('color.value');
     border-style: solid;
     transition: border-color .25s ease-in-out;
 
