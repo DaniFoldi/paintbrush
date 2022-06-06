@@ -1,5 +1,5 @@
 <!--!
-  @version 1.2.0
+  @version 1.2.1
   @category Navigation
   @icon link-simple
 -->
@@ -14,7 +14,7 @@
       size="16px"
       :variant="iconVariant"
     />
-    <Text v-if="autoWrap">
+    <Text v-if="autoWrap" :color="color">
       <slot />
     </Text>
     <slot v-else />
@@ -29,11 +29,9 @@
 
   interface MenubarLinkProps {
     activeBackground?: string
-    activeColor?: string
     autoWrap?: boolean // Wrap text in Text component
     background?: string
     clickBackground?: string
-    clickColor?: string
     color?: string
     href: string // Link to navigate to
     icon?: IconTypes // Icon to display
@@ -43,11 +41,9 @@
 
   const props = withDefaults(defineProps<MenubarLinkProps>(), {
     activeBackground: 'background2',
-    activeColor: 'text',
     autoWrap: true,
     background: 'transparent',
     clickBackground: 'backgroundHighlight',
-    clickColor: 'text',
     color: 'text',
     icon: undefined,
     iconColor: 'primary',
@@ -56,11 +52,8 @@
 
 
   const background = computed(() => useThemeColor(props.background))
-  const color = computed(() => useThemeColor(props.color))
   const active = computed(() => useThemeColor(props.activeBackground))
   const click = computed(() => useThemeColor(props.clickBackground))
-  const acolor = computed(() => useThemeColor(props.activeColor))
-  const ccolor = computed(() => useThemeColor(props.clickColor))
 </script>
 
 <style lang="scss" scoped>
@@ -68,7 +61,6 @@
 
   a {
     background: v-bind('background.value');
-    color: v-bind('color.value');
     display: grid;
     font-size: 20px;
     height: 40px;
