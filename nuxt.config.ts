@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   alias: {
     '@vue/devtools-api': '@vue/devtools-api'
   },
-  i18n: {
+  /* i18n: {
     defaultLocale: 'en',
     langDir: 'lang/',
     lazy: true,
@@ -21,8 +21,8 @@ export default defineNuxtConfig({
         file: 'hu-HU.js'
       }
     ]
-  },
-  modules: [ './modules/icons', './modules/docs', '@pinia/nuxt', '@nuxtjs/i18n' ],
+  }, */
+  modules: [ './modules/icons', './modules/docs', '@pinia/nuxt' ], // '@nuxtjs/i18n' ],
   typescript: {
     shim: false
   },
