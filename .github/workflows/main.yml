@@ -263,7 +263,8 @@ jobs:
         gh pr merge --auto --merge "${{ github.event.pull_request.html_url }}"
 
   deploy:
-    if: github.repository == 'DaniFoldi/paintbrush' && github.actor == 'DaniFoldi'
+    # if: github.repository == 'DaniFoldi/paintbrush' && github.actor == 'DaniFoldi'
+    if: github.repository == 'DaniFoldi/paintbrush' && (github.actor == 'DaniFoldi' || github.actor == 'HgeX')
     name: Update production deployment
     runs-on: ubuntu-latest
 
