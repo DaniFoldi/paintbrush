@@ -72,7 +72,7 @@
     "postcss-scss": "^4.0.4",
     "rimraf": "^3.0.2",
     "sass": "^1.52.2",
-    "stylelint": "^14.8.5",
+    "stylelint": "^14.9.0",
     "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-high-performance-animation": "^1.6.0",
