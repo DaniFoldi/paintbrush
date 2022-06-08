@@ -20,13 +20,6 @@
       <!-- eslint-disable-next-line vue/html-self-closing -- IDE syntax higlighting gets broken with self-closing -->
       <Style :children="htmlStyle"></Style>
       <Title>{{ pageTitle }}</Title>
-      <Link :href="canonical" rel="canonical" />
-      <Link :href="faviconSvg" rel="icon" type="image/svg" />
-      <Link :href="favicon" rel="icon" type="image/png" />
-      <Link :href="favicon" rel="shortcut icon" type="image/png" />
-      <Link :href="favicon" rel="apple-touch-icon" />
-      <Link v-if="manifest" :href="manifest" rel="manifest" />
-      <Link href="https://cdnjs.com" rel="dns-prefetch" />
     </Head>
     <Body :class="bodyClass" />
   </Html>
@@ -162,6 +155,16 @@
     // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags utf-8 is needed
     charset: 'UTF-8',
     htmlAttrs: { 'data-theme': theme.theme },
+    link: [
+      { color: primaryColor, href: props.faviconSvg, rel: 'mask-icon' },
+      { href: props.canonical, rel: 'canonical' },
+      { href: props.faviconSvg, rel: 'icon', type: 'image/svg' },
+      { href: props.favicon, rel: 'icon', type: 'image/png' },
+      { href: props.favicon, rel: 'shortcut', type: 'image/png' },
+      { href: props.favicon, rel: 'apple-touch-icon' },
+      (props.manifest ? { href: props.manifest, rel: 'manifest' } : {}),
+      { href: 'https://cdnjs.com', rel: 'dns-prefetch' }
+    ],
     meta: [
       { content: themeColor, name: 'theme-color' },
       { content: backgroundColor, name: 'apply-mobile-web-app-status-bar-style' },
