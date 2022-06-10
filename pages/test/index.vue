@@ -32,6 +32,13 @@
         ghost
       </Button>
     </ButtonGroup>
+    <Separator />
+    <Container>
+      <OptionGroup v-model="defaultOption" :options="options" />
+      <Text inline>
+        | Currently selected: {{ defaultOption }}
+      </Text>
+    </Container>
     <Text>Checkbox is {{ check }}</Text>
     <Checkbox v-model="check">
       Test
@@ -225,4 +232,7 @@
   const path = [{ iconName: 'folder' as IconTypes, text: 'Home' }, { iconName: 'file' as IconTypes, text: 'File' }]
 
   const popup = ref(false)
+
+  const options = [ 'option 1', 'option 2', 'option 3' ]
+  const defaultOption = ref(options[1])
 </script>
