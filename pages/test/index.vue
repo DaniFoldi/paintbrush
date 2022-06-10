@@ -204,6 +204,13 @@
     <Button disabled>
       disabled
     </Button>
+    <Separator />
+    <Spoiler title="Click Me">
+      <Text>
+        Hello there
+      </Text>
+    </Spoiler>
+    <Separator />
   </Container>
 </template>
 
