@@ -205,12 +205,25 @@
       disabled
     </Button>
     <Separator />
-    <Spoiler title="Click Me">
-      <Text>
-        Hello there
-      </Text>
-    </Spoiler>
+    <Container>
+      <Spoiler title="Click Me">
+        <Text>
+          Hello there
+        </Text>
+      </Spoiler>
+    </Container>
     <Separator />
+    <Container>
+      <RadioButton id="option1" name="test">
+        Option 1
+      </RadioButton>
+      <RadioButton id="option2" name="test">
+        Option 2
+      </RadioButton>
+      <RadioButton id="option3" name="test">
+        Option 3
+      </RadioButton>
+    </Container>
   </Container>
 </template>
 

@@ -84,14 +84,17 @@
   .pointer {
     cursor: pointer;
   }
+
   .spoiler-icon {
     margin-right: 5px;
     transition: .3s transform ease;
   }
+
   .expanded .spoiler-icon {
     transform: rotate(90deg);
     transition: .3s transform ease;
   }
+
   .spoiler-title {
     user-select: none;
   }
