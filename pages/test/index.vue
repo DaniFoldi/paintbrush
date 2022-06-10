@@ -255,4 +255,6 @@
 
   const options = [ 'option 1', 'option 2', 'option 3' ]
   const defaultOption = ref(options[1])
+
+  useNotifications().push()
 </script>
