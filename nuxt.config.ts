@@ -7,22 +7,23 @@ export default defineNuxtConfig({
   alias: {
     '@vue/devtools-api': '@vue/devtools-api'
   },
-  /* i18n: {
+  i18n: {
     defaultLocale: 'en',
+    detectBrowserLanguage: false, // Set this to false, otherwise the whole i18n thing falls apart
     langDir: 'lang/',
     lazy: true,
     locales: [
       {
         code: 'en',
-        file: 'en-US.js'
+        file: 'en-US.json'
       },
       {
         code: 'hu',
-        file: 'hu-HU.js'
+        file: 'hu-HU.json'
       }
     ]
-  }, */
-  modules: [ './modules/icons', './modules/docs', '@pinia/nuxt' ], // '@nuxtjs/i18n' ],
+  },
+  modules: [ './modules/icons', './modules/docs', '@nuxtjs/i18n-edge', '@pinia/nuxt' ],
   typescript: {
     shim: false
   },
@@ -30,7 +31,7 @@ export default defineNuxtConfig({
     define: {
       __VUE_I18N_FULL_INSTALL__: false,
       __VUE_I18N_LEGACY_API__: false,
-      __INTLIFY_PROD_DEVTOOLS__: false
+      __INTLIFY_PROD_DEVTOOLS__: true
     }
   }
 })
