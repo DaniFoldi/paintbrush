@@ -23,7 +23,7 @@ export default defineNuxtConfig({
       }
     ]
   },
-  modules: [ './modules/icons', './modules/docs', '@pinia/nuxt', '@nuxtjs/i18n-edge' ],
+  modules: [ './modules/icons', './modules/docs', '@nuxtjs/i18n-edge', '@pinia/nuxt' ],
   typescript: {
     shim: false
   },

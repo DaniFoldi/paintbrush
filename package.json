@@ -51,7 +51,7 @@
     "@danifoldi/eslint-plugin-eslint-presets": "^1.4.2",
     "@danifoldi/stylelint-presets": "^1.1.0",
     "@nuxt/test-utils": "^3.0.0-rc.3",
-    "@nuxtjs/i18n-edge": "^8.0.0-alpha.0-27577057.b6ac486",
+    "@nuxtjs/i18n-edge": "8.0.0-alpha.0-27531750.4e4cffe",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "c8": "^7.11.3",
