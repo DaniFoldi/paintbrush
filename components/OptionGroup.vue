@@ -1,10 +1,10 @@
 <!--!
   @version 1.0.0
   @description Enhanced button group
-  @icon arrows-in-line-vertical
+  @icon check-square
   @usage
   <OptionGroup :options="[ 'option 1', 'option 2', 'option 3' ]" />
-  @category Layout
+  @category Basic
 -->
 <template>
   <ButtonGroup>
@@ -29,7 +29,7 @@
 
   interface OptionGroupEmits {
     (e: 'update:modelValue', value: string): void
-    (e: 'option-selected', value: { from: string; to: string }): void
+    (e: 'pb-option-selected', value: { from: string; to: string }): void
   }
 
   const emit = defineEmits<OptionGroupEmits>()
@@ -52,7 +52,7 @@
   function selectOption(option: string) {
     const old = props.modelValue
     emit('update:modelValue', option)
-    emit('option-selected', { from: old, to: option })
+    emit('pb-option-selected', { from: old, to: option })
   }
 
   function capitalize(input: string) {
