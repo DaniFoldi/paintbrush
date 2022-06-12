@@ -13,11 +13,10 @@
       :name="name"
       :readonly="readonly"
       :rows="rows"
+      :value="modelValue"
       :wrap="wrap"
       @input="onInput"
-    >
-      {{ modelValue }}
-    </textarea>
+    />
   </Container>
 </template>
 
