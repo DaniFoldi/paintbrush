@@ -34,29 +34,29 @@
     </Checkbox>
     <Form>
       <Input :auto-wrap="false" type="text">
-      <Text>
-        <Text important part>
-          Text
+        <Text>
+          <Text important part>
+            Text
+          </Text>
+          <Text italic part>
+            input
+          </Text>
         </Text>
-        <Text italic part>
-          input
-        </Text>
-      </Text>
       </Input>
       <Input type="email">
-      Email
+        Email
       </Input>
       <Input type="datetime">
-      Datetime
+        Datetime
       </Input>
       <Input type="tel">
-      Tel
+        Tel
       </Input>
       <Input type="number">
-      Number
+        Number
       </Input>
       <Input type="password">
-      Password
+        Password
       </Input>
     </Form>
     <IconLink href="/test" icon="confetti">
@@ -88,10 +88,10 @@
           <Card inline>
             <Form>
               <Input type="email">
-              Email address
+                Email address
               </Input>
               <Input type="password">
-              Password
+                Password
               </Input>
             </Form>
           </Card>
@@ -100,20 +100,20 @@
       <Card inline>
         <Form>
           <Input type="email">
-          Email address
+            Email address
           </Input>
           <Input type="password">
-          Password
+            Password
           </Input>
         </Form>
       </Card>
       <Card inline>
         <Form>
           <Input type="email">
-          Email address
+            Email address
           </Input>
           <Input type="password">
-          Password
+            Password
           </Input>
         </Form>
       </Card>
@@ -126,11 +126,21 @@
     <Stat icon-name="airplane-tilt" :value="500">
       Without max
     </Stat>
-    <Stat icon-color="red" icon-name="key" :max="20" :value="20">
+    <Stat
+      icon-color="red"
+      icon-name="key"
+      :max="20"
+      :value="20"
+    >
       With icon color
     </Stat>
     <ClientOnly>
-      <FocusMark :distance="12" :off="!focusActive" rounded="var(--double-unit)" :target="testRef2" />
+      <FocusMark
+        :distance="12"
+        :off="!focusActive"
+        rounded="var(--double-unit)"
+        :target="testRef2"
+      />
     </ClientOnly>
     <Button color="pink" @click="toggleFocus">
       Toggle focus
@@ -143,7 +153,12 @@
     <Shortcut color="secondary" :keys="[ 'mod', 'shift', 'k' ]" />
     <Pagination ref="testRef2" :page="page" :total-items="100" />
     <Breadcrumbs :path="path" />
-    <Highlight icon-color="orange" icon-name="warning" icon-variant="bold" warning>
+    <Highlight
+      icon-color="orange"
+      icon-name="warning"
+      icon-variant="bold"
+      warning
+    >
       This is a warning
     </Highlight>
     <Highlight error>
