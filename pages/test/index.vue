@@ -1,9 +1,5 @@
 <template>
-  <Container
-    class="scroll"
-    max
-    padded
-  >
+  <Container class="scroll" max padded>
     <ThemeToggle />
     <ClientOnly>
       <Float :above="testRef" />
@@ -122,6 +118,8 @@
         </Form>
       </Card>
     </Container>
+    <TextArea v-model="textArea" resize="vertical" :rows="5" />
+
     <Stat :max="800" :value="500">
       With max
     </Stat>
@@ -225,4 +223,5 @@
   const path = [{ iconName: 'folder' as IconTypes, text: 'Home' }, { iconName: 'file' as IconTypes, text: 'File' }]
 
   const popup = ref(false)
+  const textArea = ref('Type something')
 </script>

@@ -19,44 +19,7 @@
     <Head>
       <!-- eslint-disable-next-line vue/html-self-closing -- IDE syntax higlighting gets broken with self-closing -->
       <Style :children="htmlStyle"></Style>
-      <Meta :content="themeColor" name="theme-color" />
-      <Meta :content="backgroundColor" name="apple-mobile-web-app-status-bar-style" />
-      <Meta :content="primaryColor" name="msapplication-navbutton-color" />
-      <Meta :content="appName" name="apple-mobile-web-app-title" />
-      <Meta content="yes" name="apple-mobile-web-app-capable" />
-      <Meta content="yes" name="mobile-web-app-capable" />
-      <Meta :content="appName" name="application-name" />
-      <Meta :content="backgroundColor" name="msapplication-TileColor" />
-      <Meta :content="favicon" name="msapplication-TileImage" />
-      <Meta :content="description" name="description" />
-      <Meta :content="keywords.join(',')" name="keywords" />
-      <Meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport" />
-      <Meta :content="pageTitle" property="og:title" />
-      <Meta :content="description" property="og:description" />
-      <Meta :content="largeImage" property="og:image" />
-      <Meta :content="largeImageAlt" property="og:image:alt" />
-      <Meta :content="url" property="og:url" />
-      <Meta :content="ogType" property="og:type" />
-      <Meta :content="appName" property="og:site_name" />
-      <Meta :content="lang" property="og:locale" />
-      <Meta :content="pageTitle" property="twitter:title" />
-      <Meta :content="description" property="twitter:description" />
-      <Meta :content="largeImage" property="twitter:image" />
-      <Meta :content="twitterType" property="twitter:card" />
-      <Meta :content="largeImageAlt" property="twitter:image:alt" />
-      <Meta :content="twitterHandle" property="twitter:creator" />
-      <Meta content="True" name="HandheldFriendly" />
-      <Link :color="primaryColor" href="faviconSvg" rel="mask-icon" />
-      <Meta content="no-referrer-when-downgrade" name="referrer" />
-      <Meta :content="`Paintbrush ${version}`" name="generator" />
       <Title>{{ pageTitle }}</Title>
-      <Link :href="canonical" rel="canonical" />
-      <Link :href="faviconSvg" rel="icon" type="image/svg" />
-      <Link :href="favicon" rel="icon" type="image/png" />
-      <Link :href="favicon" rel="shortcut icon" type="image/png" />
-      <Link :href="favicon" rel="apple-touch-icon" />
-      <Link v-if="manifest" :href="manifest" rel="manifest" />
-      <Link href="https://cdnjs.com" rel="dns-prefetch" />
     </Head>
     <Body :class="bodyClass" />
   </Html>
@@ -191,7 +154,48 @@
   useHead({
     // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags utf-8 is needed
     charset: 'UTF-8',
-    htmlAttrs: { 'data-theme': theme.theme }
+    htmlAttrs: { 'data-theme': theme.theme },
+    link: [
+      { color: primaryColor, href: props.faviconSvg, rel: 'mask-icon' },
+      { href: props.canonical, rel: 'canonical' },
+      { href: props.faviconSvg, rel: 'icon', type: 'image/svg' },
+      { href: props.favicon, rel: 'icon', type: 'image/png' },
+      { href: props.favicon, rel: 'shortcut', type: 'image/png' },
+      { href: props.favicon, rel: 'apple-touch-icon' },
+      (props.manifest ? { href: props.manifest, rel: 'manifest' } : {}),
+      { href: 'https://cdnjs.com', rel: 'dns-prefetch' }
+    ],
+    meta: [
+      { content: themeColor, name: 'theme-color' },
+      { content: backgroundColor, name: 'apply-mobile-web-app-status-bar-style' },
+      { content: primaryColor, name: 'msapplication-navbutton-color' },
+      { content: props.appName, name: 'apple-mobile-web-app-title' },
+      { content: 'yes', name: 'apple-mobile-web-app-capable' },
+      { content: 'yes', name: 'mobile-web-app-capable' },
+      { content: props.appName, name: 'application-name' },
+      { content: backgroundColor, name: 'msapplication-TileColor' },
+      { content: props.favicon, name: 'msapplication-TitleImage' },
+      { content: props.description, name: 'description' },
+      { content: props.keywords.join(','), name: 'keywords' },
+      { content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover', name: 'viewport'  },
+      { content: props.pageTitle, property: 'og:title' },
+      { content: props.description, property: 'og:description' },
+      { content: props.largeImage, property: 'og:image' },
+      { content: props.largeImageAlt, property: 'og:image:alt' },
+      { content: props.url, property: 'og:url' },
+      { content: props.ogType, property: 'og:type' },
+      { content: props.appName, property: 'og:site_name' },
+      { content: props.lang, property: 'og:locale' },
+      { content: props.pageTitle, property: 'twitter:title' },
+      { content: props.description, property: 'twitter:description' },
+      { content: props.largeImage, property: 'twitter:image' },
+      { content: props.twitterType, property: 'twitter:card' },
+      { content: props.largeImageAlt, property: 'twitter:image:alt' },
+      { content: props.twitterHandle, property: 'twitter:creator' },
+      { content: 'True', property: 'HandheldFriendly' },
+      { content: 'no-referrer-when-downgrade', name: 'referrer' },
+      { content: `Paintbrush ${version}`, name: 'generator' }
+    ]
   })
 </script>
 
