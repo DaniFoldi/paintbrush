@@ -11,4 +11,5 @@ node_modules
 .eslintcache
 .stylelintcache
 # Test output
+.unlighthouse
 coverage
