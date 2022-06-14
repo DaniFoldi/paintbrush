@@ -177,7 +177,7 @@
       { content: props.favicon, name: 'msapplication-TitleImage' },
       { content: props.description, name: 'description' },
       { content: props.keywords.join(','), name: 'keywords' },
-      { content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover', name: 'viewport'  },
+      { content: 'width=device-width, initial-scale=1.0, viewport-fit=cover', name: 'viewport'  },
       { content: props.pageTitle, property: 'og:title' },
       { content: props.description, property: 'og:description' },
       { content: props.largeImage, property: 'og:image' },
