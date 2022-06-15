@@ -1,9 +1,5 @@
 <template>
-  <Container
-    class="scroll"
-    max
-    padded
-  >
+  <Container class="scroll" max padded>
     <ThemeToggle />
     <ClientOnly>
       <Float :above="testRef" />
@@ -129,6 +125,8 @@
         </Form>
       </Card>
     </Container>
+    <TextArea v-model="textArea" resize="vertical" :rows="5" />
+
     <Stat :max="800" :value="500">
       With max
     </Stat>
@@ -257,4 +255,5 @@
   const defaultOption = ref(options[1])
 
   useNotification().push()
+  const textArea = ref('Type something')
 </script>
