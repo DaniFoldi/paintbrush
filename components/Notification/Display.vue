@@ -28,6 +28,7 @@
 
 <script lang="ts" setup>
   import { Notification } from '../../scripts/types'
+  import { useNotification } from '#imports'
 
 
   interface NotificationDisplayProps {
@@ -39,7 +40,7 @@
   const highlight = useThemeColor('backgroundHighlight')
 
   function destroy() {
-    useNotifications().destroy(props.notification)
+    useNotification().destroy(props.notification)
   }
 
   function contentClicked() {

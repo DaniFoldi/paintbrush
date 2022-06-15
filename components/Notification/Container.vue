@@ -63,6 +63,7 @@
   .left {
     left: 0;
   }
+
   .right {
     right: 0;
   }

@@ -41,6 +41,7 @@
   import { IconTypes } from '../modules/icon-types'
   import { IconVariants } from '../modules/icons'
   import { Spoiler } from '../scripts/types'
+  import { useSpoiler } from '#imports'
 
 
   type IconPlacement = 'left' | 'right'
@@ -65,11 +66,16 @@
   })
 
   const expanded = ref<boolean>(false)
-  const uuid = Math.random().toString()
+  const uuid = ref('')
+
+  onMounted(() => {
+    uuid.value = `spoiler${crypto.randomUUID().replaceAll('-', '')}`
+  })
+
   const spoiler: Spoiler = {
     collapse: () => expanded.value = false,
     group: props.group,
-    id: uuid
+    id: uuid.value
   }
 
   function toggle() {
