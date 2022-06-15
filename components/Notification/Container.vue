@@ -21,8 +21,8 @@
 
   function notifications() {
     return props.position.startsWith('top')
-      ? useNotifications().entries().value.reverse()
-      : useNotifications().entries().value
+      ? useNotification().entries().value.reverse()
+      : useNotification().entries().value
   }
 
   function computeClasses() {
