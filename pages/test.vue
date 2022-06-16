@@ -7,6 +7,10 @@
       <MenubarLink href="/test/charts">
         Charts
       </MenubarLink>
+      <Searchbar
+        :model-value="searchResults"
+        @pb-search="performSearch"
+      />
     </template>
     <template #content>
       <NuxtChild />
@@ -20,4 +24,14 @@
 
   const scrollAnchor = ref<HTMLElement | null>()
   provide('scrollAnchor', scrollAnchor)
+
+  const searchResults = ref<{ category: string; content: string }[]>([])
+
+  function performSearch(input: string) {
+    const categories = [ 'Some Category', 'Test', 'Another Category' ]
+    searchResults.value = categories.map(each => ({
+      category: each,
+      content: input
+    }))
+  }
 </script>
