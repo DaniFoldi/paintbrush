@@ -8,7 +8,7 @@
         Charts
       </MenubarLink>
       <Searchbar
-        :model-value="searchResults"
+        v-model="searchResults"
         @pb-search="performSearch"
       />
     </template>
