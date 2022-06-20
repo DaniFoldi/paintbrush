@@ -22,7 +22,7 @@
           Welcome
         </SidebarLink>
         <SidebarLink href="/getting-started" icon="code" icon-color="green">
-          Basic Use
+          Getting Started
         </SidebarLink>
         <SidebarLink href="/docs" icon="flask" icon-color="orange">
           Docs
