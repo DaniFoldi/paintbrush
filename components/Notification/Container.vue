@@ -1,5 +1,5 @@
 <template>
-  <div class="notification-container" :class="{ vertical, horizontal }">
+  <div class="notification-container" :class="{ top, bottom, left, right }">
     <NotificationDisplay
       v-for="notification in notifications()"
       :key="notification.title"
@@ -17,7 +17,10 @@
 
 
   const background = useThemeColor('background2')
-  const [ vertical, horizontal ] = props.position.split('-')
+  const top = computed(() => props.position.startsWith('top'))
+  const bottom = computed(() => props.position.startsWith('bottom'))
+  const left = computed(() => props.position.endsWith('left'))
+  const right = computed(() => props.position.endsWith('right'))
 
   function notifications() {
     return props.position.startsWith('top')

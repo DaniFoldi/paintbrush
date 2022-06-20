@@ -265,5 +265,5 @@
 
   const textArea = ref('Type something')
 
-  useNotification().push({ title: 'hi' })
+  useNotification().push({ title: 'hi', iconName: 'alarm' })
 </script>
