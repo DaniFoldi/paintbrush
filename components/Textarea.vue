@@ -73,7 +73,7 @@
   textarea {
     border: 2px solid var(--background-highlight);
     margin-inline: 0;
-    padding-inline: 0;
+    padding-inline: var(--unit);
     resize: v-bind(resize);
     width: 100%;
 

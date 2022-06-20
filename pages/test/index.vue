@@ -125,7 +125,7 @@
         </Form>
       </Card>
     </Container>
-    <TextArea v-model="textArea" resize="vertical" :rows="5" />
+    <Textarea v-model="textArea" resize="vertical" :rows="5" />
 
     <Stat :max="800" :value="500">
       With max
