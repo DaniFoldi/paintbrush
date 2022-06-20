@@ -152,16 +152,16 @@
 
   .search-content {
     border: 1px solid var(--background-highlight);
-    padding: 0.5rem;
     cursor: pointer;
-    transition: ease 0.3s background;
+    padding: .5rem;
+    transition: ease .3s background;
 
     @include mixins.rounded;
   }
 
   .search-content:hover {
     background: var(--background);
-    transition: ease 0.3s background;
+    transition: ease .3s background;
   }
 
   .search-result-container {
@@ -174,8 +174,8 @@
   .search-header {
     align-items: center;
     display: grid;
-    grid-template-columns: 7fr 2fr 1fr;
     gap: 1rem;
+    grid-template-columns: 7fr 2fr 1fr;
     justify-items: center;
   }
 
