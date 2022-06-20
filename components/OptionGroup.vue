@@ -1,5 +1,5 @@
 <!--!
-  @version 1.0.0
+  @version 0.1.0
   @description Enhanced button group
   @icon check-square
   @usage
@@ -33,11 +33,13 @@
   }
 
   const emit = defineEmits<OptionGroupEmits>()
+
   const props = withDefaults(defineProps<OptionGroupProps>(), {
     capitalizeTitles: true,
     modelValue: '',
     titles: undefined
   })
+
 
   function title(value: string): string {
     if (props.titles) {
