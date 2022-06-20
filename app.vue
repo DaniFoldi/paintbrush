@@ -52,6 +52,7 @@
         <NuxtPage />
       </template>
     </SidebarContainer>
+    <NotificationContainer position="top-right" />
   </Paintbrush>
 </template>
 

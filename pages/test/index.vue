@@ -28,6 +28,13 @@
         ghost
       </Button>
     </ButtonGroup>
+    <Separator />
+    <Container>
+      <OptionGroup v-model="defaultOption" :options="options" />
+      <Text inline>
+        | Currently selected: {{ defaultOption }}
+      </Text>
+    </Container>
     <Text>Checkbox is {{ check }}</Text>
     <Checkbox v-model="check">
       Test
@@ -118,7 +125,7 @@
         </Form>
       </Card>
     </Container>
-    <TextArea v-model="textArea" resize="vertical" :rows="5" />
+    <Textarea v-model="textArea" resize="vertical" :rows="5" />
 
     <Stat :max="800" :value="500">
       With max
@@ -195,6 +202,26 @@
     <Button disabled>
       disabled
     </Button>
+    <Separator />
+    <Container>
+      <Spoiler title="Click Me">
+        <Text>
+          Hello there
+        </Text>
+      </Spoiler>
+    </Container>
+    <Separator />
+    <Container>
+      <RadioButton id="option1" name="test">
+        Option 1
+      </RadioButton>
+      <RadioButton id="option2" name="test">
+        Option 2
+      </RadioButton>
+      <RadioButton id="option3" name="test">
+        Option 3
+      </RadioButton>
+    </Container>
   </Container>
 </template>
 
@@ -223,5 +250,9 @@
   const path = [{ iconName: 'folder' as IconTypes, text: 'Home' }, { iconName: 'file' as IconTypes, text: 'File' }]
 
   const popup = ref(false)
+
+  const options = [ 'option 1', 'option 2', 'option 3' ]
+  const defaultOption = ref(options[1])
+
   const textArea = ref('Type something')
 </script>
