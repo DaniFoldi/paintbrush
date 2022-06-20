@@ -227,7 +227,6 @@
   const textArea = ref('Type something')
 
   onMounted(() => {
-    // eslint-disable-next-line no-undef
     defineShortcut({
       combo: {
         alt: true,
