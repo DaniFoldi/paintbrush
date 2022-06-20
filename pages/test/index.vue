@@ -199,6 +199,7 @@
 </template>
 
 <script lang="ts" setup>
+  /* eslint-disable no-alert */
   import { IconTypes } from '../../modules/icon-types'
   import { useState, ref } from '#imports'
 
@@ -224,4 +225,15 @@
 
   const popup = ref(false)
   const textArea = ref('Type something')
+
+  onMounted(() => {
+    // eslint-disable-next-line no-undef
+    defineShortcut({
+      combo: {
+        alt: true,
+        key: 'k'
+      },
+      handler: () => alert('Hello, notification')
+    })
+  })
 </script>

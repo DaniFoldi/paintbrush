@@ -197,6 +197,11 @@
       { content: `Paintbrush ${version}`, name: 'generator' }
     ]
   })
+
+  onMounted(() => {
+    // eslint-disable-next-line no-undef
+    document.addEventListener('keyup', handleShortcut)
+  })
 </script>
 
 <style lang="scss">
