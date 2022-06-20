@@ -51,7 +51,7 @@
     "@danifoldi/eslint-plugin-eslint-presets": "^1.4.2",
     "@danifoldi/stylelint-presets": "^1.1.0",
     "@nuxt/test-utils": "^3.0.0-rc.3",
-    "@nuxtjs/i18n-edge": "8.0.0-alpha.0-27579558.fdbd51b",
+    "@nuxtjs/i18n-edge": "8.0.0-alpha.0-27589307.c88ffb6",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "c8": "^7.11.3",
@@ -81,7 +81,7 @@
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3",
     "vitest": "^0.15.0",
-    "vue-tsc": "^0.37.5"
+    "vue-tsc": "^0.38.1"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.11",
