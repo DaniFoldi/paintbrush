@@ -9,7 +9,7 @@
   @category Basic
 -->
 <template>
-  <Container>
+  <label>
     <input
       :id="id"
       :checked="modelValue"
@@ -17,11 +17,9 @@
       type="radio"
       @change="onChange"
     >
-    <Text v-if="autoWrap" inline>
-      <slot />
-    </Text>
+    <Text v-if="autoWrap"><slot /></Text>
     <slot v-else />
-  </Container>
+  </label>
 </template>
 
 <script lang="ts" setup>
@@ -37,12 +35,22 @@
   }
 
   const emit = defineEmits<RadioButtonEmits>()
+
   withDefaults(defineProps<RadioButtonProps>(), {
     autoWrap: true,
     checked: false
   })
 
+
   function onChange(event: Event) {
     emit('update:modelValue', (event?.target as HTMLInputElement).checked)
   }
 </script>
+
+<style lang="scss" scoped>
+  @use '../assets/mixins.scss';
+
+  label {
+    @include mixins.two-items;
+  }
+</style>
