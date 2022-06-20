@@ -137,11 +137,11 @@
   .tag {
     background: var(--primary);
     color: var(--background);
-    font-size: 0.5rem;
-    margin: 0.3rem;
-    padding: 0.3rem;
+    font-size: .5rem;
+    margin: .3rem;
+    padding: .3rem;
 
-    @include mixins.rounded
+    @include mixins.rounded;
   }
 
   hr {
