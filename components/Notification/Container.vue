@@ -1,5 +1,5 @@
 <template>
-  <div :class="computeClasses()">
+  <div class="notification-container" :class="{ vertical, horizontal }">
     <NotificationDisplay
       v-for="notification in notifications()"
       :key="notification.title"
@@ -9,24 +9,20 @@
 </template>
 
 <script lang="ts" setup>
-  type Position = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-
   interface NotificationContainerProps {
-    position: Position
+    position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
   }
 
   const props = defineProps<NotificationContainerProps>()
+
+
   const background = useThemeColor('background2')
-  const [ vert, horiz ] = props.position.split('-')
+  const [ vertical, horizontal ] = props.position.split('-')
 
   function notifications() {
     return props.position.startsWith('top')
       ? useNotification().entries().value.reverse()
       : useNotification().entries().value
-  }
-
-  function computeClasses() {
-    return `notification-container ${horiz === 'left' ? 'left' : 'right'} ${vert === 'top' ? 'top' : 'bottom'}`
   }
 </script>
 

@@ -264,4 +264,6 @@
   const defaultOption = ref(options[1])
 
   const textArea = ref('Type something')
+
+  useNotification().push({ title: 'hi' })
 </script>
