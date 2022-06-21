@@ -1,49 +1,25 @@
 <template>
-  <Container>
-    <Container class="dummy-input-container" @click="expanded = true">
-      <Icon name="magnifying-glass" />
-      <Text inline>
-        Search...
-      </Text>
-    </Container>
-    <Popup v-if="expanded">
-      <Container class="search-container">
-        <Container>
-          <Form class="search-header" @pb-submit="search">
-            <input v-model="input" placeholder="Search" @input="inputSearch">
-            <Button class="search-button">
-              Search
-            </Button>
-            <Icon
-              class="close"
-              color="red"
-              name="x"
-              @click="close"
-            />
-          </Form>
-        </Container>
+  <Container class="search-main-container">
+    <Form @pb-submit="search">
+      <Input v-model="input" placeholder="Search..." @keyup="search" />
+    </Form>
+    <Container v-if="modelValue && modelValue.length > 0" class="search-container">
+      <Container v-for="entry in parseSearchResult()" :key="entry.category">
+        <Text bold>
+          {{ entry.category }}
+        </Text>
         <Container
-          v-if="modelValue && modelValue.length > 0"
-          class="search-result-container"
+          v-for="content in entry.matches"
+          :key="content"
+          class="search-content"
+          @click="emit('pb-entry-clicked', { category: entry.category, content: content })"
         >
-          <Container v-for="entry in parseSearchResult()" :key="entry.category">
-            <Text bold>
-              {{ entry.category }}
-            </Text>
-            <Container
-              v-for="content in entry.matches"
-              :key="content"
-              class="search-content"
-              @click="emit('pb-entry-clicked', { category: entry.category, content: content })"
-            >
-              <Text>
-                {{ content }}
-              </Text>
-            </Container>
-          </Container>
+          <Text>
+            {{ content }}
+          </Text>
         </Container>
       </Container>
-    </Popup>
+    </Container>
   </Container>
 </template>
 
@@ -60,7 +36,6 @@
 
   interface SearchbarProps {
     modelValue: SearchEntry[]
-    triggerOnInput?: boolean
     width?: string
   }
 
@@ -72,10 +47,8 @@
 
   const emit = defineEmits<SearchbarEmits>()
   const props = withDefaults(defineProps<SearchbarProps>(), {
-    triggerOnInput: true,
     width: '100%'
   })
-  const expanded = ref<boolean>()
   const input = ref<string>()
 
   function parseSearchResult(): CategorizedSearchResult[] {
@@ -99,61 +72,34 @@
     const value = input.value
     if (value) {
       emit('pb-search', value)
+    } else {
+      emit('update:modelValue', [])
     }
-  }
-
-  function inputSearch() {
-    if (props.triggerOnInput) {
-      search()
-    }
-  }
-
-  function close() {
-    expanded.value = false
-    input.value = undefined
-    emit('update:modelValue', [])
   }
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
-  input,
-  .dummy-input-container {
-    border: 2px solid var(--background-highlight);
-    height: 32px;
-    margin-inline: 0;
-    padding-inline: 4px;
-    width: v-bind('props.width');
-
-    @include mixins.rounded;
-    @include mixins.with-fade;
-    @include mixins.standard-background;
-    @include mixins.standard-text;
-  }
-
-  .close {
-    cursor: pointer;
-  }
-
-  .dummy-input-container {
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
+  .search-main-container {
+    position: relative;
   }
 
   .search-container {
     background: var(--background-2);
-    padding: 1rem;
-    width: 45vw;
+    box-shadow: #3636364f 1px 1px 10px 3px;
+    margin-top: var(--double-unit);
+    padding: .5rem;
+    position: absolute;
+    width: v-bind('props.width');
 
     @include mixins.rounded;
   }
 
   .search-content {
-    border: 1px solid var(--background-highlight);
     cursor: pointer;
-    padding: .5rem;
+    margin-bottom: .5rem;
+    padding: .2rem;
     transition: ease .3s background;
 
     @include mixins.rounded;
@@ -162,26 +108,5 @@
   .search-content:hover {
     background: var(--background);
     transition: ease .3s background;
-  }
-
-  .search-result-container {
-    display: grid;
-    gap: 1.5rem;
-    grid-column: 1;
-    margin-top: 1.5rem;
-  }
-
-  .search-header {
-    align-items: center;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 7fr 2fr 1fr;
-    justify-items: center;
-  }
-
-  input,
-  button {
-    height: 100%;
-    width: 100%;
   }
 </style>

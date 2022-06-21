@@ -75,7 +75,6 @@
     background: var(--background);
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    overflow: hidden;
     position: sticky;
     top: 0;
     z-index: 5;
