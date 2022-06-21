@@ -12,7 +12,7 @@
         :key="item.category"
         class="dropdown-category"
       >
-        <Text sectiontitle>
+        <Text bold>
           {{ item.category }}
         </Text>
         <Container
@@ -53,6 +53,7 @@
 
   interface DropdownProps {
     items: Item[]
+    maxHeight?: string
     title: string
   }
 
@@ -61,7 +62,9 @@
   }
 
   const emit = defineEmits<DropdownEmits>()
-  const props = defineProps<DropdownProps>()
+  const props = withDefaults(defineProps<DropdownProps>(), {
+    maxHeight: '250px'
+  })
   const expanded = ref<boolean>()
 
   const itemClicked = (category: string, name: string, tags?: string[]) => emit(
@@ -103,26 +106,33 @@
 
   .dropdown-category {
     display: grid;
-    gap: 1rem;
   }
 
   .dropdown-item-container {
-    background: var(--background);
-    padding: var(--double-unit);
+    border: 1px solid var(--background-highlight);
+    font-size: 0.9rem;
+    margin-top: var(--double-unit);
+    max-height: v-bind('props.maxHeight');
+    overflow-y: auto;
+    padding: var(--unit);
 
     @include mixins.rounded;
   }
 
   .dropdown-item {
-    background: var(--background-2);
     cursor: pointer;
-    padding: var(--double-unit);
+    padding: var(--unit) var(--double-unit);
 
 
     @include mixins.rounded;
   }
 
+  .dropdown-item:hover {
+    background: var(--background-highlight);
+  }
+
   .dropdown-title {
+    background: var(--background-highlight);
     cursor: pointer;
     padding: var(--double-unit);
 
@@ -130,21 +140,22 @@
     @include mixins.with-fade;
   }
 
-  .dropdown-title:hover {
-    background: var(--background-2);
-  }
-
   .tag {
     background: var(--primary);
     color: var(--background);
     font-size: .5rem;
-    margin: .3rem;
-    padding: .3rem;
+    margin: .1rem;
+    padding: .2rem;
 
     @include mixins.rounded;
   }
 
   hr {
+    padding: 0;
     width: 100%;
+  }
+
+  h3 {
+    margin-block: 0;
   }
 </style>
