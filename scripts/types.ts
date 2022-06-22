@@ -8,7 +8,7 @@ export interface Spoiler {
   id: string
 }
 
-export interface NotificationLike {
+export interface Notification {
   content?: string
   contentClicked?: () => void
   iconColor?: string
@@ -16,8 +16,4 @@ export interface NotificationLike {
   iconVariant?: IconVariants
   lifetime?: number // seconds
   title: string
-}
-
-export interface Notification extends NotificationLike {
-  id: string
 }

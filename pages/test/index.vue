@@ -156,7 +156,16 @@
       Dániel Földi.
     </Copyright>
     <MultilineCode :code="code" />
+    <Separator />
+    <Text inline>
+      Just some text
+    </Text>
+    <InlineCode code="<p>Just some text</p>" language="html" />
+    <Text inline>
+      surrounding inline code.
+    </Text>
 
+    <Separator />
     <Shortcut color="secondary" :keys="[ 'mod', 'shift', 'k' ]" />
     <Pagination ref="testRef2" :page="page" :total-items="100" />
     <Breadcrumbs :path="path" />
@@ -287,4 +296,6 @@
       tags: [ 'D', 'E', 'F' ]
     }
   ]
+
+  useNotification().push({ title: 'hi', iconName: 'alarm' })
 </script>
