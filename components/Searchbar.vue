@@ -35,6 +35,7 @@
   }
 
   interface SearchbarProps {
+    maxHeight?: string
     modelValue: SearchEntry[]
     width?: string
   }
@@ -47,6 +48,7 @@
 
   const emit = defineEmits<SearchbarEmits>()
   const props = withDefaults(defineProps<SearchbarProps>(), {
+    maxHeight: '250px',
     width: '100%'
   })
   const input = ref<string>()
@@ -89,6 +91,8 @@
     background: var(--background-2);
     box-shadow: #3636364f 1px 1px 10px 3px;
     margin-top: var(--double-unit);
+    max-height: v-bind('props.maxHeight');
+    overflow-y: auto;
     padding: .5rem;
     position: absolute;
     width: v-bind('props.width');
