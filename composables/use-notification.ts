@@ -1,12 +1,8 @@
-import { NotificationLike, Notification } from '../scripts/types'
+import { Notification } from '../scripts/types'
 
-
-type Notifications = Notification[]
-
-const KEY = '__notifications'
 
 function entries() {
-  return useState<Notifications>(KEY, () => [])
+  return useState<Notification[]>('pb-notifications', () => [])
 }
 
 function push(notification: Notification) {
@@ -17,23 +13,14 @@ function push(notification: Notification) {
 }
 
 function destroy(notification: Notification) {
-  const newEntries = entries().value.filter(each => each.id !== notification.id)
+  const newEntries = entries().value.filter(each => each !== notification)
   entries().value = newEntries
-}
-
-function wrap(notification: NotificationLike): Notification {
-  const id = (Math.random() * 1000).toString()
-  return {
-    ...notification,
-    id: id
-  }
 }
 
 export default function() {
   return {
     destroy,
     entries,
-    push,
-    wrap
+    push
   }
 }
