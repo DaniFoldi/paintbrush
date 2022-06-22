@@ -69,8 +69,8 @@
   })
   const expanded = ref<boolean>()
 
-  const containerPos = computed(() => props.float ? 'relative' : 'static')
-  const contentPos = computed(() => props.float ? 'absolute' : 'static')
+  const container = computed(() => props.float ? 'relative' : 'static')
+  const content = computed(() => props.float ? 'absolute' : 'static')
 
   const itemClicked = (category: string, name: string, tags?: string[]) => emit(
     'pb-item-clicked',
@@ -106,7 +106,7 @@
   @use '../assets/mixins.scss';
 
   .dropdown-container {
-    position: v-bind(containerPos);
+    position: v-bind(container);
     user-select: none;
     z-index: 10;
   }
@@ -114,12 +114,12 @@
   .dropdown-item-container {
     background: var(--background-2);
     border: 1px solid var(--background-highlight);
-    font-size: 0.9rem;
+    font-size: .9rem;
     margin-top: var(--double-unit);
     max-height: v-bind('props.maxHeight');
     overflow-y: auto;
     padding: var(--unit);
-    position: v-bind(contentPos);
+    position: v-bind(content);
     width: 100%;
 
     @include mixins.rounded;
