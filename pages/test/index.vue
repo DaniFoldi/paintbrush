@@ -229,8 +229,8 @@
   onMounted(() => {
     defineShortcut({
       combo: {
-        alt: true,
-        key: 'k'
+        key: 'k',
+        mod: true
       },
       handler: () => alert('Hello, notification')
     })

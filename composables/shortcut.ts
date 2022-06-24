@@ -8,7 +8,7 @@ type DefineShortcutOptions = Shortcut & { replace?: boolean }
 const shortcuts = () => useState<Shortcut[]>('pb-shortcut', () => [])
 
 function testEquality(a: KeyOptions, b: KeyOptions, exact: boolean) {
-  if (transformKey(a.key) !== transformKey(b.key)) return false
+  if (a.key !== b.key) return false
   if ((a.alt && !b.alt)
     || (a.ctrl && !b.ctrl)
     || (a.meta && !b.meta)
@@ -20,13 +20,16 @@ function testEquality(a: KeyOptions, b: KeyOptions, exact: boolean) {
     || !exact
 }
 
-function transformKey(key: string): string {
-  if (key === 'mod') return isApple.value ? 'Command' : 'Control'
-  return key.toLocaleLowerCase()
-}
-
 export function defineShortcut(options: DefineShortcutOptions) {
-  const existing = shortcuts().value.find(each => testEquality(each.combo, options.combo, Boolean(options.exact)))
+  const ctrl = Boolean(options.combo.mod && !isApple() || options.combo.ctrl)
+  const meta = Boolean(options.combo.mod && isApple() || options.combo.meta)
+  const combo: KeyOptions = {
+    ...options.combo,
+    ctrl: ctrl,
+    meta: meta,
+    mod: undefined
+  }
+  const existing = shortcuts().value.find(each => testEquality(each.combo, combo, Boolean(options.exact)))
   if (existing && !options.replace) {
     throw new Error('A shortcut is already registered to this combo')
   }
@@ -34,9 +37,8 @@ export function defineShortcut(options: DefineShortcutOptions) {
   const exact = options.exact !== undefined
     ? options.exact
     : true
-  console.log(options)
-  console.log(transformKey(options.combo.key))
-  shortcuts().value.push({ combo: options.combo, exact: exact, handler: options.handler })
+
+  shortcuts().value.push({ combo: combo, exact: exact, handler: options.handler })
 }
 
 export function handleShortcut(event: KeyboardEvent) {
@@ -50,6 +52,7 @@ export function handleShortcut(event: KeyboardEvent) {
 
   const existing = shortcuts().value.find(each => testEquality(each.combo, combo, Boolean(each.exact)))
   if (existing) {
+    event.preventDefault()
     existing.handler()
   }
 }

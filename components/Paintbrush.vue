@@ -199,7 +199,7 @@
   })
 
   onMounted(() => {
-    document.addEventListener('keyup', handleShortcut)
+    document.addEventListener('keydown', handleShortcut)
   })
 </script>
 
