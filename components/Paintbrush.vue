@@ -197,6 +197,10 @@
       { content: `Paintbrush ${version}`, name: 'generator' }
     ]
   })
+
+  onMounted(() => {
+    document.addEventListener('keydown', handleShortcut)
+  })
 </script>
 
 <style lang="scss">

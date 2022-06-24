@@ -236,6 +236,7 @@
 </template>
 
 <script lang="ts" setup>
+  /* eslint-disable no-alert */
   import { IconTypes } from '../../modules/icon-types'
   import { useState, ref } from '#imports'
 
@@ -265,6 +266,16 @@
   const defaultOption = ref(options[1])
 
   const textArea = ref('Type something')
+
+  onMounted(() => {
+    defineShortcut({
+      combo: {
+        key: 'k',
+        mod: true
+      },
+      handler: () => alert('Hello, notification')
+    })
+  })
 
   const dropdownItems = [
     {
