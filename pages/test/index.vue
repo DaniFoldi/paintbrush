@@ -211,6 +211,7 @@
     <Button disabled>
       disabled
     </Button>
+    <Dropdown :items="dropdownItems" title="Test Dropdown" />
     <Separator />
     <Container>
       <Spoiler title="Click Me">
@@ -264,6 +265,37 @@
   const defaultOption = ref(options[1])
 
   const textArea = ref('Type something')
+
+  const dropdownItems = [
+    {
+      category: 'Category 1',
+      name: 'Test 1'
+    },
+    {
+      category: 'Category 1',
+      name: 'Test 5',
+      tags: [ 'A', 'B' ]
+    },
+    {
+      category: 'Category 1',
+      name: 'Test 6',
+      tags: [ 'C' ]
+    },
+    {
+      category: 'Category 2',
+      name: 'Test 2',
+      tags: [ 'A', 'C' ]
+    },
+    {
+      category: 'Category 3',
+      name: 'Test 3'
+    },
+    {
+      category: 'Category 3',
+      name: 'Test 4',
+      tags: [ 'D', 'E', 'F' ]
+    }
+  ]
 
   useNotification().push({ title: 'hi', iconName: 'alarm' })
 </script>
