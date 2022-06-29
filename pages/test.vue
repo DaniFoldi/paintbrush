@@ -7,7 +7,7 @@
       <MenubarLink href="/test/charts">
         Charts
       </MenubarLink>
-      <Searchbar
+      <Search
         v-model="searchResults"
         @pb-search="performSearch"
       />
