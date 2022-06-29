@@ -5,18 +5,14 @@ type KeyOptions = { alt?: boolean; ctrl?: boolean; key: string; meta?: boolean; 
 type Shortcut = { combo: KeyOptions; exact?: boolean; handler: () => void }
 type DefineShortcutOptions = Shortcut & { replace?: boolean }
 
-const shortcuts = () => useState<Shortcut[]>('pb-shortcut', () => [])
+const shortcuts = () => useState<Shortcut[]>('paintbrush-shortcut', () => [])
 
 function testEquality(a: KeyOptions, b: KeyOptions, exact: boolean) {
-  if (a.key !== b.key) return false
-  if ((a.alt && !b.alt)
-    || (a.ctrl && !b.ctrl)
-    || (a.meta && !b.meta)
-    || (a.shift && !b.shift)) return false
   return (Boolean(a.alt) === Boolean(b.alt)
     && Boolean(a.ctrl) === Boolean(b.ctrl)
     && Boolean(a.meta) === Boolean(b.meta)
-    && Boolean(a.shift) === Boolean(b.shift))
+    && Boolean(a.shift) === Boolean(b.shift)
+    && a.key === b.key)
     || !exact
 }
 
