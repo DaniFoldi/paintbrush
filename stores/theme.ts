@@ -7,9 +7,11 @@ export const useTheme = defineStore('paintbrush-theme', {
   // @ts-ignore
   persist: true,
   state: () => ({
+    last: '',
     theme: 'system'
   })
 })
+
 
 if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useTheme, import.meta.hot))

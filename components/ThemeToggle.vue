@@ -1,5 +1,5 @@
 <!--!
-  @version 0.2.2
+  @version 1.0.0
   @icon moon
   @category Paintbrush
   @usage <ThemeToggle />
@@ -8,15 +8,25 @@
 
 <template>
   <div class="toggle" @click="toggle">
-    <Icon color="inherit" name="sun" size="12px" />
+    <Icon
+      color="inherit"
+      name="sun"
+      size="12px"
+      @click.stop="toggle('light')"
+    />
     <div class="selected" />
-    <Icon color="inherit" name="moon" size="12px" />
+    <Icon
+      color="inherit"
+      name="moon"
+      size="12px"
+      @click.stop="toggle('dark')"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
   import { useTheme } from '../stores/theme'
-  import { computed, ref, useThemeColor } from '#imports'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface ThemeToggleProps {
@@ -33,18 +43,23 @@
 
 
   const theme = useTheme()
-  const last = ref('')
 
-  function toggle() {
+  function toggle(to?: string | MouseEvent) {
+    if (to === 'light' || to === 'dark') {
+      theme.last = theme.theme
+      theme.theme = theme.theme === to ? 'system' : to
+      return
+    }
+
     const dark = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (theme.theme === 'system') {
-      if (last.value === '') {
+      if (theme.last === '') {
         theme.theme = dark ? 'light' : 'dark'
       } else {
-        theme.theme = last.value === 'light' ? 'dark' : 'light'
+        theme.theme = theme.last === 'light' ? 'dark' : 'light'
       }
     } else {
-      last.value = theme.theme
+      theme.last = theme.theme
       theme.theme = 'system'
     }
   }
