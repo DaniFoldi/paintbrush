@@ -2,7 +2,7 @@ import { Notification } from '../scripts/types'
 
 
 function entries() {
-  return useState<Notification[]>('pb-notifications', () => [])
+  return useState<Notification[]>('paintbrush-notifications', () => [])
 }
 
 function push(notification: Notification) {
