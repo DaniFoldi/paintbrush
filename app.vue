@@ -21,8 +21,8 @@
         <SidebarLink href="/" icon="rocket-launch">
           Welcome
         </SidebarLink>
-        <SidebarLink href="/getting-started" icon="code" icon-color="green">
-          Getting Started
+        <SidebarLink href="/quickstart" icon="code" icon-color="green">
+          Quickstart
         </SidebarLink>
         <SidebarLink href="/docs" icon="flask" icon-color="orange">
           Docs
