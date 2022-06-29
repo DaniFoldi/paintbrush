@@ -6,7 +6,7 @@
   @usage
   <Highlight warning iconName="warning">
   __This feature is currently in beta.
-  </Highlight
+  </Highlight>
 -->
 
 <template>

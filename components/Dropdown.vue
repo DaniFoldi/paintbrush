@@ -1,3 +1,9 @@
+<!--!
+  @version 0.1.0
+  @category Form
+  @icon list
+-->
+
 <template>
   <Container class="dropdown-container">
     <Text

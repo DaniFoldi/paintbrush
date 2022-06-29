@@ -1,3 +1,9 @@
+<!--!
+  @category Display
+  @version 1.0.0
+  @icon code-simple
+-->
+
 <template>
   <Runtime :class="classes" element="code" :rendered="highlight.value" />
 </template>

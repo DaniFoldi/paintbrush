@@ -1,3 +1,9 @@
+<!--!
+  @version 0.1.0
+  @category Paintbrush
+  @icon notification
+-->
+
 <template>
   <div class="notification-container" :class="{ top, bottom, left, right }">
     <NotificationDisplay
