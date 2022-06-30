@@ -10,6 +10,37 @@ export default defineNuxtConfig({
     dirs: [ '~/components' ],
     global: true
   },
+  content: {
+    highlight: false,
+    markdown: {
+      tags: {
+        'p': 'text',
+        'a': 'autolink',
+        'blockquote': 'highlight',
+        'code-inline': 'inline-code',
+        'code': 'multiline-code',
+        'em': 'text',
+        'h1': 'text',
+        'h2': 'text',
+        'h3': 'text',
+        'h4': 'text',
+        'h5': 'text',
+        'h6': 'text',
+        'hr': 'separator',
+        'img': 'image',
+        'ul': 'prose-ul',
+        'ol': 'prose-ol',
+        'li': 'prose-li',
+        'strong': 'text',
+        'table': 'prose-table',
+        'thead': 'prose-thead',
+        'tbody': 'prose-tbody',
+        'td': 'prose-td',
+        'th': 'prose-th',
+        'tr': 'prose-tr'
+      }
+    }
+  },
   i18n: {
     defaultLocale: 'en',
     detectBrowserLanguage: false, // Set this to false, otherwise the whole i18n thing falls apart
