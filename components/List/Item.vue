@@ -1,3 +1,8 @@
+<!--!
+  @category Basic
+  @version 0.1.0
+-->
+
 <template>
   <li>
     <p v-if="autoWrap">
@@ -9,7 +14,7 @@
 
 <script lang="ts" setup>
   interface ListItemProps {
-    autoWrap: boolean
+    autoWrap?: boolean
   }
 
   withDefaults(defineProps<ListItemProps>(), {

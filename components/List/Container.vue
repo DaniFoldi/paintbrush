@@ -1,3 +1,8 @@
+<!--!
+  @category Basic
+  @version 0.1.0
+-->
+
 <template>
   <ol v-if="numbered">
     <slot />
@@ -9,7 +14,7 @@
 
 <script lang="ts" setup>
   interface ListContainerProps {
-    numbered: boolean
+    numbered?: boolean
   }
 
   withDefaults(defineProps<ListContainerProps>(), {
