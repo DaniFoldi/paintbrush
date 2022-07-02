@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     highlight: false,
     markdown: {
       tags: {
+        /* eslint-disable sort-keys */
         'p': 'text',
         'a': 'autolink',
         'blockquote': 'highlight',
@@ -28,9 +29,9 @@ export default defineNuxtConfig({
         'h6': 'text',
         'hr': 'separator',
         'img': 'image',
-        'ul': 'prose-ul',
-        'ol': 'prose-ol',
-        'li': 'prose-li',
+        'ul': 'list-container',
+        'ol': 'list-container',
+        'li': 'list-item',
         'strong': 'text',
         'table': 'prose-table',
         'thead': 'prose-thead',
@@ -38,6 +39,7 @@ export default defineNuxtConfig({
         'td': 'prose-td',
         'th': 'prose-th',
         'tr': 'prose-tr'
+        /* eslint-enable sort-keys */
       }
     }
   },
