@@ -12,7 +12,7 @@ export default defineNuxtModule({
     name: 'paintbrush-ui',
     configKey: 'paintbrush',
     compatibility: {
-      nuxt: '^3.0.0'
+      nuxt: '^3.0.0-rc.1'
     }
   },
   async setup(moduleOptions) {
