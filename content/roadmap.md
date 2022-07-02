@@ -1,3 +1,7 @@
+# Roadmap, upcoming features, ideas
+
+## Planned components
+
 - Accordion
 - ActionLog
 - AudioPlayer
@@ -10,19 +14,15 @@
 - Comment
 - Confirmation
 - DatePicker
-- Details
 - Dialog
 - Divider
 - Emoji
 - FileInput
 - Gallery
 - Gauge
-- Header
 - InfoCard
 - InfoMessage
-- ItemList
 - ItemPicker
-- LoadingSpinner
 - Map
 - Message
 - Modal
