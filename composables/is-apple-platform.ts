@@ -1,4 +1,4 @@
-export function isApple() {
+export default function() {
   return computed(() => {
     // eslint-disable-next-line no-undef -- process will be added to globals
     const platform = process.client ? navigator.platform : useRequestHeaders()['user-agent']

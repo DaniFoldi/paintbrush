@@ -1,4 +1,4 @@
-import { isApple } from '../scripts/is-apple'
+import applePlatform from './is-apple-platform'
 
 
 type KeyOptions = { alt?: boolean; ctrl?: boolean; key: string; meta?: boolean; mod?: boolean; shift?: boolean }
@@ -17,8 +17,8 @@ function testEquality(a: KeyOptions, b: KeyOptions, exact: boolean) {
 }
 
 export function defineShortcut(options: DefineShortcutOptions) {
-  const ctrl = Boolean(options.combo.mod && !isApple() || options.combo.ctrl)
-  const meta = Boolean(options.combo.mod && isApple() || options.combo.meta)
+  const ctrl = Boolean(options.combo.mod && !applePlatform() || options.combo.ctrl)
+  const meta = Boolean(options.combo.mod && applePlatform() || options.combo.meta)
   const combo: KeyOptions = {
     ...options.combo,
     ctrl: ctrl,

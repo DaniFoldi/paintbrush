@@ -10,13 +10,13 @@
   <span>
     <template v-for="key in keys" :key="key">
       <Icon
-        v-if="key === 'meta' || (key === 'mod' && isApple)"
-        :name="isApple ? 'command' : 'windows-logo'"
+        v-if="key === 'meta' || (key === 'mod' && applePlatform)"
+        :name="applePlatform ? 'command' : 'windows-logo'"
         variant="bold"
       />
-      <Icon v-else-if="(key === 'alt' || key === 'option') && isApple" name="option" variant="bold" />
+      <Icon v-else-if="(key === 'alt' || key === 'option') && applePlatform" name="option" variant="bold" />
       <kbd v-else-if="key === 'alt' || key === 'option'">Alt</kbd>
-      <kbd v-else-if="key === 'ctrl' && isApple">^</kbd>
+      <kbd v-else-if="key === 'ctrl' && applePlatform">^</kbd>
       <kbd v-else-if="key === 'ctrl' || key === 'mod'">Ctrl</kbd>
       <Icon v-else-if="key === 'shift'" name="arrow-fat-up" variant="bold" />
       <Icon v-else-if="key === 'caps'" name="arrow-fat-line-up" variant="bold" />
@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, useThemeColor, useRequestHeaders } from '#imports'
+  import { computed, useThemeColor, isApplePlatform } from '#imports'
 
 
   interface ShortcutProps {
@@ -48,14 +48,8 @@
     color: 'primary'
   })
 
-
-  const isApple = computed(() => {
-    // eslint-disable-next-line no-undef -- process will be added to globals
-    const platform = process.client ? navigator.platform : useRequestHeaders()['user-agent']
-    return [ 'iPhone', 'iPod', 'iPad', 'Mac' ].some(p => platform.includes(p))
-  })
-
   const color = computed(() => useThemeColor(props.color))
+  const applePlatform = isApplePlatform()
 </script>
 
 <style lang="scss" scoped>
