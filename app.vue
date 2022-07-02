@@ -18,14 +18,20 @@
         </Container>
       </template>
       <template #sidebar-middle>
-        <SidebarLink href="/" icon="rocket-launch">
+        <SidebarLink href="/" icon="rocket-launch" icon-color="red">
           Welcome
         </SidebarLink>
-        <SidebarLink href="/quickstart" icon="code" icon-color="green">
+        <SidebarLink href="/quickstart" icon="download" icon-color="orange">
           Quickstart
         </SidebarLink>
-        <SidebarLink href="/docs" icon="flask" icon-color="orange">
+        <SidebarLink href="/examples" icon="code" icon-color="yellow">
+          Examples
+        </SidebarLink>
+        <SidebarLink href="/docs" icon="file-text" icon-color="green">
           Docs
+        </SidebarLink>
+        <SidebarLink href="/roadmap" icon="signpost" icon-color="blue">
+          Roadmap
         </SidebarLink>
         <SidebarLink
           href="https://github.com/DaniFoldi/Paintbrush"
