@@ -87,16 +87,11 @@
 
 <script lang="ts" setup async>
   import type { Docs } from '../../../scripts/docs'
+  import { useFullParam } from '#imports'
 
-
-  function useFullParam(param: string): string {
-    const piece = useRoute().params[param]
-    return typeof piece === 'string' ? piece : piece.join('/')
-  }
 
   const { data } = await useFetch<Docs>('/api/docs')
-  const components = data.value
-  const component = components[`components/${useFullParam('path')}.vue`]
+  const component = data.value[`components/${useFullParam('path')}.vue`]
   if (!component) {
     await navigateTo('/docs')
   }
