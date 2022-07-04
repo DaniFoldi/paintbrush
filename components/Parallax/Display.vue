@@ -4,6 +4,7 @@
   @icon stack
   @category Visual
 -->
+
 <template>
   <atropos @enter="$emit('pb-enter')" @leave="$emit('pb-leave')" @rotate="(x, y) => $emit('pb-rotate', x, y)">
     <slot />
@@ -22,8 +23,6 @@
   }
 
   defineEmits<ParallaxDisplayEmits>()
-
-  // TODO expose more of atropos' options as props
 </script>
 
 <style lang="scss" scoped>
