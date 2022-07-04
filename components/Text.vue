@@ -1,5 +1,5 @@
 <!--!
-  @version 1.4.0
+  @version 1.5.0
   @icon text-aa
   @description Text component to display text
   @usage <Text>Lorem ipsum dolor sit amet</Text>
@@ -16,7 +16,7 @@
   <h3 v-else-if="mode === 'h3'" :class="classes">
     <slot />
   </h3>
-  <span v-else-if="mode === 'part'" :class="classes">
+  <span v-else-if="mode === 'span'" :class="classes">
     <slot />
   </span>
   <p v-else :class="classes">
@@ -25,14 +25,15 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, useThemeColor } from '#imports'
+  import { computed, textFontSize, useThemeColor } from '#imports'
 
 
   interface TextProps {
     bold?: boolean // Bold text
     capitalize?: boolean // Capitalize text
-    center?: boolean
-    color?: string
+    center?: boolean // Center text
+    color?: string // Text color
+    fontSize?: string // Override the default font size
     gradient?: boolean | string // Gradient text
     important?: boolean // Important text
     inline?: boolean // Inline text
@@ -51,6 +52,7 @@
     capitalize: false,
     center: false,
     color: 'text',
+    fontSize: 'default',
     gradient: false,
     important: false,
     inline: false,
@@ -78,7 +80,7 @@
   } else if (props.sectiontitle) {
     mode = 'h3'
   } else if (props.part) {
-    mode = 'part'
+    mode = 'span'
   }
 
   if (props.bold) {
@@ -108,17 +110,19 @@
   const color = computed(() => useThemeColor(props.color))
   const primarycolor = computed(() => `var(--${props.gradient === true ? 'primary' : props.color})`)
   const secondarycolor = computed(() => props.gradient ? `var(--${props.gradient === true ? 'secondary' : props.gradient})` : `var(--${props.color})`)
+  const fontsize = computed(() => props.fontSize === 'default' ? textFontSize(mode) : props.fontSize)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins';
 
-  h1, h2, h3 {
+  h1, h2, h3, h4, h5, h6 {
     @include mixins.double-unit-block-margin;
   }
 
-  h1, h2, h3, p, span {
+  h1, h2, h3, h4, h5, h6, p, span {
     color: v-bind('color.value');
+    font-size: v-bind(fontsize);
 
     &.bold {
       @include mixins.bold;
