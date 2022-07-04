@@ -1,3 +1,10 @@
+
+<!--!
+  @category Form
+  @icon magnifying-glass
+  @version 0.2.0
+-->
+
 <template>
   <Container class="search-main-container">
     <Form @pb-submit="search(true)">
@@ -78,9 +85,9 @@
 
   function search(closeModal: boolean) {
     const value = input.value
-    if (value) {
-      emit('pb-search', value)
-    } else if (closeModal) {
+    emit('pb-search', value ?? '')
+
+    if (!value && closeModal) {
       close()
     }
   }
