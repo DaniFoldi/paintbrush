@@ -1,15 +1,16 @@
 <!--!
-  @version 1.2.0
+  @version 1.3.0
   @icon sidebar-simple
   @category Navigation
 -->
+
 <template>
   <div class="sidebar-container">
     <aside>
       <div class="sidebar-top">
         <slot name="sidebar-top" />
       </div>
-      <div class="sidebar-middle">
+      <div v-if="!excludeMiddle" class="sidebar-middle">
         <slot name="sidebar-middle" />
       </div>
       <div class="sidebar-bottom">
@@ -30,17 +31,20 @@
 
 
   interface SidebarContainerProps {
+    excludeMiddle?: boolean // Exclude middle part
     sidebarSpacing?: string // Spacing between sidebar parts
-    wrapContent?: boolean
+    wrapContent?: boolean // Wrap content in a container
   }
 
   const props = withDefaults(defineProps<SidebarContainerProps>(), {
+    excludeMiddle: false,
     sidebarSpacing: 'double-unit',
     wrapContent: true
   })
 
 
   const spacing = useThemeColor(props.sidebarSpacing)
+  const height = computed(() => props.excludeMiddle ? 'min-content auto' : '1fr auto 1fr')
 </script>
 
 <style lang="scss" scoped>
@@ -81,7 +85,7 @@
 
   aside {
     background: var(--background);
-    grid-template-rows: 1fr auto 1fr;
+    grid-template-rows: v-bind(height);
     max-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
