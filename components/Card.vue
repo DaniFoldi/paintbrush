@@ -17,19 +17,18 @@
 
   interface CardProps {
     background?: string // Background color of card
-    border?: boolean | string // Border color
+    border?: string // Border color
     inline?: boolean // Display card as inline
     padded?: boolean | string // Internal padding
   }
 
   const props = withDefaults(defineProps<CardProps>(), {
     background: 'background',
-    border: false,
+    border: 'none',
     padded: false
   })
 
   const background = useThemeColor(props.background)
-  const border = computed(() => !props.border ? 'none' : props.border)
 </script>
 
 <style lang="scss" scoped>
