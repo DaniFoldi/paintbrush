@@ -18,7 +18,7 @@ function log(type: 'error' | 'warn', ...message: any) {
   await generateComponentDocs()
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
   await writeExamples()
-  console.warn(`\nDocs generation completed with ${messageCount.error} errors, ${messageCount.warn} warnings\n`)
+  console.info(`\nDocs generation completed with ${messageCount.error} errors, ${messageCount.warn} warnings\n`)
 })()
 
 function findInterface(name: string, script: string): string[] {
