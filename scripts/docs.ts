@@ -177,7 +177,7 @@ export async function generateComponentDocs() {
         log('warn', `Unable to parse prop defaults: ${fileName} '${defaultString}'`)
       }
       for (const prop of propInterface) {
-        const propData = /(?<name>\w+)(?<optional>\?)?:\s*(?<type>.+)\s*?(\/\/\s*(?<description>.*))\s*$/su.exec(prop)
+        const propData = /(?<name>\w+)(?<optional>\?)?:\s*(?<type>.+)\s\s*?(\/\/\s*(?<description>.*))\s*$/su.exec(prop)
         if (!propData) {
           log('error', `Unable to parse prop: ${fileName} '${prop}'`)
           continue
