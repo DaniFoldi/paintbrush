@@ -1,6 +1,6 @@
 <!--!
   @category Display
-  @version 1.0.0
+  @version 1.1.0
   @icon code-simple
   @description Display code in a simple way, inline
 -->
@@ -24,6 +24,9 @@
   })
 
   const highlight = computed(() => {
+    if (props.language === 'none') {
+      return { language: 'none', value: props.code }
+    }
     return props.language === 'auto' ? hljs.highlightAuto(props.code) : hljs.highlight(props.code, { language: props.language })
   })
   const classes = computed(() => [ 'hljs', highlight.value.language ].filter(Boolean).join(' '))
