@@ -2,6 +2,7 @@
   @category Display
   @version 1.1.0
   @icon code-simple
+  @require highlight.js
   @description Display code in a simple way, inline
 -->
 
