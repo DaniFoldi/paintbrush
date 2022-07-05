@@ -239,7 +239,7 @@ export async function writeExamples() {
       if (!example.render) {
         continue
       }
-      const content = example.content.startsWith('<template>') ? example.content : `<template>\n  ${example.content}\n</template>`
+      const content = example.content.startsWith('<template>') ? (example.content.endsWith('\n') ? example.content : `${example.content}\n`) : `<template>\n  ${example.content}\n</template>\n`
       await writeFile(fileURLToPath(new URL(`../pages/docs/examples/${component.name.toLocaleLowerCase()}-${i}.vue`, import.meta.url)), content, { encoding: 'utf8' })
     }
   }
