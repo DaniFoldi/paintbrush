@@ -2,6 +2,7 @@
   @version 1.0.0
   @category Visual
   @icon circle
+  @description A basic circle shape
 -->
 
 <template>
@@ -13,9 +14,9 @@
 
 
   interface CircleShapeProps {
-    color?: string
-    gradient?: boolean | string
-    radius: string
+    color?: string // The color of the circle
+    gradient?: boolean | string // Whether the circle should have a second gradient color
+    radius: string // The radius of the circle
   }
 
   const props = withDefaults(defineProps<CircleShapeProps>(), {

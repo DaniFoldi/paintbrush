@@ -3,6 +3,7 @@
   @category Form
   @icon magnifying-glass
   @version 0.2.0
+  @description Input box to search for items
 -->
 
 <template>
@@ -48,15 +49,15 @@
   }
 
   interface SearchbarProps {
-    maxHeight?: string
-    modelValue: SearchEntry[]
-    width?: string
+    maxHeight?: string // Maximum height of results container
+    modelValue: SearchEntry[] // Current search result
+    width?: string // Width of searchbar
   }
 
   interface SearchbarEmits {
-    (e: 'pb-search', input: string): void
-    (e: 'pb-entry-clicked', entry: SearchEntry): void
-    (e: 'update:modelValue', value: SearchEntry[]): void
+    (e: 'pb-search', input: string): void // emitted when search text is changed
+    (e: 'pb-entry-clicked', entry: SearchEntry): void // emitted when an entry is clicked
+    (e: 'update:modelValue', value: SearchEntry[]): void // v-model update
   }
 
   const emit = defineEmits<SearchbarEmits>()

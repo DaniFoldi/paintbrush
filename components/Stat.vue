@@ -3,10 +3,6 @@
   @icon presentation-chart
   @category Display
   @description Display statistics with an optional maximum
-  @usage
-  <Stat :max="800" :value="500">
-  __Number of connected devices
-  </Stat>
 -->
 
 <template>

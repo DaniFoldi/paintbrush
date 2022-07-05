@@ -3,7 +3,6 @@
   @icon keyboard
   @category Visual
   @description Elegantly present keyboard shortcuts
-  @usage <Shortcut color="secondary" :keys="[ 'mod', 'shift', 'k' ]" />
 -->
 
 <template>
@@ -40,8 +39,8 @@
 
 
   interface ShortcutProps {
-    color?: string
-    keys: string[]
+    color?: string // Text color
+    keys: string[] // List of keys
   }
 
   const props = withDefaults(defineProps<ShortcutProps>(), {

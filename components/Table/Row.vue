@@ -2,6 +2,7 @@
   @version 0.1.0
   @icon rows
   @category Layout
+  @description A row of elements in a table
 -->
 
 <template>

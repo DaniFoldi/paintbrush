@@ -2,6 +2,7 @@
   @version 1.0.0
   @category Visual
   @icon square
+  @description A basic rectangle shape
 -->
 
 <template>
@@ -13,10 +14,10 @@
 
 
   interface CircleShapeProps {
-    color?: string
-    gradient?: boolean | string
-    height?: string
-    width: string
+    color?: string // The color of the rectangle
+    gradient?: boolean | string // Whether the rectangle should have a second gradient color
+    height?: string // The height of the rectangle
+    width: string // The width of the rectangle
   }
 
   const props = withDefaults(defineProps<CircleShapeProps>(), {

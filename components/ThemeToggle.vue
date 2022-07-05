@@ -2,7 +2,6 @@
   @version 1.0.0
   @icon moon
   @category Paintbrush
-  @usage <ThemeToggle />
   @description Display a toggle for the page theme
 -->
 
@@ -30,9 +29,9 @@
 
 
   interface ThemeToggleProps {
-    background?: string
-    border?: string
-    thumbColor?: string
+    background?: string // Background color
+    border?: string // Border color
+    thumbColor?: string // Thumb color
   }
 
   const props = withDefaults(defineProps<ThemeToggleProps>(), {

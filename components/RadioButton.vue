@@ -2,10 +2,6 @@
   @version 1.0.0
   @description Basic radio button
   @icon check-square
-  @usage
-  <RadioButton id="option1" name="test">Option 1</RadioButton>
-  <RadioButton id="option2" name="test">Option 2</RadioButton>
-  <RadioButton id="option3" name="test">Option 3</RadioButton>
   @category Basic
 -->
 <template>
@@ -24,14 +20,14 @@
 
 <script lang="ts" setup>
   interface RadioButtonEmits {
-    (e: 'update:modelValue', value: boolean): void
+    (e: 'update:modelValue', value: boolean): void // v-model update
   }
 
   interface RadioButtonProps {
-    autoWrap?: boolean
-    id: string
-    modelValue?: boolean
-    name: string
+    autoWrap?: boolean // whether to wrap the content in a Text component
+    id: string // id of the input element
+    modelValue?: boolean // value of the input element
+    name: string // name of the input element
   }
 
   const emit = defineEmits<RadioButtonEmits>()

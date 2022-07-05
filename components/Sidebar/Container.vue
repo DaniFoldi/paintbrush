@@ -2,6 +2,7 @@
   @version 1.3.0
   @icon sidebar-simple
   @category Navigation
+  @description Container for sidebar elements
 -->
 
 <template>

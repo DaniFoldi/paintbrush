@@ -3,7 +3,6 @@
   @version 1.2.0
   @category Layout
   @description Visually separate blocks of content with a line
-  @usage <Separator />
 -->
 <template>
   <hr :class="{ rounded }">
@@ -14,7 +13,7 @@
 
 
   interface SeparatorProps {
-    color?: string
+    color?: string // Color of the separator
     rounded?: boolean // Round the edges
     spaced?: boolean // Apply spacing on both sides
   }

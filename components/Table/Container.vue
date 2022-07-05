@@ -2,6 +2,7 @@
   @version 0.1.0
   @category Layout
   @icon table
+  @description A container for tables
 -->
 
 <template>

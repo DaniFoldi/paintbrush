@@ -3,7 +3,6 @@
   @icon plug
   @category Paintbrush
   @description Display that your awesome site is powered by none other than Paintbrush
-  @usage <PoweredBy />
 -->
 
 <template>

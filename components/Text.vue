@@ -2,7 +2,6 @@
   @version 1.5.0
   @icon text-aa
   @description Text component to display text
-  @usage <Text>Lorem ipsum dolor sit amet</Text>
   @category Basic
 -->
 

@@ -3,7 +3,6 @@
   @version 1.0.0
   @icon circle-notch
   @description Display a loading indicator
-  @usage <Spinner circles>
 -->
 
 <template>
@@ -16,8 +15,8 @@
 
 <script lang="ts" setup>
   interface SpinnerProps {
-    circles?: boolean
-    progress?: number
+    circles?: boolean // Circles mode
+    progress?: number // Progress of the action
   }
 
   const props = withDefaults(defineProps<SpinnerProps>(), {

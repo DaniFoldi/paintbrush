@@ -2,7 +2,6 @@
   @category Form
   @version 1.0.0
   @description Basic toggle component
-  @usage <Toggle color="lightergray" />
   @icon toggle-right
 -->
 
@@ -19,9 +18,9 @@
   }
 
   interface ToggleProps {
-    color?: string
-    modelValue?: boolean
-    thumbColor?: string
+    color?: string // Background color
+    modelValue?: boolean // Current value
+    thumbColor?: string // Thumb color
   }
 
   const emit = defineEmits<InputEmits>()

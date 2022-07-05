@@ -3,10 +3,6 @@
   @category Misc
   @icon arrows-clockwise
   @description Transform any component/html element.
-  @usage
-  <Transform rotate="45deg">
-  __<ShapeRectangle width="80px" />
-  </Transform>
 -->
 
 <template>
@@ -17,14 +13,14 @@
 
 <script lang="ts" setup>
   interface TransformProps {
-    opacity?: number
-    position?: string
-    rotate?: string
-    scaleX?: number
-    scaleY?: number
-    translateX?: number
-    translateY?: number
-    zIndex?: number
+    opacity?: number // opacity of the element
+    position?: string // position of the element
+    rotate?: string // rotate the element
+    scaleX?: number // scale the element horizontally
+    scaleY?: number // scale the element vertically
+    translateX?: number // translate the element horizontally
+    translateY?: number // translate the element vertically
+    zIndex?: number // z-index of the element
   }
 
   const props = withDefaults(defineProps<TransformProps>(), {

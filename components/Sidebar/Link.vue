@@ -3,6 +3,7 @@
   @icon link-simple
   @category Navigation
   @require phosphor-icons
+  @description A link for sidebar items
 -->
 
 <template>

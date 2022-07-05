@@ -3,11 +3,6 @@
   @icon brain
   @description Render any html at runtime
   @category Misc
-  @usage <Runtime element="h1" html="Hello World" />
-  @renderedExample
-  <Runtime html="Hello World" />
-  @renderedExample
-  <Runtime element="p" html="Some <em>text</em>" class="important" />
   @note Nuxt/vue does not process the given html
 -->
 
