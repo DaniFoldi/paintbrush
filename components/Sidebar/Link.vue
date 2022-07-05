@@ -1,5 +1,5 @@
 <!--!
-  @version 1.3.1
+  @version 1.4.0
   @icon link-simple
   @category Navigation
   @require phosphor-icons
@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <AutoLink :class="{ 'with-icon': icon }" :href="href">
+  <AutoLink :class="{ 'with-icon': icon, indent }" :href="href">
     <Icon
       v-if="icon"
       center
@@ -34,12 +34,14 @@
     icon: undefined | IconTypes // Icon to display
     iconColor?: string // Color of icon
     iconVariant?: IconVariants // Variant of icon
+    indent?: boolean // Indent link
   }
 
   withDefaults(defineProps<SidebarLinkProps>(), {
     autoWrap: true,
     iconColor: 'primary',
-    iconVariant: 'regular'
+    iconVariant: 'regular',
+    indent: false
   })
 </script>
 
@@ -56,6 +58,10 @@
 
     &.with-icon {
       @include mixins.two-items;
+    }
+
+    &.indent {
+      margin-left: 32px;
     }
 
     i {
