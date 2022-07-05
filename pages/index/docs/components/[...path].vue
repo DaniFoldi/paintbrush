@@ -14,37 +14,73 @@
       Properties
     </Text>
 
-    <div v-for="property in component.property" :key="property.name" class="property">
-      <Text>
-        <Text bold part>
-          {{ property.name }}
-        </Text>
-        <Text part>
-          {{ `: ${property.type}` }}
-        </Text>
-        <Text v-if="property.required" light part>
-          (required)
-        </Text>
-      </Text>
-      <Text v-if="property.description" italic>
-        {{ property.description }}
-      </Text>
-      <Text v-if="property.default">
-        default: {{ property.default }}
-      </Text>
-    </div>
+    <TableContainer
+      v-if="Object.keys(component.property).length > 0"
+      column-gap="12px"
+      :layout="[{ width: 'auto' }, { width: 'auto' }, { width: '1fr' }, { width: 'auto' }]"
+      separator
+    >
+      <template #header>
+        <TableRow>
+          <Text bold>
+            Name
+          </Text>
+          <Text bold>
+            Type
+          </Text>
+          <Text bold>
+            Description
+          </Text>
+          <Text bold>
+            Default
+          </Text>
+        </TableRow>
+      </template>
+      <template #content>
+        <TableRow v-for="property in component.property" :key="property.name">
+          <InlineCode :code="property.name" language="none" />
+          <InlineCode :code="property.type" language="typescript" />
+          <Text italic>
+            {{ property.description }}
+          </Text>
+          <InlineCode :code="fixString(property.default)" language="typescript" />
+        </TableRow>
+      </template>
+    </TableContainer>
 
     <Text v-if="Object.keys(component.emit).length > 0" subtitle>
       Emits
     </Text>
 
-    <div v-for="event in component.emit" :key="event.name">
-      <Text>
-        {{ event.name }}
-      </Text>
-      <Text>{{ event.description }}</Text>
-      <Text>{{ event.payload }}</Text>
-    </div>
+    <TableContainer
+      v-if="Object.keys(component.emit).length > 0"
+      column-gap="12px"
+      :layout="[{ width: 'auto' }, { width: '1fr' }, { width: 'auto' }]"
+      separator
+    >
+      <template #header>
+        <TableRow>
+          <Text bold>
+            Name
+          </Text>
+          <Text bold>
+            Description
+          </Text>
+          <Text bold>
+            Payload type
+          </Text>
+        </TableRow>
+      </template>
+      <template #content>
+        <TableRow v-for="emit in component.emit" :key="emit.name">
+          <InlineCode :code="emit.name" language="none" />
+          <Text italic>
+            {{ emit.description }}
+          </Text>
+          <InlineCode :code="emit.type" language="typescript" />
+        </TableRow>
+      </template>
+    </TableContainer>
 
     <Text v-if="Object.keys(component.see).length > 0" subtitle>
       Related components
@@ -89,6 +125,11 @@
   const component = data.value[`components/${useFullParam('path')}.vue`]
   if (!component) {
     await navigateTo('/docs')
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function fixString(code: any): string {
+    return typeof code === 'string' ? `'${code}'` : code.toString()
   }
 </script>
 
