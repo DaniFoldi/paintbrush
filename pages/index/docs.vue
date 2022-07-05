@@ -16,7 +16,7 @@
             :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')"
             :icon="component.icon"
             :icon-color="`${$route.path}.vue` === `/docs/${path}` ? 'var(--secondary)' : 'var(--text)'"
-            :variant="`${$route.path}.vue` === `/docs/${path}` ? 'bold' : 'regular'"
+            :icon-variant="`${$route.path}.vue` === `/docs/${path}` ? 'bold' : 'regular'"
           >
             <Container center-vertical split>
               <Text>{{ component.name }}</Text>
@@ -29,7 +29,7 @@
       </template>
     </template>
     <template #content>
-      <NuxtChild />
+      <NuxtPage />
     </template>
   </SidebarContainer>
 </template>

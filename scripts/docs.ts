@@ -2,6 +2,7 @@ import { access, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
 import { globbyStream } from 'globby'
 import JSON5 from 'json5'
+import consola from 'consola'
 import { IconTypes } from '../modules/icon-types'
 
 
@@ -11,7 +12,7 @@ const messageCount = { error: 0, warn: 0 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function log(type: 'error' | 'warn', ...message: any) {
   messageCount[type]++
-  console[type](...message)
+  consola[type](message.shift(), ...message)
 }
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
@@ -19,7 +20,7 @@ function log(type: 'error' | 'warn', ...message: any) {
   await generateComponentDocs()
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
   await writeExamples()
-  console.info(`\nDocs generation completed with ${messageCount.error} errors, ${messageCount.warn} warnings\n`)
+  consola.info(`Paintbrush docs generation completed with ${messageCount.error} errors, ${messageCount.warn} warnings`)
 })()
 
 function findInterface(name: string, script: string): string[] {

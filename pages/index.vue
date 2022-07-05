@@ -24,7 +24,7 @@
         Examples
       </SidebarLink>
       <SidebarLink
-        href="/docs/components"
+        href="/docs"
         icon="file-text"
         :icon-color="useRoute().path.startsWith('/docs') ? 'green' : 'lightergray'"
       >
@@ -37,6 +37,7 @@
         icon="folders"
         icon-color="textShade"
         indent
+        non-exact
       >
         Components
       </SidebarLink>
