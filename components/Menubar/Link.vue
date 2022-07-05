@@ -1,12 +1,12 @@
 <!--!
-  @version 1.2.1
+  @version 1.3.0
   @category Navigation
   @icon link-simple
   @description A link for menubar items
 -->
 
 <template>
-  <AutoLink :class="{ 'with-icon': icon }" :href="href">
+  <AutoLink :class="{ 'with-icon': icon, 'non-exact': nonExact }" :href="href">
     <Icon
       v-if="icon"
       center
@@ -38,6 +38,7 @@
     icon?: IconTypes // Icon to display
     iconColor?: string // Color of icon
     iconVariant?: IconVariants // Variant of icon
+    nonExact?: boolean // Whether the link is active when non-exact
   }
 
   const props = withDefaults(defineProps<MenubarLinkProps>(), {
@@ -48,7 +49,8 @@
     color: 'text',
     icon: undefined,
     iconColor: 'primary',
-    iconVariant: 'regular'
+    iconVariant: 'regular',
+    nonExact: false
   })
 
 
@@ -84,7 +86,7 @@
       @include mixins.no-margin;
     }
 
-    &:hover, &.router-link-exact-active {
+    &:hover, &.router-link-exact-active, &.router-link-active.non-exact {
       background: v-bind('active.value');
       text-decoration: none;
     }

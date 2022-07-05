@@ -1,5 +1,5 @@
 <!--!
-  @version 1.4.0
+  @version 1.5.0
   @icon link-simple
   @category Navigation
   @require phosphor-icons
@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <AutoLink :class="{ 'with-icon': icon, indent }" :href="href">
+  <AutoLink :class="{ 'with-icon': icon, indent, 'non-exact': nonExact }" :href="href">
     <Icon
       v-if="icon"
       center
@@ -35,13 +35,15 @@
     iconColor?: string // Color of icon
     iconVariant?: IconVariants // Variant of icon
     indent?: boolean // Indent link
+    nonExact?: boolean // Whether the link is active when non-exact
   }
 
   withDefaults(defineProps<SidebarLinkProps>(), {
     autoWrap: true,
     iconColor: 'primary',
     iconVariant: 'regular',
-    indent: false
+    indent: false,
+    nonExact: false
   })
 </script>
 
@@ -72,7 +74,7 @@
       margin: 0 var(--unit) 0 0;
     }
 
-    &:hover, &.router-link-exact-active {
+    &:hover, &.router-link-exact-active, &.router-link-active.non-exact {
       background: var(--background-2);
       text-decoration: none;
     }
