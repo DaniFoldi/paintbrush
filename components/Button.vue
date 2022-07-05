@@ -39,7 +39,7 @@
   })
 
   const primarycolor = useThemeColor(props.color)
-  const secondarycolor = computed(() => useThemeColor(props.gradient ? props.gradient : props.color))
+  const secondarycolor = computed(() => useThemeColor(props.gradient ?? props.color))
   const textcolor = computed(() => useThemeColor(textColor(primarycolor.value, 'text', 'background')))
 </script>
 

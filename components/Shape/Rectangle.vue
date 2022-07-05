@@ -29,7 +29,7 @@
   const color = useThemeColor(props.color)
   const gradient = computed(() => props.gradient === true ? useThemeColor('secondary') : (props.gradient ? useThemeColor(props.gradient) : color))
 
-  const size = computed(() => props.height ? props.height : props.width)
+  const size = computed(() => props.height ?? props.width)
 </script>
 
 <style lang="scss" scoped>

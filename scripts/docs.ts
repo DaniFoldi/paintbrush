@@ -14,6 +14,7 @@ function log(type: 'error' | 'warn', ...message: any) {
   console[type](...message)
 }
 
+// eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
   await generateComponentDocs()
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
@@ -89,7 +90,7 @@ export async function generateComponentDocs() {
 
     const examples = [ ...text.matchAll(/<!--#(?<value>.*?)-->/gisu) ]
       .map(match => match.groups?.value)
-      .map(entry => entry ? entry : '')
+      .map(entry => entry ?? '')
       .map(entry => entry.trimEnd())
       .map(entry => entry.replace(/^\s{2}/gm, ''))
       .map(entry => entry.replace(/^_+/gm, underscore => ' '.repeat(underscore.length)))
