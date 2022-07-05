@@ -2,7 +2,11 @@
   @version 1.0.0
   @icon moon
   @category Paintbrush
-  @description Display a toggle for the page theme
+  @description Thank you for displaying our badge
+-->
+
+<!--##
+  <PoweredBy />
 -->
 
 <template>
