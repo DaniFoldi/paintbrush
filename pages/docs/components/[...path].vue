@@ -9,8 +9,6 @@
     <Text v-if="component.description" italic>
       {{ component.description }}
     </Text>
-    <MultilineCode v-if="component.usage !== ''" :code="component.usage" language="html" />
-    <!-- TODO render example -->
 
     <Text v-if="Object.keys(component.property).length > 0" subtitle>
       Properties
@@ -56,29 +54,22 @@
       {{ related }}
     </AutoLink>
 
-    <Text v-if="Object.keys(component.renderedExample).length + Object.keys(component.example).length > 0" subtitle>
+    <Text v-if="Object.keys(component.example).length > 0" subtitle>
       Examples
     </Text>
 
-    <template v-for="example in component.renderedExample" :key="example">
+    <template v-for="(example, id) in component.example" :key="example">
       <MultilineCode
-        :code="example"
+        :code="example.content"
         language="html"
       />
-      <!-- TODO find a way to render components -->
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <!-- <div v-html="example" /> -->
+      <iframe v-if="example.render" :src="`/docs/examples/${component.name.toLocaleLowerCase()}-${id}`" />
     </template>
-    <MultilineCode
-      v-for="example in component.example"
-      :key="example"
-      :code="example"
-      language="html"
-    />
 
     <Text v-if="component.note" subtitle>
       Note
     </Text>
+
     <Text v-if="component.note">
       {{ component.note }}
     </Text>
