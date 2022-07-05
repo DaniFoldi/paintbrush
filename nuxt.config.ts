@@ -60,7 +60,7 @@ export default defineNuxtConfig({
     ]
   },
   // #MARK(PB-2)
-  modules: [ './modules/icons', './modules/docs', '@nuxtjs/i18n-edge', '@pinia/nuxt', '@nuxt/content' ],
+  modules: [ './modules/icons', './modules/docs', '@nuxtjs/i18n-edge', '@pinia/nuxt', '@nuxt/content', '@vueuse/nuxt', 'nuxt-lodash' ],
   typescript: {
     shim: false
   },
