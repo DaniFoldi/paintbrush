@@ -2,6 +2,7 @@
 .nuxt/
 .output/
 
+content/
 lang/
 pages/
 test/
@@ -10,6 +11,4 @@ test/
 .yamllint*
 .stylelint*
 stylelint*
-planned-components.md
-TODO.md
 wrangler.toml
