@@ -2,6 +2,7 @@
   @category Display
   @version 1.0.0
   @icon code-simple
+  @description Display code in a simple way, inline
 -->
 
 <template>

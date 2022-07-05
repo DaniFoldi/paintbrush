@@ -3,6 +3,7 @@
   @require atropos
   @icon stack-simple
   @category Visual
+  @description An item to apply parallax effect to
 -->
 
 <template>
@@ -13,9 +14,9 @@
 
 <script lang="ts" setup>
   interface ParallaxItemProps {
-    initialOpacity?: number
-    offset?: number
-    rotatedOpacity?: number
+    initialOpacity?: number // opacity of the element when it is not rotated
+    offset?: number // depth offset of the element
+    rotatedOpacity?: number // opacity of the element when it is rotated
   }
 
   withDefaults(defineProps<ParallaxItemProps>(), {

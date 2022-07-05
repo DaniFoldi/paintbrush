@@ -3,7 +3,6 @@
   @category Basic
   @icon image
   @description Display an image
-  @usage <Image source="/assets/image.png" alt="A beautiful photo">
 -->
 
 <template>

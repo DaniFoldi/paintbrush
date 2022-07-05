@@ -2,6 +2,7 @@
   @version 1.2.1
   @category Navigation
   @icon link-simple
+  @description A link for menubar items
 -->
 
 <template>
@@ -28,11 +29,11 @@
 
 
   interface MenubarLinkProps {
-    activeBackground?: string
+    activeBackground?: string // Background color for active link
     autoWrap?: boolean // Wrap text in Text component
-    background?: string
-    clickBackground?: string
-    color?: string
+    background?: string // Background color for link
+    clickBackground?: string // Background color for clicked link
+    color?: string // Text color
     href: string // Link to navigate to
     icon?: IconTypes // Icon to display
     iconColor?: string // Color of icon

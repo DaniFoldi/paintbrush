@@ -4,7 +4,6 @@
   @category Basic
   @icon link
   @description A link with an embedded and auto aligned icon
-  @usage <IconLink icon-name="question">What is this</IconLink>
 -->
 
 <template>
@@ -32,13 +31,13 @@
 
   interface IconProps {
     color?: string // Button color
-    href: string
+    href: string // Link href
     icon: IconTypes // Icon name
     iconColor?: string // Icon color
     iconSize?: string // Icon size
     iconVariant?: IconVariants // Icon variant
-    leftIcon?: boolean
-    rightIcon?: boolean
+    leftIcon?: boolean // Icon is on the left
+    rightIcon?: boolean // Icon is on the right
   }
 
   const props = withDefaults(defineProps<IconProps>(), {

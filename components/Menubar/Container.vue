@@ -2,6 +2,7 @@
   @version 1.1.1
   @category Navigation
   @icon list
+  @description A container for menubar elements
 -->
 <template>
   <Container class="menubar-container" max>
@@ -29,9 +30,9 @@
 
 
   interface ContainerProps {
-    menuElementSpacing?: string
+    menuElementSpacing?: string // Space between menu elements in a part
     menuPartSpacing?: string // Spacing between menubar parts
-    wrapContent?: boolean
+    wrapContent?: boolean // Whether to wrap the content in a container
   }
 
   const props = withDefaults(defineProps<ContainerProps>(), {

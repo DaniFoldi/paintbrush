@@ -3,9 +3,6 @@
   @category Misc
   @icon anchor
   @description Display a floating border around an element
-  @usage
-  <Float :above="button" :distance="8" radius="8px" width="4px" />
-  <Button ref="button">Click</Button>
   @note This component should be wrapped with <ClientOnly />
 -->
 

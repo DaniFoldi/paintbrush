@@ -2,7 +2,6 @@
   @version 1.1.1
   @icon link
   @description SSR/SPA-friendly link component
-  @usage <AutoLink href="/dashboard">Dashboard</AutoLink>
   @category Basic
 -->
 
@@ -23,8 +22,8 @@
 
   interface AutoLinkProps {
     href: string // URL to navigate to
-    underline?: boolean | 'hover'
-    weight?: number
+    underline?: boolean | 'hover' // Underline text always or on hover
+    weight?: number // Font weight
   }
 
   const props = withDefaults(defineProps<AutoLinkProps>(), {

@@ -3,7 +3,6 @@
   @icon path
   @category Display
   @description Show the path of the current path
-  @usage <Breadcrumbs :path="[{ iconName: 'file', text: 'some.txt', underline: true }]" />
 -->
 <template>
   <Container>
@@ -44,7 +43,7 @@
   }
 
   interface BreadcrumbsProps {
-    path: Breadcrumb[] // array of breadcrumbs: { iconColor?: string, iconName: IconTypes, iconVariant?: IconVariants, text: string, underline?: boolean }
+    path: Breadcrumb[] // array of breadcrumbs
   }
 </script>
 

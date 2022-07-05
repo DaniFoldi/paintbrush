@@ -4,7 +4,6 @@
   @category Basic
   @require phosphor-icons
   @description A button with an embedded and auto aligned icon
-  @usage <IconButton icon-name="flask">Enable</IconButton>
 -->
 
 <template>
@@ -35,8 +34,8 @@
     iconColor?: string // Icon color
     iconSize?: string // Icon size
     iconVariant?: IconVariants // Icon variant
-    leftIcon?: boolean
-    rightIcon?: boolean
+    leftIcon?: boolean // Icon is on the left
+    rightIcon?: boolean // Icon is on the right
   }
 
   withDefaults(defineProps<IconProps>(), {

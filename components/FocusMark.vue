@@ -3,9 +3,6 @@
   @icon hand-waving
   @category Misc
   @description Dim the page except for target element
-  @usage
-  <FocusMark :target="button" :distance="8" rounded width="4px" />
-  <Button ref="button">Click</Button>
   @note This component should be wrapped with <ClientOnly />
 -->
 <template>

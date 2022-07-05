@@ -2,6 +2,7 @@
   @version 0.1.0
   @category Paintbrush
   @icon notification
+  @description A displayed notification
 -->
 
 <template>
@@ -38,7 +39,7 @@
 
 
   interface NotificationDisplayProps {
-    notification: Notification
+    notification: Notification // The displayed notification
   }
 
   const props = defineProps<NotificationDisplayProps>()

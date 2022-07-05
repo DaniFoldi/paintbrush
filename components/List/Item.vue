@@ -1,6 +1,8 @@
 <!--!
   @category Basic
   @version 0.1.0
+  @icon number-one
+  @description A list item
 -->
 
 <template>
@@ -14,7 +16,7 @@
 
 <script lang="ts" setup>
   interface ListItemProps {
-    autoWrap?: boolean
+    autoWrap?: boolean // Wrap content in a Text component
   }
 
   withDefaults(defineProps<ListItemProps>(), {

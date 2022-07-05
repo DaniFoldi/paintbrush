@@ -1,3 +1,10 @@
+<!--!
+  @category Display
+  @version 0.1.0
+  @icon warning-circle
+  @description Create a popup style window
+-->
+
 <template>
   <ClientOnly>
     <FocusMark :distance="distance" :rounded="rounded" :target="popup" />
@@ -21,9 +28,9 @@
 
 
   interface PopupProps {
-    distance?: number
-    padded?: boolean | string
-    rounded?: boolean | string
+    distance?: number // Distance from the target element
+    padded?: boolean | string // Padding around the popup
+    rounded?: boolean | string // Rounded corners of the popup
   }
 
   withDefaults(defineProps<PopupProps>(), {

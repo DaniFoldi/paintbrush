@@ -1,6 +1,8 @@
 <!--!
   @category Basic
   @version 0.1.0
+  @icon list-numbers
+  @description A container for list items
 -->
 
 <template>
@@ -14,7 +16,7 @@
 
 <script lang="ts" setup>
   interface ListContainerProps {
-    numbered?: boolean
+    numbered?: boolean // Whether the list is numbered
   }
 
   withDefaults(defineProps<ListContainerProps>(), {

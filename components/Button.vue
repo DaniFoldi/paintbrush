@@ -2,10 +2,6 @@
   @version 1.4.0
   @description Button component with optional gradient or ghost effect
   @icon hand-pointing
-  @usage
-  <Button color="primary">
-  __button
-  </Button>
   @category Basic
 -->
 

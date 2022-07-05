@@ -3,7 +3,6 @@
   @version 1.1.0
   @category Misc
   @description Display copyright information of a site
-  @usage <Copyright :startYear="2020">Author</Copyright>
 -->
 
 <template>

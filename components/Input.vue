@@ -3,7 +3,6 @@
   @icon textbox
   @category Form
   @description Basic input component
-  @usage <Input type="email">Email address</Input>
 -->
 
 <template>

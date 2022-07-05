@@ -3,10 +3,6 @@
   @icon traffic-sign
   @version 1.1.2
   @description Draw the user's attention to a piece of text
-  @usage
-  <Highlight warning iconName="warning">
-  __This feature is currently in beta.
-  </Highlight>
 -->
 
 <template>

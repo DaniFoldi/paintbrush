@@ -3,11 +3,6 @@
   @category Layout
   @icon cards
   @description Visual building block with a separate background color
-  @usage
-  <Card>
-  __<Input type="text">Username</Input>
-  __<Input type="password"Password</Input>
-  </Card>
 -->
 
 <template>

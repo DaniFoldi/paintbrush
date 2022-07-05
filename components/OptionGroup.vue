@@ -2,8 +2,6 @@
   @version 0.1.0
   @description Enhanced button group
   @icon check-square
-  @usage
-  <OptionGroup :options="[ 'option 1', 'option 2', 'option 3' ]" />
   @category Basic
 -->
 <template>
@@ -21,15 +19,15 @@
 
 <script lang="ts" setup>
   interface OptionGroupProps {
-    capitalizeTitles?: boolean
-    modelValue?: string
-    options: string[]
-    titles?: string[]
+    capitalizeTitles?: boolean // whether to capitalize the titles
+    modelValue?: string // currently selected option
+    options: string[] // options to display
+    titles?: string[] // titles to display
   }
 
   interface OptionGroupEmits {
-    (e: 'update:modelValue', value: string): void
-    (e: 'pb-option-selected', value: { from: string; to: string }): void
+    (e: 'update:modelValue', value: string): void // v-model update
+    (e: 'pb-option-selected', value: { from: string; to: string }): void // emitted when selection is changed
   }
 
   const emit = defineEmits<OptionGroupEmits>()

@@ -2,6 +2,7 @@
   @version 0.1.0
   @category Form
   @icon list
+  @description Select from a list of items
 -->
 
 <template>
@@ -58,14 +59,14 @@
   }
 
   interface DropdownProps {
-    float?: boolean
-    items: Item[]
-    maxHeight?: string
-    title: string
+    float?: boolean // Make dropdown float above other elements
+    items: Item[] // Dropdown items
+    maxHeight?: string // Max height of dropdown
+    title: string // Dropdown title
   }
 
   interface DropdownEmits {
-    (e: 'pb-item-clicked', value: Item): void
+    (e: 'pb-item-clicked', value: Item): void // Emitted when an item is clicked
   }
 
   const emit = defineEmits<DropdownEmits>()
@@ -73,6 +74,8 @@
     float: false,
     maxHeight: '250px'
   })
+
+
   const expanded = ref<boolean>()
 
   const container = computed(() => props.float ? 'relative' : 'static')

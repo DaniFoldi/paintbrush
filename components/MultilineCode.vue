@@ -4,7 +4,6 @@
   @category Display
   @require highlight.js
   @description Highlight some source code
-  @usage <MultilineCode :code="let i = 0;" />
 -->
 
 <template>

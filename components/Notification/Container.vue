@@ -2,6 +2,7 @@
   @version 0.1.0
   @category Paintbrush
   @icon notification
+  @description A container for Paintbrush notifications
 -->
 
 <template>
@@ -16,7 +17,7 @@
 
 <script lang="ts" setup>
   interface NotificationContainerProps {
-    position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
+    position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' // Position of the container
   }
 
   const props = defineProps<NotificationContainerProps>()

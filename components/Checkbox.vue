@@ -3,7 +3,6 @@
   @icon check-square
   @category Form
   @description Simple checkbox component
-  @usage <Checkbox v-model="accepted">Accept terms of service</Checkbox>
 -->
 
 <template>

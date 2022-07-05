@@ -3,12 +3,6 @@
   @icon arrows-in-line-vertical
   @description Align a group of buttons
   @category Layout
-  @usage
-  <ButtonGroup width="50px">
-  __<Button>click</Button>
-  __<Button>some</Button>
-  __<Button>buttons</Button>
-  </ButtonGroup>
 -->
 
 <template>

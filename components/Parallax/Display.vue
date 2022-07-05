@@ -3,6 +3,7 @@
   @require atropos
   @icon stack
   @category Visual
+  @description A container for parallax items
 -->
 
 <template>
@@ -17,9 +18,9 @@
 
 
   interface ParallaxDisplayEmits {
-    (e: 'pb-enter'): void
-    (e: 'pb-leave'): void
-    (e: 'pb-rotate', x: number, y: number): void
+    (e: 'pb-enter'): void // Emitted when the parallax effect is started
+    (e: 'pb-leave'): void // Emitted when the parallax effect is stopped
+    (e: 'pb-rotate', value: { x: number; y: number }): void // Emitted when the parallax coordinates are changed
   }
 
   defineEmits<ParallaxDisplayEmits>()

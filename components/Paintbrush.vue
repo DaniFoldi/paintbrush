@@ -1,10 +1,6 @@
 <!--!
   @version 1.0.0
   @description Main component to be used everywhere
-  @usage
-  <Paintbrush ...>
-  __<Text>Hello world</Text>
-  </Paintbrush>
   @icon paintbrush
   @note This component should be wrapping every other Paintbrush component used, see Getting Started
 -->
@@ -35,25 +31,25 @@
 
 
   interface PaintbrushProps {
-    appName?: string
-    canonical?: string
-    colorScheme?: Record<string, string>
-    container?: boolean
-    darkColors?: Record<string, string>
-    description?: string
-    favicon?: string
-    faviconSvg?: string
-    keywords?: string[]
-    lang?: string
-    largeImage?: string
-    largeImageAlt?: string
-    lightColors?: Record<string, string>
-    manifest?: string
-    ogType?: string
-    pageTitle?: string
-    twitterHandle?: string
-    twitterType?: string
-    url?: string
+    appName?: string // Meta application name
+    canonical?: string // Canonical url
+    colorScheme?: Record<string, string> // Color scheme definitions
+    container?: boolean // Wrap content in a container
+    darkColors?: Record<string, string> // Dark scheme mappings
+    description?: string // Meta, OG description
+    favicon?: string // Favicon png
+    faviconSvg?: string // Favicon svg
+    keywords?: string[] // Meta keywords
+    lang?: string // Language
+    largeImage?: string // OG Large image
+    largeImageAlt?: string // OG Large image alt
+    lightColors?: Record<string, string> // Light scheme mappings
+    manifest?: string // Manifest json
+    ogType?: string // OG type
+    pageTitle?: string // Page title
+    twitterHandle?: string // Twitter handle
+    twitterType?: string // Twitter website type
+    url?: string // OG url
   }
 
   const props = withDefaults(defineProps<PaintbrushProps>(), {

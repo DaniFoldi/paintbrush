@@ -3,7 +3,6 @@
   @version 1.0.1
   @category Layout
   @description Automatically paginate content
-  @usage <Pagination :total-items="110" :items-per-page="25" />
 -->
 
 <template>
@@ -44,14 +43,14 @@
 
 
   interface PaginationEmits {
-    (e: 'update:modelValue', value: number): void
+    (e: 'update:modelValue', value: number): void // v-model update
   }
 
   interface PaginationProps {
-    itemsPerPage?: number
-    maxButtons?: number
-    modelValue?: number
-    totalItems: number
+    itemsPerPage?: number // Number of items per page
+    maxButtons?: number // Maximum number of buttons to show
+    modelValue?: number // Current page
+    totalItems: number // Total number of items
   }
 
   const emit = defineEmits<PaginationEmits>()

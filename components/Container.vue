@@ -2,7 +2,6 @@
   @version 1.7.0
   @icon package
   @description Container component for pages, main content and elements
-  @usage <Container>Summary</Container>
   @category Layout
 -->
 
@@ -54,7 +53,7 @@
   interface ContainerProps {
     article?: boolean // Display container as article mode, with a maximum width
     center?: boolean | 'block' | 'inline' // Center container along axes
-    gap?: string
+    gap?: string // gap between grid elements
     grid?: string // Specify custom grid-template-columns
     inline?: boolean // Display container as inline
     leftBadge?: string // Badge in top left corner

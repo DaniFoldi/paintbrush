@@ -4,6 +4,7 @@
   @category Chart
   @note For the height property to work, set { maintainAspectRatio: false } in options
   @require vue-chartjs
+  @description A bar chart
 -->
 
 <template>
