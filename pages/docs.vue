@@ -36,7 +36,6 @@
 
 <script lang="ts" setup>
   import type { Component, Docs } from '../scripts/docs'
-  import { defineShortcut } from '#imports'
 
 
   const { data } = await useFetch<Docs>('/api/docs')
