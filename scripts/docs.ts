@@ -1,4 +1,4 @@
-import { access, readFile, writeFile } from 'node:fs/promises'
+import { access, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
 import { globbyStream } from 'globby'
 import JSON5 from 'json5'
@@ -17,6 +17,7 @@ function log(type: 'error' | 'warn', ...message: any) {
 (async () => {
   await generateComponentDocs()
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
+  await writeExamples()
   console.warn(`\nDocs generation completed with ${messageCount.error} errors, ${messageCount.warn} warnings\n`)
 })()
 
@@ -34,7 +35,10 @@ export interface Component {
     payload: string
     type: string
   }[]
-  example: string[]
+  example: {
+    content: string
+    render: boolean
+  }[]
   icon: IconTypes | undefined
   name: string
   note: string
@@ -45,7 +49,6 @@ export interface Component {
     required: boolean
     type: string
   }[]
-  renderedExample: string[]
   require: string[]
   see: string[]
   tag: string[]
@@ -83,12 +86,24 @@ export async function generateComponentDocs() {
         const lines = entry.split(' ')
         return [ lines[0] as keyof Component, lines.slice(1).join(' ') ]
       })
+
+    const examples = [ ...text.matchAll(/<!--#(?<value>.*?)-->/gisu) ]
+      .map(match => match.groups?.value)
+      .map(entry => entry ? entry : '')
+      .map(entry => entry.trimEnd())
+      .map(entry => entry.replace(/^\s{2}/gm, ''))
+      .map(entry => entry.replace(/^_+/gm, underscore => ' '.repeat(underscore.length)))
+      .map(entry => (entry.startsWith('#') ? [ true, entry.slice(1) ] : [ false, entry ]) as [ boolean, string ])
+      .filter(example => example[1].length > 0)
+      .map(example => [ example[0], example[1].replace(/(^\n|\n$)/g, '') ] as [ boolean, string ])  as [ boolean, string ][]
+
     const scriptSetup = [ ...text.matchAll(/<script(?<attrs>.*?)>(?<value>.*?)<\/script>/gisu) ]
       .filter(match => match && match.groups && /\blang\s*=\s*('ts'|"ts")/.test(match.groups?.attrs) || log('warn', `${fileName} Only ts scripts are supprted`))
       .filter(match => match && match.groups && /\bsetup\b/.test(match.groups?.attrs) || log('warn', `${fileName} Only setup scripts are supported`))
       .join('\n')
 
     const emits = /defineEmits<(?<interface>.*?)>\(\)\s*$/gmisu.exec(scriptSetup)
+
     let props = /withDefaults\(defineProps<(?<interface>.*?)>\(\),\s*(?<defaults>.*?)\s{0,4}(?<=\})\)\s*$/gmisu.exec(scriptSetup)
     if (!props) {
       props = /defineProps<(?<interface>.*?)>\(\)\s*$/gmisu.exec(scriptSetup)
@@ -103,16 +118,21 @@ export async function generateComponentDocs() {
       name: '',
       note: '',
       property: [],
-      renderedExample: [],
       require: [],
       see: [],
       tag: [],
       version: ''
     }
 
+    const generated = new Set([ 'emit', 'name', 'property' ])
+
     for (const entry of doc) {
-      if (entry[0] === 'emit' || entry[0] === 'name' || entry[0] === 'property') {
+      if (generated.has(entry[0])) {
         log('warn', `Overriding ${fileName}: @${entry[0]} is generated from source`)
+        continue
+      }
+      if (entry[0] === 'example') {
+        log('warn', `Overriding ${fileName}: @${entry[0]} is read from <!--# comments -->`)
         continue
       }
       if (!Object.hasOwn(componentData, entry[0])) {
@@ -171,6 +191,12 @@ export async function generateComponentDocs() {
       }
     }
 
+    if (examples) {
+      for (const example of examples) {
+        componentData.example.push({ content: example[1], render: example[0] })
+      }
+    }
+
     componentData.name = fileName.replace(/^components\//, '').replace(/\.vue$/, '').replaceAll('/', '')
 
 
@@ -197,4 +223,21 @@ export async function generateComponentDocs() {
   }
 
   return docs
+}
+
+export async function writeExamples() {
+  await rm(fileURLToPath(new URL('../pages/docs/examples', import.meta.url)), { recursive: true })
+  await mkdir(fileURLToPath(new URL('../pages/docs/examples', import.meta.url)))
+
+  for (const file in docs) {
+    const component = docs[file]
+    for (let i = 0; i < component.example.length;i++) {
+      const example = component.example[i]
+      if (!example.render) {
+        continue
+      }
+      const content = example.content.startsWith('<template>') ? example.content : `<template>\n  ${example.content}\n</template>`
+      await writeFile(fileURLToPath(new URL(`../pages/docs/examples/${component.name.toLocaleLowerCase()}-${i}.vue`, import.meta.url)), content, { encoding: 'utf8' })
+    }
+  }
 }
