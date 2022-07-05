@@ -77,7 +77,7 @@
 </template>
 
 <script lang="ts" setup async>
-  import type { Docs } from '../../../scripts/docs'
+  import type { Docs } from '../../../../scripts/docs'
   import { useFullParam } from '#imports'
 
 
