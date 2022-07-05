@@ -110,6 +110,18 @@
       {{ component.note }}
     </Text>
 
+    <Text v-if="component.require.length > 0" subtitle>
+      Libraries required
+    </Text>
+
+    <ListContainer v-if="component.require.length > 0">
+      <ListItem v-for="library in component.require" :key="library">
+        <InlineCode :code="library" language="typescript" />
+      </ListItem>
+    </ListContainer>
+
+    <Spacer />
+
     <AutoLink :href="`https://github.com/DaniFoldi/paintbrush/blob/main/components/${useFullParam('path')}.vue`">
       Source
     </AutoLink>
