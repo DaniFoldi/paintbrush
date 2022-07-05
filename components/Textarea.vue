@@ -1,57 +1,35 @@
 <!--!
-  @version 0.1.0
+  @version 0.2.0
   @icon textbox
   @category Form
   @description Basic text area component
-  @usage <TextArea resize :rows="5" />
 -->
+
 <template>
-  <Container class="text-area-container">
-    <textarea
-      :disabled="disabled"
-      :form="form"
-      :name="name"
-      :readonly="readonly"
-      :rows="rows"
-      :value="modelValue"
-      :wrap="wrap"
-      @input="onInput"
-    />
-  </Container>
+  <textarea
+    :rows="rows"
+    :value="modelValue"
+    @input="onInput"
+  />
 </template>
 
 <script lang="ts" setup>
-  type WrapType = 'hard' | 'soft' | 'off'
-  type Resize = boolean | 'horizontal' | 'vertical'
-
   interface TextAreaEmits {
-    (e: 'update:modelValue', value: string): void
+    (e: 'update:modelValue', value: string): void // v-model update
   }
 
   interface TextAreaProps {
-    disabled?: boolean
-    form?: string
-    modelValue?: string
-    name?: string
-    placeholder?: string
-    readonly?: boolean
-    resize?: Resize
-    rows?: number
-    wrap?: WrapType
+    modelValue?: string // current value
+    resize?: boolean | 'horizontal' | 'vertical' // Allow resizing of the textarea
+    rows?: number // Number of rows in the textarea
   }
 
   const emit = defineEmits<TextAreaEmits>()
 
   const props = withDefaults(defineProps<TextAreaProps>(), {
-    disabled: false,
-    form: undefined,
     modelValue: '',
-    name: undefined,
-    placeholder: '',
-    readonly: false,
     resize: false,
-    rows: 3,
-    wrap: 'soft'
+    rows: 3
   })
 
   const resize = computed(() => {
@@ -72,7 +50,7 @@
 
   textarea {
     border: 2px solid var(--background-highlight);
-    margin-inline: 0;
+    margin: var(--double-unit) 0;
     padding-inline: var(--unit);
     resize: v-bind(resize);
     width: 100%;
@@ -81,9 +59,5 @@
     @include mixins.with-fade;
     @include mixins.standard-background;
     @include mixins.standard-text;
-  }
-
-  .text-area-container {
-    margin: var(--double-unit) 0;
   }
 </style>
