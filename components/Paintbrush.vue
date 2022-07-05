@@ -1,5 +1,5 @@
 <!--!
-  @version 1.0.0
+  @version 1.1.0
   @description Main component to be used everywhere
   @icon paintbrush
   @note This component should be wrapping every other Paintbrush component used, see Getting Started
@@ -136,12 +136,11 @@
   const bodyClass = ref('motion-reduced')
 
   onMounted(() => {
-    setTimeout(() => bodyClass.value = '', 250)
+    setTimeout(() => bodyClass.value = '', 200)
   })
 
   const theme = storeToRefs(useTheme())
 
-  const themeColor = useThemeColor('theme')
   const backgroundColor = useThemeColor('background')
   const primaryColor = useThemeColor('primary')
 
@@ -152,46 +151,45 @@
     charset: 'UTF-8',
     htmlAttrs: { 'data-theme': theme.theme },
     link: [
-      { color: primaryColor, href: props.faviconSvg, rel: 'mask-icon' },
-      { href: props.canonical, rel: 'canonical' },
-      { href: props.faviconSvg, rel: 'icon', type: 'image/svg' },
-      { href: props.favicon, rel: 'icon', type: 'image/png' },
-      { href: props.favicon, rel: 'shortcut', type: 'image/png' },
-      { href: props.favicon, rel: 'apple-touch-icon' },
-      (props.manifest ? { href: props.manifest, rel: 'manifest' } : {}),
-      { href: 'https://cdnjs.com', rel: 'dns-prefetch' }
-    ],
+      props.faviconSvg ? { color: primaryColor, href: props.faviconSvg, rel: 'mask-icon' } : {},
+      props.canonical ? { href: props.canonical, rel: 'canonical' } : {},
+      props.faviconSvg ? { href: props.faviconSvg, rel: 'icon', type: 'image/svg' } : {},
+      props.favicon ? { href: props.favicon, rel: 'icon', type: 'image/png' } : {},
+      props.favicon ? { href: props.favicon, rel: 'shortcut', type: 'image/png' } : {},
+      props.favicon ? { href: props.favicon, rel: 'apple-touch-icon' } : {},
+      props.manifest ? { href: props.manifest, rel: 'manifest' } : {}
+    ].filter(Boolean),
     meta: [
-      { content: themeColor, name: 'theme-color' },
-      { content: backgroundColor, name: 'apply-mobile-web-app-status-bar-style' },
-      { content: primaryColor, name: 'msapplication-navbutton-color' },
-      { content: props.appName, name: 'apple-mobile-web-app-title' },
+      primaryColor ? { content: primaryColor, name: 'theme-color' } : {},
+      backgroundColor ? { content: backgroundColor, name: 'apply-mobile-web-app-status-bar-style' } : {},
+      primaryColor ? { content: primaryColor, name: 'msapplication-navbutton-color' } : {},
+      props.appName ? { content: props.appName, name: 'apple-mobile-web-app-title' } : {},
       { content: 'yes', name: 'apple-mobile-web-app-capable' },
       { content: 'yes', name: 'mobile-web-app-capable' },
-      { content: props.appName, name: 'application-name' },
-      { content: backgroundColor, name: 'msapplication-TileColor' },
-      { content: props.favicon, name: 'msapplication-TitleImage' },
-      { content: props.description, name: 'description' },
-      { content: props.keywords.join(','), name: 'keywords' },
-      { content: 'width=device-width, initial-scale=1.0, viewport-fit=cover', name: 'viewport'  },
-      { content: props.pageTitle, property: 'og:title' },
-      { content: props.description, property: 'og:description' },
-      { content: props.largeImage, property: 'og:image' },
-      { content: props.largeImageAlt, property: 'og:image:alt' },
-      { content: props.url, property: 'og:url' },
-      { content: props.ogType, property: 'og:type' },
-      { content: props.appName, property: 'og:site_name' },
-      { content: props.lang, property: 'og:locale' },
-      { content: props.pageTitle, property: 'twitter:title' },
-      { content: props.description, property: 'twitter:description' },
-      { content: props.largeImage, property: 'twitter:image' },
-      { content: props.twitterType, property: 'twitter:card' },
-      { content: props.largeImageAlt, property: 'twitter:image:alt' },
-      { content: props.twitterHandle, property: 'twitter:creator' },
+      props.appName ? { content: props.appName, name: 'application-name' } : {},
+      backgroundColor ? { content: backgroundColor, name: 'msapplication-TileColor' } : {},
+      props.favicon ? { content: props.favicon, name: 'msapplication-TitleImage' } : {},
+      props.description ? { content: props.description, name: 'description' } : {},
+      props.keywords ? { content: props.keywords.join(','), name: 'keywords' } : {},
+      { content: 'width=device-width, initial-scale=1.0, viewport-fit=cover', name: 'viewport' },
+      props.pageTitle ? { content: props.pageTitle, property: 'og:title' } : {},
+      props.description ? { content: props.description, property: 'og:description' } : {},
+      props.largeImage ? { content: props.largeImage, property: 'og:image' } : {},
+      props.largeImageAlt ? { content: props.largeImageAlt, property: 'og:image:alt' } : {},
+      props.url ? { content: props.url, property: 'og:url' } : {},
+      props.ogType ? { content: props.ogType, property: 'og:type' } : {},
+      props.appName ? { content: props.appName, property: 'og:site_name' } : {},
+      props.lang ? { content: props.lang, property: 'og:locale' } : {},
+      props.pageTitle ? { content: props.pageTitle, property: 'twitter:title' } : {},
+      props.description ? { content: props.description, property: 'twitter:description' } : {},
+      props.largeImage ? { content: props.largeImage, property: 'twitter:image' } : {},
+      props.twitterType ? { content: props.twitterType, property: 'twitter:card' } : {},
+      props.largeImageAlt ? { content: props.largeImageAlt, property: 'twitter:image:alt' } : {},
+      props.twitterHandle ? { content: props.twitterHandle, property: 'twitter:creator' } : {},
       { content: 'True', property: 'HandheldFriendly' },
       { content: 'no-referrer-when-downgrade', name: 'referrer' },
-      { content: `Paintbrush ${version}`, name: 'generator' }
-    ]
+      version ? { content: `Paintbrush ${version}`, name: 'generator' } : {}
+    ].filter(Boolean)
   })
 
   onMounted(() => {
