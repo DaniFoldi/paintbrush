@@ -237,7 +237,7 @@
 
 <script lang="ts" setup>
   /* eslint-disable no-alert */
-  import { IconTypes } from '../../modules/icon-types'
+  import { IconTypes } from '../../../modules/icon-types'
   import { useState, ref } from '#imports'
 
 

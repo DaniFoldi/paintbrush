@@ -13,7 +13,7 @@
       />
     </template>
     <template #content>
-      <NuxtChild />
+      <NuxtPage />
     </template>
   </MenubarContainer>
 </template>
