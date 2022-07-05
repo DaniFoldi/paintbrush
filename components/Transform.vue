@@ -34,7 +34,7 @@
     zIndex: 0
   })
 
-  const translate = `${props.scaleX ? `scaleX(${props.scaleX})` : ''} ${props.scaleY ? `scaleY(${props.scaleY})` : ''} ${props.translateX ? `translateX(${props.translateX})` : ''} ${props.translateY ? `translateY(${props.translateY})` : ''} ${props.rotate ? `rotate(${props.rotate})` : ''}`
+  const transform = `${props.scaleX ? `scaleX(${props.scaleX})` : ''} ${props.scaleY ? `scaleY(${props.scaleY})` : ''} ${props.translateX ? `translateX(${props.translateX})` : ''} ${props.translateY ? `translateY(${props.translateY})` : ''} ${props.rotate ? `rotate(${props.rotate})` : ''}`
 </script>
 
 <style lang="scss" scoped>
@@ -42,7 +42,7 @@
     display: inline-block;
     opacity: v-bind(opacity);
     position: v-bind(position);
-    transform: v-bind(translate);
+    transform: v-bind(transform);
     z-index: v-bind('props.zIndex');
   }
 </style>
