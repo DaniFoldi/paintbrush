@@ -73,6 +73,10 @@
     <Text v-if="component.note">
       {{ component.note }}
     </Text>
+
+    <AutoLink :href="`https://github.com/DaniFoldi/paintbrush/blob/main/components/${useFullParam('path')}.vue`">
+      Source
+    </AutoLink>
   </Container>
 </template>
 
