@@ -4,13 +4,15 @@
   @description Icon component from Phosphor Icons
   @category Basic
   @require phosphor-icons
-  @usage
-  <Icon name="gear" />
-  @renderedExample
-  <Icon name="chat-dots" size="32px" />
-  @renderedExample
-  <Icon color="white" name="mouse" size="24px" />
   @note For an icon list see https://phosphoricons.com
+-->
+
+<!--##
+  <Icon color="orange" name="mouse" size="24px" />
+-->
+
+<!--##
+  <Icon name="chat-dots" size="32px" />
 -->
 
 <template>
