@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.1
+  @version 1.2.0
   @icon link
   @description SSR/SPA-friendly link component
   @category Basic
@@ -10,8 +10,15 @@
     v-if="reload"
     :class="{ 'underline': underline === true, 'hover-underline': underline === 'hover' }"
     :href="href"
+    :rel="newTab ? 'noopener noreferrer' : ''"
+    :target="newTab ? '_blank' : ''"
   ><slot /></a>
-  <NuxtLink v-else :to="href">
+  <NuxtLink
+    v-else
+    :rel="newTab ? 'noopener noreferrer' : ''"
+    :target="newTab ? '_blank' : ''"
+    :to="href"
+  >
     <slot />
   </NuxtLink>
 </template>
@@ -22,11 +29,13 @@
 
   interface AutoLinkProps {
     href: string // URL to navigate to
+    newTab?: boolean // Open link in new tab
     underline?: boolean | 'hover' // Underline text always or on hover
     weight?: number // Font weight
   }
 
   const props = withDefaults(defineProps<AutoLinkProps>(), {
+    newTab: false,
     underline: false,
     weight: 400
   })
