@@ -28,7 +28,7 @@
       >
         Components
       </SidebarLink>
-      <Spacer />
+      <Spacer v-if="useRoute().path.startsWith('/docs')" />
       <SidebarLink
         v-if="useRoute().path.startsWith('/docs')"
         v-auto-animate
@@ -88,8 +88,8 @@
       <PoweredBy />
     </template>
     <template #content>
+      <NotificationContainer position="top-right" />
       <NuxtPage />
     </template>
   </SidebarContainer>
-  <NotificationContainer position="top-right" />
 </template>
