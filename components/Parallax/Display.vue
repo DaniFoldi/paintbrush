@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.0
+  @version 0.2.0
   @require atropos
   @icon stack
   @category Visual
@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <atropos @enter="$emit('pb-enter')" @leave="$emit('pb-leave')" @rotate="(x, y) => $emit('pb-rotate', x, y)">
+  <atropos @enter="$emit('pb-enter')" @leave="$emit('pb-leave')" @rotate="(x, y) => $emit('pb-rotate', { x, y })">
     <slot />
   </atropos>
 </template>
