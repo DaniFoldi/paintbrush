@@ -43,6 +43,8 @@
   }
 
   const props = defineProps<NotificationDisplayProps>()
+
+
   const background = useThemeColor('background2')
   const highlight = useThemeColor('backgroundHighlight')
 

@@ -31,9 +31,6 @@
   import { IconVariants } from '../modules/icons'
 
 
-  defineProps<BreadcrumbsProps>()
-
-
   interface Breadcrumb {
     iconColor?: string
     iconName: IconTypes
@@ -45,6 +42,8 @@
   interface BreadcrumbsProps {
     path: Breadcrumb[] // array of breadcrumbs
   }
+
+  defineProps<BreadcrumbsProps>()
 </script>
 
 <style lang="scss" scoped>
