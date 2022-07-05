@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <AutoLink :class="{ 'flip': !leftIcon && rightIcon }" :href="href">
+  <AutoLink :class="{ flip: !leftIcon && rightIcon }" :href="href">
     <Text v-if="!leftIcon && rightIcon" underline>
       <slot />
     </Text>
