@@ -22,8 +22,8 @@ function log(type: 'error' | 'warn', ...message: any) {
 })()
 
 function findInterface(name: string, script: string): string[] {
-  const definition = new RegExp(`interface\\s*?${name}\\s*?\\{(?<definition>.*?)\\}`, 'gisu').exec(script)?.groups?.definition ?? ''
-  return definition.split('\n').map(line => line.trim()).filter(line => line.length > 0)
+  const definition = new RegExp(`interface\\s*?${name}\\s*?\\{(?<definition>.*?)\\}\n`, 'gisu').exec(script)?.groups?.definition ?? ''
+  return definition.replace(/\/\/ eslint-disable-next-line (.*?)\n/g, '').split('\n').map(line => line.trim()).filter(line => line.length > 0)
 }
 
 export interface Component {
@@ -149,9 +149,9 @@ export async function generateComponentDocs() {
     if (emits) {
       const emitInterface = findInterface(emits?.groups?.interface ?? '', scriptSetup)
       for (const emit of emitInterface) {
-        const emitData = /\(e:\s*'(?<name>.*?)',\s*(?<payload>\w+):\s*(?<type>.*)\): void\s*?(\/\/\s*(?<description>.*))\s*$/su.exec(emit)
+        const emitData = /\(e:\s*'(?<name>.*?)'(,\s*(?<payload>\w+):\s*(?<type>.*))?\): void\s*?(\/\/\s*(?<description>.*))\s*$/su.exec(emit)
         if (!emitData) {
-          log('warn', `Unable to parse emit interface: ${fileName}/'${emit}'`)
+          log('warn', `Unable to parse emit interface: ${fileName} '${emit}'`)
           continue
         }
         componentData.emit.push({
@@ -167,6 +167,7 @@ export async function generateComponentDocs() {
       const propInterface = findInterface(props?.groups?.interface ?? '', scriptSetup)
       const defaultString = props?.groups?.defaults
         ?.replaceAll(': undefined', ': \'undefined\'')
+        .replaceAll('new Date().getFullYear()', '\'<current year>\'')
         .replace(/\(\) => \((.*?)\)/gims, '$1')
         .replace(/\(\) => (\[.*?])/gims, '$1') ?? '{}'
       let defaults: Record<string, string> = {}
