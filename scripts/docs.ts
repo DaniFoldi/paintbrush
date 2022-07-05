@@ -49,7 +49,6 @@ export interface Component {
   require: string[]
   see: string[]
   tag: string[]
-  usage: string
   version: string
 }
 
@@ -108,7 +107,6 @@ export async function generateComponentDocs() {
       require: [],
       see: [],
       tag: [],
-      usage: '',
       version: ''
     }
 
@@ -185,9 +183,6 @@ export async function generateComponentDocs() {
     }
     if (componentData.description === '') {
       log('warn', `Component ${fileName} has no @description`)
-    }
-    if (componentData.usage === '') {
-      log('warn', `Component ${fileName} has no @usage`)
     }
 
     docs[fileName] = componentData
