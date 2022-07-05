@@ -2,17 +2,13 @@
   @version 1.0.0
   @description Basic spoiler component
   @icon eye
-  @usage
-  <Spoiler title="Click to reveal the secret">
-  __<Text>This is a secret</Text>
-  </Spoiler>
   @category Display
 -->
 <template>
   <Container :class="`spoiler-container ${expanded ? 'expanded' : ''}`">
     <Container class="pointer" @click="toggle">
       <Icon
-        v-if="iconPlacement === 'left'"
+        v-if="leftIcon"
         class="spoiler-icon"
         :color="iconColor"
         :name="iconName"
@@ -26,7 +22,7 @@
         {{ title }}
       </Text>
       <Icon
-        v-if="iconPlacement === 'right'"
+        v-if="rightIcon"
         class="spoiler-icon"
         :color="iconColor"
         :name="iconName"
@@ -44,16 +40,15 @@
   import { useSpoiler } from '#imports'
 
 
-  type IconPlacement = 'left' | 'right'
-
   interface SpoilerProps {
-    group?: string
-    iconColor?: string
-    iconName?: IconTypes
-    iconPlacement?: IconPlacement
-    iconVariant?: IconVariants
-    title: string
-    titleColor?: string
+    group?: string // Group of spoilers
+    iconColor?: string // Icon color
+    iconName?: IconTypes // Icon name
+    iconVariant?: IconVariants // Icon variant
+    leftIcon?: boolean // Icon is on the left
+    rightIcon?: boolean // Icon is on the right
+    title: string // Title of the spoiler
+    titleColor?: string // Title color
   }
 
   const props = withDefaults(defineProps<SpoilerProps>(), {
@@ -64,6 +59,7 @@
     iconVariant: 'bold',
     titleColor: 'text'
   })
+
 
   const expanded = ref<boolean>(false)
   const uuid = ref('')
