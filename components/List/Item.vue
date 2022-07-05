@@ -1,15 +1,15 @@
 <!--!
   @category Basic
-  @version 0.1.0
+  @version 0.1.1
   @icon number-one
   @description A list item
 -->
 
 <template>
   <li>
-    <p v-if="autoWrap">
+    <Text v-if="autoWrap">
       <slot />
-    </p>
+    </Text>
     <slot v-else />
   </li>
 </template>
