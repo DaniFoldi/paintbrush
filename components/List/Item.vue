@@ -20,6 +20,6 @@
   }
 
   withDefaults(defineProps<ListItemProps>(), {
-    autoWrap: false
+    autoWrap: true
   })
 </script>
