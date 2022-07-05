@@ -1,11 +1,13 @@
 <template>
   <Container article padded>
-    <Text title>
-      {{ component.name }}
-    </Text>
-    <Text v-if="component.version">
-      {{ component.version }}
-    </Text>
+    <Container split>
+      <Text title>
+        {{ component.name }}
+      </Text>
+      <Text>
+        {{ component.version }}
+      </Text>
+    </Container>
     <Text v-if="component.description" italic>
       {{ component.description }}
     </Text>
@@ -95,11 +97,13 @@
     </Text>
 
     <template v-for="(example, id) in component.example" :key="example">
-      <MultilineCode
-        :code="example.content"
-        language="html"
-      />
-      <iframe v-if="example.render" :src="`/docs/examples/${component.name.toLocaleLowerCase()}-${id}`" />
+      <Card background="transparent" border="1px solid var(--secondary)" padded>
+        <iframe v-if="example.render" :src="`/docs/examples/${component.name.toLocaleLowerCase()}-${id}`" />
+        <MultilineCode
+          :code="example.content"
+          language="html"
+        />
+      </Card>
     </template>
 
     <Text v-if="component.note" subtitle>
@@ -146,7 +150,11 @@
 </script>
 
 <style lang="scss" scoped>
-  div.property {
-    margin-block: var(--unit);
+  iframe {
+    background: var(--background);
+    border: none;
+    border-radius: var(--unit);
+    padding: var(--unit);
+    width: 100%;
   }
 </style>
