@@ -6,16 +6,28 @@
       </Container>
     </template>
     <template #sidebar-middle>
-      <SidebarLink href="/" icon="rocket-launch" icon-color="red">
+      <SidebarLink href="/" icon="rocket-launch" :icon-color="useRoute().path === '/' ? 'red' : 'lightergray'">
         Welcome
       </SidebarLink>
-      <SidebarLink href="/quickstart" icon="download" icon-color="orange">
+      <SidebarLink
+        href="/quickstart"
+        icon="download"
+        :icon-color="useRoute().path === '/quickstart' ? 'orange' : 'lightergray'"
+      >
         Quickstart
       </SidebarLink>
-      <SidebarLink href="/examples" icon="code" icon-color="yellow">
+      <SidebarLink
+        href="/examples"
+        icon="code"
+        :icon-color="useRoute().path === '/examples' ? 'yellow' : 'lightergray'"
+      >
         Examples
       </SidebarLink>
-      <SidebarLink href="/docs/components" icon="file-text" icon-color="green">
+      <SidebarLink
+        href="/docs/components"
+        icon="file-text"
+        :icon-color="useRoute().path.startsWith('/docs') ? 'green' : 'lightergray'"
+      >
         Docs
       </SidebarLink>
       <SidebarLink
@@ -28,7 +40,7 @@
       >
         Components
       </SidebarLink>
-      <Spacer v-if="useRoute().path.startsWith('/docs')" />
+      <Spacer v-if="useRoute().path.startsWith('/docs')" height="4px" />
       <SidebarLink
         v-if="useRoute().path.startsWith('/docs')"
         v-auto-animate
@@ -62,13 +74,17 @@
       >
         Phosphor Icons
       </SidebarLink>
-      <SidebarLink href="/roadmap" icon="signpost" icon-color="blue">
+      <SidebarLink
+        href="/roadmap"
+        icon="signpost"
+        :icon-color="useRoute().path === '/roadmap' ? 'blue' : 'lightergray'"
+      >
         Roadmap
       </SidebarLink>
       <SidebarLink
         href="https://github.com/DaniFoldi/Paintbrush"
         icon="github-logo"
-        icon-color="purple"
+        icon-color="lightergray"
         new-tab
       >
         Source
