@@ -6,6 +6,7 @@
     "build:docs": "ts-node-esm scripts/docs.ts",
     "build:nuxt": "nuxi build",
     "build": "npm-run-all build:docs build:nuxt",
+    "buildw:docs": "chokidar \"components/**.vue\" -c \"npm run build:docs {path}\"",
     "clean": "rimraf coverage .nuxt .output",
     "dev": "nuxi dev",
     "docsw": "chokidar \"components/**.vue\" -c \"npm run build:docs\"",

@@ -3,7 +3,7 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { defineNuxtModule } from '@nuxt/kit'
-import { generateComponentDocs } from '../scripts/docs'
+import { generateComponentDocs, writeExamples } from '../scripts/docs'
 
 
 export default defineNuxtModule({
@@ -16,6 +16,7 @@ export default defineNuxtModule({
     .end('${JSON.stringify(docs).replace(/\\/g, '\\\\').replace(/'/g, '\\\'')}')
     // MARK-END`)
       await writeFile(fileURLToPath(new URL('../server/api/docs.ts', import.meta.url)), docsServed)
+      await writeExamples()
     })
   }
 })
