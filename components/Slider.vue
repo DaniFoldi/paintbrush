@@ -6,7 +6,7 @@
 -->
 
 <!--##
-  <Slider :min="10"/>
+  <Slider :min="10" :max="20" />
 -->
 
 <template>

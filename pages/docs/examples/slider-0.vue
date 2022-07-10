@@ -1,3 +1,3 @@
 <template>
-  <Slider :min="10" />
+  <Slider :max="20" :min="10" />
 </template>
