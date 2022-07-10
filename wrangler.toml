@@ -1,7 +1,7 @@
 name = 'paintbrush'
 main = '.output/server/index.mjs'
 account_id = 'ACCOUNT_ID'
-compatibility_date = '2022-05-23'
+compatibility_date = '2022-06-10'
 
 [env.production]
 routes = [ 'paintbrush.danifoldi.com/*' ]
