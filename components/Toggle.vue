@@ -1,8 +1,21 @@
 <!--!
   @category Form
-  @version 1.0.0
+  @version 1.1.0
   @description Basic toggle component
   @icon toggle-right
+-->
+
+<!--##
+  <Toggle />
+-->
+
+<!--##
+  <Toggle color="secondary" thumb-color="secondary" />
+-->
+
+<!--##
+  <Toggle v-model="rb1" />
+  <Text>Toggle value: {{ rb1 }}</Text>
 -->
 
 <template>
@@ -14,7 +27,7 @@
 
 
   interface InputEmits {
-    (e: 'update:modelValue', value: string): void // v-model update
+    (e: 'update:modelValue', checked: boolean): void // v-model update
   }
 
   interface ToggleProps {
@@ -37,7 +50,8 @@
   const thumb = useThemeColor(props.thumbColor)
 
   function onChange(event: Event) {
-    emit('update:modelValue', (event?.target as HTMLInputElement).value)
+    emit('update:modelValue', (event?.target as HTMLInputElement).checked)
+    console.log((event?.target as HTMLInputElement).checked)
   }
 </script>
 
