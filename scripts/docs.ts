@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { globbyStream } from 'globby'
 import JSON5 from 'json5'
 import consola from 'consola'
+import { dedent } from 'ts-dedent'
 import { IconTypes } from '../modules/icon-types'
 
 
@@ -211,7 +212,36 @@ export async function readComponentData(file: string): Promise<Component> {
 
   if (examples) {
     for (const example of examples) {
-      const content = example[1].startsWith('<template>') ? (example[1].endsWith('\n') ? example[1] : `${example[1]}\n`) : `<template>\n  ${example[1]}\n</template>\n`
+      let refs = ''
+      let i = 1
+      while (example[1].includes(`rb${i}`)) {
+        refs += `const rb${i} = ref<boolean>(false)\n`
+        i++
+      }
+      i = 1
+      while (example[1].includes(`rn${i}`)) {
+        refs += `const rn${i} = ref<number>(0)\n`
+        i++
+      }
+      i = 1
+      while (example[1].includes(`rs${i}`)) {
+        refs += `const rs${i} = ref<string>('')\n`
+        i++
+      }
+      /* eslint-disable prefer-template */
+      const content = example[1].trimStart().startsWith('<template>') ? (example[1].endsWith('\n') ? example[1] : `${example[1]}\n`) : dedent`
+        <template>
+          ${example[1]}
+        </template>
+      ` + '\n\n' + (refs ? dedent`
+        <script lang="ts" setup>
+          import { ref } from '#imports'
+
+
+          ${refs.trimEnd()}
+        </script>
+      ` + '\n' : '')
+      /* eslint-enable prefer-template */
       componentData.example.push({ content, render: example[0] })
     }
   }
