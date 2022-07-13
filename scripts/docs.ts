@@ -301,6 +301,6 @@ export async function writeExamplesFor(file: string) {
     if (!example.render) {
       continue
     }
-    await writeFile(fileURLToPath(new URL(`../pages/docs/examples/${component.name.toLocaleLowerCase()}-${i}.vue`, import.meta.url)), example.content, { encoding: 'utf8' })
+    await writeFile(fileURLToPath(new URL(`../pages/docs/examples/${component.name.toLocaleLowerCase()}-${i}.vue`, import.meta.url)), `${example.content}\n`, { encoding: 'utf8' })
   }
 }
