@@ -240,7 +240,7 @@ export async function readComponentData(file: string): Promise<Component> {
 
           ${refs.trimEnd()}
         </script>
-      ` + '\n' : '')
+      ` : '')
       /* eslint-enable prefer-template */
       componentData.example.push({ content, render: example[0] })
     }
