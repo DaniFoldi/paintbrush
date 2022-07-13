@@ -1,12 +1,12 @@
 <!--!
   @version 0.1.0
   @category Form
-  @icon slider
+  @icon sliders-horizontal
   @description Linear slider
 -->
 
 <!--##
-  <Slider :min="10" :max="20" />
+  <Slider :max="20" :min="10" />
 -->
 
 <template>
