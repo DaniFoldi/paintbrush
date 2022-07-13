@@ -233,7 +233,7 @@ export async function readComponentData(file: string): Promise<Component> {
         <template>
           ${example[1]}
         </template>
-      ` + '\n\n' + (refs ? dedent`
+      ` + (refs ? '\n\n' + dedent`
         <script lang="ts" setup>
           import { ref } from '#imports'
 

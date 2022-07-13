@@ -98,9 +98,12 @@
 
     <template v-for="(example, id) in component.example" :key="example">
       <Card background="transparent" border="1px solid var(--secondary)" padded>
-        <iframe v-if="example.render" :src="`/docs/examples/${component.name.toLocaleLowerCase()}-${id}`" />
+        <iframe
+          v-if="example.render"
+          :src="`/docs/examples/${component.name.toLocaleLowerCase()}-${id}`"
+        />
         <MultilineCode
-          :code="example.content"
+          :code="example.content.trimEnd()"
           language="html"
         />
       </Card>
@@ -110,9 +113,9 @@
       Note
     </Text>
 
-    <Text v-if="component.note">
+    <Highlight v-if="component.note">
       {{ component.note }}
-    </Text>
+    </Highlight>
 
     <Text v-if="component.require.length > 0" subtitle>
       Libraries required
@@ -154,7 +157,7 @@
     background: var(--background);
     border: none;
     border-radius: var(--unit);
-    padding: var(--unit);
+    padding: var(--double-unit);
     width: 100%;
   }
 </style>
