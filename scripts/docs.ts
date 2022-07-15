@@ -62,7 +62,7 @@ export interface Component {
 export type Docs = Record<string, Component>
 
 export async function generateComponentDocs() {
-  for await (const file of globbyStream('components/**.vue')) {
+  for await (const file of globbyStream([ 'components/*.vue', 'components/**/*.vue' ])) {
     docs[file.toString()] = await readComponentData(file.toString())
   }
 
