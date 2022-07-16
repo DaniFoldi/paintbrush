@@ -11,7 +11,12 @@
 
 <!--##
   <Frame height="160px" width="100px">
-  __<Frame color="primary" dashed height="100%" width="100%" />
+  __<Frame
+  ____color="primary"
+  ____dashed
+  ____height="100%"
+  ____width="100%"
+  __/>
   __<Frame dotted height="100%" width="100%" />
   </Frame>
 -->
