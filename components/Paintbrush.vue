@@ -27,7 +27,7 @@
   import { kebabCaseName, resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
-  import { onMounted, ref, useHead, useThemeManager, setThemeColors, useThemeColor } from '#imports'
+  import { onMounted, ref, useHead, useThemeManager, setThemeColors, useThemeColor, handleShortcut } from '#imports'
 
 
   interface PaintbrushProps {
