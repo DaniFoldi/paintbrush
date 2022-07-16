@@ -59,7 +59,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins';
+  @use '../../assets/mixins';
 
   div {
     align-items: center;
