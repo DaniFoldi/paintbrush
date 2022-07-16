@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useThemeColor } from '#imports'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface FrameProps {
@@ -36,6 +36,7 @@
     dashed?: boolean // Style the frame border as dashed
     dotted?: boolean // Style the frame border as dotted
     height?: string // Height of the frame
+    size?: 'phone' | 'tablet' | 'desktop' // Size of the frame
     width?: string // Width of the frame
   }
 
@@ -44,12 +45,15 @@
     dashed: false,
     dotted: false,
     height: '100%',
+    size: undefined,
     width: '100%'
   })
 
   const color = computed(() => useThemeColor(props.color))
   const background = computed(() => color.value.value.startsWith('#') ? `${color.value.value}3f` : color.value.value)
   const hover = computed(() => color.value.value.startsWith('#') ? `${color.value.value}5f` : color.value.value)
+  const width = computed(() => ({ phone: '160px', tablet: '200px', desktop: '320px' }[props.size] || props.width))
+  const height = computed(() => ({ phone: '240px', tablet: '240px', desktop: '240px' }[props.size] || props.height))
 </script>
 
 <style lang="scss" scoped>
