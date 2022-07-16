@@ -37,7 +37,7 @@
   import { IconTypes } from '../modules/icon-types'
   import { IconVariants } from '../modules/icons'
   import { Spoiler } from '../scripts/types'
-  import { useSpoiler } from '#imports'
+  import { ref, useSpoiler } from '#imports'
 
 
   interface SpoilerProps {
