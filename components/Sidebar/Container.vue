@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useThemeColor } from '#imports'
+  import { useThemeColor, computed } from '#imports'
 
 
   interface SidebarContainerProps {
