@@ -86,9 +86,9 @@
         </TableRow>
       </template>
     </TableContainer>
-    <Text subtitle>
+    <!-- <Text subtitle>
       {{ $t('test') }}
-    </Text>
+      </Text> -->
     <Container grid="repeat(auto-fit, minmax(250px, 1fr))">
       <ParallaxDisplay>
         <ParallaxItem :initial-opacity="0.7">
