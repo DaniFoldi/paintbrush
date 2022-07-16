@@ -1,4 +1,5 @@
 import applePlatform from './is-apple-platform'
+import { useState } from '#imports'
 
 
 type KeyOptions = { alt?: boolean; ctrl?: boolean; key: string; meta?: boolean; mod?: boolean; shift?: boolean }
