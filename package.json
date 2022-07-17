@@ -6,10 +6,9 @@
     "build:docs": "ts-node-esm scripts/docs.ts",
     "build:nuxt": "nuxi build",
     "build": "npm-run-all build:docs build:nuxt",
-    "buildw:docs": "chokidar \"components/**.vue\" -c \"npm run build:docs {path}\"",
+    "buildw:docs": "chokidar \"components/*.vue\" \"components/**/*.vue\" -c \"npm run build:docs {path}\"",
     "clean": "rimraf coverage .nuxt .output",
     "dev": "nuxi dev",
-    "docsw": "chokidar \"components/**.vue\" -c \"npm run build:docs\"",
     "license": "npm-run-all license:*",
     "license:prod": "license-checker --summary --production --unknown --onlyAllow \"0BSD;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;MIT;CC-BY-4.0\"",
     "license:all": "license-checker --summary --onlyAllow \"0BSD;Apache*;Apache-2.0;BSD-2-Clause;BSD-3-Clause;CC0-1.0;CC-BY-3.0;CC-BY-4.0;CC-BY-ND-4.0;ISC;MIT;Python-2.0\"",
@@ -97,11 +96,13 @@
     "@pinia/nuxt": "^0.3.0",
     "atropos": "^1.0.2",
     "chart.js": "^3.8.0",
+    "codemirror": "^6.0.1",
     "highlight.js": "^11.6.0",
     "phosphor-icons": "^1.4.2",
     "pinia": "^2.0.16",
     "pinia-plugin-persistedstate": "^1.6.3",
-    "vue-chartjs": "^4.1.1"
+    "vue-chartjs": "^4.1.1",
+    "vue-codemirror": "^6.0.0"
   },
   "overrides": {
     "git-url-parse": "12.0.0"
