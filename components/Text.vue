@@ -1,5 +1,5 @@
 <!--!
-  @version 1.5.0
+  @version 1.6.0
   @icon text-aa
   @description Text component to display text
   @category Basic
@@ -34,6 +34,12 @@
     color?: string // Text color
     fontSize?: string // Override the default font size
     gradient?: boolean | string // Gradient text
+    h1?: boolean // Use h1 tag
+    h2?: boolean // Use h2 tag
+    h3?: boolean // Use h3 tag
+    h4?: boolean // Use h4 tag
+    h5?: boolean // Use h5 tag
+    h6?: boolean // Use h6 tag
     important?: boolean // Important text
     inline?: boolean // Inline text
     italic?: boolean // Italic text
@@ -53,6 +59,12 @@
     color: 'text',
     fontSize: 'default',
     gradient: false,
+    h1: false,
+    h2: false,
+    h3: false,
+    h4: false,
+    h5: false,
+    h6: false,
     important: false,
     inline: false,
     italic: false,
@@ -65,19 +77,19 @@
     uppercase: false
   })
 
-  let mode = 'normal'
-  if (props.title) {
+  let mode = 'p'
+  if (props.title || props.h1) {
     mode = 'h1'
-    if (props.subtitle || props.sectiontitle) {
-      console.warn('Text: Only one of the following props should be set: title, subtitle, sectiontitle')
-    }
-  } else if (props.subtitle) {
+  } else if (props.subtitle || props.h2) {
     mode = 'h2'
-    if (props.sectiontitle) {
-      console.warn('Text: Only one of the following props should be set: title, subtitle, sectiontitle')
-    }
-  } else if (props.sectiontitle) {
+  } else if (props.sectiontitle || props.h3) {
     mode = 'h3'
+  } else if (props.h4) {
+    mode = 'h4'
+  } else if (props.h5) {
+    mode = 'h5'
+  } else if (props.h6) {
+    mode = 'h6'
   } else if (props.part) {
     mode = 'span'
   }
