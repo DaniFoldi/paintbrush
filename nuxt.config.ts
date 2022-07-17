@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     markdown: {
       tags: {
         /* eslint-disable sort-keys */
-        'p': 'text',
+        'p': 'content-text-p',
         'a': 'autolink',
         'blockquote': 'highlight',
         'code-inline': 'inline-code',
@@ -31,7 +31,7 @@ export default defineNuxtConfig({
         'img': 'image',
         'ul': 'content-list-container-ul',
         'ol': 'content-list-container-ol',
-        'li': 'list-item',
+        'li': 'content-list-item-li',
         'strong': 'content-text-strong',
         'table': 'prose-table',
         'thead': 'prose-thead',
