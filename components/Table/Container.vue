@@ -11,8 +11,6 @@
     <slot name="content" />
     <slot name="footer" />
   </div>
-  <!-- eslint-disable-next-line vue/html-self-closing -->
-  <Style :children="gridPlaces"></Style>
 </template>
 
 <script lang="ts" setup>
@@ -53,6 +51,7 @@
   }
 ` : '').filter(Boolean).join('\n') : '')
 
+  useStyleTag(gridPlaces)
   provide('table-use-separator', props.separator)
 
   const rows = computed(() => props.separator ? `${props.rowHeight} 2px` : props.rowHeight)

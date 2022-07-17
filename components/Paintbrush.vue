@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.0
+  @version 1.2.0
   @description Main component to be used everywhere
   @icon paintbrush
   @note This component should be wrapping every other Paintbrush component used, see Getting Started
@@ -10,15 +10,8 @@
     <slot />
   </Container>
   <slot v-else />
-
-  <Html :lang="lang.split('-')[0].split('_')[0]">
-    <Head>
-      <!-- eslint-disable-next-line vue/html-self-closing -- IDE syntax higlighting gets broken with self-closing -->
-      <Style :children="htmlStyle"></Style>
-      <Title>{{ pageTitle }}</Title>
-    </Head>
-    <Body :class="bodyClass" />
-  </Html>
+  <!-- eslint-disable-next-line vue/html-self-closing -- IDE syntax higlighting gets broken with self-closing -->
+  <!-- <Style :children="htmlStyle"></Style> -->
 </template>
 
 <script lang="ts" setup>
@@ -132,7 +125,7 @@
   const lightVariables = computed(() => Object.keys(props.lightColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.lightColors[color])};`).join(' '))
   const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
 
-  const htmlStyle = useThemeManager(lightVariables.value, darkVariables.value)
+  useStyleTag(useThemeManager(lightVariables.value, darkVariables.value))
   const bodyClass = ref('motion-reduced')
 
   onMounted(() => {
@@ -147,9 +140,10 @@
   setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
 
   useHead({
-    // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags utf-8 is needed
+    bodyAttrs: { class: bodyClass },
+    // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags UTF-8 is needed
     charset: 'UTF-8',
-    htmlAttrs: { 'data-theme': theme.theme },
+    htmlAttrs: { 'data-theme': theme.theme, lang: props.lang.split('-')[0].split('_')[0] },
     link: [
       props.faviconSvg ? { color: primaryColor, href: props.faviconSvg, rel: 'mask-icon' } : {},
       props.canonical ? { href: props.canonical, rel: 'canonical' } : {},
@@ -189,7 +183,8 @@
       { content: 'True', property: 'HandheldFriendly' },
       { content: 'no-referrer-when-downgrade', name: 'referrer' },
       version ? { content: `Paintbrush ${version}`, name: 'generator' } : {}
-    ].filter(Boolean)
+    ].filter(Boolean),
+    title: props.pageTitle ?? ''
   })
 
   onMounted(() => {
