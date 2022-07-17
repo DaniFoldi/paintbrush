@@ -5,6 +5,44 @@
   @description Draw the user's attention to a piece of text
 -->
 
+<!--##
+  <Highlight
+  icon-color="orange"
+  icon-name="warning"
+  icon-variant="bold"
+  warning
+  >
+  This is a warning
+  </Highlight>
+-->
+    <!--##
+      <Highlight error>
+      Error
+      </Highlight>
+    -->
+    <!--##
+      <Highlight quote>
+      Quote
+      </Highlight>
+    -->
+    <!--##
+      <Highlight icon-name="check-circle" success>
+      Success
+      </Highlight>
+    -->
+    <!--##
+      <Highlight :auto-wrap="false" info>
+      <Text>
+      <Text bold part>
+      Bold
+      </Text>
+      <Text italic part>
+      italic
+      </Text>
+      </Text>
+      </Highlight>
+    -->
+
 <template>
   <blockquote :class="{ 'with-icon': iconName }">
     <Icon

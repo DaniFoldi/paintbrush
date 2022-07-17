@@ -5,6 +5,10 @@
   @description Display a loading indicator
 -->
 
+<!--##
+  <Spinner />
+-->
+
 <template>
   <div class="spinner-container" :class="containerClasses">
     <div class="spinner spinner1" />

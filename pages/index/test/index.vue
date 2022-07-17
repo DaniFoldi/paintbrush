@@ -1,6 +1,5 @@
 <template>
   <Container class="scroll" max padded>
-    <ThemeToggle />
     <ClientOnly>
       <Float :above="testRef" />
     </ClientOnly>
@@ -127,20 +126,6 @@
     </Container>
     <Textarea v-model="textArea" resize="vertical" :rows="5" />
 
-    <Stat :max="800" :value="500">
-      With max
-    </Stat>
-    <Stat icon-name="airplane-tilt" :value="500">
-      Without max
-    </Stat>
-    <Stat
-      icon-color="red"
-      icon-name="key"
-      :max="20"
-      :value="20"
-    >
-      With icon color
-    </Stat>
     <ClientOnly>
       <FocusMark
         :distance="12"
@@ -169,39 +154,12 @@
     <Shortcut color="secondary" :keys="[ 'mod', 'shift', 'k' ]" />
     <Pagination ref="testRef2" :page="page" :total-items="100" />
     <Breadcrumbs :path="path" />
-    <Highlight
-      icon-color="orange"
-      icon-name="warning"
-      icon-variant="bold"
-      warning
-    >
-      This is a warning
-    </Highlight>
-    <Highlight error>
-      Error
-    </Highlight>
-    <Highlight quote>
-      Quote
-    </Highlight>
-    <Highlight icon-name="check-circle" success>
-      Success
-    </Highlight>
-    <Highlight :auto-wrap="false" info>
-      <Text>
-        <Text bold part>
-          Bold
-        </Text>
-        <Text italic part>
-          italic
-        </Text>
-      </Text>
-    </Highlight>
+
     <Toggle />
     <ShapeCircle radius="200px" />
     <Transform rotate="45deg">
       <ShapeRectangle color="orange" width="150px" />
     </Transform>
-    <Spinner :progress="20" />
     <Popup v-if="popup">
       <IconButton icon="x" @click="popup = false" />
     </Popup>
