@@ -1,4 +1,4 @@
-import { access, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { access, readFile, rm, writeFile } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
 import { globby, globbyStream } from 'globby'
 import JSON5 from 'json5'
@@ -288,8 +288,9 @@ export async function updateExamples(file: string) {
 }
 
 export async function writeExamples() {
-  await rm(fileURLToPath(new URL('../pages/docs/examples', import.meta.url)), { recursive: true })
-  await mkdir(fileURLToPath(new URL('../pages/docs/examples', import.meta.url)))
+  for await (const example of globbyStream('pages/docs/examples/*.vue')) {
+    await rm(example.toString())
+  }
 
   for (const file in docs) {
     await writeExamplesFor(file)
