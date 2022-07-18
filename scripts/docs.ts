@@ -1,6 +1,6 @@
 import { access, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
-import { globbyStream } from 'globby'
+import { globby, globbyStream } from 'globby'
 import JSON5 from 'json5'
 import consola from 'consola'
 import { dedent } from 'ts-dedent'
@@ -62,7 +62,9 @@ export interface Component {
 export type Docs = Record<string, Component>
 
 export async function generateComponentDocs() {
-  for await (const file of globbyStream([ 'components/*.vue', 'components/**/*.vue' ])) {
+  // eslint-disable-next-line unicorn/no-await-expression-member
+  const files = [ ...(await globby('components/*.vue')).sort(), ...(await globby('components/**/*.vue')).sort() ]
+  for (const file of files) {
     docs[file.toString()] = await readComponentData(file.toString())
   }
 
