@@ -1,6 +1,6 @@
 <!--!
   @category Display
-  @version 1.1.0
+  @version 1.2.0
   @icon code-simple
   @require highlight.js
   @description Display code in a simple way, inline
@@ -43,15 +43,15 @@
     //@include constants.rounded;
     //@include constants.shaded;
     .hljs-comment {
-      color: #969896;
+      color: var(--gray);
     }
 
     .hljs-tag {
-      color: #b4b7b4;
+      color: var(--lightgray);
     }
 
     .hljs-operator, .hljs-punctuation, .hljs-subst {
-      color: #c5c8c6;
+      color: var(--lightergray);
     }
 
     .hljs-operator {
@@ -59,24 +59,24 @@
     }
 
     .hljs-bullet, .hljs-deletion, .hljs-name, .hljs-selector-tag, .hljs-template-variable, .hljs-variable {
-      color: #cc342b;
+      color: var(--red);
     }
 
     .hljs-attr, .hljs-link, .hljs-literal, .hljs-number, .hljs-symbol, .hljs-variable.constant_ {
-      color: #f96a38;
+      color: var(--orange);
     }
 
     .hljs-title, .hljs-class .hljs-title, .hljs-title.class_ {
-      color: #fba922;
+      color: var(--orange);
     }
 
     .hljs-strong {
-      color: #fba922;
+      color: var(--orange);
       font-weight: 700;
     }
 
     .hljs-addition, .hljs-code, .hljs-string, .hljs-title.class_.inherited__ {
-      color: #198844;
+      color: var(--green);
     }
 
     .hljs-attribute,
@@ -89,23 +89,23 @@
     .hljs-section,
     .hljs-title.function_,
     .ruby .hljs-property {
-      color: #3971ed;
+      color: var(--blue);
     }
 
     .hljs-keyword {
-      color: #a36ac7;
+      color: var(--purple);
     }
 
     .hljs-meta, .hljs-meta .hljs-keyword, .hljs-meta .hljs-string {
-      color: #3971ed;
+      color: var(--blue);
     }
 
     .diff .hljs-meta, .hljs-template-tag, .hljs-type {
-      color: #a36ac7;
+      color: var(--purple);
     }
 
     .hljs-emphasis {
-      color: #a36ac7;
+      color: var(--purple);
       font-style: italic;
     }
 
