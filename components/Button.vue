@@ -12,8 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { textColor } from '../scripts/color'
-  import { computed, useThemeColor } from '#imports'
+  import { computed, useContrastingColor, useThemeColor } from '#imports'
 
 
   interface ButtonProps {
@@ -40,7 +39,7 @@
 
   const primarycolor = useThemeColor(props.color)
   const secondarycolor = computed(() => useThemeColor(props.gradient ?? props.color))
-  const textcolor = computed(() => useThemeColor(textColor(primarycolor.value, 'text', 'background')))
+  const textcolor = computed(() => useThemeColor(useContrastingColor(primarycolor.value, 'text', 'background')))
 </script>
 
 <style lang="scss" scoped>
