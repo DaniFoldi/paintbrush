@@ -46,6 +46,7 @@
 
 
   const theme = useTheme()
+  const dark = computed(() => usePreferredColorScheme().value === 'dark')
 
   function toggle(to?: string | MouseEvent) {
     if (to === 'light' || to === 'dark') {
@@ -54,7 +55,6 @@
       return
     }
 
-    const dark = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (theme.theme === 'system') {
       if (theme.last === '') {
         theme.theme = dark ? 'light' : 'dark'
