@@ -21,7 +21,7 @@ export default function(color: string): Ref<string> {
 
     // eslint-disable-next-line no-undef -- process will be added to globals
     if (process.client) {
-      return (window.matchMedia('(prefers-color-scheme: dark)').matches ? _scheme[_dark[color]] : _scheme[_light[color]]) || _scheme[color] || color
+      return (usePreferredDark().value ? _scheme[_dark[color]] : _scheme[_light[color]]) || _scheme[color] || color
     }
     return _scheme[color] || color
   })
