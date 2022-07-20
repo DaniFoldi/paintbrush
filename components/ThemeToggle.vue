@@ -50,20 +50,18 @@
 
   function toggle(to?: string | MouseEvent) {
     if (to === 'light' || to === 'dark') {
-      theme.last = theme.theme
-      theme.theme = theme.theme === to ? 'system' : to
+      theme.set(theme.theme === to ? 'system' : to)
       return
     }
 
     if (theme.theme === 'system') {
       if (theme.last === '') {
-        theme.theme = dark ? 'light' : 'dark'
+        theme.set(dark.value ? 'light' : 'dark')
       } else {
-        theme.theme = theme.last === 'light' ? 'dark' : 'light'
+        theme.set(theme.last === 'light' ? 'dark' : 'light')
       }
     } else {
-      theme.last = theme.theme
-      theme.theme = 'system'
+      theme.set('system')
     }
   }
 
