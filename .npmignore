@@ -3,12 +3,18 @@
 .output/
 
 content/
+coverage/
 lang/
 pages/
+public/
+server/
 test/
 
 .eslint*
 .yamllint*
 .stylelint*
 stylelint*
+app.vue
+nuxt.config.ts
+stats.html
 wrangler.toml
