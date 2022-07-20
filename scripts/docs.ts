@@ -13,7 +13,11 @@ const messageCount = { error: 0, warn: 0 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function log(type: 'error' | 'warn', ...message: any) {
   messageCount[type]++
-  consola[type](message.shift(), ...message)
+  if (message.length === 1) {
+    consola[type](message[0])
+  } else {
+    consola[type](message.shift(), ...message)
+  }
 }
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
