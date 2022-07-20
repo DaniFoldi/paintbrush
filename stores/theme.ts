@@ -1,10 +1,15 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
+import { PaintbrushTheme } from '../scripts/types'
 
 
 // eslint-disable-next-line import/exports-last
 export const useTheme = defineStore('paintbrush-theme', {
-  // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error, @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  actions: {
+    set(theme: PaintbrushTheme) {
+      this.last = this.theme
+      this.theme = theme
+    }
+  },
   persist: true,
   state: () => ({
     last: '',
