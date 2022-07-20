@@ -1,5 +1,5 @@
-const resolve = (scheme: Record<string, string>, color: string): string => {
-  return Object.keys(scheme).includes(color) ? scheme[color] : color
+const resolve = (scheme: Record<string, string>, colorMap: Record<string, string>, color: string): string => {
+  return scheme[colorMap[color]] ?? colorMap[color] ?? color
 }
 
 const hexToRgb = (color: string): number[] => {

@@ -16,10 +16,9 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia'
-  import { resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
-  import { onMounted, ref, computed, useHead, useThemeManager, setThemeColors, useThemeColor, useKebabCase, handleShortcut } from '#imports'
+  import { onMounted, ref, computed, useHead, useThemeManager, setThemeColors, useThemeColor, handleShortcut } from '#imports'
 
 
   interface PaintbrushProps {
@@ -121,10 +120,8 @@
 
   const version = packageJson.version
 
-  const lightVariables = computed(() => Object.keys(props.lightColors).map(color => `--${useKebabCase(color)}: ${resolve(props.colorScheme, props.lightColors[color])};`).join(' '))
-  const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${useKebabCase(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
-
-  useStyleTag(useThemeManager(lightVariables.value, darkVariables.value))
+  useStyleTag(useThemeManager(props.colorScheme, props.lightColors, props.darkColors))
+  setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
   const bodyClass = ref('motion-reduced')
 
   onMounted(() => {
@@ -132,11 +129,8 @@
   })
 
   const theme = storeToRefs(useTheme())
-
   const backgroundColor = computed(() => useThemeColor('background'))
   const primaryColor = computed(() => useThemeColor('primary'))
-
-  setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
 
   useHead({
     bodyAttrs: { class: bodyClass },
