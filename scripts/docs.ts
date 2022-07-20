@@ -94,7 +94,7 @@ export async function readComponentData(file: string): Promise<Component> {
     .join('\n')
     .split(/^( {2})?@/gm)
     .map(entry => entry.trimEnd())
-    .map(entry => entry.replace(/^\s{2}/gm, ''))
+    .map(entry => entry.replace(/^ {2}/gm, ''))
     .map(entry => entry.replace(/^_+/gm, underscore => ' '.repeat(underscore.length)))
     .filter(entry => entry.length > 0)
     .map(entry => entry.replace(/(^\n|\n$)/g, ''))
@@ -111,7 +111,7 @@ export async function readComponentData(file: string): Promise<Component> {
     .map(match => match.groups?.value)
     .map(entry => entry ?? '')
     .map(entry => entry.trimEnd())
-    .map(entry => entry.replace(/^\s{2}/gm, ''))
+    .map(entry => entry.replace(/^ {2}/gm, ''))
     .map(entry => entry.replace(/^_+/gm, underscore => ' '.repeat(underscore.length)))
     .map(entry => (entry.startsWith('#') ? [ true, entry.slice(1) ] : [ false, entry ]) as [ boolean, string ])
     .filter(example => example[1].length > 0)
@@ -231,18 +231,20 @@ export async function readComponentData(file: string): Promise<Component> {
         i++
       }
       /* eslint-disable prefer-template */
-      const content = example[1].trimStart().startsWith('<template>') ? (example[1].endsWith('\n') ? example[1] : `${example[1]}\n`) : dedent`
-        <template>
-          ${example[1]}
-        </template>
-      ` + (refs ? '\n\n' + dedent`
-        <script lang="ts" setup>
-          import { ref } from '#imports'
+      const content = example[1].trimStart().startsWith('<template>')
+        ? example[1].trimEnd()
+        : dedent`
+          <template>
+            ${example[1]}
+          </template>
+        ` + (refs ? '\n\n' + dedent`
+          <script lang="ts" setup>
+            import { ref } from '#imports'
 
 
-          ${refs.trimEnd()}
-        </script>
-      ` : '')
+            ${refs.trimEnd()}
+          </script>
+        ` : '')
       /* eslint-enable prefer-template */
       componentData.example.push({ content, render: example[0] })
     }
