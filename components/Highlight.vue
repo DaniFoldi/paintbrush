@@ -7,41 +7,41 @@
 
 <!--##
   <Highlight
-  icon-color="orange"
-  icon-name="warning"
-  icon-variant="bold"
-  warning
+  __icon-color="orange"
+  __icon-name="warning"
+  __icon-variant="bold"
+  __warning
   >
-  This is a warning
+  __This is a warning
   </Highlight>
 -->
-    <!--##
-      <Highlight error>
-      Error
-      </Highlight>
-    -->
-    <!--##
-      <Highlight quote>
-      Quote
-      </Highlight>
-    -->
-    <!--##
-      <Highlight icon-name="check-circle" success>
-      Success
-      </Highlight>
-    -->
-    <!--##
-      <Highlight :auto-wrap="false" info>
-      <Text>
-      <Text bold part>
-      Bold
-      </Text>
-      <Text italic part>
-      italic
-      </Text>
-      </Text>
-      </Highlight>
-    -->
+<!--##
+  <Highlight error>
+  __Error
+  </Highlight>
+-->
+<!--##
+  <Highlight quote>
+  __Quote
+  </Highlight>
+-->
+<!--##
+  <Highlight icon-name="check-circle" success>
+  __Success
+  </Highlight>
+-->
+<!--##
+  <Highlight :auto-wrap="false" info>
+  __<Text>
+  ____<Text bold part>
+  ______Bold
+  ____</Text>
+  ____<Text italic part>
+  ______italic
+  ____</Text>
+  __</Text>
+  </Highlight>
+-->
 
 <template>
   <blockquote :class="{ 'with-icon': iconName }">
