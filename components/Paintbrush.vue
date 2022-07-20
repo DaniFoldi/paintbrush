@@ -15,12 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
   import { storeToRefs } from 'pinia'
-  import { kebabCaseName, resolve } from '../scripts/color'
+  import { resolve } from '../scripts/color'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
-  import { onMounted, ref, useHead, useThemeManager, setThemeColors, useThemeColor, handleShortcut } from '#imports'
+  import { onMounted, ref, computed, useHead, useThemeManager, setThemeColors, useThemeColor, useKebabCase, handleShortcut } from '#imports'
 
 
   interface PaintbrushProps {
@@ -122,8 +121,8 @@
 
   const version = packageJson.version
 
-  const lightVariables = computed(() => Object.keys(props.lightColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.lightColors[color])};`).join(' '))
-  const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${kebabCaseName(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
+  const lightVariables = computed(() => Object.keys(props.lightColors).map(color => `--${useKebabCase(color)}: ${resolve(props.colorScheme, props.lightColors[color])};`).join(' '))
+  const darkVariables = computed(() => Object.keys(props.darkColors).map(color => `--${useKebabCase(color)}: ${resolve(props.colorScheme, props.darkColors[color])};`).join(' '))
 
   useStyleTag(useThemeManager(lightVariables.value, darkVariables.value))
   const bodyClass = ref('motion-reduced')

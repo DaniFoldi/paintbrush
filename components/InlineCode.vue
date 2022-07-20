@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
   import hljs from 'highlight.js/lib/common'
+  import { computed } from '#imports'
 
 
   interface InlineCodeProps {

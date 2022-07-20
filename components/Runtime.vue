@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-  import { h } from 'vue'
+  import { h } from '#imports'
 
 
   interface RuntimeProps {

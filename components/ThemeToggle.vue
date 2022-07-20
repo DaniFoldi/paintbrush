@@ -29,7 +29,7 @@
 
 <script lang="ts" setup>
   import { useTheme } from '../stores/theme'
-  import { computed, useThemeColor } from '#imports'
+  import { computed, useThemeColor, usePreferredDark } from '#imports'
 
 
   interface ThemeToggleProps {
@@ -46,7 +46,7 @@
 
 
   const theme = useTheme()
-  const dark = computed(() => usePreferredColorScheme().value === 'dark')
+  const dark = computed(() => usePreferredDark())
 
   function toggle(to?: string | MouseEvent) {
     if (to === 'light' || to === 'dark') {

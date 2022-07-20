@@ -1,6 +1,6 @@
-import { computed } from 'vue'
 import { useTheme } from '../stores/theme'
 import type { Ref } from 'vue'
+import { computed, usePreferredDark } from '#imports'
 
 
 let _scheme = {} as Record<string, string>
