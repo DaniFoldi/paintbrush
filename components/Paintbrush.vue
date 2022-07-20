@@ -134,8 +134,8 @@
 
   const theme = storeToRefs(useTheme())
 
-  const backgroundColor = useThemeColor('background')
-  const primaryColor = useThemeColor('primary')
+  const backgroundColor = computed(() => useThemeColor('background'))
+  const primaryColor = computed(() => useThemeColor('primary'))
 
   setThemeColors(props.colorScheme, props.lightColors, props.darkColors)
 
@@ -145,7 +145,7 @@
     charset: 'UTF-8',
     htmlAttrs: { 'data-theme': theme.theme, lang: props.lang.split('-')[0].split('_')[0] },
     link: [
-      props.faviconSvg ? { color: primaryColor, href: props.faviconSvg, rel: 'mask-icon' } : {},
+      props.faviconSvg ? { color: primaryColor.value, href: props.faviconSvg, rel: 'mask-icon' } : {},
       props.canonical ? { href: props.canonical, rel: 'canonical' } : {},
       props.faviconSvg ? { href: props.faviconSvg, rel: 'icon', type: 'image/svg' } : {},
       props.favicon ? { href: props.favicon, rel: 'icon', type: 'image/png' } : {},
@@ -154,17 +154,17 @@
       props.manifest ? { href: props.manifest, rel: 'manifest' } : {}
     ].filter(Boolean),
     meta: [
-      primaryColor ? { content: primaryColor, name: 'theme-color' } : {},
-      backgroundColor ? { content: backgroundColor, name: 'apply-mobile-web-app-status-bar-style' } : {},
-      primaryColor ? { content: primaryColor, name: 'msapplication-navbutton-color' } : {},
+      primaryColor.value ? { content: primaryColor.value, name: 'theme-color' } : {},
+      backgroundColor.value ? { content: backgroundColor.value, name: 'apply-mobile-web-app-status-bar-style' } : {},
+      primaryColor.value ? { content: primaryColor.value, name: 'msapplication-navbutton-color' } : {},
       props.appName ? { content: props.appName, name: 'apple-mobile-web-app-title' } : {},
       { content: 'yes', name: 'apple-mobile-web-app-capable' },
       { content: 'yes', name: 'mobile-web-app-capable' },
       props.appName ? { content: props.appName, name: 'application-name' } : {},
-      backgroundColor ? { content: backgroundColor, name: 'msapplication-TileColor' } : {},
+      backgroundColor.value ? { content: backgroundColor.value, name: 'msapplication-TileColor' } : {},
       props.favicon ? { content: props.favicon, name: 'msapplication-TitleImage' } : {},
       props.description ? { content: props.description, name: 'description' } : {},
-      props.keywords ? { content: props.keywords.join(','), name: 'keywords' } : {},
+      props.keywords.length > 0 ? { content: props.keywords.join(','), name: 'keywords' } : {},
       { content: 'width=device-width, initial-scale=1.0, viewport-fit=cover', name: 'viewport' },
       props.pageTitle ? { content: props.pageTitle, property: 'og:title' } : {},
       props.description ? { content: props.description, property: 'og:description' } : {},
