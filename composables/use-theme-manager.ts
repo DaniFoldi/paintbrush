@@ -1,5 +1,4 @@
-import { resolve } from '../scripts/color'
-import { computed, useKebabCase } from '#imports'
+import { computed, useKebabCase, useResolvedColor } from '#imports'
 
 
 export default function(
@@ -8,8 +7,8 @@ export default function(
   darkColors: Record<string, string>
 ) {
   const schemeVariables = computed(() => Object.keys(colorScheme).map(color => `--${useKebabCase(color)}: ${colorScheme[color]};`).join(' '))
-  const lightVariables = computed(() => Object.keys(lightColors).map(color => `--${useKebabCase(color)}: ${resolve(colorScheme, lightColors, color)};`).join(' '))
-  const darkVariables = computed(() => Object.keys(darkColors).map(color => `--${useKebabCase(color)}: ${resolve(colorScheme, darkColors, color)};`).join(' '))
+  const lightVariables = computed(() => Object.keys(lightColors).map(color => `--${useKebabCase(color)}: ${useResolvedColor(colorScheme, lightColors, color)};`).join(' '))
+  const darkVariables = computed(() => Object.keys(darkColors).map(color => `--${useKebabCase(color)}: ${useResolvedColor(colorScheme, darkColors, color)};`).join(' '))
   return computed(() => `
     :root {
       ${schemeVariables.value}

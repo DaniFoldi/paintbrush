@@ -1,7 +1,3 @@
-const resolve = (scheme: Record<string, string>, colorMap: Record<string, string>, color: string): string => {
-  return scheme[colorMap[color]] ?? colorMap[color] ?? color
-}
-
 const hexToRgb = (color: string): number[] => {
   let result = color.replace('#', '')
   if (result.length === 3) {
@@ -17,4 +13,4 @@ const textColor = (backgroundColor: string, dark: string, light: string): string
   return (Math.round(r * 299) + Math.round(g * 587) + Math.round(b * 114)) >= 128000 ? dark : light
 }
 
-export { resolve, textColor }
+export { textColor }
