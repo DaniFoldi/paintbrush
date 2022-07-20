@@ -6,6 +6,31 @@
   @description Highlight some source code
 -->
 
+<!--##
+  <template>
+  __<MultilineCode :code="code" />
+  </template>
+
+  <script lang="ts" setup>
+  __const code = `
+  __<div>
+  __</div>
+  __<script>
+  ____const a = function(x) {
+  ______return false ? x * 2 + 'hi' : new Object()
+  ____}
+  __</scirpt>
+  __<style type="text/css">
+  ____/* comment */
+  ____.test {
+  ________cursor: pointer;
+  ________display: grid;
+  ____}
+  __</style>
+  `
+  </script>
+-->
+
 <template>
   <pre><InlineCode :code="code" :language="language" /></pre>
 </template>
