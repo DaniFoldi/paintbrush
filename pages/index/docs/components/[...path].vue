@@ -98,8 +98,10 @@
 
     <template v-for="(example, id) in component.example" :key="example">
       <Card background="transparent" border="1px solid var(--secondary)" padded>
+        <!-- TODO calculate height correctly -->
         <iframe
           v-if="example.render"
+          :height="height[id] + 24 ?? 'auto'"
           :src="`/docs/examples/${component.name.toLocaleLowerCase()}-${id}`"
         />
         <MultilineCode
@@ -137,7 +139,7 @@
 
 <script lang="ts" setup async>
   import type { Docs } from '../../../../scripts/docs'
-  import { useFullParam } from '#imports'
+  import { ref, useFullParam } from '#imports'
 
 
   const { data } = await useFetch<Docs>('/api/docs')
@@ -146,10 +148,25 @@
     await navigateTo('/docs')
   }
 
+  const height = ref<Record<number, number>>({})
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function fixString(code: any): string {
     return typeof code === 'string' ? `'${code}'` : code.toString()
   }
+
+  onMounted(() => {
+    window.addEventListener('message', event => {
+      if (event.origin !== window.location.origin) {
+        return
+      }
+      if (!Object.hasOwn(event.data, 'example') || !Object.hasOwn(event.data, 'height')) {
+        return
+      }
+
+      height.value[event.data.example] = event.data.height
+    })
+  })
 </script>
 
 <style lang="scss" scoped>
