@@ -17,3 +17,5 @@ export interface Notification {
   lifetime?: number // seconds
   title: string
 }
+
+export type PaintbrushTheme = 'light' | 'dark' | 'system'
