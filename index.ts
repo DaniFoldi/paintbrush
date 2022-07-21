@@ -1,12 +1,13 @@
 import { fileURLToPath } from 'node:url'
-import { addComponentsDir, addAutoImportDir, defineNuxtModule } from '@nuxt/kit'
+import { addComponentsDir, addAutoImportDir, defineNuxtModule, addPlugin } from '@nuxt/kit'
 
 
 export default defineNuxtModule({
   defaults: {
     mountComponents: true,
     prefixComponents: true,
-    mountComposables: true
+    mountComposables: true,
+    mountPlugins: true
   },
   meta: {
     name: 'paintbrush-ui',
@@ -20,7 +21,11 @@ export default defineNuxtModule({
       await addAutoImportDir(fileURLToPath(new URL('composables', import.meta.url)))
     }
     if (moduleOptions.mountComponents) {
-      await (moduleOptions.prefixComponents ? addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)), prefix: 'Pb' }) : addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)) }))
+      await addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)), prefix: moduleOptions.prefixComponents ? 'Pb' : undefined }) 
+    }
+    if (moduleOptions.mountPlugins) {
+      await addPlugin(fileURLToPath(new URL('plugins/autoanimate.ts', import.meta.url)))
+      await addPlugin(fileURLToPath(new URL('plugins/persistent-store.ts', import.meta.url)))
     }
   }
 })
