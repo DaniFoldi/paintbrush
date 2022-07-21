@@ -21,7 +21,7 @@ export default defineNuxtModule({
       await addAutoImportDir(fileURLToPath(new URL('composables', import.meta.url)))
     }
     if (moduleOptions.mountComponents) {
-      await addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)), prefix: moduleOptions.prefixComponents ? 'Pb' : undefined }) 
+      await addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)), prefix: moduleOptions.prefixComponents ? 'Pb' : undefined })
     }
     if (moduleOptions.mountPlugins) {
       await addPlugin(fileURLToPath(new URL('plugins/autoanimate.ts', import.meta.url)))
