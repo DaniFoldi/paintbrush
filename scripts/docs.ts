@@ -1,7 +1,7 @@
 import { access, readFile, rm, writeFile } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
 import { globby, globbyStream } from 'globby'
-import JSON5 from 'json5'
+import { parse } from 'json5'
 import consola from 'consola'
 import { dedent } from 'ts-dedent'
 import { IconTypes } from '../modules/icon-types'
@@ -196,7 +196,7 @@ export async function readComponentData(file: string): Promise<Component> {
       .replace(/\(\) => (\[.*?])/gims, '$1') ?? '{}'
     let defaults: Record<string, string> = {}
     try {
-      defaults = JSON5.parse(defaultString ?? '{}')
+      defaults = parse(defaultString ?? '{}')
     } catch {
       log('warn', `Unable to parse prop defaults: ${file} '${defaultString}'`)
     }
