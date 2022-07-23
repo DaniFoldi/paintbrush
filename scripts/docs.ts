@@ -1,7 +1,9 @@
 import { access, readFile, rm, writeFile } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
 import { globby, globbyStream } from 'globby'
-import JSON5 from 'json5'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import JSON5 from 'json5/dist/index.mjs'
 import consola from 'consola'
 import { dedent } from 'ts-dedent'
 import { IconTypes } from '../modules/icon-types'
