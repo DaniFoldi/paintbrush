@@ -44,9 +44,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed } from '#imports'
   import { IconTypes } from '../modules/icon-types'
   import { IconVariants } from '../modules/icons'
-  import { computed } from '#imports'
 
 
   interface StatProps {

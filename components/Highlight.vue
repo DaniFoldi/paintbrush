@@ -59,9 +59,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed, useThemeColor } from '#imports'
   import { IconTypes } from '../modules/icon-types'
   import { IconVariants } from '../modules/icons'
-  import { computed, useThemeColor } from '#imports'
 
 
   interface HighlightProps {

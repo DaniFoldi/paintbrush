@@ -20,9 +20,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed, useThemeColor } from '#imports'
   import { IconVariants } from '../modules/icons'
   import { IconTypes } from '../modules/icon-types'
-  import { computed, useThemeColor } from '#imports'
 
 
   interface IconProps {

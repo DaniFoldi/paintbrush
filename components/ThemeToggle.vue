@@ -28,8 +28,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { useTheme } from '../stores/theme'
   import { computed, useThemeColor, usePreferredDark } from '#imports'
+  import { useTheme } from '../stores/theme'
 
 
   interface ThemeToggleProps {

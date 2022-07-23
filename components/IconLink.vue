@@ -24,9 +24,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { useThemeColor } from '#imports'
   import { IconVariants } from '../modules/icons'
   import { IconTypes } from '../modules/icon-types'
-  import { useThemeColor } from '#imports'
 
 
   interface IconProps {

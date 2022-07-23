@@ -1,5 +1,5 @@
-import { useTheme } from '../stores/theme'
 import { usePreferredColorScheme, createSharedComposable } from '#imports'
+import { useTheme } from '../stores/theme'
 
 
 export default createSharedComposable(function(): 'light' | 'dark' | 'system' {

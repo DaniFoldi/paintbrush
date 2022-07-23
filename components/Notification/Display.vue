@@ -34,8 +34,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { Notification } from '../../scripts/types'
   import { useNotification } from '#imports'
+  import { Notification } from '../../scripts/types'
 
 
   interface NotificationDisplayProps {

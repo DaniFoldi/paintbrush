@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-  // eslint-disable-next-line import/no-unresolved
+  // eslint-disable-next-line import/no-named-as-default
   import Atropos from 'atropos/vue'
 
 

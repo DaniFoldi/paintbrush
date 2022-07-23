@@ -1,6 +1,6 @@
 
-import { Spoiler } from '../scripts/types'
 import { ref } from '#imports'
+import { Spoiler } from '../scripts/types'
 
 
 const spoilers = new Map()

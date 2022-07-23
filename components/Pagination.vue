@@ -38,8 +38,8 @@
 </template>
 
 <script lang="ts" setup>
-  import type{ ComputedRef } from 'vue'
   import { computed, ref } from '#imports'
+  import type { ComputedRef } from 'vue'
 
 
   interface PaginationEmits {

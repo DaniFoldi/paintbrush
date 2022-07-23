@@ -138,8 +138,8 @@
 </template>
 
 <script lang="ts" setup async>
-  import type { Docs } from '../../../../scripts/docs'
   import { ref, useFullParam } from '#imports'
+  import type { Docs } from '../../../../scripts/docs'
 
 
   const { data } = await useFetch<Docs>('/api/docs')

@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts" setup>
-  import Container from '../Container.vue'
   import { useThemeColor } from '#imports'
+  import Container from '../Container.vue'
 
 
   interface ContainerProps {

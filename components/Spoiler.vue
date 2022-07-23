@@ -34,10 +34,10 @@
 </template>
 
 <script lang="ts" setup>
+  import { ref, useSpoiler } from '#imports'
   import { IconTypes } from '../modules/icon-types'
   import { IconVariants } from '../modules/icons'
   import { Spoiler } from '../scripts/types'
-  import { ref, useSpoiler } from '#imports'
 
 
   interface SpoilerProps {
