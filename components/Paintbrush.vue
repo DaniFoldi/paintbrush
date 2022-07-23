@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia'
-  import { onMounted, ref, computed, useHead, useThemeManager, setThemeColors, useThemeColor, handleShortcut } from '#imports'
+  import { onMounted, ref, computed, useHead, useStyleTag, useThemeManager, setThemeColors, useThemeColor, handleShortcut } from '#imports'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
 

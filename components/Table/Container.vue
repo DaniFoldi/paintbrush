@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, onMounted, provide, ref } from 'vue'
+  import { computed, onMounted, provide, ref, useStyleTag } from '#imports'
 
 
   interface TableColumn {
