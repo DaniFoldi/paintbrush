@@ -39,7 +39,6 @@
 
 <style lang="scss">
   code.hljs {
-    // TODO update
     font-family: monospace;
     overflow-x: auto;
     //@include constants.reset;
@@ -93,7 +92,7 @@
     .hljs-section,
     .hljs-title.function_,
     .ruby .hljs-property {
-      color: var(--blue-5);
+      color: var(--blue-4);
     }
 
     .hljs-keyword {
@@ -101,7 +100,7 @@
     }
 
     .hljs-meta, .hljs-meta .hljs-keyword, .hljs-meta .hljs-string {
-      color: var(--blue-6);
+      color: var(--blue-5);
     }
 
     .diff .hljs-meta, .hljs-template-tag, .hljs-type {
