@@ -6,27 +6,27 @@
       </Container>
     </template>
     <template #sidebar-middle>
-      <SidebarLink href="/" icon="rocket-launch" :icon-color="useRoute().path === '/' ? 'red' : 'lightergray'">
+      <SidebarLink href="/" icon="rocket-launch" :icon-color="useRoute().path === '/' ? 'red-5' : 'inherit'">
         Welcome
       </SidebarLink>
       <SidebarLink
         href="/quickstart"
         icon="download"
-        :icon-color="useRoute().path === '/quickstart' ? 'orange' : 'lightergray'"
+        :icon-color="useRoute().path === '/quickstart' ? 'orange-5' : 'inherit'"
       >
         Quickstart
       </SidebarLink>
       <SidebarLink
         href="/examples"
         icon="code"
-        :icon-color="useRoute().path === '/examples' ? 'yellow' : 'lightergray'"
+        :icon-color="useRoute().path === '/examples' ? 'yellow-5' : 'inherit'"
       >
         Examples
       </SidebarLink>
       <SidebarLink
         href="/docs"
         icon="file-text"
-        :icon-color="useRoute().path.startsWith('/docs') ? 'green' : 'lightergray'"
+        :icon-color="useRoute().path.startsWith('/docs') ? 'green-5' : 'inherit'"
       >
         Docs
       </SidebarLink>
@@ -47,7 +47,7 @@
         v-auto-animate
         href="https://vueuse.org"
         icon="plugs-connected"
-        icon-color="textShade"
+        icon-color="shadowText"
         indent
         new-tab
       >
@@ -58,7 +58,7 @@
         v-auto-animate
         href="https://lodash.com/docs/4.17.15"
         icon="minus"
-        icon-color="textShade"
+        icon-color="shadowText"
         indent
         new-tab
       >
@@ -69,7 +69,7 @@
         v-auto-animate
         href="https://phosphoricons.com"
         icon="phosphor-logo"
-        icon-color="textShade"
+        icon-color="shadowText"
         indent
         new-tab
       >
@@ -78,14 +78,14 @@
       <SidebarLink
         href="/roadmap"
         icon="signpost"
-        :icon-color="useRoute().path === '/roadmap' ? 'blue' : 'lightergray'"
+        :icon-color="useRoute().path === '/roadmap' ? 'blue-5' : 'inherit'"
       >
         Roadmap
       </SidebarLink>
       <SidebarLink
         href="https://github.com/DaniFoldi/Paintbrush"
         icon="github-logo"
-        icon-color="lightergray"
+        icon-color="inherit"
         new-tab
       >
         Source
@@ -93,7 +93,7 @@
       <SidebarLink
         href="/test"
         icon="gear"
-        icon-color="lightergray"
+        icon-color="inherit"
       >
         Test
       </SidebarLink>
