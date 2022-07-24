@@ -16,9 +16,10 @@
 
 
   interface ButtonProps {
+    background?: string // Background color of the button
     capitalize?: boolean // Capitalize the button text
-    color?: string // Background color of the button
     ghost?: boolean // Add a ghost effect to the button
+    color?: string // Text color of the button
     large?: boolean // Make the button larger
     small?: boolean // Make the button smaller
     type?: 'button' | 'submit' | 'reset' // Button type
@@ -26,9 +27,10 @@
   }
 
   const props = withDefaults(defineProps<ButtonProps>(), {
+    background: 'primary',
     capitalize: false,
-    color: 'primary',
     ghost: false,
+    color: 'primaryText',
     large: false,
     small: false,
     type: 'button',
