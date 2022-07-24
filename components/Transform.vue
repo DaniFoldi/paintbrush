@@ -12,6 +12,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed } from '#imports'
+
+
   interface TransformProps {
     opacity?: number // opacity of the element
     position?: string // position of the element
@@ -34,7 +37,7 @@
     zIndex: 0
   })
 
-  const transform = `${props.scaleX ? `scaleX(${props.scaleX})` : ''} ${props.scaleY ? `scaleY(${props.scaleY})` : ''} ${props.translateX ? `translateX(${props.translateX})` : ''} ${props.translateY ? `translateY(${props.translateY})` : ''} ${props.rotate ? `rotate(${props.rotate})` : ''}`
+  const transform = computed(() => `${props.scaleX ? `scaleX(${props.scaleX})` : ''} ${props.scaleY ? `scaleY(${props.scaleY})` : ''} ${props.translateX ? `translateX(${props.translateX})` : ''} ${props.translateY ? `translateY(${props.translateY})` : ''} ${props.rotate ? `rotate(${props.rotate})` : ''}`)
 </script>
 
 <style lang="scss" scoped>
@@ -43,6 +46,6 @@
     opacity: v-bind(opacity);
     position: v-bind(position);
     transform: v-bind(transform);
-    z-index: v-bind('props.zIndex');
+    z-index: v-bind('zIndex');
   }
 </style>
