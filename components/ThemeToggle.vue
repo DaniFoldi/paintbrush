@@ -39,9 +39,9 @@
   }
 
   const props = withDefaults(defineProps<ThemeToggleProps>(), {
-    background: 'backgroundHighlight',
-    border: 'textShade',
-    thumbColor: 'background'
+    background: 'background',
+    border: 'highlightBackground',
+    thumbColor: 'backgroundText'
   })
 
 
@@ -65,18 +65,18 @@
     }
   }
 
-  const thumb = computed(() => useThemeColor(props.thumbColor))
+  const thumb = computed(() => useThemeColor(props.thumbColor).value)
   const offset = computed(() => theme.theme === 'system' ? '0px' : (theme.theme === 'light' ? '-20px' : '20px'))
-  const background = computed(() => useThemeColor(props.background))
-  const border = computed(() => useThemeColor(props.border))
+  const background = computed(() => useThemeColor(props.background).value)
+  const border = computed(() => useThemeColor(props.border).value)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   div.toggle {
-    background: v-bind('background.value');
-    border: 2px solid v-bind('border.value');
+    background: v-bind(background);
+    border: 2px solid v-bind(border);
     border-radius: 16px;
     box-sizing: content-box;
     cursor: pointer;
@@ -90,7 +90,7 @@
     @include mixins.with-fade;
 
     & > .selected {
-      background: v-bind('thumb.value');
+      background: v-bind(thumb);
       border-radius: 50%;
       cursor: pointer;
       height: calc(24px - var(--double-unit));

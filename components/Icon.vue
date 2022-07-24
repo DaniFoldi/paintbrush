@@ -39,14 +39,14 @@
   })
 
 
-  const color = computed(() => useThemeColor(props.color))
+  const color = computed(() => useThemeColor(props.color).value)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins';
 
   i {
-    color: v-bind('color.value');
+    color: v-bind(color);
     font-size: v-bind(size);
     vertical-align: middle;
     @include mixins.font('phosphor-icons');

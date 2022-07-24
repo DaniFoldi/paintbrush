@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from '#imports'
+  import { computed, useThemeColor } from '#imports'
   import { IconTypes } from '../modules/icon-types'
   import { IconVariants } from '../modules/icons'
 
@@ -68,7 +68,7 @@
     max: undefined
   })
 
-
+  const color = computed(() => useThemeColor(props.color).value)
   const displayMax = computed(() => props.max ? ` / ${props.max}` : '')
 </script>
 

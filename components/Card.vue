@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useThemeColor } from '#imports'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface CardProps {
@@ -28,7 +28,7 @@
     padded: false
   })
 
-  const background = useThemeColor(props.background)
+  const background = computed(() => useThemeColor(props.background))
 </script>
 
 <style lang="scss" scoped>

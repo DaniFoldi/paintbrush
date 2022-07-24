@@ -6,16 +6,16 @@
 -->
 
 <template>
-  <h1 v-if="mode === 'h1'" :class="classes">
+  <h1 v-if="element === 'h1'" :class="classes">
     <slot />
   </h1>
-  <h2 v-else-if="mode === 'h2'" :class="classes">
+  <h2 v-else-if="element === 'h2'" :class="classes">
     <slot />
   </h2>
-  <h3 v-else-if="mode === 'h3'" :class="classes">
+  <h3 v-else-if="element === 'h3'" :class="classes">
     <slot />
   </h3>
-  <span v-else-if="mode === 'span'" :class="classes">
+  <span v-else-if="element === 'span'" :class="classes">
     <slot />
   </span>
   <p v-else :class="classes">
@@ -55,7 +55,7 @@
     bold: false,
     capitalize: false,
     center: false,
-    color: 'text',
+    color: 'textBackground',
     fontSize: 'default',
     h1: false,
     h2: false,
@@ -75,33 +75,25 @@
     uppercase: false
   })
 
-  let mode = 'p'
-  if (props.title || props.h1) {
-    mode = 'h1'
-  } else if (props.subtitle || props.h2) {
-    mode = 'h2'
-  } else if (props.sectiontitle || props.h3) {
-    mode = 'h3'
-  } else if (props.h4) {
-    mode = 'h4'
-  } else if (props.h5) {
-    mode = 'h5'
-  } else if (props.h6) {
-    mode = 'h6'
-  } else if (props.part) {
-    mode = 'span'
-  }
+  const element = computed(() => {
+    if (props.title || props.h1) {
+      return 'h1'
+    } else if (props.subtitle || props.h2) {
+      return 'h2'
+    } else if (props.sectiontitle || props.h3) {
+      return 'h3'
+    } else if (props.h4) {
+      return 'h4'
+    } else if (props.h5) {
+      return 'h5'
+    } else if (props.h6) {
+      return 'h6'
+    } else if (props.part) {
+      return 'span'
+    }
+    return 'p'
+  })
 
-  if (props.bold) {
-    if (props.light) {
-      console.warn('Text: Only one of the following props should be set: bold, light')
-    }
-    if (props.important) {
-      console.warn('Text: Only one of the following props should be set: bold, important')
-    }
-  } else if (props.light && props.important) {
-    console.warn('Text: Only one of the following props should be set: bold, light')
-  }
 
   const classes = computed(() => [
     props.bold ? 'bold' : '',
@@ -127,7 +119,7 @@
   }
 
   h1, h2, h3, h4, h5, h6, p, span {
-    color: v-bind('color.value');
+    color: v-bind(color);
     font-size: v-bind(fontsize);
 
     &.bold {

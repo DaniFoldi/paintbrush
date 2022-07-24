@@ -34,7 +34,7 @@
 
   const emit = defineEmits<InputEmits>()
 
-  const props = withDefaults(defineProps<InputProps>(), {
+  withDefaults(defineProps<InputProps>(), {
     autoWrap: true,
     modelValue: '',
     placeholder: '',
@@ -58,11 +58,11 @@
     }
 
     input {
-      border: 2px solid var(--background-highlight);
+      border: 2px solid var(--highlight-background);
       height: 32px;
       margin-inline: 0;
       padding-inline: 4px;
-      width: v-bind('props.width');
+      width: v-bind('width');
 
       @include mixins.rounded;
       @include mixins.with-fade;

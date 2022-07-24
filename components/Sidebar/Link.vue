@@ -75,12 +75,12 @@
     }
 
     &:hover, &.router-link-exact-active, &.router-link-active.non-exact {
-      background: var(--background-2);
+      background: var(--highlight-background);
       text-decoration: none;
     }
 
     &:active {
-      background: var(--background-highlight);
+      background: var(--highlight-background);
     }
   }
 </style>

@@ -42,11 +42,11 @@
   }
 
   const props = withDefaults(defineProps<MenubarLinkProps>(), {
-    activeBackground: 'background2',
+    activeBackground: 'highlightBackground',
     autoWrap: true,
     background: 'transparent',
-    clickBackground: 'backgroundHighlight',
-    color: 'text',
+    clickBackground: 'highlightBackground',
+    color: 'backgroundText',
     icon: undefined,
     iconColor: 'primary',
     iconVariant: 'regular',
@@ -54,16 +54,16 @@
   })
 
 
-  const background = computed(() => useThemeColor(props.background))
-  const active = computed(() => useThemeColor(props.activeBackground))
-  const click = computed(() => useThemeColor(props.clickBackground))
+  const background = computed(() => useThemeColor(props.background).value)
+  const active = computed(() => useThemeColor(props.activeBackground).value)
+  const click = computed(() => useThemeColor(props.clickBackground).value)
 </script>
 
 <style lang="scss" scoped>
   @use '../../assets/mixins.scss';
 
   a {
-    background: v-bind('background.value');
+    background: v-bind(background);
     display: grid;
     font-size: 20px;
     height: 40px;
@@ -87,12 +87,12 @@
     }
 
     &:hover, &.router-link-exact-active, &.router-link-active.non-exact {
-      background: v-bind('active.value');
+      background: v-bind(active);
       text-decoration: none;
     }
 
     &:active {
-      background: v-bind('click.value');
+      background: v-bind(click);
     }
   }
   </style>

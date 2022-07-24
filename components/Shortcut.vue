@@ -47,13 +47,13 @@
     color: 'primary'
   })
 
-  const color = computed(() => useThemeColor(props.color))
+  const color = computed(() => useThemeColor(props.color).value)
   const applePlatform = isApplePlatform()
 </script>
 
 <style lang="scss" scoped>
   span {
-    border: 1px solid v-bind('color.value');
+    border: 1px solid v-bind(color);
     border-radius: var(--unit);
     display: inline-grid;
     gap: calc(.5 * var(--unit));
@@ -62,7 +62,7 @@
     place-items: center;
 
     i, kbd {
-      color: v-bind('color.value');
+      color: v-bind(color);
       font-size: 14px;
     }
 

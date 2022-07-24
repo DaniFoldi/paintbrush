@@ -44,7 +44,7 @@
   })
 
 
-  const spacing = computed(() => useThemeColor(props.sidebarSpacing))
+  const spacing = computed(() => useThemeColor(props.sidebarSpacing).value)
   const height = computed(() => props.excludeMiddle ? 'min-content auto' : '1fr auto 1fr')
 </script>
 
@@ -55,7 +55,7 @@
     display: grid;
     grid-template-columns: 260px 1fr;
     grid-template-rows: 100%;
-    row-gap: v-bind('spacing.value');
+    row-gap: v-bind(spacing);
     @include mixins.absolute-full-size;
   }
 
@@ -75,7 +75,7 @@
   }
 
   main {
-    background: var(--background-2);
+    background: var(--background);
     grid-template-rows: 1fr;
     max-height: 100vh;
 
@@ -85,7 +85,7 @@
   }
 
   aside {
-    background: var(--background);
+    background: var(--menu-background);
     grid-template-rows: v-bind(height);
     max-height: 100vh;
     overflow-x: hidden;

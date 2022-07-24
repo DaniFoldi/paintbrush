@@ -17,7 +17,7 @@
         <slot name="menubar-right" />
       </div>
     </nav>
-    <Container v-if="wrapContent" max>
+    <Container v-if="wrapContent" class="menubar-content" max>
       <slot name="content" />
     </Container>
     <slot v-else name="content" />
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useThemeColor } from '#imports'
+  import { computed, useThemeColor } from '#imports'
   import Container from '../Container.vue'
 
 
@@ -42,8 +42,8 @@
   })
 
 
-  const element = useThemeColor(props.menuElementSpacing)
-  const part = useThemeColor(props.menuPartSpacing)
+  const element = computed(() => useThemeColor(props.menuElementSpacing).value)
+  const part = computed(() => useThemeColor(props.menuPartSpacing).value)
 </script>
 
 <style lang="scss" scoped>
@@ -54,10 +54,10 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 64px 1fr;
+  }
 
-    & > div {
-      background: var(--background-2);
-    }
+  .menubar-content {
+    background: var(--background);
   }
 
   div.menubar-left, div.menubar-middle, div.menubar-right {
@@ -73,7 +73,7 @@
   }
 
   nav {
-    background: var(--background);
+    background: var(--menu-background);
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     position: sticky;

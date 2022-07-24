@@ -12,16 +12,22 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed, useThemeColor } from '#imports'
+
+
   interface ButtonGroupProps {
     height?: string // height of buttons
     width?: string // width of buttons
   }
 
-  withDefaults(defineProps<ButtonGroupProps>(), {
+  const props = withDefaults(defineProps<ButtonGroupProps>(), {
     height: '',
     width: ''
   })
-  </script>
+
+  const height = computed(() => useThemeColor(props.height).value)
+  const width = computed(() => useThemeColor(props.width).value)
+</script>
 
 <style lang="scss" scoped>
   div.button-group {

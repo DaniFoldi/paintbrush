@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, onMounted, provide, ref, useStyleTag } from '#imports'
+  import { computed, onBeforeMount, provide, ref, useStyleTag } from '#imports'
 
 
   interface TableColumn {
@@ -39,8 +39,8 @@
 
   const id = ref('')
 
-  onMounted(() => {
-    id.value = `table${crypto.randomUUID().replaceAll('-', '')}`
+  onBeforeMount(() => {
+    id.value = `pb-table-${crypto.randomUUID().replaceAll('-', '')}`
   })
 
   const gridPlaces = computed(() => id.value ? props.layout.map((col, i) => col.align || col.justify || col.place ? `
@@ -52,7 +52,7 @@
 ` : '').filter(Boolean).join('\n') : '')
 
   useStyleTag(gridPlaces)
-  provide('table-use-separator', props.separator)
+  provide('pb-table-use-separator', props.separator)
 
   const rows = computed(() => props.separator ? `${props.rowHeight} 2px` : props.rowHeight)
 </script>
@@ -63,12 +63,12 @@
   div {
     align-items: center;
     background: var(--background);
-    border: 2px solid var(--background-highlight);
+    border: 2px solid var(--highlight-background);
     border-radius: var(--unit);
-    column-gap: v-bind('props.columnGap');
+    column-gap: v-bind('columnGap');
     display: grid;
     grid-auto-rows: v-bind(rows);
-    grid-template-columns: v-bind('props.layout.map(col => col.width).join(" ")');
+    grid-template-columns: v-bind('layout.map(col => col.width).join(" ")');
     margin-block: var(--unit);
     padding-inline: var(--double-unit);
     @include mixins.with-fade;

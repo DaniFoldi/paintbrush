@@ -106,14 +106,14 @@
   }
 
   .search-container {
-    background: var(--background-2);
+    background: var(--background);
     box-shadow: #3636364f 1px 1px 10px 3px;
     margin-top: var(--double-unit);
-    max-height: v-bind('props.maxHeight');
+    max-height: v-bind('maxHeight');
     overflow-y: auto;
     padding: .5rem;
     position: absolute;
-    width: v-bind('props.width');
+    width: v-bind(width);
 
     @include mixins.rounded;
   }
@@ -133,11 +133,11 @@
   }
 
   input {
-    border: 2px solid var(--background-highlight);
+    border: 2px solid var(--highlight-background);
     height: 32px;
     margin-inline: 0;
     padding-inline: 4px;
-    width: v-bind('props.width');
+    width: v-bind(width);
 
     @include mixins.rounded;
     @include mixins.with-fade;

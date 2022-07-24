@@ -65,7 +65,7 @@
   const uuid = ref('')
 
   onMounted(() => {
-    uuid.value = `spoiler${crypto.randomUUID().replaceAll('-', '')}`
+    uuid.value = `pb-spoiler-${crypto.randomUUID().replaceAll('-', '')}`
   })
 
   const spoiler: Spoiler = {

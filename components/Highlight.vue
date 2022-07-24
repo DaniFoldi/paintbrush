@@ -107,8 +107,8 @@
     return 'text'
   })
 
-  const border = computed(() => useThemeColor(color.value))
-  const background = computed(() => border.value.value.startsWith('#') ? `${border.value.value}3f` : border.value.value)
+  const border = computed(() => useThemeColor(color.value).value)
+  const background = computed(() => border.value.startsWith('#') ? `${border.value}${useThemeColor('transparentize')}` : border.value)
 </script>
 
 <style lang="scss" scoped>
@@ -116,7 +116,7 @@
 
   blockquote {
     background: v-bind(background);
-    border-left: 3px solid v-bind('border.value');
+    border-left: 3px solid v-bind(border);
     margin-block: var(--double-unit);
     padding: var(--double-unit);
 

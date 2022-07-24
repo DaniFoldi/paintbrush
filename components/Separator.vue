@@ -19,19 +19,19 @@
   }
 
   const props = withDefaults(defineProps<SeparatorProps>(), {
-    color: 'backgroundHighlight',
+    color: 'highlightBackground',
     rounded: true,
     spaced: false
   })
 
-  const color = computed(() => useThemeColor(props.color))
+  const color = computed(() => useThemeColor(props.color).value)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   hr {
-    border-color: v-bind('color.value');
+    border-color: v-bind(color);
     border-style: solid;
     transition: border-color .25s ease-in-out;
 

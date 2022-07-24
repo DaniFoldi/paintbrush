@@ -35,8 +35,8 @@
 
   withDefaults(defineProps<PopupProps>(), {
     distance: 0,
-    padded: '4px',
-    rounded: '4px'
+    padded: 'unit',
+    rounded: 'radius'
   })
 
 

@@ -14,7 +14,7 @@
   import { inject } from 'vue'
 
 
-  const separator = inject('table-use-separator', true)
+  const separator = inject('pb-table-use-separator', true)
 </script>
 
 <style lang="scss" scoped>

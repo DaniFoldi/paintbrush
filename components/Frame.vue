@@ -81,9 +81,9 @@
   })
 
 
-  const color = computed(() => useThemeColor(props.color))
-  const background = computed(() => color.value.value.startsWith('#') ? `${color.value.value}3f` : color.value.value)
-  const hover = computed(() => color.value.value.startsWith('#') ? `${color.value.value}5f` : color.value.value)
+  const color = computed(() => useThemeColor(props.color).value)
+  const background = computed(() => color.value.startsWith('#') ? `${color.value}${useThemeColor('transparentize').value}` : color.value)
+  const hover = computed(() => color.value.startsWith('#') ? `${color.value}${(Number.parseInt(useThemeColor('transparentize').value, 16) * 1.5).toString(16)}` : color.value)
   const width = computed(() => {
     if (props.desktop) {
       return '480px'
@@ -111,7 +111,7 @@
 <style lang="scss" scoped>
   div {
     background: v-bind(background);
-    border-color: v-bind('color.value');
+    border-color: v-bind(color);
     border-style: solid;
     border-width: var(--unit);
     display: grid;

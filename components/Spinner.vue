@@ -1,6 +1,6 @@
 <!--!
   @category Basic
-  @version 1.0.0
+  @version 1.1.0
   @icon circle-notch
   @description Display a loading indicator
 -->
@@ -18,19 +18,26 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed, useThemeColor } from '#imports'
+
+
   interface SpinnerProps {
     circles?: boolean // Circles mode
+    color?: string // Spinner color
     progress?: number // Progress of the action
   }
 
   const props = withDefaults(defineProps<SpinnerProps>(), {
     circles: true,
+    color: 'primary',
     progress: 0
   })
 
   const containerClasses = {
     'spinner-circles': props.circles
   }
+
+  const color = computed(() => useThemeColor(props.color).value)
 </script>
 
 <style lang="scss" scoped>
@@ -56,7 +63,7 @@
       animation-iteration-count: infinite;
       animation-name: grow;
       animation-timing-function: ease-in-out;
-      background: var(--primary);
+      background: v-bind(color);
       border-radius: 50%;
       height: 16px;
       width: 16px;

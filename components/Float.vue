@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, inject, onMounted, onBeforeUnmount, useThemeColor } from '#imports'
+  import { ref, inject, onMounted, onBeforeUnmount, useThemeColor, computed } from '#imports'
 
 
   interface FloatProps {
@@ -25,8 +25,8 @@
   const props = withDefaults(defineProps<FloatProps>(), {
     color: 'primary',
     distance: 4,
-    width: 'var(--unit)',
-    radius: 'var(--unit)'
+    width: 'unit',
+    radius: 'unit'
   })
 
   const left = ref('0px')
@@ -34,9 +34,9 @@
   const width = ref('0px')
   const height = ref('0px')
 
-  const color = useThemeColor(props.color)
-  const border = useThemeColor(props.width)
-  const radius = useThemeColor(props.radius)
+  const color = computed(() => useThemeColor(props.color).value)
+  const border = computed(() => useThemeColor(props.width).value)
+  const radius = computed(() => useThemeColor(props.radius).value)
 
   const container = inject('scrollAnchor', ref<HTMLElement | null>())
 

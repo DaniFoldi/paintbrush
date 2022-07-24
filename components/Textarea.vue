@@ -14,6 +14,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed } from '#imports'
+
+
   interface TextAreaEmits {
     (e: 'update:modelValue', value: string): void // v-model update
   }
@@ -49,7 +52,7 @@
   @use '../assets/mixins.scss';
 
   textarea {
-    border: 2px solid var(--background-highlight);
+    border: 2px solid var(--highlight-background);
     margin: var(--double-unit) 0;
     padding-inline: var(--unit);
     resize: v-bind(resize);

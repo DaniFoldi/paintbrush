@@ -45,9 +45,9 @@
   })
 
 
-  const color = useThemeColor(props.color)
+  const color = computed(() => useThemeColor(props.color).value)
   const background = computed(() => color.value.startsWith('#') ? `${color.value}3f` : color.value)
-  const thumb = useThemeColor(props.thumbColor)
+  const thumb = computed(() => useThemeColor(props.thumbColor).value)
 
   function onChange(event: Event) {
     emit('update:modelValue', (event?.target as HTMLInputElement).checked)

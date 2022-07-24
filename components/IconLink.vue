@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useThemeColor } from '#imports'
+  import { computed, useThemeColor } from '#imports'
   import { IconVariants } from '../modules/icons'
   import { IconTypes } from '../modules/icon-types'
 
@@ -41,7 +41,7 @@
   }
 
   const props = withDefaults(defineProps<IconProps>(), {
-    color: 'text',
+    color: 'backgroundText',
     iconColor: 'inherit',
     iconSize: 'inherit',
     iconVariant: 'regular',
@@ -49,14 +49,14 @@
     rightIcon: false
   })
 
-  const text = useThemeColor(props.color)
+  const color = computed(() => useThemeColor(props.color).value)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   a {
-    color: v-bind(text);
+    color: v-bind(color);
     @include mixins.two-items;
   }
 </style>
