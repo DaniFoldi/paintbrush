@@ -13,7 +13,6 @@
       'center-block': centerBlock,
       'center-inline': centerInline,
       'grid': grid,
-      'padded': padded,
       'max': max,
       'article': article,
       'split': split
@@ -28,7 +27,6 @@
       'center-block': centerBlock,
       'center-inline': centerInline,
       'grid': grid,
-      'padded': padded,
       'max': max,
       'article': article,
       'split': split
@@ -56,7 +54,7 @@
   const props = withDefaults(defineProps<ContainerProps>(), {
     article: false,
     center: false,
-    gap: '0px',
+    gap: '0',
     grid: '',
     inline: false,
     max: false,
@@ -74,6 +72,8 @@
   @use '../assets/mixins.scss';
 
   .container {
+    padding: v-bind(padding);
+
     @include mixins.no-margin;
 
     &.max {
@@ -97,10 +97,6 @@
     &.center-inline {
       display: grid;
       justify-items: center;
-    }
-
-    &.padded {
-      padding: v-bind(padding);
     }
 
     &.grid {
