@@ -1,5 +1,5 @@
 <!--!
-  @version 1.7.1
+  @version 2.0.0
   @icon package
   @description Container component for pages, main content and elements
   @category Layout
@@ -13,15 +13,11 @@
       'center-block': centerBlock,
       'center-inline': centerInline,
       'grid': grid,
-      'left-badge': leftBadge,
       'padded': padded,
-      'right-badge': rightBadge,
       'max': max,
       'article': article,
       'split': split
     }"
-    :data-left-badge="leftBadge"
-    :data-right-badge="rightBadge"
   >
     <slot />
   </span>
@@ -32,15 +28,11 @@
       'center-block': centerBlock,
       'center-inline': centerInline,
       'grid': grid,
-      'left-badge': leftBadge,
       'padded': padded,
-      'right-badge': rightBadge,
       'max': max,
       'article': article,
       'split': split
     }"
-    :data-left-badge="leftBadge"
-    :data-right-badge="rightBadge"
   >
     <slot />
   </div>
@@ -56,10 +48,8 @@
     gap?: string // gap between grid elements
     grid?: string // Specify custom grid-template-columns
     inline?: boolean // Display container as inline
-    leftBadge?: string // Badge in top left corner
     max?: boolean // Stretch container to maximum width and height
     padded?: boolean | string // Apply padding
-    rightBadge?: string // Badge in top right corner
     split?: boolean // Split container into two halves
   }
 
@@ -69,10 +59,8 @@
     gap: '0px',
     grid: '',
     inline: false,
-    leftBadge: '',
     max: false,
     padded: false,
-    rightBadge: '',
     split: false
   })
 
@@ -126,54 +114,6 @@
     &.split {
       display: grid;
       grid-template-columns: 1fr auto;
-    }
-
-    &.left-badge {
-      position: relative;
-
-      &::before {
-        background: var(--badge);
-        border-radius: 9px;
-        color: var(--text-on-badge);
-        content: attr(data-left-badge);
-        display: inline;
-        font-size: 11px;
-        height: 18px;
-        left: -7px;
-        line-height: 18px;
-        min-width: 18px;
-        padding-inline: 2px;
-        position: absolute;
-        text-align: center;
-        top: -7px;
-        vertical-align: middle;
-
-        @include mixins.font('inter');
-      }
-    }
-
-    &.right-badge {
-      position: relative;
-
-      &::after {
-        background: var(--badge);
-        border-radius: 9px;
-        color: var(--text-on-badge);
-        content: attr(data-right-badge);
-        display: inline;
-        font-size: 11px;
-        height: 18px;
-        line-height: 18px;
-        min-width: 18px;
-        padding-inline: 2px;
-        position: absolute;
-        right: -7px;
-        text-align: center;
-        top: -7px;
-        vertical-align: middle;
-
-        @include mixins.font('inter');
-      }
     }
   }
 
