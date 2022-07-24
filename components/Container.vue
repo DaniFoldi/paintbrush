@@ -1,5 +1,5 @@
 <!--!
-  @version 1.7.0
+  @version 1.7.1
   @icon package
   @description Container component for pages, main content and elements
   @category Layout
@@ -79,7 +79,7 @@
 
   const centerBlock = computed(() => props.center === 'block' || props.center === true)
   const centerInline = computed(() => props.center === 'inline' || props.center === true)
-  const padding = computed(() => props.padded === true ? 'var(--unit)' : (props.padded ? useThemeColor(props.padded) : '0px'))
+  const padding = computed(() => props.padded === true ? 'var(--unit)' : (props.padded ? useThemeColor(props.padded).value : '0px'))
 </script>
 
 <style lang="scss" scoped>
