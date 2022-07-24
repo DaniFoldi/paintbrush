@@ -1,5 +1,5 @@
 <!--!
-  @version 1.6.0
+  @version 2.0.0
   @icon text-aa
   @description Text component to display text
   @category Basic
@@ -33,7 +33,6 @@
     center?: boolean // Center text
     color?: string // Text color
     fontSize?: string // Override the default font size
-    gradient?: boolean | string // Gradient text
     h1?: boolean // Use h1 tag
     h2?: boolean // Use h2 tag
     h3?: boolean // Use h3 tag
@@ -58,7 +57,6 @@
     center: false,
     color: 'text',
     fontSize: 'default',
-    gradient: false,
     h1: false,
     h2: false,
     h3: false,
@@ -109,7 +107,6 @@
     props.bold ? 'bold' : '',
     props.capitalize ? 'capitalize' : '',
     props.center ? 'center' : '',
-    props.gradient ? 'gradient' : '',
     props.important ? 'important' : '',
     props.inline ? 'inline' : '',
     props.italic ? 'italic' : '',
@@ -118,10 +115,8 @@
     props.uppercase ? 'uppercase' : ''
   ])
 
-  const color = computed(() => useThemeColor(props.color))
-  const primarycolor = computed(() => `var(--${props.gradient === true ? 'primary' : props.color})`)
-  const secondarycolor = computed(() => props.gradient ? `var(--${props.gradient === true ? 'secondary' : props.gradient})` : `var(--${props.color})`)
-  const fontsize = computed(() => props.fontSize === 'default' ? textFontSize(mode) : props.fontSize)
+  const color = computed(() => useThemeColor(props.color).value)
+  const fontsize = computed(() => props.fontSize === 'default' ? textFontSize(element.value) : props.fontSize)
 </script>
 
 <style lang="scss" scoped>
@@ -162,13 +157,6 @@
 
     &.center {
       text-align: center;
-    }
-
-    &.gradient {
-      background: linear-gradient(45deg, v-bind(primarycolor), v-bind(secondarycolor));
-      background-clip: text;
-      color: transparent;
-      font-style: normal;
     }
   }
 </style>
