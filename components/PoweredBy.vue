@@ -11,9 +11,11 @@
       <Text part>
         Powered by
       </Text>
-      <Text gradient part>
-        Paintbrush
-      </Text>
+      <GradientText>
+        <Text part>
+          Paintbrush
+        </Text>
+      </GradientText>
     </Text>
   </AutoLink>
 </template>
