@@ -40,7 +40,7 @@
 
   withDefaults(defineProps<IconProps>(), {
     color: 'primary',
-    iconColor: 'white',
+    iconColor: 'backgroundText',
     iconSize: '20px',
     iconVariant: 'regular',
     leftIcon: true,

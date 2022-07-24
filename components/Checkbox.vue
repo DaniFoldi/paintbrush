@@ -48,7 +48,7 @@
 
     input[type=checkbox] {
       appearance: none;
-      border: 2px solid var(--text-2);
+      border: 2px solid var(--shadow);
       border-radius: var(--unit);
       cursor: pointer;
       height: 24px;
