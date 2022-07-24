@@ -67,15 +67,13 @@
 
   const centerBlock = computed(() => props.center === 'block' || props.center === true)
   const centerInline = computed(() => props.center === 'inline' || props.center === true)
-  const padding = computed(() => props.padded === true ? 'var(--unit)' : (props.padded ? useThemeColor(props.padded).value : '0px'))
+  const padding = computed(() => props.padded ? useThemeColor(props.padded === true ? 'unit' : props.padded).value : '0')
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   .container {
-    padding: v-bind(padding);
-
     @include mixins.no-margin;
 
     &.max {
@@ -102,7 +100,7 @@
     }
 
     &.padded {
-      @include mixins.double-unit-padding;
+      padding: v-bind(padding);
     }
 
     &.grid {
