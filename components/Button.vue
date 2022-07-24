@@ -1,5 +1,5 @@
 <!--!
-  @version 1.4.0
+  @version 2.0.0
   @description Button component with optional gradient or ghost effect
   @icon hand-pointing
   @category Basic
@@ -12,14 +12,13 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, useContrastingColor, useThemeColor } from '#imports'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface ButtonProps {
     capitalize?: boolean // Capitalize the button text
     color?: string // Background color of the button
     ghost?: boolean // Add a ghost effect to the button
-    gradient?: string  // Set the 2nd gradient color
     large?: boolean // Make the button larger
     small?: boolean // Make the button smaller
     type?: 'button' | 'submit' | 'reset' // Button type
@@ -30,24 +29,22 @@
     capitalize: false,
     color: 'primary',
     ghost: false,
-    gradient: '',
     large: false,
     small: false,
     type: 'button',
     uppercase: false
   })
 
-  const primarycolor = useThemeColor(props.color)
-  const secondarycolor = computed(() => useThemeColor(props.gradient ?? props.color))
-  const textcolor = computed(() => useThemeColor(useContrastingColor(primarycolor.value, 'text', 'background')))
+  const background = computed(() => useThemeColor(props.background).value)
+  const color = computed(() => useThemeColor(props.color).value)
 </script>
 
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
   button {
-    background-image: linear-gradient(45deg, v-bind(primarycolor), v-bind('secondarycolor.value'));
-    color: v-bind('textcolor.value');
+    background: v-bind(background);
+    color: v-bind(color);
     cursor: pointer;
     min-height: 32px;
     min-width: 80px;
