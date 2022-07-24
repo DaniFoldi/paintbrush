@@ -24,10 +24,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from '#imports'
+  import { computed, useThemeColor } from '#imports'
 
 
   interface AutoLinkProps {
+    color?: string // Link color
     href: string // URL to navigate to
     newTab?: boolean // Open link in new tab
     underline?: boolean | 'hover' // Underline text always or on hover
@@ -35,6 +36,7 @@
   }
 
   const props = withDefaults(defineProps<AutoLinkProps>(), {
+    color: 'backgroundText',
     newTab: false,
     underline: false,
     weight: 400
@@ -49,11 +51,13 @@
       return false
     }
   })
+
+  const color = computed(() => useThemeColor(props.color).value)
 </script>
 
 <style lang="scss" scoped>
   a, a:visited {
-    color: var(--primary);
+    color: v-bind(color);
     cursor: pointer;
     font-weight: v-bind(weight);
     text-decoration: none;
