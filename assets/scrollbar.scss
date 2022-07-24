@@ -12,13 +12,13 @@
 
   &::-webkit-scrollbar-thumb {
     background-clip: content-box;
-    background-color: var(--background-highlight);
+    background-color: var(--highlight-background);
     border: 3px solid transparent;
     border-radius: 8px;
   }
 }
 
 @mixin spec {
-  scrollbar-color: var(--background-highlight) transparent;
+  scrollbar-color: var(--highlight-background) transparent;
   scrollbar-width: auto;
 }

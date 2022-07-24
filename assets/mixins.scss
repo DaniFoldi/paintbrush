@@ -21,7 +21,7 @@
 }
 
 @mixin standard-text {
-  color: var(--text);
+  color: var(--background-text);
 }
 
 @mixin standard-background {
@@ -34,7 +34,7 @@
 }
 
 @mixin primary-color {
-  color: var(--text-on-primary);
+  color: var(--primary-text);
 }
 
 @mixin rounded {
@@ -58,11 +58,11 @@
 }
 
 @mixin double-unit-padding {
-  padding: calc(2 * var(--unit));
+  padding: var(--double-unit);
 }
 
 @mixin double-unit-block-padding {
-  padding-block: calc(2 * var(--unit));
+  padding-block: var(--double-unit);
 }
 
 @mixin no-inline-padding {
@@ -74,7 +74,7 @@
 }
 
 @mixin double-unit-inline-padding {
-  padding-inline: calc(2 * var(--unit));
+  padding-inline: var(--double-unit);
 }
 
 @mixin double-unit-margin {
@@ -82,11 +82,11 @@
 }
 
 @mixin double-unit-block-margin {
-  margin-block: calc(var(--unit) * 2);
+  margin-block: var(--double-unit);
 }
 
 @mixin double-unit-inline-margin {
-  margin-inline: calc(var(--unit) * 2);
+  margin-inline: var(--double-unit);
 }
 
 @mixin unit-block-margin {
