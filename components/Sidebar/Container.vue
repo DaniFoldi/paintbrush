@@ -1,5 +1,5 @@
 <!--!
-  @version 1.3.0
+  @version 1.4.0
   @icon sidebar-simple
   @category Navigation
   @description Container for sidebar elements
@@ -33,18 +33,21 @@
 
   interface SidebarContainerProps {
     excludeMiddle?: boolean // Exclude middle part
+    segmentSpacing?: string // Segmentation between top, middle and bottom parts
     sidebarSpacing?: string // Spacing between sidebar parts
     wrapContent?: boolean // Wrap content in a container
   }
 
   const props = withDefaults(defineProps<SidebarContainerProps>(), {
     excludeMiddle: false,
+    segmentSpacing: 'double-unit',
     sidebarSpacing: 'double-unit',
     wrapContent: true
   })
 
 
   const spacing = computed(() => useThemeColor(props.sidebarSpacing).value)
+  const segment = computed(() => useThemeColor(props.segmentSpacing).value)
   const height = computed(() => props.excludeMiddle ? 'min-content auto' : '1fr auto 1fr')
 </script>
 
@@ -61,7 +64,7 @@
 
   div.sidebar-top, div.sidebar-middle, div.sidebar-bottom {
     display: grid;
-    row-gap: calc(2 * var(--unit));
+    row-gap: v-bind(segment);
   }
 
   .sidebar-bottom {
