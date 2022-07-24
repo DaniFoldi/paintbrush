@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.0
+  @version 0.1.1
   @category Paintbrush
   @icon notification
   @description A container for Paintbrush notifications
@@ -16,14 +16,20 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed, useNotification, useThemeColor } from '#imports'
+
+
   interface NotificationContainerProps {
+    background?: string // Background color of container
     position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' // Position of the container
   }
 
-  const props = defineProps<NotificationContainerProps>()
+  const props = withDefaults(defineProps<NotificationContainerProps>(), {
+    background: 'menuBackground'
+  })
 
 
-  const background = useThemeColor('background2')
+  const background = computed(() => useThemeColor(props.background).value)
   const top = computed(() => props.position.startsWith('top'))
   const bottom = computed(() => props.position.startsWith('bottom'))
   const left = computed(() => props.position.endsWith('left'))

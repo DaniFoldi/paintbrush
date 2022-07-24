@@ -34,19 +34,24 @@
 </template>
 
 <script lang="ts" setup>
-  import { useNotification } from '#imports'
-  import { Notification } from '../../scripts/types'
+  import { useNotification, computed, useThemeColor } from '#imports'
+  import { Notification } from '~/scripts/types'
 
 
   interface NotificationDisplayProps {
+    background?: string // background color of the notification
+    highlight?: string // highlight color of the notification
     notification: Notification // The displayed notification
   }
 
-  const props = defineProps<NotificationDisplayProps>()
+  const props = withDefaults(defineProps<NotificationDisplayProps>(), {
+    background: 'background',
+    highlight: 'highlight'
+  })
 
 
-  const background = useThemeColor('background2')
-  const highlight = useThemeColor('backgroundHighlight')
+  const background = computed(() => useThemeColor(props.background).value)
+  const highlight = computed(() => useThemeColor(props.highlight).value)
 
   function destroy() {
     useNotification().destroy(props.notification)
