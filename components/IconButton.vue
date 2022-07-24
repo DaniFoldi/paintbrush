@@ -1,5 +1,5 @@
 <!--!
-  @version 1.2.1
+  @version 1.3.0
   @icon hand-pointing
   @category Basic
   @require phosphor-icons
@@ -8,7 +8,7 @@
 
 <template>
   <Button :class="{ 'flip': !leftIcon && rightIcon }">
-    <Text v-if="!leftIcon && rightIcon" :color="color">
+    <Text v-if="!leftIcon && rightIcon" :background="background" :color="color">
       <slot />
     </Text>
     <Icon
@@ -29,6 +29,7 @@
 
 
   interface IconProps {
+    background?: string // Button background color
     color?: string // Button color
     icon: IconTypes // Icon name
     iconColor?: string // Icon color
@@ -39,6 +40,7 @@
   }
 
   withDefaults(defineProps<IconProps>(), {
+    background: 'background',
     color: 'primary',
     iconColor: 'backgroundText',
     iconSize: '20px',
