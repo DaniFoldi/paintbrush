@@ -7,7 +7,12 @@
 -->
 
 <template>
-  <Runtime :class="classes" element="code" :rendered="highlight.value" />
+  <Runtime
+    class="hljs"
+    :class="highlight.language"
+    element="code"
+    :rendered="highlight.value"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -30,7 +35,6 @@
     }
     return props.language === 'auto' ? hljs.highlightAuto(props.code) : hljs.highlight(props.code, { language: props.language })
   })
-  const classes = computed(() => [ 'hljs', highlight.value.language ].filter(Boolean).join(' '))
 </script>
 
 <style lang="scss">
