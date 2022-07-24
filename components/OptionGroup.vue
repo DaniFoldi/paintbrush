@@ -18,6 +18,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { useCapitalize } from '#imports'
+
+
   interface OptionGroupProps {
     capitalizeTitles?: boolean // whether to capitalize the titles
     modelValue?: string // currently selected option
@@ -43,7 +46,7 @@
     if (props.titles) {
       return props.titles[props.options.indexOf(value)] || value
     } else if (props.capitalizeTitles) {
-      return capitalize(value)
+      return useCapitalize(value)
     }
 
     return value
@@ -53,15 +56,5 @@
     const old = props.modelValue
     emit('update:modelValue', option)
     emit('pb-option-selected', { from: old, to: option })
-  }
-
-  function capitalize(input: string) {
-    if (input.length === 0) {
-      return ''
-    } else if (input.length === 1) {
-      return input.toUpperCase()
-    }
-
-    return input.charAt(0).toUpperCase() + input.slice(1)
   }
 </script>
