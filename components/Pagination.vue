@@ -1,6 +1,6 @@
 <!--!
   @icon dots-three
-  @version 1.0.1
+  @version 1.0.2
   @category Layout
   @description Automatically paginate content
 -->
@@ -12,10 +12,10 @@
       icon-size="16px"
       icon-variant="bold"
       :left-icon="false"
-      @click="selectPage(page - 1)"
+      @click="selectPage(modelValue - 1)"
     />
     <template v-for="button of visibleButtons" :key="button">
-      <Button v-if="typeof button === 'number'" :ghost="button !== page" @click="selectPage(button)">
+      <Button v-if="typeof button === 'number'" :ghost="button !== modelValue" @click="selectPage(button)">
         {{ button }}
       </Button>
       <Container v-else-if="button === 'ellipsis'" center max>
@@ -32,13 +32,13 @@
       icon-size="16px"
       icon-variant="bold"
       :left-icon="false"
-      @click="selectPage(page + 1)"
+      @click="selectPage(modelValue + 1)"
     />
   </ButtonGroup>
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref } from '#imports'
+  import { computed } from '#imports'
   import type { ComputedRef } from 'vue'
 
 
@@ -54,17 +54,18 @@
   }
 
   const emit = defineEmits<PaginationEmits>()
+
   const props = withDefaults(defineProps<PaginationProps>(), {
     itemsPerPage: 10,
     maxButtons: 7,
     modelValue: 1
   })
 
-  const page = ref(props.modelValue)
+
   const pages = computed(() => Math.ceil(props.totalItems / props.itemsPerPage))
 
   const visibleButtons: ComputedRef<('ellipsis' | number)[]> = computed(() => {
-    const buttons: ('ellipsis' | number)[] = [ page.value ]
+    const buttons: ('ellipsis' | number)[] = [ props.modelValue.value ]
 
     while (buttons.length < props.maxButtons) {
       const lowerValue = (buttons[0] as number) - 1
@@ -99,7 +100,6 @@
       return
     }
 
-    page.value = newPage
     emit('update:modelValue', newPage)
   }
 </script>
