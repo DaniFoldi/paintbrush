@@ -24,4 +24,4 @@
     offset: 0,
     rotatedOpacity: 1
   })
-  </script>
+</script>
