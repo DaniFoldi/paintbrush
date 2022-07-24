@@ -65,7 +65,7 @@
   const pages = computed(() => Math.ceil(props.totalItems / props.itemsPerPage))
 
   const visibleButtons: ComputedRef<('ellipsis' | number)[]> = computed(() => {
-    const buttons: ('ellipsis' | number)[] = [ props.modelValue.value ]
+    const buttons: ('ellipsis' | number)[] = [ props.modelValue ]
 
     while (buttons.length < props.maxButtons) {
       const lowerValue = (buttons[0] as number) - 1
