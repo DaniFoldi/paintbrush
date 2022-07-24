@@ -6,9 +6,9 @@
 -->
 
 <template>
-  <Text>
+  <Text :color="color">
     <Icon color="inherit" name="copyright" />
-    <Text part>
+    <Text color="inherit" part>
       {{ years }}
       <slot />
     </Text>
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useThemeColor, computed } from '#imports'
+  import { computed } from '#imports'
 
 
   interface CopyrightProps {
@@ -32,17 +32,5 @@
   })
 
 
-  const color = useThemeColor(props.color)
   const years = computed(() => props.startYear === props.endYear ? props.startYear : `${props.startYear} - ${props.endYear}`)
 </script>
-
-<style lang="scss" scoped>
-  blockquote {
-    color: v-bind(color);
-
-    i {
-      margin-right: 1px;
-      vertical-align: middle;
-    }
-  }
-</style>
