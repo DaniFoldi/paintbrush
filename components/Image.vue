@@ -18,7 +18,7 @@
     source: string // Image source
   }
 
-  const props = withDefaults(defineProps<ImageProps>(), {
+  withDefaults(defineProps<ImageProps>(), {
     maxHeight: '100%',
     maxWidth: '100%',
     rounded: true
@@ -29,8 +29,8 @@
   @use '../assets/mixins.scss';
 
   img {
-    max-height: v-bind('props.maxHeight');
-    max-width: v-bind('props.maxWidth');
+    max-height: v-bind('maxHeight');
+    max-width: v-bind('maxWidth');
 
     &.rounded {
       @include mixins.rounded;
