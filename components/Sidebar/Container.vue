@@ -40,8 +40,8 @@
 
   const props = withDefaults(defineProps<SidebarContainerProps>(), {
     excludeMiddle: false,
-    segmentSpacing: 'double-unit',
-    sidebarSpacing: 'double-unit',
+    segmentSpacing: 'doubleUnit',
+    sidebarSpacing: 'doubleUnit',
     wrapContent: true
   })
 
@@ -58,7 +58,6 @@
     display: grid;
     grid-template-columns: 260px 1fr;
     grid-template-rows: 100%;
-    row-gap: v-bind(spacing);
     @include mixins.absolute-full-size;
   }
 
@@ -93,6 +92,7 @@
     max-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
+    row-gap: v-bind(spacing);
 
     & > div:not(:empty) {
       @include mixins.double-unit-padding;

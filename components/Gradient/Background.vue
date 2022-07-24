@@ -1,3 +1,10 @@
+<!--!
+  @icon gradient
+  @category Display
+  @version 0.1.0
+  @description Apply a gradient background to child elements
+-->
+
 <template>
   <slot />
 </template>
@@ -8,12 +15,12 @@
   }
 
   withDefaults(defineProps<GradientBackgroundProps>(), {
-    gradient: 'linear-gradient(45deg, var(primary), var(secondary))'
+    gradient: 'linear-gradient(45deg, var(--primary), var(--secondary))'
   })
 </script>
 
 <style lang="scss" scoped>
-  :slotted( > *) {
+  *:slotted( > *:not(.pb-specific)) {
     background-image: v-bind(gradient);
   }
 </style>

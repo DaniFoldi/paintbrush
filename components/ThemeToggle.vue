@@ -41,7 +41,7 @@
   const props = withDefaults(defineProps<ThemeToggleProps>(), {
     background: 'background',
     border: 'highlightBackground',
-    thumbColor: 'backgroundText'
+    thumbColor: 'shadowText'
   })
 
 

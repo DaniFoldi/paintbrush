@@ -1,9 +1,11 @@
 <template>
   <Container center max>
     <Text title>
-      Choose a <Text font-size="inherit" gradient part>
-        component
-      </Text> on the left
+      Choose a <GradientText>
+        <Text font-size="inherit" part>
+          component
+        </Text>
+      </GradientText> on the left
     </Text>
   </Container>
 </template>

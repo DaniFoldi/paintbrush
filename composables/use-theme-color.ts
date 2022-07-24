@@ -14,16 +14,19 @@ export default function(color: string): Ref<string> {
     }
     const preferredTheme = useTheme()
     if (preferredTheme.theme === 'light') {
-      return _scheme[_light[color]] || _scheme[color] || color
+      return _scheme[_light[color]] ?? _light[color] ?? _scheme[color] ?? color
     } else if (preferredTheme.theme === 'dark') {
-      return _scheme[_dark[color]] || _scheme[color] || color
+      return _scheme[_dark[color]] ?? _dark[color] ?? _scheme[color] ?? color
     }
 
     // eslint-disable-next-line no-undef -- process will be added to globals
     if (process.client) {
-      return (usePreferredDark().value ? _scheme[_dark[color]] : _scheme[_light[color]]) || _scheme[color] || color
+      return (usePreferredDark().value
+        ? (_scheme[_dark[color]] ?? _dark[color])
+        : (_scheme[_light[color] ?? _light[color]]))
+        ?? _scheme[color] ?? color
     }
-    return _scheme[color] || color
+    return _scheme[color] ?? color
   })
 }
 

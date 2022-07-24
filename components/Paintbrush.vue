@@ -10,8 +10,6 @@
     <slot />
   </Container>
   <slot v-else />
-  <!-- eslint-disable-next-line vue/html-self-closing -- IDE syntax higlighting gets broken with self-closing -->
-  <!-- <Style :children="htmlStyle"></Style> -->
 </template>
 
 <script lang="ts" setup>
@@ -80,7 +78,7 @@
       'blue-8': '#00344e',
       'blue-9': '#001e2f',
       'blue-10': '#000000',
-      'gray-0': '#ffffff',
+      'gray-0': '#f6f6f6',
       'gray-1': '#e2e2e2',
       'gray-2': '#c6c6c6',
       'gray-3': '#ababab',
@@ -90,7 +88,7 @@
       'gray-7': '#474747',
       'gray-8': '#303030',
       'gray-9': '#1b1b1b',
-      'gray-10': '#000000',
+      'gray-10': '#0a0a0a',
       'green-0': '#ffffff',
       'green-1': '#ecffec',
       'green-2': '#caffca',
@@ -193,22 +191,22 @@
     }),
     container: true,
     darkColors: () => ({
-      background: 'gray-10',
+      background: 'gray-9',
       backgroundText: 'gray-0',
       disabled: 'gray-5',
       doubleUnit: '8px',
       highlightBackground: 'gray-7',
       highlightText: 'gray-0',
-      menuBackground: 'gray-8',
+      menuBackground: 'gray-10',
       menuText: 'gray-0',
       primary: 'blue-4',
-      primaryText: 'gray-10',
+      primaryText: 'gray-0',
       radius: '4px',
-      secondary: 'purple-4',
-      secondaryText: 'gray-10',
+      secondary: 'aqua-4',
+      secondaryText: 'gray-0',
       shadow: 'gray-6',
       shadowText: 'gray-4',
-      theme: 'gray-10',
+      theme: 'primary',
       transparentize: '3f',
       unit: '4px'
     }),
@@ -220,22 +218,22 @@
     largeImage: '',
     largeImageAlt: '',
     lightColors: () => ({
-      background: 'gray-0',
+      background: 'gray-1',
       backgroundText: 'gray-10',
       disabled: 'gray-5',
       doubleUnit: '8px',
       highlightBackground: 'gray-3',
       highlightText: 'gray-10',
-      menuBackground: 'gray-2',
+      menuBackground: 'gray-0',
       menuText: 'gray-10',
       primary: 'azure-5',
       primaryText: 'gray-10',
       radius: '4px',
-      secondary: 'purple-4',
+      secondary: 'aqua-4',
       secondaryText: 'gray-10',
       shadow: 'gray-4',
       shadowText: 'gray-6',
-      theme: 'gray-0',
+      theme: 'primary',
       transparentize: '3f',
       unit: '4px'
     }),

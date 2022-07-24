@@ -37,7 +37,7 @@
 
   const props = withDefaults(defineProps<ContainerProps>(), {
     menuElementSpacing: 'unit',
-    menuPartSpacing: 'double-unit',
+    menuPartSpacing: 'doubleUnit',
     wrapContent: true
   })
 

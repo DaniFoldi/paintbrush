@@ -55,7 +55,7 @@
     bold: false,
     capitalize: false,
     center: false,
-    color: 'textBackground',
+    color: 'backgroundText',
     fontSize: 'default',
     h1: false,
     h2: false,
