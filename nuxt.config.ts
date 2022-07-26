@@ -61,6 +61,15 @@ export default defineNuxtConfig({
   },
   // #MARK(PB-2)
   modules: [ './modules/icons', './modules/docs', /* '@nuxtjs/i18n-edge',*/ '@pinia/nuxt', '@nuxt/content', '@vueuse/nuxt', 'nuxt-lodash' ],
+  nitro: {
+    entry: '../entry.ts',
+    preset: 'cloudflare',
+    rollupConfig: {
+      output: {
+        format: 'esm'
+      }
+    }
+  },
   ssr: true,
   typescript: {
     shim: false
