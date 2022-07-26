@@ -34,7 +34,7 @@
 <style lang="scss" scoped>
   @use '../assets/mixins.scss';
 
-  :slotted( > * ) {
+  *:slotted( > * ) {
 
     &.left-badge {
       position: relative;
