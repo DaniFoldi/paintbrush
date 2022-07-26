@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <Container :data-attropos-offet="offset" :data-attropos-opacity="`${initialOpacity};${rotatedOpacity}`">
+  <Container :data-atropos-offet="offset" :data-atropos-opacity="`${initialOpacity};${rotatedOpacity}`">
     <slot />
   </Container>
 </template>

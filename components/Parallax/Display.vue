@@ -7,13 +7,12 @@
 -->
 
 <template>
-  <atropos @enter="$emit('pb-enter')" @leave="$emit('pb-leave')" @rotate="(x, y) => $emit('pb-rotate', { x, y })">
+  <Atropos @enter="$emit('pb-enter')" @leave="$emit('pb-leave')" @rotate="(x, y) => $emit('pb-rotate', { x, y })">
     <slot />
-  </atropos>
+  </Atropos>
 </template>
 
 <script lang="ts" setup>
-  // eslint-disable-next-line import/no-named-as-default
   import Atropos from 'atropos/vue'
 
 
