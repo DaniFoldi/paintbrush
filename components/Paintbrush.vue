@@ -1,5 +1,5 @@
 <!--!
-  @version 1.3.0
+  @version 1.3.1
   @description Main component to be used everywhere
   @icon paintbrush
   @note This component should be wrapping every other Paintbrush component used, see Getting Started
@@ -200,7 +200,7 @@
       menuBackground: 'gray-10',
       menuText: 'gray-0',
       primary: 'blue-4',
-      primaryText: 'gray-0',
+      primaryText: 'gray-10',
       radius: '4px',
       secondary: 'aqua-4',
       secondaryText: 'gray-0',

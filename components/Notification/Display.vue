@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.0
+  @version 0.1.1
   @category Paintbrush
   @icon notification
   @description A displayed notification
@@ -35,7 +35,7 @@
 
 <script lang="ts" setup>
   import { useNotification, computed, useThemeColor } from '#imports'
-  import { Notification } from '~/scripts/types'
+  import { Notification } from '../../scripts/types'
 
 
   interface NotificationDisplayProps {

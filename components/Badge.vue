@@ -1,5 +1,5 @@
 <!--!
-  @version 0.0.1
+  @version 0.0.2
   @icon notification
   @description Place a badge in the corner of any element
   @category Layout

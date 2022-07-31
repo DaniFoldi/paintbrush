@@ -1,5 +1,5 @@
 <!--!
-  @version 1.2.0
+  @version 1.2.1
   @category Layout
   @icon cards
   @description Visual building block with a separate background color
@@ -28,7 +28,7 @@
     padded: false
   })
 
-  const background = computed(() => useThemeColor(props.background))
+  const background = computed(() => useThemeColor(props.background).value)
 </script>
 
 <style lang="scss" scoped>
