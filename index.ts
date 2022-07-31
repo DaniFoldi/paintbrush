@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url'
-import { addComponentsDir, addAutoImportDir, defineNuxtModule, addPlugin } from '@nuxt/kit'
+import { addComponentsDir, addAutoImportDir, defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
 
 
 export default defineNuxtModule({
@@ -17,6 +17,8 @@ export default defineNuxtModule({
     }
   },
   async setup(moduleOptions) {
+    const resolver = createResolver(import.meta.url)
+
     if (moduleOptions.mountComposables) {
       await addAutoImportDir(fileURLToPath(new URL('composables', import.meta.url)))
     }
@@ -24,8 +26,8 @@ export default defineNuxtModule({
       await addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)), prefix: moduleOptions.prefixComponents ? 'Pb' : undefined })
     }
     if (moduleOptions.mountPlugins) {
-      await addPlugin(fileURLToPath(new URL('plugins/autoanimate.ts', import.meta.url)))
-      await addPlugin(fileURLToPath(new URL('plugins/persistent-store.ts', import.meta.url)))
+      addPlugin(resolver.resolve('./plugins/autoanimate.ts'))
+      addPlugin(resolver.resolve('./plugins/persistent-store.ts'))
     }
   }
 })
