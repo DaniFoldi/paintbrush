@@ -33,16 +33,17 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '../assets/colors';
   @use '../assets/mixins';
+  @use '../assets/sizes';
 
-  div.container, span.container {
+  .container {
     background: v-bind(background);
     border: v-bind(border);
 
-    margin-block: var(--double-unit);
-
     @include mixins.rounded;
-    @include mixins.double-unit-padding;
-    @include mixins.with-fade;
+    @include sizes.double-unit-padding;
+    @include sizes.double-unit-margin-block;
+    @include mixins.fade('background', 'color', 'border-color');
   }
 </style>
