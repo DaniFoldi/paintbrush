@@ -1,0 +1,15 @@
+@mixin standard-text {
+  color: var(--background-text);
+}
+
+@mixin standard-background {
+  background: var(--background);
+}
+
+@mixin primary-color {
+  color: var(--primary-text);
+}
+
+@mixin primary-background {
+  background: var(--primary);
+}

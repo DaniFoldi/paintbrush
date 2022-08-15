@@ -1,0 +1,163 @@
+@mixin no-margin {
+  margin: 0;
+  @warn deprecated;
+}
+
+@mixin no-padding {
+  padding: 0;
+  @warn deprecated;
+}
+
+@mixin no-border {
+  border: 0;
+  @warn deprecated;
+}
+
+@mixin standard {@warn deprecated;
+  @include standard-background;
+  @include standard-text;
+}
+
+@mixin standard-text {
+  color: var(--background-text);
+  @warn deprecated;
+}
+
+@mixin standard-background {
+  background: var(--background);
+  @warn deprecated;
+}
+
+@mixin primary {
+  background: var(--primary);
+  @warn deprecated;
+  @include primary-color;
+}
+
+@mixin primary-color {
+  color: var(--primary-text);
+  @warn deprecated;
+}
+
+@mixin rounded {
+  border-radius: var(--radius);
+  @warn deprecated;
+}
+
+@mixin unit-padding {
+  padding: var(--unit);
+  @warn deprecated;
+}
+
+@mixin inline-unit-padding {
+  padding-inline: var(--unit);
+  @warn deprecated;
+}
+
+@mixin block-unit-padding {
+  padding-block: var(--unit);
+  @warn deprecated;
+}
+
+@mixin unit-margin {
+  margin: var(--unit);
+  @warn deprecated;
+}
+
+@mixin double-unit-padding {
+  padding: var(--double-unit);
+  @warn deprecated;
+}
+
+@mixin double-unit-block-padding {
+  padding-block: var(--double-unit);
+  @warn deprecated;
+}
+
+@mixin no-inline-padding {
+  padding-inline: 0;
+  @warn deprecated;
+}
+
+@mixin no-block-padding {
+  padding-block: 0;
+  @warn deprecated;
+}
+
+@mixin double-unit-inline-padding {
+  padding-inline: var(--double-unit);
+  @warn deprecated;
+}
+
+@mixin double-unit-margin {
+  margin: var(--unit);
+  @warn deprecated;
+}
+
+@mixin double-unit-block-margin {
+  margin-block: var(--double-unit);
+  @warn deprecated;
+}
+
+@mixin double-unit-inline-margin {
+  margin-inline: var(--double-unit);
+  @warn deprecated;
+}
+
+@mixin unit-block-margin {
+  margin-block: var(--unit);
+  @warn deprecated;
+}
+
+@mixin unit-inline-margin {
+  margin-inline: var(--unit);
+  @warn deprecated;
+}
+
+@mixin with-fade {
+  // TODO specify properties
+  transition: background .25s ease-in-out, color .25s ease-in-out, border-color .25s ease-in-out;
+  @warn deprecated;
+}
+
+@mixin full-size {
+  min-height: 100%;
+  min-width: 100%;
+  @warn deprecated;
+}
+
+@mixin absolute-full-size {
+  height: 100%;
+  width: 100%;
+  @warn deprecated;
+}
+
+@mixin italic {
+  font-style: italic;
+  @warn deprecated;
+}
+
+@mixin underline {
+  text-decoration: underline;
+  @warn deprecated;
+}
+
+@mixin bold {
+  font-weight: 600;
+  @warn deprecated;
+}
+
+@mixin light {
+  font-weight: 300;
+  @warn deprecated;
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+  @warn deprecated;
+}
+
+@mixin capitalize {
+  text-transform: capitalize;
+  @warn deprecated;
+}

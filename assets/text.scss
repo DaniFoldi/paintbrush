@@ -1,0 +1,31 @@
+@mixin italic {
+  font-style: italic;
+}
+
+@mixin underline {
+  text-decoration: underline;
+}
+
+@mixin no-underline {
+  text-decoration: none;
+}
+
+@mixin bold {
+  font-weight: 700;
+}
+
+@mixin heavy {
+  font-weight: 600;
+}
+
+@mixin light {
+  font-weight: 300;
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+}
+
+@mixin capitalize {
+  text-transform: capitalize;
+}

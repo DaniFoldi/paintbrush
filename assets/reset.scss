@@ -15,7 +15,7 @@
   }
 
   html, body {
-    @include mixins.absolute-full-size;
+    @include mixins.size-100;
     @include mixins.no-margin;
   }
 
@@ -68,6 +68,6 @@
     isolation: isolate;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 
-    @include mixins.absolute-full-size;
+    @include mixins.size-100;
   }
 }
