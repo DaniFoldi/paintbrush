@@ -77,7 +77,7 @@
     @include mixins.no-margin;
 
     &.max {
-      @include mixins.absolute-full-size;
+      @include mixins.size-100;
     }
 
     &.article {

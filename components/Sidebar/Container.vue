@@ -58,7 +58,7 @@
     display: grid;
     grid-template-columns: 260px 1fr;
     grid-template-rows: 100%;
-    @include mixins.absolute-full-size;
+    @include mixins.size-100;
   }
 
   div.sidebar-top, div.sidebar-middle, div.sidebar-bottom {
