@@ -29,6 +29,7 @@
   })
 
   const background = computed(() => useThemeColor(props.background).value)
+  const border = computed(() => useThemeColor(props.border).value)
 </script>
 
 <style lang="scss" scoped>
