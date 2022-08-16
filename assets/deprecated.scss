@@ -1,16 +1,16 @@
 @mixin no-margin {
-  margin: 0;
   @warn deprecated;
+  margin: 0;
 }
 
 @mixin no-padding {
-  padding: 0;
   @warn deprecated;
+  padding: 0;
 }
 
 @mixin no-border {
-  border: 0;
   @warn deprecated;
+  border: 0;
 }
 
 @mixin standard {@warn deprecated;
@@ -19,145 +19,145 @@
 }
 
 @mixin standard-text {
-  color: var(--background-text);
   @warn deprecated;
+  color: var(--background-text);
 }
 
 @mixin standard-background {
-  background: var(--background);
   @warn deprecated;
+  background: var(--background);
 }
 
 @mixin primary {
-  background: var(--primary);
   @warn deprecated;
   @include primary-color;
+  background: var(--primary);
 }
 
 @mixin primary-color {
-  color: var(--primary-text);
   @warn deprecated;
+  color: var(--primary-text);
 }
 
 @mixin rounded {
-  border-radius: var(--radius);
   @warn deprecated;
+  border-radius: var(--radius);
 }
 
 @mixin unit-padding {
-  padding: var(--unit);
   @warn deprecated;
+  padding: var(--unit);
 }
 
 @mixin inline-unit-padding {
-  padding-inline: var(--unit);
   @warn deprecated;
+  padding-inline: var(--unit);
 }
 
 @mixin block-unit-padding {
-  padding-block: var(--unit);
   @warn deprecated;
+  padding-block: var(--unit);
 }
 
 @mixin unit-margin {
-  margin: var(--unit);
   @warn deprecated;
+  margin: var(--unit);
 }
 
 @mixin double-unit-padding {
-  padding: var(--double-unit);
   @warn deprecated;
+  padding: var(--double-unit);
 }
 
 @mixin double-unit-block-padding {
-  padding-block: var(--double-unit);
   @warn deprecated;
+  padding-block: var(--double-unit);
 }
 
 @mixin no-inline-padding {
-  padding-inline: 0;
   @warn deprecated;
+  padding-inline: 0;
 }
 
 @mixin no-block-padding {
-  padding-block: 0;
   @warn deprecated;
+  padding-block: 0;
 }
 
 @mixin double-unit-inline-padding {
-  padding-inline: var(--double-unit);
   @warn deprecated;
+  padding-inline: var(--double-unit);
 }
 
 @mixin double-unit-margin {
-  margin: var(--unit);
   @warn deprecated;
+  margin: var(--unit);
 }
 
 @mixin double-unit-block-margin {
-  margin-block: var(--double-unit);
   @warn deprecated;
+  margin-block: var(--double-unit);
 }
 
 @mixin double-unit-inline-margin {
-  margin-inline: var(--double-unit);
   @warn deprecated;
+  margin-inline: var(--double-unit);
 }
 
 @mixin unit-block-margin {
-  margin-block: var(--unit);
   @warn deprecated;
+  margin-block: var(--unit);
 }
 
 @mixin unit-inline-margin {
-  margin-inline: var(--unit);
   @warn deprecated;
+  margin-inline: var(--unit);
 }
 
 @mixin with-fade {
+  @warn deprecated;
   // TODO specify properties
   transition: background .25s ease-in-out, color .25s ease-in-out, border-color .25s ease-in-out;
-  @warn deprecated;
 }
 
 @mixin full-size {
+  @warn deprecated;
   min-height: 100%;
   min-width: 100%;
-  @warn deprecated;
 }
 
 @mixin absolute-full-size {
+  @warn deprecated;
   height: 100%;
   width: 100%;
-  @warn deprecated;
 }
 
 @mixin italic {
-  font-style: italic;
   @warn deprecated;
+  font-style: italic;
 }
 
 @mixin underline {
-  text-decoration: underline;
   @warn deprecated;
+  text-decoration: underline;
 }
 
 @mixin bold {
-  font-weight: 600;
   @warn deprecated;
+  font-weight: 600;
 }
 
 @mixin light {
-  font-weight: 300;
   @warn deprecated;
+  font-weight: 300;
 }
 
 @mixin uppercase {
-  text-transform: uppercase;
   @warn deprecated;
+  text-transform: uppercase;
 }
 
 @mixin capitalize {
-  text-transform: capitalize;
   @warn deprecated;
+  text-transform: capitalize;
 }
