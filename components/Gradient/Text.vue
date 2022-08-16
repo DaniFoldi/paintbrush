@@ -25,8 +25,8 @@
   @use '~/assets/sizes';
 
   *:slotted( > *:not(.pb-specific)) {
-    @include mixins.transparent-color;
+    @include colors.transparent-color;
     background-clip: text;
     background-image: v-bind(gradient);
   }
-  </style>
+</style>

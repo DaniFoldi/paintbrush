@@ -106,8 +106,9 @@
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/sizes';
 
   button {
-    @include mixins.no-margin;
+    @include sizes.no-margin;
   }
 </style>

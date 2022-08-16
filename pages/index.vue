@@ -12,21 +12,21 @@
       <SidebarLink
         href="/quickstart"
         icon="download"
-        :icon-color="useRoute().path === '/quickstart' ? 'orange-5' : 'inherit'"
+        :icon-color="useRoute().path === '/quickstart' ? 'orange-5' : 'backgroundText'"
       >
         Quickstart
       </SidebarLink>
       <SidebarLink
         href="/examples"
         icon="code"
-        :icon-color="useRoute().path === '/examples' ? 'yellow-5' : 'inherit'"
+        :icon-color="useRoute().path === '/examples' ? 'yellow-5' : 'backgroundText'"
       >
         Examples
       </SidebarLink>
       <SidebarLink
         href="/docs"
         icon="file-text"
-        :icon-color="useRoute().path.startsWith('/docs') ? 'green-5' : 'inherit'"
+        :icon-color="useRoute().path.startsWith('/docs') ? 'green-5' : 'backgroundText'"
       >
         Docs
       </SidebarLink>
@@ -78,14 +78,14 @@
       <SidebarLink
         href="/roadmap"
         icon="signpost"
-        :icon-color="useRoute().path === '/roadmap' ? 'blue-5' : 'inherit'"
+        :icon-color="useRoute().path === '/roadmap' ? 'blue-5' : 'backgroundText'"
       >
         Roadmap
       </SidebarLink>
       <SidebarLink
         href="https://github.com/DaniFoldi/Paintbrush"
         icon="github-logo"
-        icon-color="inherit"
+        icon-color="purple-5"
         new-tab
       >
         Source
@@ -93,7 +93,7 @@
       <SidebarLink
         href="/test"
         icon="gear"
-        icon-color="inherit"
+        icon-color="backgroundText"
       >
         Test
       </SidebarLink>

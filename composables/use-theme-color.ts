@@ -24,9 +24,9 @@ export default function(color: string): Ref<string> {
       return (usePreferredDark().value
         ? (_scheme[_dark[color]] ?? _dark[color])
         : (_scheme[_light[color] ?? _light[color]]))
-        ?? _scheme[color] ?? color
+        ?? _scheme[color] ?? _light[color] ?? color
     }
-    return _scheme[color] ?? color
+    return _scheme[color] ?? _light[color] ?? color
   })
 }
 

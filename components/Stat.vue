@@ -74,24 +74,28 @@
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/grid';
+  @use '~/assets/fonts';
+  @use '~/assets/sizes';
+  @use '~/assets/text';
 
   div.stat-container {
-    display: grid;
+    @include grid.grid;
     grid-template-columns: 1fr;
 
     & > :not(:last-child) {
-      font-weight: 300;
+      @include text.light;
     }
 
     & > :last-child {
-      @include mixins.font('inter');
+      @include fonts.font('inter');
       color: v-bind(color);
       font-size: 28px;
       font-weight: 600;
       vertical-align: top;
 
       i {
-        margin-inline-end: var(--unit);
+        @include sizes.no-margin-inline-end;
       }
     }
   }

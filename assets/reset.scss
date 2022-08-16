@@ -1,6 +1,7 @@
 @use './scrollbar';
 @use './theme';
 @use './mixins';
+@use './sizes';
 
 @mixin paintbrush {
   @media (prefers-reduced-motion: reduce) {
@@ -15,8 +16,8 @@
   }
 
   html, body {
-    @include mixins.size-100;
-    @include mixins.no-margin;
+    @include mixins.set-100-percent('width', 'height');
+    @include sizes.no-margin;
   }
 
   *, *::before, *::after {
@@ -29,7 +30,7 @@
   }
 
   html, body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
-    @include mixins.no-margin;
+    @include sizes.no-margin;
   }
 
   html {
@@ -65,7 +66,7 @@
   }
 
   #__nuxt {
-    @include mixins.size-100;
+    @include mixins.set-100-percent('width', 'height');
     isolation: isolate;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }

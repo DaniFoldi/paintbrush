@@ -113,9 +113,12 @@
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/text';
+  @use '~/assets/fonts';
+  @use '~/assets/sizes';
 
   h1, h2, h3, h4, h5, h6 {
-    @include mixins.double-unit-block-margin;
+    @include sizes.double-unit-margin-block;
   }
 
   h1, h2, h3, h4, h5, h6, p, span {
@@ -123,15 +126,15 @@
     font-size: v-bind(fontsize);
 
     &.bold {
-      @include mixins.bold;
+      @include text.bold;
     }
 
     &.italic {
-      @include mixins.italic;
+      @include text.italic;
     }
 
     &.light {
-      @include mixins.light;
+      @include text.light;
     }
 
     &.inline {
@@ -139,12 +142,12 @@
     }
 
     &.underline {
-      @include mixins.underline;
+      @include text.underline;
     }
 
     &.important {
-      @include mixins.font('inter');
-      font-weight: 800;
+      @include fonts.font('inter');
+      @include text.bold;
     }
 
     &.center {

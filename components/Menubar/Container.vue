@@ -53,7 +53,8 @@
   @use '~/assets/sizes';
 
   .menubar-container {
-    @include mixins.two-items(1fr, 64px);
+    @include grid.two-items(1fr, 64px);
+    @include grid.grid;
     column-gap: v-bind(part);
   }
 
@@ -83,7 +84,7 @@
     z-index: 5;
 
     & > div:not(:empty) {
-      @include mixins.double-unit-padding;
+      @include sizes.double-unit-padding;
     }
   }
 </style>

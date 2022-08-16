@@ -51,13 +51,14 @@
 <style lang="scss" scoped>
   @use '~/assets/colors';
   @use '~/assets/mixins';
+  @use '~/assets/sizes';
 
   textarea {
     @include mixins.rounded;
     @include mixins.fade('background', 'color', 'border-color');
     @include colors.standard-background;
-    @include colors.standard-text;
-    @include mixins.unit-inline-padding;
+    @include colors.standard-color;
+    @include sizes.unit-padding-inline;
     @include mixins.set-100-percent('width');
 
     border: 2px solid var(--highlight-background);

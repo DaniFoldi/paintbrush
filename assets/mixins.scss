@@ -12,8 +12,8 @@
     $values: '#{$values} #{$property} 0.25s ease-in-out,';
   }
 
-  // stylelint-disable-next-line function-no-unknown, order/order -- TODO remove
-  transition: string.slice($values, 2, -2);
+  // stylelint-disable-next-line function-no-unknown -- TODO remove
+  transition: string.unquote(string.slice($values, 2, -2));
 }
 
 @mixin set-100-percent($properties...) {

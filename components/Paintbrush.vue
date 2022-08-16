@@ -316,7 +316,8 @@
   @use '~/assets/fonts';
   @use '~/assets/mixins';
   @use '~/assets/reset';
-  @use '../node_modules/phosphor-icons/src/css/icons.css';
+  @use '~/assets/colors';
+  @use '~/node_modules/phosphor-icons/src/css/icons.css';
 
   @include reset.paintbrush;
   @include fonts.inter;
@@ -324,9 +325,10 @@
   @include fonts.raleway;
 
   body {
-    @include mixins.font('raleway');
-    @include mixins.standard;
-    @include mixins.with-fade;
+    @include fonts.font('raleway');
+    @include colors.standard-background;
+    @include colors.standard-color;
+    @include mixins.fade('background', 'color');
   }
 
   .motion-reduced {

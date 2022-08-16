@@ -108,20 +108,23 @@
   })
 
   const border = computed(() => useThemeColor(color.value).value)
-  const background = computed(() => border.value.startsWith('#') ? `${border.value}${useThemeColor('transparentize')}` : border.value)
+  const background = computed(() => border.value.startsWith('#') ? `${border.value}${useThemeColor('transparentize').value}` : border.value)
 </script>
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/sizes';
+  @use '~/assets/grid';
 
   blockquote {
+    @include mixins.double-unit-margin;
+    @include mixins.double-unit-padding;
     background: v-bind(background);
     border-left: 3px solid v-bind(border);
-    margin-block: var(--double-unit);
-    padding: var(--double-unit);
 
     &.with-icon {
-      @include mixins.two-items;
+      @include grid.grid;
+      @include grid.two-items;
     }
   }
 </style>

@@ -53,16 +53,18 @@
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/grid';
+  @use '~/assets/sizes';
 
   .sidebar-container {
-    @include mixins.size-100;
-    display: grid;
+    @include mixins.set-100-percent('width', 'height');
+    @include grid.grid;
     grid-template-columns: 260px 1fr;
     grid-template-rows: 100%;
   }
 
   div.sidebar-top, div.sidebar-middle, div.sidebar-bottom {
-    display: grid;
+    @include grid.grid;
     row-gap: v-bind(segment);
   }
 
@@ -71,7 +73,7 @@
   }
 
   aside, main {
-    @include mixins.with-fade;
+    @include mixins.fade('background', 'color');
     display: grid;
     grid-template-columns: 100%;
   }
@@ -95,7 +97,7 @@
     row-gap: v-bind(spacing);
 
     & > div:not(:empty) {
-      @include mixins.double-unit-padding;
+      @include sizes.double-unit-padding;
     }
   }
 </style>

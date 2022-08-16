@@ -38,28 +38,36 @@
     nonExact?: boolean // Whether the link is active when non-exact
   }
 
-  withDefaults(defineProps<SidebarLinkProps>(), {
+  const props = withDefaults(defineProps<SidebarLinkProps>(), {
     autoWrap: true,
     iconColor: 'primary',
     iconVariant: 'regular',
     indent: false,
     nonExact: false
   })
+
+  const iconColor = computed(() => useThemeColor(props.iconColor).value)
+  const active = computed(() => iconColor.value.startsWith('#') ? `${iconColor.value}${useThemeColor('transparentize').value}` : iconColor.value)
 </script>
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/sizes';
+  @use '~/assets/grid';
+  @use '~/assets/text';
 
   a {
-
     @include mixins.rounded;
-    @include mixins.with-fade;
-    @include mixins.unit-padding;
+    @include mixins.fade('background', 'color', 'border-color');
+    @include sizes.unit-padding;
+
     font-size: 20px;
     user-select: none;
 
     &.with-icon {
-      @include mixins.two-items;
+      @include grid.grid;
+      @include grid.two-items;
+      @include grid.center-items-block;
     }
 
     &.indent {
@@ -67,20 +75,18 @@
     }
 
     i {
-      @include mixins.unit-inline-margin;
+      @include sizes.unit-margin-inline;
     }
 
     p {
-      margin: 0 var(--unit) 0 0;
+      @include sizes.unit-margin-inline-start;
+      @include sizes.no-margin-block;
+      @include sizes.no-margin-inline-end;
     }
 
-    &:hover, &.router-link-exact-active, &.router-link-active.non-exact {
-      background: var(--highlight-background);
-      text-decoration: none;
-    }
-
-    &:active {
-      background: var(--highlight-background);
+    &:hover, &:focus, &:active, &.router-link-exact-active, &.router-link-active.non-exact {
+      @include text.no-underline;
+      background: v-bind(active);
     }
   }
 </style>

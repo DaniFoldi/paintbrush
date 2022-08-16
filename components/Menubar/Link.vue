@@ -55,7 +55,7 @@
 
 
   const background = computed(() => useThemeColor(props.background).value)
-  const active = computed(() => useThemeColor(props.activeBackground).value)
+  const active = computed(() => props.iconColor.startsWith('#') ? `${props.iconColor}${useThemeColor('transparentize').value}` : props.iconColor)
   const click = computed(() => useThemeColor(props.clickBackground).value)
 </script>
 
@@ -67,8 +67,8 @@
 
   a {
     @include mixins.rounded;
-    @include mixins.with-fade;
-    @include mixins.double-unit-inline-padding;
+    @include mixins.fade('background', 'color');
+    @include sizes.double-unit-padding-inline;
     @include grid.grid;
     @include grid.center-items-inline;
 
@@ -83,7 +83,7 @@
     }
 
     i {
-      @include sizes.unit-inline-margin;
+      @include sizes.unit-margin-inline;
     }
 
     p {

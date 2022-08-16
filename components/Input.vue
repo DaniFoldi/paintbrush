@@ -48,25 +48,28 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/colors';
+  @use '~/assets/grid';
   @use '~/assets/mixins';
+  @use '~/assets/sizes';
 
   label {
     display: block;
 
     &:not(:first-child) {
-      margin-top: var(--unit);
+      @include sizes.unit-margin-block-start;
     }
 
     input {
-
       @include mixins.rounded;
-      @include mixins.with-fade;
-      @include mixins.standard-background;
-      @include mixins.standard-text;
+      @include mixins.fade('background', 'color', 'border-color');
+      @include colors.standard-background;
+      @include colors.standard-color;
+      @include sizes.no-margin-inline;
+      @include sizes.unit-padding-inline;
+
       border: 2px solid var(--highlight-background);
       height: 32px;
-      margin-inline: 0;
-      padding-inline: 4px;
       width: v-bind('width');
     }
   }

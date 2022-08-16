@@ -76,7 +76,7 @@
 
   div.toggle {
 
-    @include mixins.with-fade;
+    @include mixins.fade('background', 'color', 'border-color');
     background: v-bind(background);
     border: 2px solid v-bind(border);
     border-radius: 16px;

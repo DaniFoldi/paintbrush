@@ -54,9 +54,11 @@
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/grid';
 
   a {
-    @include mixins.two-items;
+    @include grid.grid;
+    @include grid.two-items;
     color: v-bind(color);
   }
 </style>

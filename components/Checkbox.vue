@@ -41,10 +41,12 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/grid';
   @use '~/assets/mixins';
 
   label {
-    @include mixins.two-items;
+    @include grid.grid;
+    @include grid.two-items;
 
     input[type=checkbox] {
       appearance: none;
