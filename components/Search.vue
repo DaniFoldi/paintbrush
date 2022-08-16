@@ -99,13 +99,15 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   .search-main-container {
     position: relative;
   }
 
   .search-container {
+
+    @include mixins.rounded;
     background: var(--background);
     box-shadow: #3636364f 1px 1px 10px 3px;
     margin-top: var(--double-unit);
@@ -114,17 +116,15 @@
     padding: .5rem;
     position: absolute;
     width: v-bind(width);
-
-    @include mixins.rounded;
   }
 
   .search-content {
+
+    @include mixins.rounded;
     cursor: pointer;
     margin-bottom: .5rem;
     padding: .2rem;
     transition: ease .3s background;
-
-    @include mixins.rounded;
   }
 
   .search-content:hover {
@@ -133,15 +133,15 @@
   }
 
   input {
-    border: 2px solid var(--highlight-background);
-    height: 32px;
-    margin-inline: 0;
-    padding-inline: 4px;
-    width: v-bind(width);
 
     @include mixins.rounded;
     @include mixins.with-fade;
     @include mixins.standard-background;
     @include mixins.standard-text;
+    border: 2px solid var(--highlight-background);
+    height: 32px;
+    margin-inline: 0;
+    padding-inline: 4px;
+    width: v-bind(width);
   }
 </style>

@@ -60,35 +60,39 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../../assets/mixins.scss';
+  @use '~/assets/mixins';
+  @use '~/assets/grid';
+  @use '~/assets/sizes';
+  @use '~/assets/text';
 
   a {
-    background: v-bind(background);
-    display: grid;
-    font-size: 20px;
-    height: 40px;
-    place-items: center;
-    user-select: none;
-
     @include mixins.rounded;
     @include mixins.with-fade;
     @include mixins.double-unit-inline-padding;
+    @include grid.grid;
+    @include grid.center-items-inline;
+
+    background: v-bind(background);
+    font-size: 20px;
+    height: 40px;
+    user-select: none;
 
     &.with-icon {
-      @include mixins.two-items;
+      @include grid.grid;
+      @include grid.two-items;
     }
 
     i {
-      @include mixins.unit-inline-margin;
+      @include sizes.unit-inline-margin;
     }
 
     p {
-      @include mixins.no-margin;
+      @include sizes.no-margin;
     }
 
     &:hover, &.router-link-exact-active, &.router-link-active.non-exact {
+      @include text.no-underline;
       background: v-bind(active);
-      text-decoration: none;
     }
 
     &:active {

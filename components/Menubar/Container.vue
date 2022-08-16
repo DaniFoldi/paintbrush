@@ -47,23 +47,24 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../../assets/mixins';
+  @use '~/assets/colors';
+  @use '~/assets/grid';
+  @use '~/assets/mixins';
+  @use '~/assets/sizes';
 
   .menubar-container {
+    @include mixins.two-items(1fr, 64px);
     column-gap: v-bind(part);
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 64px 1fr;
   }
 
   .menubar-content {
-    background: var(--background);
+    @include mixins.standard-background;
   }
 
   div.menubar-left, div.menubar-middle, div.menubar-right {
-    align-items: center;
+    @include grid.center-items-block;
+    @include grid.grid;
     column-gap: v-bind(element);
-    display: grid;
     grid-auto-columns: max-content;
     grid-auto-flow: column;
   }
@@ -73,14 +74,13 @@
   }
 
   nav {
-    background: var(--menu-background);
-    display: grid;
+    @include mixins.fade('background', 'color');
+    @include colors.menu-background;
+    @include grid.grid;
     grid-template-columns: 1fr auto 1fr;
     position: sticky;
     top: 0;
     z-index: 5;
-
-    @include mixins.with-fade;
 
     & > div:not(:empty) {
       @include mixins.double-unit-padding;

@@ -313,9 +313,9 @@
 </script>
 
 <style lang="scss">
-  @use '../assets/fonts';
-  @use '../assets/mixins';
-  @use '../assets/reset';
+  @use '~/assets/fonts';
+  @use '~/assets/mixins';
+  @use '~/assets/reset';
   @use '../node_modules/phosphor-icons/src/css/icons.css';
 
   @include reset.paintbrush;

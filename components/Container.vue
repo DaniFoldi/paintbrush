@@ -69,12 +69,12 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   .container {
-    padding: v-bind(padding);
 
     @include mixins.no-margin;
+    padding: v-bind(padding);
 
     &.max {
       @include mixins.size-100;

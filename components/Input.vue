@@ -48,7 +48,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   label {
     display: block;
@@ -58,16 +58,16 @@
     }
 
     input {
-      border: 2px solid var(--highlight-background);
-      height: 32px;
-      margin-inline: 0;
-      padding-inline: 4px;
-      width: v-bind('width');
 
       @include mixins.rounded;
       @include mixins.with-fade;
       @include mixins.standard-background;
       @include mixins.standard-text;
+      border: 2px solid var(--highlight-background);
+      height: 32px;
+      margin-inline: 0;
+      padding-inline: 4px;
+      width: v-bind('width');
     }
   }
 </style>

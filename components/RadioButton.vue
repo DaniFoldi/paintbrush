@@ -44,7 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   label {
     @include mixins.two-items;

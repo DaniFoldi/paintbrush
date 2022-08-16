@@ -112,7 +112,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins';
+  @use '~/assets/mixins';
 
   h1, h2, h3, h4, h5, h6 {
     @include mixins.double-unit-block-margin;
@@ -143,8 +143,8 @@
     }
 
     &.important {
-      font-weight: 800;
       @include mixins.font('inter');
+      font-weight: 800;
     }
 
     &.center {

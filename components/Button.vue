@@ -42,19 +42,19 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   button {
-    background: v-bind(background);
-    color: v-bind(color);
-    cursor: pointer;
-    min-height: 32px;
-    min-width: 80px;
     @include mixins.rounded;
     @include mixins.primary-color;
     @include mixins.no-border;
     @include mixins.double-unit-inline-padding;
     @include mixins.no-block-padding;
+    background: v-bind(background);
+    color: v-bind(color);
+    cursor: pointer;
+    min-height: 32px;
+    min-width: 80px;
 
     &.ghost {
       background: transparent;

@@ -32,7 +32,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   *:slotted( > * ) {
 
@@ -40,6 +40,8 @@
       position: relative;
 
       &::before {
+
+        @include mixins.font('inter');
         background: v-bind(background);
         border-radius: 9px;
         color: v-bind(color);
@@ -55,8 +57,6 @@
         text-align: center;
         top: -7px;
         vertical-align: middle;
-
-        @include mixins.font('inter');
       }
     }
 
@@ -64,6 +64,8 @@
       position: relative;
 
       &::after {
+
+        @include mixins.font('inter');
         background: v-bind(background);
         border-radius: 9px;
         color: v-bind(color);
@@ -79,8 +81,6 @@
         text-align: center;
         top: -7px;
         vertical-align: middle;
-
-        @include mixins.font('inter');
       }
     }
   }

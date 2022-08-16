@@ -20,10 +20,13 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/colors';
+  @use '~/assets/mixins';
+  @use '~/assets/sizes';
+
   *:slotted( > *:not(.pb-specific)) {
-    background: v-bind(gradient);
+    @include mixins.transparent-color;
     background-clip: text;
-    color: transparent;
-    font-style: normal;
+    background-image: v-bind(gradient);
   }
   </style>

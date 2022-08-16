@@ -105,7 +105,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   button {
     @include mixins.no-margin;

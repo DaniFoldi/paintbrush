@@ -72,9 +72,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   div.toggle {
+
+    @include mixins.with-fade;
     background: v-bind(background);
     border: 2px solid v-bind(border);
     border-radius: 16px;
@@ -86,8 +88,6 @@
     margin-inline: 0;
     place-items: center;
     width: calc(64px - var(--unit));
-
-    @include mixins.with-fade;
 
     & > .selected {
       background: v-bind(thumb);

@@ -48,15 +48,15 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   a {
-    font-size: 20px;
-    user-select: none;
 
     @include mixins.rounded;
     @include mixins.with-fade;
     @include mixins.unit-padding;
+    font-size: 20px;
+    user-select: none;
 
     &.with-icon {
       @include mixins.two-items;

@@ -28,14 +28,14 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   hr {
+
+    @include mixins.double-unit-block-margin;
     border-color: v-bind(color);
     border-style: solid;
     transition: border-color .25s ease-in-out;
-
-    @include mixins.double-unit-block-margin;
 
     &.rounded {
       border-radius: 1px;

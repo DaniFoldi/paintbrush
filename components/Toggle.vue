@@ -56,7 +56,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   input {
     appearance: none;
@@ -66,6 +66,7 @@
     width: 48px;
 
     &::after {
+      @include mixins.fade('background', 'color');
       background: transparent;
       border: 2px solid v-bind(color);
       border-radius: 16px;
@@ -76,7 +77,6 @@
       position: relative;
       top: -24px;
       width: 48px;
-      @include mixins.with-fade;
     }
 
     &::before {

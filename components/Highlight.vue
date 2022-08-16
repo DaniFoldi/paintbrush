@@ -112,7 +112,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   blockquote {
     background: v-bind(background);

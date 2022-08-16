@@ -53,10 +53,10 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   a {
-    color: v-bind(color);
     @include mixins.two-items;
+    color: v-bind(color);
   }
 </style>

@@ -73,7 +73,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   div.stat-container {
     display: grid;
@@ -84,11 +84,11 @@
     }
 
     & > :last-child {
+      @include mixins.font('inter');
       color: v-bind(color);
       font-size: 28px;
       font-weight: 600;
       vertical-align: top;
-      @include mixins.font('inter');
 
       i {
         margin-inline-end: var(--unit);

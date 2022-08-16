@@ -112,7 +112,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/mixins';
 
   .dropdown-container {
     position: v-bind(container);
@@ -121,6 +121,8 @@
   }
 
   .dropdown-item-container {
+
+    @include mixins.rounded;
     background: var(--background-2);
     border: 1px solid var(--background-highlight);
     font-size: .9rem;
@@ -130,16 +132,14 @@
     padding: var(--unit);
     position: v-bind(content);
     width: 100%;
-
-    @include mixins.rounded;
   }
 
   .dropdown-item {
-    cursor: pointer;
-    padding: var(--unit) var(--double-unit);
 
 
     @include mixins.rounded;
+    cursor: pointer;
+    padding: var(--unit) var(--double-unit);
   }
 
   .dropdown-item:hover {
@@ -151,22 +151,22 @@
   }
 
   .dropdown-title {
-    background: var(--background-highlight);
-    cursor: pointer;
-    padding: var(--double-unit);
 
     @include mixins.rounded;
     @include mixins.with-fade;
+    background: var(--background-highlight);
+    cursor: pointer;
+    padding: var(--double-unit);
   }
 
   .tag {
+
+    @include mixins.rounded;
     background: var(--primary);
     color: var(--background);
     font-size: .5rem;
     margin: .1rem;
     padding: .2rem;
-
-    @include mixins.rounded;
   }
 
   hr {

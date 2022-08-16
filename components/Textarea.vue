@@ -49,18 +49,18 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/mixins.scss';
+  @use '~/assets/colors';
+  @use '~/assets/mixins';
 
   textarea {
-    border: 2px solid var(--highlight-background);
-    margin: var(--double-unit) 0;
-    padding-inline: var(--unit);
-    resize: v-bind(resize);
-    width: 100%;
-
     @include mixins.rounded;
-    @include mixins.with-fade;
-    @include mixins.standard-background;
-    @include mixins.standard-text;
+    @include mixins.fade('background', 'color', 'border-color');
+    @include colors.standard-background;
+    @include colors.standard-text;
+    @include mixins.unit-inline-padding;
+    @include mixins.set-100-percent('width');
+
+    border: 2px solid var(--highlight-background);
+    resize: v-bind(resize);
   }
 </style>

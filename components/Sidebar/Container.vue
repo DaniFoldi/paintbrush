@@ -52,13 +52,13 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../../assets/mixins';
+  @use '~/assets/mixins';
 
   .sidebar-container {
+    @include mixins.size-100;
     display: grid;
     grid-template-columns: 260px 1fr;
     grid-template-rows: 100%;
-    @include mixins.size-100;
   }
 
   div.sidebar-top, div.sidebar-middle, div.sidebar-bottom {
@@ -71,9 +71,9 @@
   }
 
   aside, main {
+    @include mixins.with-fade;
     display: grid;
     grid-template-columns: 100%;
-    @include mixins.with-fade;
   }
 
   main {
