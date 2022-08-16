@@ -76,7 +76,6 @@
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.4",
     "rimraf": "^3.0.2",
-    "rollup-plugin-visualizer": "^5.7.1",
     "sass": "^1.54.4",
     "stylelint": "^14.10.0",
     "stylelint-config-recommended-scss": "^7.0.0",
