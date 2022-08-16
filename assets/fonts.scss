@@ -43,3 +43,16 @@
   @include raleway.fontFace($weight: 700, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
   @include raleway.fontFace($weight: 800, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
 }
+
+@mixin font($family) {
+  @if $family == 'raleway' {
+    font-family: Raleway, 'Helvetica Neue', sans-serif;
+  } @else if $family == 'playfair' {
+    font-family: 'Playfair Display', 'Times New Roman', sans-serif;
+  } @else if $family == 'phosphor-icons' {
+    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
+    font-family: Phosphor-icons;
+  } @else if $family == 'inter' {
+    font-family: Inter, Helvetica, Arial, sans-serif;
+  }
+}

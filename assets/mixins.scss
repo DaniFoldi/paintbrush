@@ -1,12 +1,6 @@
 @use 'sass:string';
 @forward './deprecated';
 
-
-@mixin grid-center-items {
-  display: grid;
-  place-items: center;
-}
-
 @mixin rounded {
   border-radius: var(--radius);
 }
@@ -22,59 +16,9 @@
   transition: string.slice($values, 2, -2);
 }
 
-
-@mixin font($family) {
-  @if $family == 'raleway' {
-    font-family: Raleway, 'Helvetica Neue', sans-serif;
-  } @else if $family == 'playfair' {
-    font-family: 'Playfair Display', 'Times New Roman', sans-serif;
-  } @else if $family == 'phosphor-icons' {
-    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
-    font-family: Phosphor-icons;
-  } @else if $family == 'inter' {
-    font-family: Inter, Helvetica, Arial, sans-serif;
-  }
-}
-
-@mixin size-max {
-  min-height: 100%;
-  min-width: 100%;
-}
-
-@mixin size-100 {
-  height: 100%;
-  width: 100%;
-}
-
-@mixin two-items {
-  display: grid;
-  gap: var(--unit);
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto;
-
-  &:not(.flip) {
-
-    & > :first-child {
-      aspect-ratio: 1 / 1;
-      place-self: center;
-    }
-
-    & > :not(:first-child) {
-      align-self: center;
-    }
-  }
-
-  &.flip {
-    grid-template-columns: 1fr auto;
-
-    & > :last-child {
-      aspect-ratio: 1 / 1;
-      place-self: center;
-    }
-
-    & > :not(:last-child) {
-      align-self: center;
-    }
+@mixin set-100-percent($properties...) {
+  @each $property in $properties {
+    #{$property}: 100%;
   }
 }
 

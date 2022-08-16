@@ -1,0 +1,20 @@
+@mixin two-items($height: auto, $first-width: auto) {
+  grid-template-columns: $first-width 1fr;
+  grid-template-rows: $height;
+}
+
+@mixin grid {
+  display: grid;
+}
+
+@mixin center-items {
+  place-items: center;
+}
+
+@mixin center-items-block {
+  align-items: center;
+}
+
+@mixin center-items-inline {
+  justify-items: center;
+}

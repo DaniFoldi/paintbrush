@@ -161,3 +161,43 @@
   @warn deprecated;
   text-transform: capitalize;
 }
+
+@mixin size-max {
+  @warn deprecated;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+@mixin size-100 {
+  @warn deprecated;
+  height: 100%;
+  width: 100%;
+}
+
+@mixin two-items {
+  @warn deprecated;
+  display: grid;
+  gap: var(--unit);
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+}
+
+@mixin grid-center-items {
+  @warn deprecated;
+  display: grid;
+  place-items: center;
+}
+
+@mixin font($family) {
+  @warn deprecated;
+  @if $family == 'raleway' {
+    font-family: Raleway, 'Helvetica Neue', sans-serif;
+  } @else if $family == 'playfair' {
+    font-family: 'Playfair Display', 'Times New Roman', sans-serif;
+  } @else if $family == 'phosphor-icons' {
+    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
+    font-family: Phosphor-icons;
+  } @else if $family == 'inter' {
+    font-family: Inter, Helvetica, Arial, sans-serif;
+  }
+}

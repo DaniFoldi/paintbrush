@@ -1,4 +1,4 @@
-@mixin standard-text {
+@mixin standard-color {
   color: var(--background-text);
 }
 
@@ -16,4 +16,20 @@
 
 @mixin primary-color {
   color: var(--primary);
+}
+
+@mixin menu-background {
+  background: var(--menu-background);
+}
+
+@mixin menu-color {
+  color: var(--menu-background-text);
+}
+
+@mixin transparent-background {
+  background: transparent;
+}
+
+@mixin transparent-color {
+  color: transparent;
 }
