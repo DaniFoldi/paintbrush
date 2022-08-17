@@ -1,0 +1,7 @@
+@mixin rounded {
+  border-radius: var(--radius);
+}
+
+@mixin circular {
+  border-radius: 50%;
+}

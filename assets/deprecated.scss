@@ -201,3 +201,8 @@
     font-family: Inter, Helvetica, Arial, sans-serif;
   }
 }
+
+@mixin rounded {
+  @warn deprecated;
+  border-radius: var(--radius);
+}

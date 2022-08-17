@@ -1,10 +1,6 @@
 @use 'sass:string';
 @forward './deprecated';
 
-@mixin rounded {
-  border-radius: var(--radius);
-}
-
 @mixin fade($properties...) {
   $values: '';
 
