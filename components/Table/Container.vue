@@ -32,7 +32,7 @@
   }
 
   const props = withDefaults(defineProps<TableContainerProps>(), {
-    columnGap: 'var(--double-unit)',
+    columnGap: 'doubleUnit',
     rowHeight: '32px',
     separator: true
   })
