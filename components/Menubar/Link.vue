@@ -60,13 +60,14 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
   @use '~/assets/mixins';
   @use '~/assets/grid';
   @use '~/assets/sizes';
   @use '~/assets/text';
 
   a {
-    @include mixins.rounded;
+    @include common.rounded;
     @include mixins.fade('background', 'color');
     @include sizes.double-unit-padding-inline;
     @include grid.grid;

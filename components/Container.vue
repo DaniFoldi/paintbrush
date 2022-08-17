@@ -69,19 +69,21 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/grid';
   @use '~/assets/mixins';
+  @use '~/assets/sizes';
 
   .container {
 
-    @include mixins.no-margin;
+    @include sizes.no-margin;
     padding: v-bind(padding);
 
     &.max {
-      @include mixins.size-100;
+      @include mixins.set-100-percent('width', 'height');
     }
 
     &.article {
-      display: grid;
+      @include grid.grid;
       grid-template-columns: 1fr minmax(min-content, 850px) 1fr;
 
       & > ::v-deep(*) {

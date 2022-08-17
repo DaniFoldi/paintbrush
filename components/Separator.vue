@@ -29,10 +29,11 @@
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/sizes';
 
   hr {
 
-    @include mixins.double-unit-block-margin;
+    @include sizes.double-unit-margin-block;
     border-color: v-bind(color);
     border-style: solid;
     transition: border-color .25s ease-in-out;
@@ -42,7 +43,7 @@
     }
 
     &.spaced {
-      @include mixins.unit-inline-margin;
+      @include sizes.unit-margin-inline;
     }
   }
 </style>

@@ -59,18 +59,22 @@
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/grid';
+  @use '~/assets/sizes';
+  @use '~/assets/colors';
+  @use '~/assets/common';
 
   div {
-    @include mixins.with-fade;
-    align-items: center;
-    background: var(--background);
+    @include mixins.fade('background', 'color', 'border-color');
+    @include grid.center-items-block;
+    @include colors.standard-background;
+    @include common.rounded;
+    @include grid.grid;
+    @include sizes.unit-margin-block;
+    @include sizes.double-unit-padding-inline;
     border: 2px solid var(--highlight-background);
-    border-radius: var(--unit);
     column-gap: v-bind('columnGap');
-    display: grid;
     grid-auto-rows: v-bind(rows);
     grid-template-columns: v-bind('layout.map(col => col.width).join(" ")');
-    margin-block: var(--unit);
-    padding-inline: var(--double-unit);
   }
 </style>

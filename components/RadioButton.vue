@@ -44,9 +44,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/mixins';
+  @use '~/assets/grid';
 
   label {
-    @include mixins.two-items;
+    @include grid.grid;
+    @include grid.two-items;
+    @include grid.center-items-block;
   }
 </style>

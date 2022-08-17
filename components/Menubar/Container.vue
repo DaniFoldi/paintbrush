@@ -59,7 +59,7 @@
   }
 
   .menubar-content {
-    @include mixins.standard-background;
+    @include colors.standard-background;
   }
 
   div.menubar-left, div.menubar-middle, div.menubar-right {

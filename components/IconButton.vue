@@ -51,9 +51,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/mixins';
+  @use '~/assets/grid';
 
   button {
-    @include mixins.two-items;
+    @include grid.two-items;
+    @include grid.grid;
+    @include grid.center-items-block;
   }
 </style>

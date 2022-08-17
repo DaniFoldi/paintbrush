@@ -42,31 +42,34 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/colors';
+  @use '~/assets/common';
   @use '~/assets/mixins';
+  @use '~/assets/sizes';
+  @use '~/assets/text';
 
   button {
-    @include mixins.rounded;
-    @include mixins.primary-color;
-    @include mixins.no-border;
-    @include mixins.double-unit-inline-padding;
-    @include mixins.no-block-padding;
+    @include common.rounded;
+    @include sizes.no-padding-block;
+    @include sizes.double-unit-padding-inline;
+
     background: v-bind(background);
+    border-width: 0;
     color: v-bind(color);
-    cursor: pointer;
     min-height: 32px;
     min-width: 80px;
 
     &.ghost {
-      background: transparent;
-      color: var(--text);
+      @include colors.transparent-background;
+      @include colors.standard-color;
     }
 
     &.capitalize {
-      @include mixins.capitalize;
+      @include text.capitalize;
     }
 
     &.uppercase {
-      @include mixins.uppercase;
+      @include text.uppercase;
     }
 
     &.small {
@@ -80,7 +83,8 @@
     }
 
     &:disabled {
-      background: var(--disabled);
+      @include colors.disabled-background;
+      @include colors.disabled-color;
     }
   }
 </style>
