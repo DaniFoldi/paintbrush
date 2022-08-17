@@ -33,11 +33,11 @@
 
   hr {
     @include sizes.double-unit-margin-block;
-    @include mixins.fade('border-color');
+    @include mixins.fade('background');
 
-    border-color: v-bind(color);
-    border-style: solid;
-    border-width: .5px;
+    background: v-bind(color);
+    border: none;
+    height: 1px;
 
     &.rounded {
       border-radius: 1px;
