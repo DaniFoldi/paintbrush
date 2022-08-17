@@ -1,4 +1,4 @@
-import { computed, usePreferredDark } from '#imports'
+import { computed, usePbTheme } from '#imports'
 import { useTheme } from '../stores/theme'
 import type { Ref } from 'vue'
 
@@ -8,25 +8,18 @@ let _light = {} as Record<string, string>
 let _dark = {} as Record<string, string>
 
 export default function(color: string): Ref<string> {
+  const theme = usePbTheme()
   return computed(() => {
     if (color === 'inherit') {
       return color
     }
-    const preferredTheme = useTheme()
-    if (preferredTheme.theme === 'light') {
-      return _scheme[_light[color]] ?? _light[color] ?? _scheme[color] ?? color
-    } else if (preferredTheme.theme === 'dark') {
-      return _scheme[_dark[color]] ?? _dark[color] ?? _scheme[color] ?? color
-    }
 
-    // eslint-disable-next-line no-undef -- process will be added to globals
-    if (process.client) {
-      return (usePreferredDark().value
-        ? (_scheme[_dark[color]] ?? _dark[color])
-        : (_scheme[_light[color] ?? _light[color]]))
-        ?? _scheme[color] ?? _light[color] ?? color
+    if (theme.value === 'light') {
+      return useResolvedColor(_scheme, _light, color)
+    } else if (theme.value === 'dark') {
+      return useResolvedColor(_scheme, _dark, color)
     }
-    return _scheme[color] ?? _light[color] ?? color
+    return useResolvedColor(_scheme, _light, color)
   })
 }
 
