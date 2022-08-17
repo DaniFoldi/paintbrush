@@ -1,0 +1,73 @@
+diff --git a/node_modules/hast-util-raw/lib/index.js b/node_modules/hast-util-raw/lib/index.js
+index e4d4da8..17fde03 100644
+--- a/node_modules/hast-util-raw/lib/index.js
++++ b/node_modules/hast-util-raw/lib/index.js
+@@ -71,7 +71,7 @@
+  */
+ 
+ // @ts-expect-error: untyped.
+-import Parser from 'parse5/lib/parser/index.js'
++import {Parser} from 'parse5'
+ import {pointStart, pointEnd} from 'unist-util-position'
+ import {visit} from 'unist-util-visit'
+ import {fromParse5} from 'hast-util-from-parse5'
+@@ -117,7 +117,6 @@ export const raw =
+      */
+     function (tree, file, options) {
+       let index = -1
+-      const parser = new Parser(parseOptions)
+       const one = zwitch('type', {
+         // @ts-expect-error: hush.
+         handlers: {root, element, text, comment, doctype, raw: handleRaw},
+@@ -197,23 +196,37 @@ export const raw =
+         /** @type {P5Fragment} */
+         const doc = {nodeName: '#document-fragment', childNodes: []}
+ 
+-        parser._bootstrap(mock, context)
+-        parser._pushTmplInsertionMode(inTemplateMode)
+-        parser._initTokenizerForFragmentParsing()
+-        parser._insertFakeRootElement()
+-        parser._resetInsertionMode()
+-        parser._findFormInFragmentContext()
++        const parser = new Parser(parseOptions, mock, context)
++        parser.tmplInsertionModeStack.push(inTemplateMode);
++        parser.tmplInsertionModeStackTop++;
++        parser.currentTmplInsertionMode = inTemplateMode;
++        if (parser.treeAdapter.getNamespaceURI(parser.fragmentContext) === 'http://www.w3.org/1999/xhtml') {
++          const tn = parser.treeAdapter.getTagName(parser.fragmentContext);
++
++          if (tn === 'title' || tn === 'textarea') {
++            parser.tokenizer.state = Tokenizer.MODE.RCDATA;
++          } else if (
++              tn === 'style' ||
++              tn === 'xmp' ||
++              tn === 'iframe' ||
++              tn === 'noembed' ||
++              tn === 'noframes' ||
++              tn === 'noscript'
++          ) {
++            parser.tokenizer.state = Tokenizer.MODE.RAWTEXT;
++          } else if (tn === 'script') {
++            parser.tokenizer.state = Tokenizer.MODE.SCRIPT_DATA;
++          } else if (tn === 'plaintext') {
++            parser.tokenizer.state = Tokenizer.MODE.PLAINTEXT;
++          }
++      }
++      const element = parser.treeAdapter.createElement('html', 'http://www.w3.org/1999/xhtml', []);
+ 
+-        tokenizer = parser.tokenizer
+-        /* c8 ignore next */
+-        if (!tokenizer) throw new Error('Expected `tokenizer`')
+-        preprocessor = tokenizer.preprocessor
+-        locationTracker = tokenizer.__mixins[0]
+-        posTracker = locationTracker.posTracker
++        parser.treeAdapter.appendChild(parser.openElements.current, element);
++        parser.openElements.push(element);
+ 
+-        one(tree)
++        parser._resetInsertionMode()
+      
+-        resetTokenizer()
+ 
+         parser._adoptNodes(mock.childNodes[0], doc)
+ 

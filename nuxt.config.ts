@@ -71,6 +71,9 @@ export default defineNuxtConfig({
       __VUE_I18N_LEGACY_API__: false,
       __INTLIFY_PROD_DEVTOOLS__: true,
       __VUE_PROD_DEVTOOLS__: true
+    },
+    build: {
+      chunkSizeWarningLimit: 1024
     }
   }
 })
