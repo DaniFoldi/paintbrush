@@ -41,6 +41,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
   @use '~/assets/grid';
   @use '~/assets/mixins';
 
@@ -49,9 +50,9 @@
     @include grid.two-items;
 
     input[type=checkbox] {
+      @include common.rounded;
+      @include common.border;
       appearance: none;
-      border: 2px solid var(--shadow);
-      border-radius: var(--unit);
       cursor: pointer;
       height: 24px;
       margin-inline: 0;

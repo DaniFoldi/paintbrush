@@ -61,8 +61,8 @@
     @include colors.standard-color;
     @include sizes.unit-padding-inline;
     @include mixins.set-100-percent('width');
+    @include common.border;
 
-    border: 2px solid var(--highlight-background);
     resize: v-bind(resize);
   }
 </style>

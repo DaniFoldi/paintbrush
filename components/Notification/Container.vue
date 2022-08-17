@@ -43,6 +43,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
+
   .notification-container {
     display: grid;
     gap: 1rem;
@@ -53,8 +55,8 @@
   }
 
   .notification {
+    @include common.rounded;
     background: v-bind(background);
-    border-radius: 5px;
     opacity: 80%;
     transition: opacity .3s ease;
   }

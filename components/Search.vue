@@ -139,8 +139,8 @@
     @include mixins.fade('background', 'color', 'border-color');
     @include colors.standard-background;
     @include colors.standard-color;
+    @include common.border;
 
-    border: 2px solid var(--highlight-background);
     height: 32px;
     margin-inline: 0;
     padding-inline: 4px;

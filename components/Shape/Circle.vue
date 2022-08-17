@@ -24,8 +24,10 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
+
   div {
-    border-radius: 50%;
+    @include common.circular;
     height: v-bind(radius);
     width: v-bind(radius);
   }

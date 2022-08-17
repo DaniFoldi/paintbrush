@@ -170,11 +170,16 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/colors';
+  @use '~/assets/common';
+  @use '~/assets/mixins';
+  @use '~/assets/sizes';
+
   iframe {
-    background: var(--background);
+    @include colors.standard-background;
+    @include common.rounded;
+    @include sizes.double-unit-padding;
+    @include mixins.set-100-percent('width');
     border: none;
-    border-radius: var(--unit);
-    padding: var(--double-unit);
-    width: 100%;
   }
 </style>

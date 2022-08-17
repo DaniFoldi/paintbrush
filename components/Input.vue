@@ -68,8 +68,8 @@
       @include colors.standard-color;
       @include sizes.no-margin-inline;
       @include sizes.unit-padding-inline;
+      @include common.border;
 
-      border: 2px solid var(--highlight-background);
       height: 32px;
       width: v-bind('width');
     }

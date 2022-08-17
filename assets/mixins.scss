@@ -1,5 +1,4 @@
 @use 'sass:string';
-@forward './deprecated';
 
 @mixin fade($properties...) {
   $values: '';

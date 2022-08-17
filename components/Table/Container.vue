@@ -72,7 +72,8 @@
     @include grid.grid;
     @include sizes.unit-margin-block;
     @include sizes.double-unit-padding-inline;
-    border: 2px solid var(--highlight-background);
+    @include common.border;
+
     column-gap: v-bind('columnGap');
     grid-auto-rows: v-bind(rows);
     grid-template-columns: v-bind('layout.map(col => col.width).join(" ")');

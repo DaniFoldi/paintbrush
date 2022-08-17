@@ -52,9 +52,11 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
+
   span {
+    @include common.rounded;
     border: 1px solid v-bind(color);
-    border-radius: var(--unit);
     display: inline-grid;
     gap: calc(.5 * var(--unit));
     grid-auto-flow: column;

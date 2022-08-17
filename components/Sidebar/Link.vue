@@ -51,13 +51,14 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
+  @use '~/assets/grid';
   @use '~/assets/mixins';
   @use '~/assets/sizes';
-  @use '~/assets/grid';
   @use '~/assets/text';
 
   a {
-    @include mixins.rounded;
+    @include common.rounded;
     @include mixins.fade('background', 'color', 'border-color');
     @include sizes.unit-padding;
 

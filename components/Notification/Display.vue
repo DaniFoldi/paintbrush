@@ -65,18 +65,20 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
+
   .notification {
+    @include common.rounded;
+
     background: v-bind(background);
     border: 1px solid v-bind(highlight);
-    border-radius: 5px;
     opacity: 70%;
     padding: 1rem;
     transition: opacity .3s ease;
-  }
 
-  .notification:hover {
-    opacity: 100%;
-    transition: opacity .3s ease;
+    &:hover {
+      opacity: 100%;
+    }
   }
 
   .notification-header {

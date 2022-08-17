@@ -1,5 +1,5 @@
 <!--!
-  @version 1.0.0
+  @version 1.1.0
   @icon moon
   @category Paintbrush
   @description Thank you for displaying our badge
@@ -34,13 +34,11 @@
 
   interface ThemeToggleProps {
     background?: string // Background color
-    border?: string // Border color
     thumbColor?: string // Thumb color
   }
 
   const props = withDefaults(defineProps<ThemeToggleProps>(), {
     background: 'background',
-    border: 'highlightBackground',
     thumbColor: 'shadowText'
   })
 
@@ -72,13 +70,14 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
   @use '~/assets/mixins';
 
   div.toggle {
-
     @include mixins.fade('background', 'color', 'border-color');
+    @include common.border;
+
     background: v-bind(background);
-    border: 2px solid v-bind(border);
     border-radius: 16px;
     box-sizing: content-box;
     cursor: pointer;
@@ -90,8 +89,9 @@
     width: calc(64px - var(--unit));
 
     & > .selected {
+      @include common.circular;
+
       background: v-bind(thumb);
-      border-radius: 50%;
       cursor: pointer;
       height: calc(24px - var(--double-unit));
       position: relative;

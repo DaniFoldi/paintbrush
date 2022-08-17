@@ -56,6 +56,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
   @use '~/assets/mixins';
 
   input {
@@ -67,8 +68,9 @@
 
     &::after {
       @include mixins.fade('background', 'color');
+      @include common.border;
+
       background: transparent;
-      border: 2px solid v-bind(color);
       border-radius: 16px;
       content: '';
       display: block;
@@ -80,8 +82,9 @@
     }
 
     &::before {
+      @include common.circular;
+
       background: v-bind(thumb);
-      border-radius: 50%;
       content: '';
       display: block;
       height: calc(24px - var(--double-unit));

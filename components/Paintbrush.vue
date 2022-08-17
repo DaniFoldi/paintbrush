@@ -193,6 +193,7 @@
     darkColors: () => ({
       background: 'gray-9',
       backgroundText: 'gray-0',
+      borderColor: 'gray-8',
       borderWidth: '1px',
       disabled: 'gray-6',
       disabledText: 'gray-0',
@@ -222,6 +223,7 @@
     lightColors: () => ({
       background: 'gray-1',
       backgroundText: 'gray-10',
+      borderColor: 'gray-2',
       borderWidth: '1px',
       disabled: 'gray-4',
       disabledText: 'gray-10',
