@@ -66,7 +66,6 @@
   const thumb = computed(() => useThemeColor(props.thumbColor).value)
   const offset = computed(() => theme.theme === 'system' ? '0px' : (theme.theme === 'light' ? '-20px' : '20px'))
   const background = computed(() => useThemeColor(props.background).value)
-  const border = computed(() => useThemeColor(props.border).value)
 </script>
 
 <style lang="scss" scoped>
