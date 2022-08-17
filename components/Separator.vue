@@ -1,6 +1,6 @@
 <!--!
   @icon text-align-justify
-  @version 1.2.0
+  @version 1.3.0
   @category Layout
   @description Visually separate blocks of content with a line
 -->
@@ -19,7 +19,7 @@
   }
 
   const props = withDefaults(defineProps<SeparatorProps>(), {
-    color: 'highlightBackground',
+    color: 'borderColor',
     rounded: true,
     spaced: false
   })
@@ -32,11 +32,12 @@
   @use '~/assets/sizes';
 
   hr {
-
     @include sizes.double-unit-margin-block;
+    @include mixins.fade('border-color');
+
     border-color: v-bind(color);
     border-style: solid;
-    transition: border-color .25s ease-in-out;
+    border-width: .5px;
 
     &.rounded {
       border-radius: 1px;
