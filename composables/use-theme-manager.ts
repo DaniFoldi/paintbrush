@@ -29,5 +29,5 @@ export default function(
     :root[data-theme=dark] { 
       ${darkVariables.value} 
     }
-  `.replace('\n', '').replace(' ', ''))
+  `.replaceAll('\n', '').replaceAll(' ', ''))
 }
