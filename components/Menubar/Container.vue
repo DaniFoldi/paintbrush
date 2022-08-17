@@ -53,9 +53,11 @@
   @use '~/assets/sizes';
 
   .menubar-container {
-    @include grid.two-items(1fr, 64px);
     @include grid.grid;
+
     column-gap: v-bind(part);
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px 1fr;
   }
 
   .menubar-content {
@@ -65,6 +67,7 @@
   div.menubar-left, div.menubar-middle, div.menubar-right {
     @include grid.center-items-block;
     @include grid.grid;
+
     column-gap: v-bind(element);
     grid-auto-columns: max-content;
     grid-auto-flow: column;
@@ -78,6 +81,7 @@
     @include mixins.fade('background', 'color');
     @include colors.menu-background;
     @include grid.grid;
+
     grid-template-columns: 1fr auto 1fr;
     position: sticky;
     top: 0;
