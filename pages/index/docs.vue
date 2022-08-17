@@ -15,7 +15,7 @@
             :auto-wrap="false"
             :href="path.replace(/^components/, '/docs/components').replace(/\.vue$/, '')"
             :icon="component.icon"
-            :icon-color="`${$route.path}.vue` === `/docs/${path}` ? 'var(--secondary)' : 'var(--background-text)'"
+            :icon-color="`${$route.path}.vue` === `/docs/${path}` ? 'secondary' : 'backgroundText'"
             :icon-variant="`${$route.path}.vue` === `/docs/${path}` ? 'bold' : 'regular'"
           >
             <Container center-vertical split>
