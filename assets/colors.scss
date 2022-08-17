@@ -26,6 +26,14 @@
   color: var(--menu-background-text);
 }
 
+@mixin disabled-background {
+  background: var(--disabled);
+}
+
+@mixin disabled-color {
+  color: var(--disabled-text);
+}
+
 @mixin transparent-background {
   background: transparent;
 }
