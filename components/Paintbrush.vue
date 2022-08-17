@@ -329,9 +329,11 @@
   @include fonts.inter;
   @include fonts.playfair-display;
   @include fonts.raleway;
+  @include fonts.varela;
+  @include fonts.varelaRound;
 
   body {
-    @include fonts.font('raleway');
+    @include fonts.font('varela');
     @include colors.standard-background;
     @include colors.standard-color;
     @include mixins.fade('background', 'color');
