@@ -116,7 +116,6 @@
 
 @mixin with-fade {
   @warn deprecated;
-  // TODO specify properties
   transition: background .25s ease-in-out, color .25s ease-in-out, border-color .25s ease-in-out;
 }
 
@@ -200,9 +199,4 @@
   } @else if $family == 'inter' {
     font-family: Inter, Helvetica, Arial, sans-serif;
   }
-}
-
-@mixin rounded {
-  @warn deprecated;
-  border-radius: var(--radius);
 }

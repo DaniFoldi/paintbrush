@@ -5,3 +5,11 @@
 @mixin circular {
   border-radius: 50%;
 }
+
+@mixin border {
+  border: var(--border-width) solid var(--border-color);
+}
+
+@mixin shadow {
+  box-shadow: var(--shadow);
+}
