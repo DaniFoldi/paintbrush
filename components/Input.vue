@@ -48,6 +48,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
   @use '~/assets/colors';
   @use '~/assets/grid';
   @use '~/assets/mixins';
@@ -61,7 +62,7 @@
     }
 
     input {
-      @include mixins.rounded;
+      @include common.rounded;
       @include mixins.fade('background', 'color', 'border-color');
       @include colors.standard-background;
       @include colors.standard-color;

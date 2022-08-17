@@ -50,11 +50,12 @@
 
 <style lang="scss" scoped>
   @use '~/assets/colors';
+  @use '~/assets/common';
   @use '~/assets/mixins';
   @use '~/assets/sizes';
 
   textarea {
-    @include mixins.rounded;
+    @include common.rounded;
     @include mixins.fade('background', 'color', 'border-color');
     @include colors.standard-background;
     @include colors.standard-color;

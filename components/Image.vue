@@ -26,6 +26,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
   @use '~/assets/mixins';
 
   img {
@@ -33,7 +34,7 @@
     max-width: v-bind('maxWidth');
 
     &.rounded {
-      @include mixins.rounded;
+      @include common.rounded;
     }
   }
 </style>

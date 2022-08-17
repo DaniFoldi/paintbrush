@@ -112,6 +112,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/common';
   @use '~/assets/mixins';
 
   .dropdown-container {
@@ -121,8 +122,8 @@
   }
 
   .dropdown-item-container {
+    @include common.rounded;
 
-    @include mixins.rounded;
     background: var(--background-2);
     border: 1px solid var(--background-highlight);
     font-size: .9rem;
@@ -135,9 +136,8 @@
   }
 
   .dropdown-item {
+    @include common.rounded;
 
-
-    @include mixins.rounded;
     cursor: pointer;
     padding: var(--unit) var(--double-unit);
   }
@@ -151,17 +151,17 @@
   }
 
   .dropdown-title {
+    @include common.rounded;
+    @include mixins.fade('color');
 
-    @include mixins.rounded;
-    @include mixins.with-fade;
     background: var(--background-highlight);
     cursor: pointer;
     padding: var(--double-unit);
   }
 
   .tag {
+    @include common.rounded;
 
-    @include mixins.rounded;
     background: var(--primary);
     color: var(--background);
     font-size: .5rem;

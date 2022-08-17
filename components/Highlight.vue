@@ -117,8 +117,8 @@
   @use '~/assets/grid';
 
   blockquote {
-    @include mixins.double-unit-margin;
-    @include mixins.double-unit-padding;
+    @include sizes.double-unit-margin;
+    @include sizes.double-unit-padding;
     background: v-bind(background);
     border-left: 3px solid v-bind(border);
 

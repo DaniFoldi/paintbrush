@@ -33,6 +33,7 @@
 
 <style lang="scss" scoped>
   @use '~/assets/mixins';
+  @use '~/assets/fonts';
 
   *:slotted( > * ) {
 
@@ -40,8 +41,8 @@
       position: relative;
 
       &::before {
+        @include fonts.font('inter');
 
-        @include mixins.font('inter');
         background: v-bind(background);
         border-radius: 9px;
         color: v-bind(color);
@@ -64,8 +65,8 @@
       position: relative;
 
       &::after {
+        @include fonts.font('inter');
 
-        @include mixins.font('inter');
         background: v-bind(background);
         border-radius: 9px;
         color: v-bind(color);

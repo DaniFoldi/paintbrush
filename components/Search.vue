@@ -99,6 +99,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/colors';
+  @use '~/assets/common';
   @use '~/assets/mixins';
 
   .search-main-container {
@@ -106,8 +108,8 @@
   }
 
   .search-container {
+    @include common.rounded;
 
-    @include mixins.rounded;
     background: var(--background);
     box-shadow: #3636364f 1px 1px 10px 3px;
     margin-top: var(--double-unit);
@@ -119,8 +121,8 @@
   }
 
   .search-content {
+    @include common.rounded;
 
-    @include mixins.rounded;
     cursor: pointer;
     margin-bottom: .5rem;
     padding: .2rem;
@@ -133,11 +135,11 @@
   }
 
   input {
+    @include common.rounded;
+    @include mixins.fade('background', 'color', 'border-color');
+    @include colors.standard-background;
+    @include colors.standard-color;
 
-    @include mixins.rounded;
-    @include mixins.with-fade;
-    @include mixins.standard-background;
-    @include mixins.standard-text;
     border: 2px solid var(--highlight-background);
     height: 32px;
     margin-inline: 0;
