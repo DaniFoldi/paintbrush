@@ -56,11 +56,13 @@
   @use '~/assets/mixins';
   @use '~/assets/sizes';
   @use '~/assets/text';
+  @use '~/assets/fonts';
 
   a {
     @include common.rounded;
     @include mixins.fade('background', 'color', 'border-color');
     @include sizes.unit-padding;
+    @include fonts.font('varela-round');
 
     font-size: 20px;
     user-select: none;
