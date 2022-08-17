@@ -35,7 +35,7 @@
   @use '~/assets/mixins';
   @use '~/assets/fonts';
 
-  *:slotted( > * ) {
+  :not(.pb-specific):slotted( > * ) {
 
     &.left-badge {
       position: relative;
