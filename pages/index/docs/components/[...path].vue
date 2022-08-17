@@ -131,7 +131,7 @@
 
     <Spacer />
 
-    <AutoLink :href="`https://github.com/DaniFoldi/paintbrush/blob/main/components/${useFullParam('path')}.vue`">
+    <AutoLink :href="`https://github.com/DaniFoldi/paintbrush/blob/main/components/${useFullParam('path')}.vue`" new-tab>
       Source
     </AutoLink>
   </Container>
