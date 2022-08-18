@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "alwaysStrict": true,
-    "allowJs": false,
-    "types": [ "node", "./index.d.ts" ]
-  }
+    "allowJs": false
+  },
+  "files": [ "index.d.ts" ]
 }

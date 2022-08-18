@@ -1,5 +1,5 @@
 declare module '#app' {
-  interface PageMeta {
+  interface RouteMeta {
     paintbrush: PaintbrushPage
   }
 }
