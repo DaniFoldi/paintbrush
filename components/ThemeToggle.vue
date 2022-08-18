@@ -1,8 +1,8 @@
 <!--!
-  @version 1.1.0
+  @version 1.1.1
   @icon moon
   @category Paintbrush
-  @description Thank you for displaying our badge
+  @description Change the theme of the page
 -->
 
 <!--##
@@ -39,12 +39,12 @@
 
   const props = withDefaults(defineProps<ThemeToggleProps>(), {
     background: 'background',
-    thumbColor: 'shadowText'
+    thumbColor: 'highlightBackground'
   })
 
 
   const theme = useTheme()
-  const dark = computed(() => usePreferredDark())
+  const dark = usePreferredDark()
 
   function toggle(to?: string | MouseEvent) {
     if (to === 'light' || to === 'dark') {
