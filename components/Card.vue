@@ -1,12 +1,12 @@
 <!--!
-  @version 2.0.0
+  @version 2.1.0
   @category Layout
   @icon cards
   @description Visual building block with a separate background color
 -->
 
 <template>
-  <Container :inline="inline" :padded="padded">
+  <Container class="card" :inline="inline" :padded="padded">
     <slot />
   </Container>
 </template>

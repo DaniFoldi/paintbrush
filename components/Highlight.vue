@@ -1,7 +1,7 @@
 <!--!
   @category Visual
   @icon traffic-sign
-  @version 1.1.2
+  @version 1.1.3
   @description Draw the user's attention to a piece of text
 -->
 
@@ -90,21 +90,21 @@
 
   const color = computed(() => {
     if (props.error) {
-      return 'red'
+      return 'red-5'
     }
     if (props.warning) {
-      return 'orange'
+      return 'orange-5'
     }
     if (props.success) {
-      return 'green'
+      return 'green-5'
     }
     if (props.info) {
-      return 'blue'
+      return 'blue-5'
     }
     if (props.quote) {
-      return 'gray'
+      return 'gray-5'
     }
-    return 'text'
+    return 'highlightBackground'
   })
 
   const border = computed(() => useThemeColor(color.value).value)
@@ -117,7 +117,7 @@
   @use '~/assets/grid';
 
   blockquote {
-    @include sizes.double-unit-margin;
+    @include sizes.double-unit-margin-block;
     @include sizes.double-unit-padding;
     background: v-bind(background);
     border-left: 3px solid v-bind(border);

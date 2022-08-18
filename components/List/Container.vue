@@ -1,6 +1,6 @@
 <!--!
   @category Basic
-  @version 0.1.0
+  @version 0.2.0
   @icon list-numbers
   @description A container for list items
 -->
@@ -23,3 +23,9 @@
     numbered: false
   })
 </script>
+
+<style lang="scss" scoped>
+  ol, ul {
+    padding-inline-start: 20px;
+  }
+</style>

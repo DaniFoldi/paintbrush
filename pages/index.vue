@@ -6,27 +6,27 @@
       </Container>
     </template>
     <template #sidebar-middle>
-      <SidebarLink href="/" icon="rocket-launch" :icon-color="useRoute().path === '/' ? 'red-5' : 'inherit'">
+      <SidebarLink href="/" icon="rocket-launch" icon-color="primary">
         Welcome
       </SidebarLink>
       <SidebarLink
         href="/quickstart"
         icon="download"
-        :icon-color="useRoute().path === '/quickstart' ? 'orange-5' : 'backgroundText'"
+        icon-color="primary"
       >
         Quickstart
       </SidebarLink>
       <SidebarLink
         href="/examples"
         icon="code"
-        :icon-color="useRoute().path === '/examples' ? 'yellow-5' : 'backgroundText'"
+        icon-color="primary"
       >
         Examples
       </SidebarLink>
       <SidebarLink
         href="/docs"
         icon="file-text"
-        :icon-color="useRoute().path.startsWith('/docs') ? 'green-5' : 'backgroundText'"
+        icon-color="primary"
         non-exact
       >
         Docs
@@ -79,7 +79,7 @@
       <SidebarLink
         href="/roadmap"
         icon="signpost"
-        :icon-color="useRoute().path === '/roadmap' ? 'blue-5' : 'backgroundText'"
+        icon-color="primary"
       >
         Roadmap
       </SidebarLink>
