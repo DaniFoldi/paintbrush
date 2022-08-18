@@ -3,6 +3,7 @@
 @use '~/node_modules/@fontsource/raleway/scss/mixins' as raleway;
 @use '~/node_modules/@fontsource/varela/scss/mixins' as varela;
 @use '~/node_modules/@fontsource/varela-round/scss/mixins' as varelaRound;
+@use '~/node_modules/@fontsource/source-code-pro/scss/mixins' as sourceCodePro;
 
 
 @mixin inter {
@@ -46,40 +47,67 @@
   @include raleway.fontFace($weight: 800, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
 }
 
+@mixin sourceCodePro {
+  @include sourceCodePro.fontFace(
+    $weight: 300,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
+  @include sourceCodePro.fontFace(
+    $weight: 400,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
+  @include sourceCodePro.fontFace(
+    $weight: 500,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
+  @include sourceCodePro.fontFace(
+    $weight: 600,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
+  @include sourceCodePro.fontFace(
+    $weight: 700,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
+  @include sourceCodePro.fontFace(
+    $weight: 800,
+    $display: fallback,
+    $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
+}
+
 @mixin varela {
-  @include varela.fontFace($weight: 300, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
+  // @include varela.fontFace($weight: 300, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
   @include varela.fontFace($weight: 400, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  @include varela.fontFace($weight: 500, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  @include varela.fontFace($weight: 600, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  @include varela.fontFace($weight: 700, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  @include varela.fontFace($weight: 800, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
+  // @include varela.fontFace($weight: 500, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
+  // @include varela.fontFace($weight: 600, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
+  // @include varela.fontFace($weight: 700, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
+  // @include varela.fontFace($weight: 800, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
 }
 
 @mixin varelaRound {
-  @include varelaRound.fontFace(
-    $weight: 300,
-    $display: fallback,
-    $fontDir: '~/node_modules/@fontsource/varela-round/files');
+  // @include varelaRound.fontFace(
+  //   $weight: 300,
+  //   $display: fallback,
+  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
   @include varelaRound.fontFace(
     $weight: 400,
     $display: fallback,
     $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  @include varelaRound.fontFace(
-    $weight: 500,
-    $display: fallback,
-    $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  @include varelaRound.fontFace(
-    $weight: 600,
-    $display: fallback,
-    $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  @include varelaRound.fontFace(
-    $weight: 700,
-    $display: fallback,
-    $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  @include varelaRound.fontFace(
-    $weight: 800,
-    $display: fallback,
-    $fontDir: '~/node_modules/@fontsource/varela-round/files');
+  // @include varelaRound.fontFace(
+  //   $weight: 500,
+  //   $display: fallback,
+  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
+  // @include varelaRound.fontFace(
+  //   $weight: 600,
+  //   $display: fallback,
+  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
+  // @include varelaRound.fontFace(
+  //   $weight: 700,
+  //   $display: fallback,
+  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
+  // @include varelaRound.fontFace(
+  //   $weight: 800,
+  //   $display: fallback,
+  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
 }
 
 @mixin font($family) {
@@ -96,6 +124,8 @@
     font-family: Varela, Helvetica, Arial, sans-serif;
   } @else if $family == 'varela-round' {
     font-family: 'Varela round', Helvetica, Arial, sans-serif;
+  } @else if $family == 'source-code-pro' {
+    font-family: 'Source Code Pro', Courier, monospace;
   } @else {
     font-family: $family, Helvetica, Arial, sans-serif;
   }

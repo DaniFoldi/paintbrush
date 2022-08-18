@@ -38,8 +38,11 @@
 </script>
 
 <style lang="scss">
+  @use '~/assets/fonts';
+
   code.hljs {
-    font-family: monospace;
+    @include fonts.font('source-code-pro');
+
     overflow-x: auto;
     //@include constants.reset;
     //@include constants.padded;

@@ -1,5 +1,4 @@
 import { computed, usePbTheme } from '#imports'
-import { useTheme } from '../stores/theme'
 import type { Ref } from 'vue'
 
 

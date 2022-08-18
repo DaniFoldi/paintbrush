@@ -331,6 +331,7 @@
   @include fonts.raleway;
   @include fonts.varela;
   @include fonts.varelaRound;
+  @include fonts.sourceCodePro;
 
   body {
     @include fonts.font('varela');
