@@ -1,5 +1,5 @@
 <!--!
-  @version 1.3.1
+  @version 1.4.0
   @description Main component to be used everywhere
   @icon paintbrush
   @note This component should be wrapping every other Paintbrush component used, see Getting Started
@@ -21,9 +21,10 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia'
-  import { onMounted, ref, computed, useHead, useStyleTag, useThemeManager, setThemeColors, useThemeColor, handleShortcut } from '#imports'
+  import { onMounted, ref, computed, useHead, useStyleTag, useThemeManager, setThemeColors, useThemeColor, handleShortcut, provide, usePaintbrushMeta } from '#imports'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
+  import { defaultPaintbrushPage } from '../types/page'
 
 
   type Font = 'gantari' | 'inter' | 'manrope' | 'phosphor-icons' | 'playfair-display' | 'raleway' | 'source-code-pro'
@@ -34,6 +35,7 @@
     colorScheme?: Record<string, string> // Color scheme definitions
     container?: boolean // Wrap content in a container
     darkColors?: Record<string, string> // Dark scheme mappings
+    defaultMeta?: Partial<PaintbrushPage> // Default rendering options
     description?: string // Meta, OG description
     favicon?: string // Favicon png
     faviconSvg?: string // Favicon svg
@@ -50,6 +52,7 @@
     twitterType?: string // Twitter website type
     url?: string // OG url
   }
+
 
   const props = withDefaults(defineProps<PaintbrushProps>(), {
     appName: '',
@@ -223,6 +226,7 @@
       transparentize: '3f',
       unit: '4px'
     }), // external
+    defaultMeta: () => defaultPaintbrushPage, // external
     description: '',
     favicon: '',
     faviconSvg: '',
@@ -262,6 +266,8 @@
     url: ''
   })
 
+  provide('pb-page', props.defaultMeta)
+
   const version = packageJson.version
 
   useStyleTag(useThemeManager(props.colorScheme, props.lightColors, props.darkColors))
@@ -275,6 +281,17 @@
   const theme = storeToRefs(useTheme())
   const backgroundColor = computed(() => useThemeColor('background'))
   const primaryColor = computed(() => useThemeColor('primary'))
+  const font = computed(() => usePaintbrushMeta(props.defaultMeta).fontFamily.default)
+  const fontMap: Record<string, string> = {
+    gantari: 'GantariVariable',
+    inter: 'InterVariable',
+    manrope: 'ManropeVariable',
+    'phosphor-icons': 'phosphor-icons',
+    'playfair-display': 'Playfair DisplayVariable',
+    raleway: 'RalewayVariable',
+    'source-code-pro': 'Source Code ProVariable'
+  }
+  useStyleTag(computed(() => `body { font-family: ${fontMap[font.value]}; }`))
 
   useHead({
     bodyAttrs: { class: bodyClass },
@@ -339,7 +356,6 @@
   @include reset.paintbrush;
 
   body {
-    @include fonts.font('manrope');
     @include colors.standard-background;
     @include colors.standard-color;
     @include mixins.fade('background', 'color');

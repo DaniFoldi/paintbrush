@@ -1,5 +1,5 @@
 <!--!
-  @version 1.2.0
+  @version 1.3.0
   @icon link
   @description SSR/SPA-friendly link component
   @category Basic
@@ -24,22 +24,22 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, useThemeColor } from '#imports'
+  import { computed, useThemeColor, usePaintbrushMeta } from '#imports'
 
 
   interface AutoLinkProps {
     color?: string // Link color
     href: string // URL to navigate to
     newTab?: boolean // Open link in new tab
-    underline?: boolean | 'hover' // Underline text always or on hover
+    underline?: boolean | 'hover' | null // Underline text always or on hover
     weight?: number // Font weight
   }
 
   const props = withDefaults(defineProps<AutoLinkProps>(), {
     color: 'backgroundText',
     newTab: false,
-    underline: false,
-    weight: 400
+    underline: null,
+    weight: 0
   })
 
 
@@ -53,21 +53,26 @@
   })
 
   const color = computed(() => useThemeColor(props.color).value)
+  const paintbrushMeta = usePaintbrushMeta()
+  const weight = computed(() => props.weight === 0 ? paintbrushMeta.link.weight : props.weight)
+  const underline = computed(() => props.underline === null ? paintbrushMeta.link.underline : props.underline)
 </script>
 
 <style lang="scss" scoped>
+  @use '~/assets/text';
+
   a, a:visited {
+    @include text.no-underline;
     color: v-bind(color);
     cursor: pointer;
     font-weight: v-bind(weight);
-    text-decoration: none;
 
-    &.underline {
-      text-decoration: underline;
+    &.underline, &.underline:hover {
+      @include text.underline;
     }
 
     &.hover-underline:hover {
-      text-decoration: underline;
+      @include text.underline;
     }
   }
 </style>
