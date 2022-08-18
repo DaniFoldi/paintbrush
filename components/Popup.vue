@@ -1,54 +1,59 @@
 <!--!
   @category Display
-  @version 0.1.0
+  @version 0.2.0
   @icon warning-circle
   @description Create a popup style window
 -->
 
 <template>
-  <ClientOnly>
-    <FocusMark :distance="distance" :rounded="rounded" :target="popup" />
-  </ClientOnly>
   <Teleport to="body">
     <Container
       center
+      class="popup"
       max
-      :padded="padded"
       :rounded="rounded"
     >
-      <Container ref="popup">
-        <slot />
-      </Container>
+      <OnClickOutside @trigger="emit('pb-click-outside')">
+        <Card :padded="padded">
+          <slot />
+        </Card>
+      </OnClickOutside>
     </Container>
   </Teleport>
 </template>
 
 <script lang="ts" setup>
-  import { provide, ref } from '#imports'
+  import { OnClickOutside } from '@vueuse/components'
 
+
+  interface PopupEmits {
+    (e: 'pb-click-outside'): void
+  }
 
   interface PopupProps {
-    distance?: number // Distance from the target element
     padded?: boolean | string // Padding around the popup
     rounded?: boolean | string // Rounded corners of the popup
   }
 
+  const emit = defineEmits<PopupEmits>()
+
   withDefaults(defineProps<PopupProps>(), {
-    distance: 0,
     padded: 'unit',
     rounded: 'radius'
   })
-
-
-  const popup = ref<HTMLElement | null>(null)
-  const scrollAnchor = ref<HTMLElement | null>(null)
-  provide('scrollAnchor', scrollAnchor)
 </script>
 
 <style lang="scss" scoped>
-  body > div.container {
+  @use '~/assets/mixins';
+
+  div.popup {
+    background: #0000003f;
     left: 0;
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow-y: scroll;
     position: fixed;
     top: 0;
+    z-index: 50;
   }
 </style>
