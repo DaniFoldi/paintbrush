@@ -19,7 +19,8 @@
     <TableContainer
       v-if="Object.keys(component.property).length > 0"
       column-gap="12px"
-      :layout="[{ width: 'auto' }, { width: 'auto' }, { width: '1fr' }, { width: 'auto' }]"
+      :layout="[{ width: 'auto' }, { width: 'auto' }, { width: 'max-content' }, { width: 'auto' }]"
+      row-height="minmax(32px, auto)"
       separator
     >
       <template #header>
@@ -58,6 +59,7 @@
       v-if="Object.keys(component.emit).length > 0"
       column-gap="12px"
       :layout="[{ width: 'auto' }, { width: '1fr' }, { width: 'auto' }]"
+      row-height="minmax(32px, auto)"
       separator
     >
       <template #header>
