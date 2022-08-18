@@ -139,10 +139,10 @@
     <AutoLink :href="`https://github.com/DaniFoldi/paintbrush/blob/main/components/${useFullParam('path')}.vue`" new-tab>
       Source
     </AutoLink>
+    <Popup v-if="code !== ''" @pb-click-outside="code = ''">
+      <MultilineCode :code="code" language="typescript" />
+    </Popup>
   </Container>
-  <Popup v-if="code !== ''" @pb-click-outside="code = ''">
-    <MultilineCode :code="code" language="typescript" />
-  </Popup>
 </template>
 
 <script lang="ts" setup async>
