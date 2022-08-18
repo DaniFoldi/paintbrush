@@ -10,6 +10,13 @@
     <slot />
   </Container>
   <slot v-else />
+  <PaintbrushGantari v-if="fonts.includes('gantari')" />
+  <PaintbrushInter v-if="fonts.includes('inter')" />
+  <PaintbrushManrope v-if="fonts.includes('manrope')" />
+  <PaintbrushPhosphorIcons v-if="fonts.includes('phosphor-icons')" />
+  <PaintbrushPlayfairDisplay v-if="fonts.includes('playfair-display')" />
+  <PaintbrushRaleway v-if="fonts.includes('raleway')" />
+  <PaintbrushSourceCodePro v-if="fonts.includes('source-code-pro')" />
 </template>
 
 <script lang="ts" setup>
@@ -18,6 +25,8 @@
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
 
+
+  type Font = 'gantari' | 'inter' | 'manrope' | 'phosphor-icons' | 'playfair-display' | 'raleway' | 'source-code-pro'
 
   interface PaintbrushProps {
     appName?: string // Meta application name
@@ -28,6 +37,7 @@
     description?: string // Meta, OG description
     favicon?: string // Favicon png
     faviconSvg?: string // Favicon svg
+    fonts?: Font[] // Fonts to load
     keywords?: string[] // Meta keywords
     lang?: string // Language
     largeImage?: string // OG Large image
@@ -216,6 +226,7 @@
     description: '',
     favicon: '',
     faviconSvg: '',
+    fonts: () => [ 'source-code-pro', 'gantari', 'manrope', 'phosphor-icons' ],
     keywords: () => [],
     lang: 'en_US',
     largeImage: '',
@@ -326,12 +337,6 @@
   @use '~/node_modules/phosphor-icons/src/css/icons.css';
 
   @include reset.paintbrush;
-  @include fonts.inter;
-  @include fonts.playfair-display;
-  @include fonts.raleway;
-  @include fonts.sourceCodePro;
-  @include fonts.gantari;
-  @include fonts.manrope;
 
   body {
     @include fonts.font('manrope');

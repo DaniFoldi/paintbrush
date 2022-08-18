@@ -166,7 +166,7 @@
     $fontDir: '~/node_modules/@fontsource/manrope/files');
 }
 
-@mixin sourceCodePro {
+@mixin source-code-pro {
   @include sourceCodePro.fontFaceVariable(
     $weight: 300,
     $display: fallback,
