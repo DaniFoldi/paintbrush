@@ -10,15 +10,18 @@ import { IconTypes } from '../modules/icon-types'
 
 
 const docs: Docs = {}
+const externals: Record<string, string> = {}
+
+const logger = consola.withTag('paintbrush-ui')
 
 const messageCount = { error: 0, warn: 0 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function log(type: 'error' | 'warn', ...message: any) {
   messageCount[type]++
   if (message.length === 1) {
-    consola[type](message[0])
+    logger[type](message[0])
   } else {
-    consola[type](message.shift(), ...message)
+    logger[type](message.shift(), ...message)
   }
 }
 
@@ -28,7 +31,7 @@ function log(type: 'error' | 'warn', ...message: any) {
   await (process.argv[2] !== undefined && process.argv[2].startsWith('components/') ? updateComponentDocs(process.argv[2]) : generateComponentDocs())
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
   await (process.argv[2] !== undefined && process.argv[2].startsWith('components/') ? updateExamples(process.argv[2]) : writeExamples())
-  consola.info(`Paintbrush docs ${process.argv[2] !== undefined && process.argv[2].startsWith('components/') ? 'update' : 'generation'} completed with ${messageCount.error} errors, ${messageCount.warn} warnings`)
+  logger.info(`Docs ${process.argv[2] !== undefined && process.argv[2].startsWith('components/') ? 'update' : 'generation'} completed with ${messageCount.error} errors, ${messageCount.warn} warnings`)
 })()
 
 function findInterface(name: string, script: string): string[] {
@@ -49,6 +52,7 @@ export interface Component {
     content: string
     render: boolean
   }[]
+  externals: string[]
   icon: IconTypes | undefined
   name: string
   note: string
@@ -140,6 +144,7 @@ export async function readComponentData(file: string): Promise<Component> {
     description: '',
     emit: [],
     example: [],
+    externals: [],
     icon: undefined,
     name: '',
     note: '',
@@ -196,6 +201,11 @@ export async function readComponentData(file: string): Promise<Component> {
       .replaceAll('new Date().getFullYear()', '\'<current year>\'')
       .replace(/\(\) => \((.*?)\)/gims, '$1')
       .replace(/\(\) => (\[.*?])/gims, '$1') ?? '{}'
+
+    componentData.externals = [ ...props?.groups?.defaults?.matchAll(/^ {4}(?<prop>\w+): \(\) => \((\{.*?^ {4}\}|\[.*?^ {4}\])\), \/\/ external$/gmisu) ?? [] ]
+      .map(match => match.groups?.prop)
+      .map(match => match ?? '')
+      .filter(match => match.length > 0)
     let defaults: Record<string, string> = {}
     try {
       defaults = JSON5.parse(defaultString ?? '{}')

@@ -188,7 +188,7 @@
       'yellow-8': '#755900',
       'yellow-9': '#4b3800',
       'yellow-10': '#271c00'
-    }),
+    }), // external
     container: true,
     darkColors: () => ({
       background: 'gray-9',
@@ -212,7 +212,7 @@
       theme: 'primary',
       transparentize: '3f',
       unit: '4px'
-    }),
+    }), // external
     description: '',
     favicon: '',
     faviconSvg: '',
@@ -242,7 +242,7 @@
       theme: 'primary',
       transparentize: '3f',
       unit: '4px'
-    }),
+    }), // external
     manifest: '',
     ogType: 'website',
     pageTitle: '',
