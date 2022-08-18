@@ -3,9 +3,11 @@
     <ContentDoc>
       <template #not-found>
         <Container>
-          <Text title>
-            404
-          </Text>
+          <GradientText inline-block>
+            <Text title>
+              404
+            </Text>
+          </GradientText>
           <Text>
             The page you are looking for does not exist.
           </Text>
