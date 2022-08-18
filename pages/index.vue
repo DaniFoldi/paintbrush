@@ -27,6 +27,7 @@
         href="/docs"
         icon="file-text"
         :icon-color="useRoute().path.startsWith('/docs') ? 'green-5' : 'backgroundText'"
+        non-exact
       >
         Docs
       </SidebarLink>
