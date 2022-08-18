@@ -4,6 +4,5 @@
     "strict": true,
     "alwaysStrict": true,
     "allowJs": false
-  },
-  "files": [ "index.d.ts" ]
+  }
 }
