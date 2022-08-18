@@ -197,7 +197,7 @@ export async function readComponentData(file: string): Promise<Component> {
   if (props) {
     const propInterface = findInterface(props?.groups?.interface ?? '', scriptSetup)
     const defaultString = props?.groups?.defaults
-      ?.replaceAll(': undefined', ': \'undefined\'')
+      ?.replaceAll(': undefined', ': \'pb-no-default\'')
       .replaceAll('new Date().getFullYear()', '\'<current year>\'')
       .replace(/\(\) => \((.*?)\)/gims, '$1')
       .replace(/\(\) => (\[.*?])/gims, '$1') ?? '{}'
@@ -219,7 +219,7 @@ export async function readComponentData(file: string): Promise<Component> {
         continue
       }
       componentData.property.push({
-        default: defaults[propData?.groups?.name ?? ''] ?? '',
+        default: defaults[propData?.groups?.name ?? ''] ?? 'pb-no-default',
         description: propData?.groups?.description ?? '',
         name: propData?.groups?.name ?? '',
         required: propData?.groups?.optional?.length === 0 ?? false,

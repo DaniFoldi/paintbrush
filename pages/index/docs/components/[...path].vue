@@ -46,8 +46,11 @@
           <Text italic>
             {{ property.description }}
           </Text>
+          <Text v-if="property.default === 'pb-no-default'" color="shadowText">
+            -
+          </Text>
           <InlineCode
-            v-if="component.externals.indexOf(property.name) === -1"
+            v-else-if="component.externals.indexOf(property.name) === -1"
             :code="fixString(property.default)"
             language="typescript"
           />
