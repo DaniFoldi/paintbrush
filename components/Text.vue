@@ -33,7 +33,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, textFontSize, useThemeColor } from '#imports'
+  import { computed, useTextProperty, usePaintbrushMeta, useThemeColor } from '#imports'
+  import { Font, fontMap } from '../types/page'
 
 
   interface TextProps {
@@ -117,7 +118,11 @@
   ])
 
   const color = computed(() => useThemeColor(props.color).value)
-  const fontsize = computed(() => props.fontSize === 'default' ? textFontSize(element.value) : props.fontSize)
+  const meta = usePaintbrushMeta()
+  const family = computed(() =>
+    fontMap[useTextProperty<Font>(element.value, meta.header.fontFamily, meta.content.fontFamily)])
+  const size = computed(() => useTextProperty<string>(element.value, meta.header.fontSize, meta.content.fontSize))
+  const weight = computed(() => useTextProperty<number>(element.value, meta.header.fontWeight, meta.content.fontWeight))
 </script>
 
 <style lang="scss" scoped>
@@ -128,12 +133,13 @@
 
   h1, h2, h3, h4, h5, h6 {
     @include sizes.double-unit-margin-block;
-    @include fonts.font('gantari');
   }
 
   h1, h2, h3, h4, h5, h6, p, span {
     color: v-bind(color);
-    font-size: v-bind(fontsize);
+    font-family: v-bind(family);
+    font-size: v-bind(size);
+    font-weight: v-bind(weight);
 
     &.bold {
       @include text.bold;

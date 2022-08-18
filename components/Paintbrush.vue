@@ -24,10 +24,8 @@
   import { onMounted, ref, computed, useHead, useStyleTag, useThemeManager, setThemeColors, useThemeColor, handleShortcut, provide, usePaintbrushMeta } from '#imports'
   import { useTheme } from '../stores/theme'
   import packageJson from '../package.json'
-  import { defaultPaintbrushPage } from '../types/page'
+  import { defaultPaintbrushPage, PaintbrushPage, fontMap, Font } from '../types/page'
 
-
-  type Font = 'gantari' | 'inter' | 'manrope' | 'phosphor-icons' | 'playfair-display' | 'raleway' | 'source-code-pro'
 
   interface PaintbrushProps {
     appName?: string // Meta application name
@@ -281,16 +279,8 @@
   const theme = storeToRefs(useTheme())
   const backgroundColor = computed(() => useThemeColor('background').value)
   const primaryColor = computed(() => useThemeColor('primary').value)
-  const font = computed(() => usePaintbrushMeta(props.defaultMeta).fontFamily.default as Font)
-  const fontMap: Record<Font, string> = {
-    gantari: 'GantariVariable',
-    inter: 'InterVariable',
-    manrope: 'ManropeVariable',
-    'phosphor-icons': 'phosphor-icons',
-    'playfair-display': 'Playfair DisplayVariable',
-    raleway: 'RalewayVariable',
-    'source-code-pro': 'Source Code ProVariable'
-  }
+  const font = computed(() => usePaintbrushMeta(props.defaultMeta).content.fontFamily as Font)
+
   useStyleTag(computed(() => `body { font-family: ${fontMap[font.value]}; }`))
 
   useHead({

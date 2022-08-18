@@ -54,7 +54,7 @@
 
   const color = computed(() => useThemeColor(props.color).value)
   const paintbrushMeta = usePaintbrushMeta()
-  const weight = computed(() => props.weight === 0 ? paintbrushMeta.link.weight : props.weight)
+  const weight = computed(() => props.weight === 0 ? paintbrushMeta.link.fontWeight : props.weight)
   const underline = computed(() => props.underline === null ? paintbrushMeta.link.underline : props.underline)
 </script>
 
