@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       tags: {
         /* eslint-disable sort-keys */
         'p': 'content-text-p',
-        'a': 'autolink',
+        'a': 'content-auto-link-a',
         'blockquote': 'highlight',
         'code-inline': 'inline-code',
         'code': 'multiline-code',
