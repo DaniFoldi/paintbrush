@@ -1,131 +1,220 @@
 @use '~/node_modules/@fontsource/inter/scss/mixins' as inter;
 @use '~/node_modules/@fontsource/playfair-display/scss/mixins' as playfair;
 @use '~/node_modules/@fontsource/raleway/scss/mixins' as raleway;
-@use '~/node_modules/@fontsource/varela/scss/mixins' as varela;
-@use '~/node_modules/@fontsource/varela-round/scss/mixins' as varelaRound;
+@use '~/node_modules/@fontsource/gantari/scss/mixins' as gantari;
+@use '~/node_modules/@fontsource/manrope/scss/mixins' as manrope;
 @use '~/node_modules/@fontsource/source-code-pro/scss/mixins' as sourceCodePro;
 
 
 @mixin inter {
-  @include inter.fontFace($weight: 300, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
-  @include inter.fontFace($weight: 400, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
-  @include inter.fontFace($weight: 500, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
-  @include inter.fontFace($weight: 600, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
-  @include inter.fontFace($weight: 700, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
-  @include inter.fontFace($weight: 800, $display: fallback, $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFaceVariable(
+    $weight: 300,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFaceVariable(
+    $weight: 400,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFaceVariable(
+    $weight: 500,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFaceVariable(
+    $weight: 600,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFaceVariable(
+    $weight: 700,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/inter/files');
+  @include inter.fontFaceVariable(
+    $weight: 800,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/inter/files');
 }
 
 @mixin playfair-display {
-  @include playfair.fontFace(
+  @include playfair.fontFaceVariable(
     $weight: 400,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/playfair-display/files');
-  @include playfair.fontFace(
+  @include playfair.fontFaceVariable(
     $weight: 500,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/playfair-display/files');
-  @include playfair.fontFace(
+  @include playfair.fontFaceVariable(
     $weight: 600,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/playfair-display/files');
-  @include playfair.fontFace(
+  @include playfair.fontFaceVariable(
     $weight: 700,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/playfair-display/files');
-  @include playfair.fontFace(
+  @include playfair.fontFaceVariable(
     $weight: 800,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/playfair-display/files');
 }
 
 @mixin raleway {
-  @include raleway.fontFace($weight: 300, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
-  @include raleway.fontFace($weight: 400, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
-  @include raleway.fontFace($weight: 500, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
-  @include raleway.fontFace($weight: 600, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
-  @include raleway.fontFace($weight: 700, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
-  @include raleway.fontFace($weight: 800, $display: fallback, $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFaceVariable(
+    $weight: 300,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFaceVariable(
+    $weight: 400,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFaceVariable(
+    $weight: 500,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFaceVariable(
+    $weight: 600,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFaceVariable(
+    $weight: 700,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/raleway/files');
+  @include raleway.fontFaceVariable(
+    $weight: 800,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/raleway/files');
+}
+
+@mixin gantari {
+  @include gantari.fontFaceVariable(
+    $weight: 300,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/gantari/files');
+  @include gantari.fontFaceVariable(
+    $weight: 400,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/gantari/files');
+  @include gantari.fontFaceVariable(
+    $weight: 500,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/gantari/files');
+  @include gantari.fontFaceVariable(
+    $weight: 600,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/gantari/files');
+  @include gantari.fontFaceVariable(
+    $weight: 700,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/gantari/files');
+  @include gantari.fontFaceVariable(
+    $weight: 800,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/gantari/files');
+}
+
+@mixin manrope {
+  @include manrope.fontFaceVariable(
+    $weight: 300,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/manrope/files');
+  @include manrope.fontFaceVariable(
+    $weight: 400,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/manrope/files');
+  @include manrope.fontFaceVariable(
+    $weight: 500,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/manrope/files');
+  @include manrope.fontFaceVariable(
+    $weight: 600,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/manrope/files');
+  @include manrope.fontFaceVariable(
+    $weight: 700,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/manrope/files');
+  @include manrope.fontFaceVariable(
+    $weight: 800,
+    $display: fallback,
+    $type: 'full',
+    $fontDir: '~/node_modules/@fontsource/manrope/files');
 }
 
 @mixin sourceCodePro {
-  @include sourceCodePro.fontFace(
+  @include sourceCodePro.fontFaceVariable(
     $weight: 300,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
-  @include sourceCodePro.fontFace(
+  @include sourceCodePro.fontFaceVariable(
     $weight: 400,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
-  @include sourceCodePro.fontFace(
+  @include sourceCodePro.fontFaceVariable(
     $weight: 500,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
-  @include sourceCodePro.fontFace(
+  @include sourceCodePro.fontFaceVariable(
     $weight: 600,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
-  @include sourceCodePro.fontFace(
+  @include sourceCodePro.fontFaceVariable(
     $weight: 700,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
-  @include sourceCodePro.fontFace(
+  @include sourceCodePro.fontFaceVariable(
     $weight: 800,
     $display: fallback,
+    $type: 'full',
     $fontDir: '~/node_modules/@fontsource/source-code-pro/files');
-}
-
-@mixin varela {
-  // @include varela.fontFace($weight: 300, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  @include varela.fontFace($weight: 400, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  // @include varela.fontFace($weight: 500, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  // @include varela.fontFace($weight: 600, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  // @include varela.fontFace($weight: 700, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-  // @include varela.fontFace($weight: 800, $display: fallback, $fontDir: '~/node_modules/@fontsource/varela/files');
-}
-
-@mixin varelaRound {
-  // @include varelaRound.fontFace(
-  //   $weight: 300,
-  //   $display: fallback,
-  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  @include varelaRound.fontFace(
-    $weight: 400,
-    $display: fallback,
-    $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  // @include varelaRound.fontFace(
-  //   $weight: 500,
-  //   $display: fallback,
-  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  // @include varelaRound.fontFace(
-  //   $weight: 600,
-  //   $display: fallback,
-  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  // @include varelaRound.fontFace(
-  //   $weight: 700,
-  //   $display: fallback,
-  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
-  // @include varelaRound.fontFace(
-  //   $weight: 800,
-  //   $display: fallback,
-  //   $fontDir: '~/node_modules/@fontsource/varela-round/files');
 }
 
 @mixin font($family) {
   @if $family == 'raleway' {
-    font-family: Raleway, 'Helvetica Neue', sans-serif;
+    font-family: RalewayVariable, 'Helvetica Neue', sans-serif;
   } @else if $family == 'playfair' {
     font-family: 'Playfair Display', 'Times New Roman', sans-serif;
   } @else if $family == 'phosphor-icons' {
     // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
     font-family: Phosphor-icons;
   } @else if $family == 'inter' {
-    font-family: Inter, Helvetica, Arial, sans-serif;
-  } @else if $family == 'varela' {
-    font-family: Varela, Helvetica, Arial, sans-serif;
-  } @else if $family == 'varela-round' {
-    font-family: 'Varela round', Helvetica, Arial, sans-serif;
+    font-family: InterVariable, Helvetica, Arial, sans-serif;
   } @else if $family == 'source-code-pro' {
-    font-family: 'Source Code Pro', Courier, monospace;
+    font-family: 'Source Code ProVariable', Courier, monospace;
+  } @else if $family == 'gantari' {
+    font-family: GantariVariable, Helvetica, Arial, sans-serif;
+  } @else if $family == 'manrope' {
+    font-family: ManropeVariable, Helvetica, Arial, sans-serif;
   } @else {
     font-family: $family, Helvetica, Arial, sans-serif;
   }

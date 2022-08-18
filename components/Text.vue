@@ -119,6 +119,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     @include sizes.double-unit-margin-block;
+    @include fonts.font('gantari');
   }
 
   h1, h2, h3, h4, h5, h6, p, span {
@@ -146,7 +147,7 @@
     }
 
     &.important {
-      @include fonts.font('inter');
+      @include fonts.font('gantari');
       @include text.bold;
     }
 

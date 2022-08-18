@@ -329,12 +329,12 @@
   @include fonts.inter;
   @include fonts.playfair-display;
   @include fonts.raleway;
-  @include fonts.varela;
-  @include fonts.varelaRound;
   @include fonts.sourceCodePro;
+  @include fonts.gantari;
+  @include fonts.manrope;
 
   body {
-    @include fonts.font('varela');
+    @include fonts.font('manrope');
     @include colors.standard-background;
     @include colors.standard-color;
     @include mixins.fade('background', 'color');

@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <AutoLink :class="{ 'with-icon': icon, indent, 'non-exact': nonExact }" :href="href">
+  <AutoLink :class="{ 'with-icon': icon, indent, 'non-exact': nonExact }" :href="href" :weight="500">
     <Icon
       v-if="icon"
       center
@@ -62,7 +62,6 @@
     @include common.rounded;
     @include mixins.fade('background', 'color', 'border-color');
     @include sizes.unit-padding;
-    @include fonts.font('varela-round');
 
     font-size: 20px;
     user-select: none;
