@@ -2,7 +2,7 @@
 <!--!
   @category Form
   @icon magnifying-glass
-  @version 0.2.0
+  @version 0.2.1
   @description Input box to search for items
 -->
 
@@ -136,7 +136,7 @@
 
   input {
     @include common.rounded;
-    @include mixins.fade('background', 'color', 'border-color');
+    @include mixins.fade('background', 'color', 'border-color', 'border-width', 'padding-inline');
     @include colors.standard-background;
     @include colors.standard-color;
     @include common.border;
@@ -145,5 +145,12 @@
     margin-inline: 0;
     padding-inline: 4px;
     width: v-bind(width);
+
+    &:focus {
+      border-color: var(--primary);
+      border-width: 2px;
+      outline: none;
+      padding-inline: 3px;
+    }
   }
 </style>
