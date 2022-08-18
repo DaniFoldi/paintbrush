@@ -50,11 +50,11 @@
             -
           </Text>
           <InlineCode
-            v-else-if="component.externals.indexOf(property.name) === -1"
+            v-else-if="component.collapsed.indexOf(property.name) === -1"
             :code="fixString(property.default)"
             language="typescript"
           />
-          <Button v-else ghost @click="showCodePopup(fixString(property.default))">
+          <Button v-else ghost @click="showCodePopup(`Default for ${property.name}`, fixString(property.default))">
             Click to view
           </Button>
         </TableRow>
@@ -143,6 +143,9 @@
       Source
     </AutoLink>
     <Popup v-if="code !== ''" @pb-click-outside="code = ''">
+      <Text subtitle>
+        {{ title }}
+      </Text>
       <MultilineCode :code="code" language="typescript" />
     </Popup>
   </Container>
@@ -167,9 +170,11 @@
   }
 
   const code = ref('')
+  const title = ref('')
 
-  function showCodePopup(newcode: string) {
+  function showCodePopup(newtitle: string, newcode: string) {
     code.value = newcode
+    title.value = newtitle
   }
 
   onMounted(() => {

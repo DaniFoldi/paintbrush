@@ -53,7 +53,6 @@
     url?: string // OG url
   }
 
-
   const props = withDefaults(defineProps<PaintbrushProps>(), {
     appName: '',
     canonical: '',
@@ -201,7 +200,7 @@
       'yellow-8': '#755900',
       'yellow-9': '#4b3800',
       'yellow-10': '#271c00'
-    }), // external
+    }), // collapse
     container: true,
     darkColors: () => ({
       background: 'gray-9',
@@ -225,8 +224,8 @@
       theme: 'primary',
       transparentize: '3f',
       unit: '4px'
-    }), // external
-    defaultMeta: () => defaultPaintbrushPage, // external
+    }), // collapse
+    defaultMeta: () => defaultPaintbrushPage,
     description: '',
     favicon: '',
     faviconSvg: '',
@@ -257,7 +256,7 @@
       theme: 'primary',
       transparentize: '3f',
       unit: '4px'
-    }), // external
+    }), // collapse
     manifest: '',
     ogType: 'website',
     pageTitle: '',
@@ -265,6 +264,7 @@
     twitterType: 'summary_large_image',
     url: ''
   })
+
 
   provide('pb-page', props.defaultMeta)
 
@@ -279,10 +279,10 @@
   })
 
   const theme = storeToRefs(useTheme())
-  const backgroundColor = computed(() => useThemeColor('background'))
-  const primaryColor = computed(() => useThemeColor('primary'))
-  const font = computed(() => usePaintbrushMeta(props.defaultMeta).fontFamily.default)
-  const fontMap: Record<string, string> = {
+  const backgroundColor = computed(() => useThemeColor('background').value)
+  const primaryColor = computed(() => useThemeColor('primary').value)
+  const font = computed(() => usePaintbrushMeta(props.defaultMeta).fontFamily.default as Font)
+  const fontMap: Record<Font, string> = {
     gantari: 'GantariVariable',
     inter: 'InterVariable',
     manrope: 'ManropeVariable',

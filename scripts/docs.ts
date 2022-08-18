@@ -10,7 +10,6 @@ import { IconTypes } from '../modules/icon-types'
 
 
 const docs: Docs = {}
-const externals: Record<string, string> = {}
 
 const logger = consola.withTag('paintbrush-ui')
 
@@ -39,8 +38,13 @@ function findInterface(name: string, script: string): string[] {
   return definition.replace(/\/\/ eslint-disable-next-line (.*?)\n/g, '').split('\n').map(line => line.trim()).filter(line => line.length > 0)
 }
 
+function findImport(name: string, script: string): string {
+  return new RegExp(`import \\{.*?(\\b${name}\\b).*?\\} from '(?<path>(\\w|\\/|\\.)+)'$`, 'gisu').exec(script)?.groups?.path ?? ''
+}
+
 export interface Component {
   category: string
+  collapsed: string[]
   description: string
   emit: {
     description: string
@@ -52,7 +56,7 @@ export interface Component {
     content: string
     render: boolean
   }[]
-  externals: string[]
+  external: Record<string, string>
   icon: IconTypes | undefined
   name: string
   note: string
@@ -141,10 +145,11 @@ export async function readComponentData(file: string): Promise<Component> {
 
   const componentData: Component = {
     category: '',
+    collapsed: [],
     description: '',
     emit: [],
     example: [],
-    externals: [],
+    external: {},
     icon: undefined,
     name: '',
     note: '',
@@ -200,20 +205,27 @@ export async function readComponentData(file: string): Promise<Component> {
       ?.replaceAll(': undefined', ': \'pb-no-default\'')
       .replaceAll('new Date().getFullYear()', '\'<current year>\'')
       .replace(/\(\) => \((.*?)\)/gims, '$1')
-      .replace(/\(\) => (\[.*?])/gims, '$1') ?? '{}'
+      .replace(/\(\) => (\[.*?])/gims, '$1')
+      .replace(/\(\) => (\w+)/gims, '\'$1\'') ?? '{}'
 
-    componentData.externals = [ ...props?.groups?.defaults?.matchAll(/^ {4}(?<prop>\w+): \(\) => \((\{.*?^ {4}\}|\[.*?^ {4}\])\), \/\/ external$/gmisu) ?? [] ]
+    componentData.collapsed = [ ...props?.groups?.defaults?.matchAll(/^ {4}(?<prop>\w+): \(\) => \((\{.*?^ {4}\}|\[.*?^ {4}\])\), \/\/ collapse$/gmisu) ?? [] ]
       .map(match => match.groups?.prop)
       .map(match => match ?? '')
       .filter(match => match.length > 0)
+    componentData.external = Object.fromEntries([ ...props?.groups?.defaults?.matchAll(/^ {4}(?<prop>\w+): \(\) => \((\{.*?^ {4}\}|\[.*?^ {4}\])\), \/\/ external (?<external>\w+)$/gmisu) ?? [] ]
+      .map(match => match.groups?.external)
+      .map(match => match ?? '')
+      .filter(match => match.length > 0)
+      .map(match => [ match, findImport(match, scriptSetup) ]))
     let defaults: Record<string, string> = {}
     try {
       defaults = JSON5.parse(defaultString ?? '{}')
     } catch {
+      console.log(defaultString)
       log('warn', `Unable to parse prop defaults: ${file} '${defaultString}'`)
     }
     for (const prop of propInterface) {
-      const propData = /(?<name>\w+)(?<optional>\?)?:\s*(?<type>.+)\s\s*?(\/\/\s*(?<description>.*))\s*$/su.exec(prop)
+      const propData = /(?<name>\w+)(?<optional>\?)?: (?<type>.+) \s*?(\/\/( external (?<external>\w+))? (?<description>.*))\s*$/su.exec(prop)
       if (!propData) {
         log('error', `Unable to parse prop: ${file} '${prop}'`)
         continue
