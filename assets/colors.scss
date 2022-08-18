@@ -34,6 +34,22 @@
   color: var(--disabled-text);
 }
 
+@mixin highlight-background {
+  background: var(--highlight);
+}
+
+@mixin highlight-color {
+  color: var(--highlight-text);
+}
+
+@mixin shadow-background {
+  background: var(--shadow);
+}
+
+@mixin shadow-color {
+  color: var(--shadow-text);
+}
+
 @mixin transparent-background {
   background: transparent;
 }
