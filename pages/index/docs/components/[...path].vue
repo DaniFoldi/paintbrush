@@ -46,7 +46,14 @@
           <Text italic>
             {{ property.description }}
           </Text>
-          <InlineCode :code="fixString(property.default)" language="typescript" />
+          <InlineCode
+            v-if="component.externals.indexOf(property.name) === -1"
+            :code="fixString(property.default)"
+            language="typescript"
+          />
+          <Button v-else ghost @click="showCodePopup(fixString(property.default))">
+            Click to view
+          </Button>
         </TableRow>
       </template>
     </TableContainer>
@@ -113,15 +120,11 @@
       </Card>
     </template>
 
-    <Text v-if="component.note" subtitle>
-      Note
-    </Text>
-
     <Highlight v-if="component.note">
       {{ component.note }}
     </Highlight>
 
-    <Text v-if="component.require.length > 0" subtitle>
+    <Text v-if="component.require.length > 0" sectiontitle>
       Libraries required
     </Text>
 
@@ -137,6 +140,9 @@
       Source
     </AutoLink>
   </Container>
+  <Popup v-if="code !== ''" @pb-click-outside="code = ''">
+    <MultilineCode :code="code" language="typescript" />
+  </Popup>
 </template>
 
 <script lang="ts" setup async>
@@ -154,7 +160,13 @@
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function fixString(code: any): string {
-    return typeof code === 'string' ? `'${code}'` : code.toString()
+    return typeof code === 'string' ? `'${code}'` : JSON.stringify(code, null, 2)
+  }
+
+  const code = ref('')
+
+  function showCodePopup(newcode: string) {
+    code.value = newcode
   }
 
   onMounted(() => {
