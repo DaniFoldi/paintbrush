@@ -1,5 +1,5 @@
 <!--!
-  @version 2.0.0
+  @version 2.0.1
   @icon text-aa
   @description Text component to display text
   @category Basic
@@ -15,6 +15,15 @@
   <h3 v-else-if="element === 'h3'" :class="classes">
     <slot />
   </h3>
+  <h4 v-else-if="element === 'h4'" :class="classes">
+    <slot />
+  </h4>
+  <h5 v-else-if="element === 'h5'" :class="classes">
+    <slot />
+  </h5>
+  <h6 v-else-if="element === 'h6'" :class="classes">
+    <slot />
+  </h6>
   <span v-else-if="element === 'span'" :class="classes">
     <slot />
   </span>
