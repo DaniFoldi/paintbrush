@@ -27,7 +27,7 @@
 
 
   interface PopupEmits {
-    (e: 'pb-click-outside'): void
+    (e: 'pb-click-outside'): void // Detect clicks outside the popup to close it
   }
 
   interface PopupProps {
