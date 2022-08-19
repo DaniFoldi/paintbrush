@@ -6,7 +6,7 @@
 -->
 
 <!--##
-  <PoweredBy />
+  <ThemeToggle />
 -->
 
 <template>

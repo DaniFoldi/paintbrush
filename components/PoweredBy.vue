@@ -5,6 +5,10 @@
   @description Display that your awesome site is powered by none other than Paintbrush
 -->
 
+<!--##
+  <PoweredBy />
+-->
+
 <template>
   <AutoLink href="https://paintbrush.danifoldi.com" reload>
     <Text important>
