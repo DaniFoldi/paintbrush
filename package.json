@@ -53,7 +53,7 @@
     "@fontsource/source-code-pro": "^4.5.11",
     "@nuxt/content": "npm:@nuxt/content-edge@^2.1.0-27680354.5a64f46",
     "@nuxt/test-utils": "^3.0.0-rc.6",
-    "@nuxtjs/i18n-edge": "8.0.0-alpha.0-27678821.f3f614f",
+    "@nuxtjs/i18n-edge": "8.0.0-alpha.0-27679707.0923cac",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "@vitest/coverage-c8": "^0.22.0",
