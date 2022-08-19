@@ -1,6 +1,6 @@
 <!--!
   @category Form
-  @version 1.1.0
+  @version 1.2.0
   @description Basic toggle component
   @icon toggle-right
 -->
@@ -67,7 +67,7 @@
     width: 48px;
 
     &::after {
-      @include mixins.fade('background', 'color');
+      @include mixins.fade('background', 'color', 'border-color');
       @include common.border;
 
       background: transparent;
@@ -101,6 +101,7 @@
 
       &::after {
         background: v-bind(background);
+        border-color: v-bind(thumb);
       }
 
       &::before {
