@@ -38,7 +38,7 @@
 </script>
 
 <style lang="scss">
-  @use '#paintbrush/assets/fonts.scss';
+  @use '#paintbrush/assets/fonts.scss' as fonts;
 
   code.hljs {
     @include fonts.font('source-code-pro');

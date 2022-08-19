@@ -99,9 +99,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '#paintbrush/assets/colors.scss';
-  @use '#paintbrush/assets/common.scss';
-  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/colors.scss' as colors;
+  @use '#paintbrush/assets/common.scss' as common;
+  @use '#paintbrush/assets/mixins.scss' as mixins;
 
   .search-main-container {
     position: relative;

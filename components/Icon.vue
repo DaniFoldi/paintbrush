@@ -43,8 +43,8 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '#paintbrush/assets/fonts.scss';
-  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/fonts.scss' as fonts;
+  @use '#paintbrush/assets/mixins.scss' as mixins;
 
   i {
     @include fonts.font('phosphor-icons');

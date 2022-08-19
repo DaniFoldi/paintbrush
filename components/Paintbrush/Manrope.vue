@@ -10,7 +10,7 @@
 </template>
 
 <style lang="scss">
-  @use '#paintbrush/assets/fonts.scss';
+  @use '#paintbrush/assets/fonts.scss' as fonts;
 
   @include fonts.manrope;
 </style>

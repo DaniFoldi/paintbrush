@@ -105,8 +105,8 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '#paintbrush/assets/mixins.scss';
-  @use '#paintbrush/assets/sizes.scss';
+  @use '#paintbrush/assets/mixins.scss' as mixins;
+  @use '#paintbrush/assets/sizes.scss' as sizes;
 
   button {
     @include sizes.no-margin;

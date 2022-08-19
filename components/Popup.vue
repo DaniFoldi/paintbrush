@@ -44,7 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/mixins.scss' as mixins;
 
   div.popup {
     background: #0000003f;

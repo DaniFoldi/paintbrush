@@ -53,8 +53,8 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '#paintbrush/assets/mixins.scss';
-  @use '#paintbrush/assets/grid.scss';
+  @use '#paintbrush/assets/mixins.scss' as mixins;
+  @use '#paintbrush/assets/grid.scss' as grid;
 
   a {
     @include grid.grid;

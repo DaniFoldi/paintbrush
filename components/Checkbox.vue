@@ -41,9 +41,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '#paintbrush/assets/common.scss';
-  @use '#paintbrush/assets/grid.scss';
-  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/common.scss' as common;
+  @use '#paintbrush/assets/grid.scss' as grid;
+  @use '#paintbrush/assets/mixins.scss' as mixins;
 
   label {
     @include grid.grid;

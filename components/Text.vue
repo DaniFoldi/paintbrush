@@ -126,10 +126,10 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '#paintbrush/assets/mixins.scss';
-  @use '#paintbrush/assets/text.scss';
-  @use '#paintbrush/assets/fonts.scss';
-  @use '#paintbrush/assets/sizes.scss';
+  @use '#paintbrush/assets/mixins.scss' as mixins;
+  @use '#paintbrush/assets/text.scss' as text;
+  @use '#paintbrush/assets/fonts.scss' as fonts;
+  @use '#paintbrush/assets/sizes.scss' as sizes;
 
   h1, h2, h3, h4, h5, h6 {
     @include sizes.double-unit-margin-block;

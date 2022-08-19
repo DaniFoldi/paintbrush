@@ -59,7 +59,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '#paintbrush/assets/text.scss';
+  @use '#paintbrush/assets/text.scss' as text;
 
   a, a:visited {
     @include text.no-underline;
