@@ -51,12 +51,12 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/common';
-  @use '~/assets/grid';
-  @use '~/assets/mixins';
-  @use '~/assets/sizes';
-  @use '~/assets/text';
-  @use '~/assets/fonts';
+  @use '#paintbrush/assets/common.scss';
+  @use '#paintbrush/assets/grid.scss';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/sizes.scss';
+  @use '#paintbrush/assets/text.scss';
+  @use '#paintbrush/assets/fonts.scss';
 
   a {
     @include common.rounded;

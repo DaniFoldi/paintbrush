@@ -52,9 +52,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/mixins';
-  @use '~/assets/grid';
-  @use '~/assets/sizes';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/grid.scss';
+  @use '#paintbrush/assets/sizes.scss';
 
   .sidebar-container {
     @include mixins.set-100-percent('width', 'height');

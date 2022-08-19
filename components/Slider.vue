@@ -60,9 +60,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/mixins';
-  @use '~/assets/common';
-  @use '~/assets/colors';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/common.scss';
+  @use '#paintbrush/assets/colors.scss';
   @mixin track {
     @include colors.shadow-background;
     appearance: none;

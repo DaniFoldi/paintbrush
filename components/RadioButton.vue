@@ -44,7 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/grid';
+  @use '#paintbrush/assets/grid.scss';
 
   label {
     @include grid.grid;

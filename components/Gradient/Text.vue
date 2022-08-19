@@ -24,9 +24,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/colors';
-  @use '~/assets/mixins';
-  @use '~/assets/sizes';
+  @use '#paintbrush/assets/colors.scss';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/sizes.scss';
 
   :slotted(:not(.pb-specific)) {
     @include colors.transparent-color;

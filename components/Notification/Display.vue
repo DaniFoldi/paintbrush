@@ -65,7 +65,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/common';
+  @use '#paintbrush/assets/common.scss';
 
   .notification {
     @include common.rounded;

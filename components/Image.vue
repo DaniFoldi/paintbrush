@@ -26,8 +26,8 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/common';
-  @use '~/assets/mixins';
+  @use '#paintbrush/assets/common.scss';
+  @use '#paintbrush/assets/mixins.scss';
 
   img {
     max-height: v-bind('maxHeight');

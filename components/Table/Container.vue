@@ -58,11 +58,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/mixins';
-  @use '~/assets/grid';
-  @use '~/assets/sizes';
-  @use '~/assets/colors';
-  @use '~/assets/common';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/grid.scss';
+  @use '#paintbrush/assets/sizes.scss';
+  @use '#paintbrush/assets/colors.scss';
+  @use '#paintbrush/assets/common.scss';
 
   div {
     @include mixins.fade('background', 'color', 'border-color');

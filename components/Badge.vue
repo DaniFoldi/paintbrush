@@ -32,8 +32,8 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/mixins';
-  @use '~/assets/fonts';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/fonts.scss';
 
   :not(.pb-specific):slotted( > * ) {
 

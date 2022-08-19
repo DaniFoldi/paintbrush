@@ -4,10 +4,10 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   // #MARK nuxt/framework #4325
   alias: {
-    '@vue/devtools-api': '@vue/devtools-api'
+    '@vue/devtools-api': '@vue/devtools-api',
+    '#paintbrush': '.'
   },
   components: {
-    dirs: [ '~/components' ],
     global: true
   },
   content: {

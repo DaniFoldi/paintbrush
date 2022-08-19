@@ -69,8 +69,8 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/common';
-  @use '~/assets/mixins';
+  @use '#paintbrush/assets/common.scss';
+  @use '#paintbrush/assets/mixins.scss';
 
   div.toggle {
     @include mixins.fade('background', 'color', 'border-color');

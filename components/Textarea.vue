@@ -49,10 +49,10 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/colors';
-  @use '~/assets/common';
-  @use '~/assets/mixins';
-  @use '~/assets/sizes';
+  @use '#paintbrush/assets/colors.scss';
+  @use '#paintbrush/assets/common.scss';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/sizes.scss';
 
   textarea {
     @include common.rounded;

@@ -69,9 +69,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/grid';
-  @use '~/assets/mixins';
-  @use '~/assets/sizes';
+  @use '#paintbrush/assets/grid.scss';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/sizes.scss';
 
   .container {
 

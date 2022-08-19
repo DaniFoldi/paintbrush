@@ -51,7 +51,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/grid';
+  @use '#paintbrush/assets/grid.scss';
 
   button {
     @include grid.two-items;

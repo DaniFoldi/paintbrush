@@ -60,11 +60,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/common';
-  @use '~/assets/mixins';
-  @use '~/assets/grid';
-  @use '~/assets/sizes';
-  @use '~/assets/text';
+  @use '#paintbrush/assets/common.scss';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/grid.scss';
+  @use '#paintbrush/assets/sizes.scss';
+  @use '#paintbrush/assets/text.scss';
 
   a {
     @include common.rounded;

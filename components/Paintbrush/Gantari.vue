@@ -10,7 +10,7 @@
 </template>
 
 <style lang="scss">
-  @use '~/assets/fonts';
+  @use '#paintbrush/assets/fonts.scss';
 
   @include fonts.gantari;
 </style>

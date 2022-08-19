@@ -112,9 +112,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/mixins';
-  @use '~/assets/sizes';
-  @use '~/assets/grid';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/sizes.scss';
+  @use '#paintbrush/assets/grid.scss';
 
   blockquote {
     @include sizes.double-unit-margin-block;

@@ -47,10 +47,10 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/colors';
-  @use '~/assets/grid';
-  @use '~/assets/mixins';
-  @use '~/assets/sizes';
+  @use '#paintbrush/assets/colors.scss';
+  @use '#paintbrush/assets/grid.scss';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/sizes.scss';
 
   .menubar-container {
     @include grid.grid;

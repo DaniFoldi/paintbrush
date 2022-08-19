@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/common';
+  @use '#paintbrush/assets/common.scss';
 
   div {
     @include common.circular;

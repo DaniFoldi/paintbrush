@@ -42,11 +42,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/colors';
-  @use '~/assets/common';
-  @use '~/assets/mixins';
-  @use '~/assets/sizes';
-  @use '~/assets/text';
+  @use '#paintbrush/assets/colors.scss';
+  @use '#paintbrush/assets/common.scss';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/sizes.scss';
+  @use '#paintbrush/assets/text.scss';
 
   button {
     @include common.rounded;

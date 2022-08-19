@@ -52,7 +52,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/common';
+  @use '#paintbrush/assets/common.scss';
 
   span {
     @include common.rounded;

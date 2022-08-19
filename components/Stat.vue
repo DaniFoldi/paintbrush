@@ -73,11 +73,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '~/assets/mixins';
-  @use '~/assets/grid';
-  @use '~/assets/fonts';
-  @use '~/assets/sizes';
-  @use '~/assets/text';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/grid.scss';
+  @use '#paintbrush/assets/fonts.scss';
+  @use '#paintbrush/assets/sizes.scss';
+  @use '#paintbrush/assets/text.scss';
 
   div.stat-container {
     @include grid.grid;

@@ -337,10 +337,10 @@
 </script>
 
 <style lang="scss">
-  @use '~/assets/fonts';
-  @use '~/assets/mixins';
-  @use '~/assets/reset';
-  @use '~/assets/colors';
+  @use '#paintbrush/assets/fonts.scss';
+  @use '#paintbrush/assets/mixins.scss';
+  @use '#paintbrush/assets/reset.scss';
+  @use '#paintbrush/assets/colors.scss';
   @use '~/node_modules/phosphor-icons/src/css/icons.css';
 
   @include reset.paintbrush;
