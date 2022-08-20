@@ -341,7 +341,6 @@
   @use '#paintbrush/assets/mixins.scss' as mixins;
   @use '#paintbrush/assets/reset.scss' as reset;
   @use '#paintbrush/assets/colors.scss' as colors;
-  @use '#fonts/node_modules/phosphor-icons/src/css/icons.css';
 
   @include reset.paintbrush;
 

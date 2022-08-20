@@ -10,5 +10,5 @@
 </template>
 
 <style lang="scss">
-  @use '#fonts/node_modules/phosphor-icons/src/css/icons.css';
+  @import '#fonts/node_modules/phosphor-icons/src/css/icons.css';
 </style>
