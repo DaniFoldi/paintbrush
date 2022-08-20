@@ -1,7 +1,7 @@
-@use './scrollbar';
-@use './theme';
-@use './mixins';
-@use './sizes';
+@use './scrollbar.scss';
+@use './theme.scss';
+@use './mixins.scss';
+@use './sizes.scss';
 
 @mixin paintbrush {
   @media (prefers-reduced-motion: reduce) {
