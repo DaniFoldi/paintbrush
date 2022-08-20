@@ -1,3 +1,3 @@
 <template>
-  <ThemeToggle />
+  <PoweredBy />
 </template>
