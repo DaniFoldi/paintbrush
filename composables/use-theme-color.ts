@@ -1,4 +1,4 @@
-import { computed, usePbTheme } from '#imports'
+import { computed, usePbTheme, useResolvedColor } from '#imports'
 import type { Ref } from 'vue'
 
 

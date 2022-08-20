@@ -1,5 +1,5 @@
 import { storeToRefs } from 'pinia'
-import { usePreferredColorScheme, createSharedComposable } from '#imports'
+import { usePreferredColorScheme, createSharedComposable, computed } from '#imports'
 import { useTheme } from '../stores/theme'
 import type { Ref } from 'vue'
 
