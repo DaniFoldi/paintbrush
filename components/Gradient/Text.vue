@@ -1,7 +1,7 @@
 <!--!
   @icon gradient
   @category Display
-  @version 0.2.0
+  @version 0.2.1
   @description Apply a gradient text color to child elements
 -->
 
@@ -10,6 +10,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { computed } from '#imports'
+
+
   interface GradientTextProps {
     gradient?: string // Gradient applied to text
     inlineBlock?: boolean // Apply display: inline-block
