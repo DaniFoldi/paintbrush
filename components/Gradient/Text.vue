@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from '#imports'
+  import { computed } from '#imports'
 
 
   interface GradientTextProps {
