@@ -12,6 +12,9 @@ export const fontMap: Record<Font | 'inherit', string> = {
 }
 
 export interface PaintbrushPage {
+  container: {
+    articleWidth: string
+  }
   content: {
     fontFamily: Font
     fontSize: string
@@ -24,8 +27,12 @@ export interface PaintbrushPage {
     fontWeight: [number, number, number, number, number, number]
   }
   link: {
+    color: string
     underline: boolean | 'hover'
     fontWeight: number
+  }
+  menubar: {
+    height: string
   }
   monospace: {
     fontFamily: Font
@@ -33,6 +40,9 @@ export interface PaintbrushPage {
 }
 
 export const defaultPaintbrushPage: PaintbrushPage = {
+  container: {
+    articleWidth: 'minmax(min-content, 850px)'
+  },
   content: {
     fontFamily: 'manrope',
     fontSize: '16px',
@@ -45,8 +55,12 @@ export const defaultPaintbrushPage: PaintbrushPage = {
     fontWeight: [ 700, 700, 700, 600, 600, 600 ]
   },
   link: {
+    color: 'backgroundText',
     underline: false,
     fontWeight: 500
+  },
+  menubar: {
+    height: '54px'
   },
   monospace: {
     fontFamily: 'source-code-pro'

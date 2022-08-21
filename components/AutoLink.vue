@@ -36,7 +36,7 @@
   }
 
   const props = withDefaults(defineProps<AutoLinkProps>(), {
-    color: 'backgroundText',
+    color: '',
     newTab: false,
     underline: null,
     weight: 0
@@ -52,7 +52,7 @@
     }
   })
 
-  const color = computed(() => useThemeColor(props.color).value)
+  const color = computed(() => useThemeColor(props.color || paintbrushMeta.link.color).value)
   const paintbrushMeta = usePaintbrushMeta()
   const weight = computed(() => props.weight === 0 ? paintbrushMeta.link.fontWeight : props.weight)
   const underline = computed(() => props.underline === null ? paintbrushMeta.link.underline : props.underline)

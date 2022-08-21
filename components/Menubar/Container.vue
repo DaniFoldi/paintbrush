@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, useThemeColor } from '#imports'
+  import { computed, useThemeColor, usePaintbrushMeta } from '#imports'
   import Container from '../Container.vue'
 
 
@@ -41,9 +41,10 @@
     wrapContent: true
   })
 
-
+  const paintbrushMeta = usePaintbrushMeta()
   const element = computed(() => useThemeColor(props.menuElementSpacing).value)
   const part = computed(() => useThemeColor(props.menuPartSpacing).value)
+  const height = computed(() => paintbrushMeta.menubar.height)
 </script>
 
 <style lang="scss" scoped>
@@ -57,7 +58,7 @@
 
     column-gap: v-bind(part);
     grid-template-columns: 1fr;
-    grid-template-rows: 64px 1fr;
+    grid-template-rows: v-bind(height) 1fr;
   }
 
   .menubar-content {

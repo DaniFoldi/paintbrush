@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, useThemeColor } from '#imports'
+  import { computed, useThemeColor, usePaintbrushMeta } from '#imports'
 
 
   interface ContainerProps {
@@ -66,6 +66,8 @@
   const centerBlock = computed(() => props.center === 'block' || props.center === true)
   const centerInline = computed(() => props.center === 'inline' || props.center === true)
   const padding = computed(() => props.padded ? useThemeColor(props.padded === true ? 'unit' : props.padded).value : '0')
+  const paintbrushMeta = usePaintbrushMeta()
+  const articleWidth = computed(() => paintbrushMeta.menubar.height)
 </script>
 
 <style lang="scss" scoped>
@@ -74,8 +76,8 @@
   @use '#paintbrush/assets/sizes.scss' as sizes;
 
   .container {
-
     @include sizes.no-margin;
+
     padding: v-bind(padding);
 
     &.max {
@@ -84,7 +86,7 @@
 
     &.article {
       @include grid.grid;
-      grid-template-columns: 1fr minmax(min-content, 850px) 1fr;
+      grid-template-columns: 1fr v-bind('articleWidth') 1fr;
 
       & > ::v-deep(*) {
         grid-column: 2 / 3;
