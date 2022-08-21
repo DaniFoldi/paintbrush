@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '#paintbrush': '.'
   },
   components: {
-    global: true
+    dirs: [{ global: true, path: './components' }]
   },
   content: {
     highlight: false,
