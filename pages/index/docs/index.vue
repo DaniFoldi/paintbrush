@@ -2,7 +2,7 @@
   <Container center max>
     <Text title>
       Choose a <GradientText>
-        <Text font-size="inherit" part>
+        <Text part>
           component
         </Text>
       </GradientText> on the left
