@@ -1,5 +1,5 @@
 <!--!
-  @version 2.0.0
+  @version 2.1.0
   @icon package
   @description Container component for pages, main content and elements
   @category Layout
@@ -67,7 +67,7 @@
   const centerInline = computed(() => props.center === 'inline' || props.center === true)
   const padding = computed(() => props.padded ? useThemeColor(props.padded === true ? 'unit' : props.padded).value : '0')
   const paintbrushMeta = usePaintbrushMeta()
-  const articleWidth = computed(() => paintbrushMeta.menubar.height)
+  const articleWidth = computed(() => paintbrushMeta.container.articleWidth)
 </script>
 
 <style lang="scss" scoped>
