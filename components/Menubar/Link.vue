@@ -1,5 +1,5 @@
 <!--!
-  @version 1.3.0
+  @version 1.3.1
   @category Navigation
   @icon link-simple
   @description A link for menubar items
@@ -71,7 +71,7 @@
     @include mixins.fade('background', 'color');
     @include sizes.double-unit-padding-inline;
     @include grid.grid;
-    @include grid.center-items-inline;
+    @include grid.center-items;
 
     background: v-bind(background);
     font-size: 20px;
@@ -79,7 +79,6 @@
     user-select: none;
 
     &.with-icon {
-      @include grid.grid;
       @include grid.two-items;
     }
 
