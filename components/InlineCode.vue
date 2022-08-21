@@ -1,6 +1,6 @@
 <!--!
   @category Display
-  @version 1.2.0
+  @version 1.3.0
   @icon code-simple
   @require highlight.js
   @description Display code in a simple way, inline
@@ -9,31 +9,35 @@
 <template>
   <Runtime
     class="hljs"
-    :class="highlight.language"
+    :class="highlight.split(' ')[0]"
     element="code"
-    :rendered="highlight.value"
+    :rendered="highlight"
   />
 </template>
 
 <script lang="ts" setup>
-  import hljs from 'highlight.js/lib/common'
+  import { getHighlighter } from 'shiki-es'
   import { computed } from '#imports'
 
 
   interface InlineCodeProps {
-    code: string // Source code to highlight
+    code?: string // Source code to highlight
     language?: string // Language to use
   }
 
   const props = withDefaults(defineProps<InlineCodeProps>(), {
-    language: 'auto'
+    code: '',
+    language: 'javascript'
   })
+
+
+  const highlighter = await getHighlighter({ themes: [ 'github-dark' ] })
 
   const highlight = computed(() => {
     if (props.language === 'none') {
-      return { language: 'none', value: props.code }
+      return props.code
     }
-    return props.language === 'auto' ? hljs.highlightAuto(props.code) : hljs.highlight(props.code, { language: props.language })
+    return highlighter.codeToHtml(props.code, { lang: props.language })
   })
 </script>
 

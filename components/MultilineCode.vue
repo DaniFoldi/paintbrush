@@ -1,5 +1,5 @@
 <!--!
-  @version 1.1.0
+  @version 1.2.0
   @icon code
   @category Display
   @require highlight.js
@@ -42,6 +42,6 @@
   }
 
   withDefaults(defineProps<MultilineCodeProps>(), {
-    language: 'auto'
+    language: 'javascript'
   })
 </script>
