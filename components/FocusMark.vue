@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, inject, onMounted, onBeforeUnmount, ref, useThemeColor } from '#imports'
+  import { computed, inject, onMounted, onBeforeUnmount, ref, useThemeColor, watch } from '#imports'
 
 
   interface FocusMarkProps {

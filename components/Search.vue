@@ -38,6 +38,9 @@
 </template>
 
 <script lang="ts" setup>
+  import { ref } from '#imports'
+
+
   interface CategorizedSearchResult {
     category: string
     matches: string[]

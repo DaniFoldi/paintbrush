@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, useSpoiler } from '#imports'
+  import { ref, onMounted, useSpoiler } from '#imports'
   import { IconTypes } from '../modules/icon-types'
   import { IconVariants } from '../modules/icons'
   import { Spoiler } from '../scripts/types'

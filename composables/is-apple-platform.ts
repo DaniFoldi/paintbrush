@@ -1,4 +1,4 @@
-import { useRequestHeaders } from '#imports'
+import { computed, useRequestHeaders } from '#imports'
 
 
 export default function() {

@@ -10,7 +10,7 @@
 -->
 
 <!--##
-  <Slider :max="20" :min="10" v-model="rn1" />
+  <Slider v-model="rn1" :max="20" :min="10" />
 -->
 
 <template>
