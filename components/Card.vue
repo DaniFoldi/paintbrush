@@ -41,6 +41,7 @@
     @include sizes.double-unit-margin-block;
     @include mixins.fade('background', 'color', 'border-color');
     @include common.border;
+    @include common.shadow;
 
     background: v-bind(background);
   }
