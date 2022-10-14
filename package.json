@@ -55,7 +55,7 @@
     "@nuxtjs/i18n-edge": "^8.0.0-alpha.2-27739257.ac0f325",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
-    "@vitest/coverage-c8": "^0.23.4",
+    "@vitest/coverage-c8": "^0.24.1",
     "@vueuse/components": "^9.3.0",
     "@vueuse/core": "^9.0.0",
     "@vueuse/nuxt": "^9.3.0",
