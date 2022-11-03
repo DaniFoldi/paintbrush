@@ -1,6 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
-
-
 export default defineNuxtConfig({
   // #MARK nuxt/framework #4325
   alias: {

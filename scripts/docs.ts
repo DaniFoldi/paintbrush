@@ -30,7 +30,7 @@ function log(type: 'error' | 'warn', ...message: any) {
   await (process.argv[2] !== undefined && process.argv[2].startsWith('components/') ? updateComponentDocs(process.argv[2]) : generateComponentDocs())
   await writeFile(fileURLToPath(new URL('../public/docs.json', import.meta.url)), JSON.stringify(docs), { encoding: 'utf8' })
   await (process.argv[2] !== undefined && process.argv[2].startsWith('components/') ? updateExamples(process.argv[2]) : writeExamples())
-  logger.info(`Docs ${process.argv[2] !== undefined && process.argv[2].startsWith('components/') ? 'update' : 'generation'} completed with ${messageCount.error} errors, ${messageCount.warn} warnings`)
+  logger.success(`Docs ${process.argv[2] !== undefined && process.argv[2].startsWith('components/') ? 'update' : 'generation'} completed with ${messageCount.error} errors, ${messageCount.warn} warnings`)
 })()
 
 function findInterface(name: string, script: string): string[] {

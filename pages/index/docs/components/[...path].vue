@@ -157,6 +157,9 @@
 
 
   const { data } = await useFetch<Docs>('/api/docs')
+  if (data.value === null) {
+    await navigateTo('/')
+  }
   const component = data.value[`components/${useFullParam('path')}.vue`]
   if (!component) {
     await navigateTo('/docs')

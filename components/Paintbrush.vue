@@ -98,8 +98,6 @@
 
   useHead({
     bodyAttrs: { class: bodyClass },
-    // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags UTF-8 is needed
-    charset: 'UTF-8',
     htmlAttrs: { 'data-theme': theme.theme, lang: props.lang.split('-')[0].split('_')[0] },
     link: [
       props.faviconSvg ? { color: primaryColor.value, href: props.faviconSvg, rel: 'mask-icon' } : {},
@@ -111,6 +109,8 @@
       props.manifest ? { href: props.manifest, rel: 'manifest' } : {}
     ].filter(Boolean),
     meta: [
+      // eslint-disable-next-line unicorn/text-encoding-identifier-case -- for meta tags UTF-8 is needed
+      { charset: 'UTF-8' },
       primaryColor.value ? { content: primaryColor.value, name: 'theme-color' } : {},
       backgroundColor.value ? { content: backgroundColor.value, name: 'apply-mobile-web-app-status-bar-style' } : {},
       primaryColor.value ? { content: primaryColor.value, name: 'msapplication-navbutton-color' } : {},
