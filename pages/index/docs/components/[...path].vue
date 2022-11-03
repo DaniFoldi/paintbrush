@@ -158,11 +158,11 @@
 
   const { data } = await useFetch<Docs>('/api/docs')
   if (data.value === null) {
-    await navigateTo('/')
+    return await navigateTo('/')
   }
   const component = data.value[`components/${useFullParam('path')}.vue`]
   if (!component) {
-    await navigateTo('/docs')
+    return await navigateTo('/docs')
   }
 
   const height = ref<Record<number, number>>({})
