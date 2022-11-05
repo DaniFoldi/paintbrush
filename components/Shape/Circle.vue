@@ -28,6 +28,7 @@
 
   div {
     @include common.circular;
+
     height: v-bind(radius);
     width: v-bind(radius);
   }

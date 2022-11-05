@@ -52,13 +52,14 @@
     input[type=checkbox] {
       @include common.rounded;
       @include common.border;
+
       appearance: none;
       cursor: pointer;
       height: 24px;
       margin-inline: 0;
       width: 24px;
 
-      &:checked:after {
+      &:checked::after {
         border-bottom-left-radius: var(--unit);
         border-color: transparent transparent var(--primary) var(--primary);
         border-style: solid;

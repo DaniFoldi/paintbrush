@@ -119,6 +119,7 @@
   blockquote {
     @include sizes.double-unit-margin-block;
     @include sizes.double-unit-padding;
+
     background: v-bind(background);
     border-left: 3px solid v-bind(border);
 

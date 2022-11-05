@@ -49,6 +49,7 @@
   i {
     @include fonts.font('phosphor-icons');
     @include mixins.fade('color');
+
     color: v-bind(color);
     font-size: v-bind(size);
     vertical-align: middle;

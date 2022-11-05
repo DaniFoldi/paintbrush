@@ -63,8 +63,10 @@
   @use '#paintbrush/assets/mixins.scss' as mixins;
   @use '#paintbrush/assets/common.scss' as common;
   @use '#paintbrush/assets/colors.scss' as colors;
+
   @mixin track {
     @include colors.shadow-background;
+
     appearance: none;
     border-radius: 2px;
     height: var(--unit);
@@ -73,6 +75,7 @@
   @mixin thumb {
     @include colors.primary-background;
     @include common.circular;
+
     appearance: none;
     height: 15px;
     width: 15px;
@@ -99,6 +102,7 @@
 
     &::-webkit-slider-thumb {
       @include thumb;
+
       margin-top: -5px;
     }
 

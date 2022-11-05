@@ -63,6 +63,7 @@
 
   a, a:visited {
     @include text.no-underline;
+
     color: v-bind(color);
     cursor: pointer;
     font-weight: v-bind(weight);

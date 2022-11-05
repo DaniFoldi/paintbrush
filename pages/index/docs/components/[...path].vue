@@ -158,11 +158,12 @@
 
   const { data } = await useFetch<Docs>('/api/docs')
   if (data.value === null) {
-    return await navigateTo('/')
-  }
-  const component = data.value[`components/${useFullParam('path')}.vue`]
-  if (!component) {
-    return await navigateTo('/docs')
+    await navigateTo('/')
+  } else {
+    const component = data.value[`components/${useFullParam('path')}.vue`]
+    if (!component) {
+      await navigateTo('/docs')
+    }
   }
 
   const height = ref<Record<number, number>>({})
@@ -205,6 +206,7 @@
     @include common.rounded;
     @include sizes.double-unit-padding;
     @include mixins.set-100-percent('width');
+
     border: none;
   }
 </style>

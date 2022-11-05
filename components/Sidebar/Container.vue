@@ -59,12 +59,14 @@
   .sidebar-container {
     @include mixins.set-100-percent('width', 'height');
     @include grid.grid;
+
     grid-template-columns: 260px 1fr;
     grid-template-rows: 100%;
   }
 
   div.sidebar-top, div.sidebar-middle, div.sidebar-bottom {
     @include grid.grid;
+
     row-gap: v-bind(segment);
   }
 
@@ -74,6 +76,7 @@
 
   aside, main {
     @include mixins.fade('background', 'color');
+
     display: grid;
     grid-template-columns: 100%;
   }

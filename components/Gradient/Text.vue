@@ -33,6 +33,7 @@
 
   :slotted(:not(.pb-specific)) {
     @include colors.transparent-color;
+
     background-clip: text;
     background-image: v-bind(gradient);
     display: v-bind(display);

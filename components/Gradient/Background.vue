@@ -20,7 +20,7 @@
 </script>
 
 <style lang="scss" scoped>
-  *:slotted( > *:not(.pb-specific)) {
+  *:slotted(> *:not(.pb-specific)) {
     background-image: v-bind(gradient);
   }
 </style>

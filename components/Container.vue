@@ -86,6 +86,7 @@
 
     &.article {
       @include grid.grid;
+
       grid-template-columns: 1fr v-bind('articleWidth') 1fr;
 
       & > ::v-deep(*) {
