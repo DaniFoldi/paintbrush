@@ -35,7 +35,7 @@
   @use '#paintbrush/assets/mixins.scss' as mixins;
   @use '#paintbrush/assets/fonts.scss' as fonts;
 
-  :not(.pb-specific):slotted( > * ) {
+  :not(.pb-specific):slotted(> *) {
 
     &.left-badge {
       position: relative;

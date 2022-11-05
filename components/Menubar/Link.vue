@@ -92,6 +92,7 @@
 
     &:hover, &.router-link-exact-active, &.router-link-active.non-exact {
       @include text.no-underline;
+
       background: v-bind(active);
     }
 

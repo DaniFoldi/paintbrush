@@ -7,7 +7,6 @@
     $values: '#{$values} #{$property} 0.25s ease-in-out,';
   }
 
-  // stylelint-disable-next-line function-no-unknown -- TODO remove
   transition: string.unquote(string.slice($values, 2, -2));
 }
 

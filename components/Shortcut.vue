@@ -56,6 +56,7 @@
 
   span {
     @include common.rounded;
+
     border: 1px solid v-bind(color);
     display: inline-grid;
     gap: calc(.5 * var(--unit));

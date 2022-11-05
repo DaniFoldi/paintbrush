@@ -32,7 +32,7 @@ $color-map: (
     &[class*="-#{$color}"] {
       @if $color == 'blue' {
 
-        &:not([class*=-dark]):not([class*=-light]) {
+        &:not([class*=-dark], [class*=-light]) {
 
           &::after {
             filter: brightness(.6);
@@ -92,7 +92,7 @@ $color-map: (
 
       @if $color == 'green' {
 
-        &:not([class*=-dark]):not([class*=-light]) {
+        &:not([class*=-dark], [class*=-light]) {
 
           &::after {
             mix-blend-mode: soft-light;
@@ -110,7 +110,7 @@ $color-map: (
 
       @if $color == 'yellow' {
 
-        &:not([class*=-dark]):not([class*=-light]) {
+        &:not([class*=-dark], [class*=-light]) {
 
           &::after {
             filter: brightness(3.5);
@@ -138,7 +138,7 @@ $color-map: (
 
       @if $color == 'purple' {
 
-        &:not([class*=-dark]):not([class*=-light]) {
+        &:not([class*=-dark], [class*=-light]) {
           background: rebeccapurple;
 
           &::after {
@@ -185,7 +185,7 @@ $color-map: (
 
       @if $color == 'blue-yellow' {
 
-        &:not([class*=-dark]):not([class*=-light]) {
+        &:not([class*=-dark], [class*=-light]) {
           background: linear-gradient(to top left, #55acee, #fedd31);
         }
 
@@ -207,7 +207,7 @@ $color-map: (
 
       @if $color == 'pink-yellow' {
 
-        &:not([class*=-dark]):not([class*=-light]) {
+        &:not([class*=-dark], [class*=-light]) {
           background: linear-gradient(to bottom right, #faa6fb, #fbbc05) !important;
         }
 
@@ -230,7 +230,7 @@ $color-map: (
 
       @if $color == 'red-blue' {
 
-        &:not([class*=-dark]):not([class*=-light]) {
+        &:not([class*=-dark], [class*=-light]) {
           background: linear-gradient(to bottom right, #3993e2, #e2544b);
 
           &::after {

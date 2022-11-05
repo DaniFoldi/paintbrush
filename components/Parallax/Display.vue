@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-  import Atropos from 'atropos/vue'
+  import { Atropos } from 'atropos/vue'
 
 
   interface ParallaxDisplayEmits {
@@ -40,5 +40,5 @@
 </style>
 
 <style lang="scss">
-  @import 'atropos/scss';
+  @import url('atropos/scss');
 </style>

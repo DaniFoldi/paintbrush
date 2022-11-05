@@ -56,6 +56,7 @@
 
   .notification {
     @include common.rounded;
+
     background: v-bind(background);
     opacity: 80%;
     transition: opacity .3s ease;

@@ -81,6 +81,7 @@
 
   div.stat-container {
     @include grid.grid;
+
     grid-template-columns: 1fr;
 
     & > :not(:last-child) {
@@ -89,6 +90,7 @@
 
     & > :last-child {
       @include fonts.font('inter');
+
       color: v-bind(color);
       font-size: 28px;
       font-weight: 600;

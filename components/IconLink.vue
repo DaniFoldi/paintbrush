@@ -59,6 +59,7 @@
   a {
     @include grid.grid;
     @include grid.two-items;
+
     color: v-bind(color);
   }
 </style>

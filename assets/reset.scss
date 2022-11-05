@@ -67,6 +67,7 @@
 
   #__nuxt {
     @include mixins.set-100-percent('width', 'height');
+
     isolation: isolate;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
