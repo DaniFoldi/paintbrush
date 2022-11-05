@@ -2,22 +2,22 @@
   <Container article padded>
     <Container split>
       <Text title>
-        {{ component.name }}
+        {{ component?.name }}
       </Text>
       <Text>
-        {{ component.version }}
+        {{ component?.version }}
       </Text>
     </Container>
-    <Text v-if="component.description" italic>
-      {{ component.description }}
+    <Text v-if="component?.description" italic>
+      {{ component?.description }}
     </Text>
 
-    <Text v-if="Object.keys(component.property).length > 0" subtitle>
+    <Text v-if="Object.keys(component?.property ?? {}).length > 0" subtitle>
       Properties
     </Text>
 
     <TableContainer
-      v-if="Object.keys(component.property).length > 0"
+      v-if="Object.keys(component?.property ?? {}).length > 0"
       column-gap="12px"
       :layout="[{ width: 'auto' }, { width: 'auto' }, { width: 'max-content' }, { width: 'auto' }]"
       row-height="minmax(32px, auto)"
@@ -40,7 +40,7 @@
         </TableRow>
       </template>
       <template #content>
-        <TableRow v-for="property in component.property" :key="property.name">
+        <TableRow v-for="property in component?.property" :key="property.name">
           <InlineCode :code="property.name" language="none" />
           <InlineCode :code="property.type" language="typescript" />
           <Text italic>
@@ -50,7 +50,7 @@
             -
           </Text>
           <InlineCode
-            v-else-if="component.collapsed.indexOf(property.name) === -1"
+            v-else-if="component?.collapsed.indexOf(property.name) === -1"
             :code="fixString(property.default)"
             language="typescript"
           />
@@ -61,12 +61,12 @@
       </template>
     </TableContainer>
 
-    <Text v-if="Object.keys(component.emit).length > 0" subtitle>
+    <Text v-if="Object.keys(component?.emit ?? {}).length > 0" subtitle>
       Emits
     </Text>
 
     <TableContainer
-      v-if="Object.keys(component.emit).length > 0"
+      v-if="Object.keys(component?.emit ?? {}).length > 0"
       column-gap="12px"
       :layout="[{ width: 'auto' }, { width: '1fr' }, { width: 'auto' }]"
       row-height="minmax(32px, auto)"
@@ -86,7 +86,7 @@
         </TableRow>
       </template>
       <template #content>
-        <TableRow v-for="emit in component.emit" :key="emit.name">
+        <TableRow v-for="emit in component?.emit" :key="emit.name">
           <InlineCode :code="emit.name" language="none" />
           <Text italic>
             {{ emit.description }}
@@ -96,25 +96,25 @@
       </template>
     </TableContainer>
 
-    <Text v-if="Object.keys(component.see).length > 0" subtitle>
+    <Text v-if="Object.keys(component?.see ?? {}).length > 0" subtitle>
       Related components
     </Text>
 
-    <AutoLink v-for="related in component.see" :key="related" :href="related">
+    <AutoLink v-for="related in component?.see" :key="related" :href="related">
       {{ related }}
     </AutoLink>
 
-    <Text v-if="Object.keys(component.example).length > 0" subtitle>
+    <Text v-if="Object.keys(component?.example ?? {}).length > 0" subtitle>
       Examples
     </Text>
 
-    <template v-for="(example, id) in component.example" :key="example">
+    <template v-for="(example, id) in component?.example" :key="example">
       <Card background="transparent" border="1px solid var(--secondary)" padded>
         <!-- TODO calculate height correctly -->
         <iframe
           v-if="example.render"
           :height="height[id] + 24 ?? 'auto'"
-          :src="`/docs/examples/${component.name.toLocaleLowerCase()}-${id}`"
+          :src="`/docs/examples/${component?.name.toLocaleLowerCase()}-${id}`"
         />
         <MultilineCode
           :code="example.content.trimEnd()"
@@ -123,16 +123,16 @@
       </Card>
     </template>
 
-    <Highlight v-if="component.note">
-      {{ component.note }}
+    <Highlight v-if="component?.note">
+      {{ component?.note }}
     </Highlight>
 
-    <Text v-if="component.require.length > 0" sectiontitle>
+    <Text v-if="(component?.require.length ?? 0) > 0" sectiontitle>
       Libraries required
     </Text>
 
-    <ListContainer v-if="component.require.length > 0">
-      <ListItem v-for="library in component.require" :key="library">
+    <ListContainer v-if="(component?.require.length ?? 0) > 0">
+      <ListItem v-for="library in component?.require" :key="library">
         <InlineCode :code="library" language="typescript" />
       </ListItem>
     </ListContainer>
@@ -153,18 +153,19 @@
 
 <script lang="ts" setup async>
   import { ref, useFullParam } from '#imports'
-  import type { Docs } from '../../../../scripts/docs'
+  import type { Component, Docs } from '../../../../scripts/docs'
 
 
   const { data } = await useFetch<Docs>('/api/docs')
-  if (data.value === null) {
-    await navigateTo('/')
-  } else {
-    const component = data.value[`components/${useFullParam('path')}.vue`]
-    if (!component) {
-      await navigateTo('/docs')
+  const component = ref<Component>()
+
+  onBeforeMount(async () => {
+    if (data.value === null) {
+      await navigateTo('/')
+    } else {
+      component.value = data.value[`components/${useFullParam('path')}.vue`]
     }
-  }
+  })
 
   const height = ref<Record<number, number>>({})
 
