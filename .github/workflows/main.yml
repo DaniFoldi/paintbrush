@@ -214,10 +214,10 @@ jobs:
       run: |
         npm run test
 
-  dependabot-pr:
-    name: Approve and merge Dependabot PRs
+  renovate-pr:
+    name: Approve and merge renovate PRs
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    if: github.actor == 'renovate[bot]'
 
     permissions:
       pull-requests: write
@@ -238,12 +238,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Fetch dependabot metadata
-      id: metadata
-      uses: dependabot/fetch-metadata@v1
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Approve PR
       if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
       env:
@@ -255,15 +249,8 @@ jobs:
         else echo "PR already approved.";
         fi
 
-    - name: Merge PR
-      if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        gh pr merge --auto --merge "${{ github.event.pull_request.html_url }}"
-
   deploy:
-    if: github.repository == 'DaniFoldi/paintbrush' && github.actor != 'dependabot[bot]'
+    if: github.repository == 'DaniFoldi/paintbrush' && github.actor != 'renovate[bot]'
     name: Update production deployment
     runs-on: ubuntu-latest
 
