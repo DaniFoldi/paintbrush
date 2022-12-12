@@ -94,7 +94,7 @@
     "pinia": "^2.0.28",
     "pinia-plugin-persistedstate": "^2.4.0",
     "shiki-es": "^0.1.2",
-    "vue-chartjs": "^4.1.2",
+    "vue-chartjs": "^5.0.1",
     "vue-codemirror": "^6.1.1"
   }
 }
