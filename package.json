@@ -92,7 +92,7 @@
     "parse5": "^6.0.1",
     "phosphor-icons": "^1.4.2",
     "pinia": "^2.0.28",
-    "pinia-plugin-persistedstate": "^2.4.0",
+    "pinia-plugin-persistedstate": "^3.0.1",
     "shiki-es": "^0.1.2",
     "vue-chartjs": "^4.1.2",
     "vue-codemirror": "^6.1.1"
