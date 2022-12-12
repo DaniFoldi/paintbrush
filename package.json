@@ -85,16 +85,17 @@
     "@fontsource/raleway": "^4.5.11",
     "@fontsource/source-code-pro": "^4.5.12",
     "@formkit/auto-animate": "^1.0.0-beta.3",
+    "@pinia-plugin-persistedstate/nuxt": "^1.0.0",
     "@pinia/nuxt": "^0.4.6",
     "atropos": "^1.0.2",
-    "chart.js": "^3.9.1",
+    "chart.js": "^4.0.1",
     "codemirror": "^6.0.1",
     "parse5": "^6.0.1",
     "phosphor-icons": "^1.4.2",
     "pinia": "^2.0.28",
-    "pinia-plugin-persistedstate": "^2.4.0",
+    "pinia-plugin-persistedstate": "^3.0.1",
     "shiki-es": "^0.1.2",
-    "vue-chartjs": "^4.1.2",
+    "vue-chartjs": "^5.0.1",
     "vue-codemirror": "^6.1.1"
   }
 }
