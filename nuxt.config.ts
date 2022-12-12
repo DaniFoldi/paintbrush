@@ -1,5 +1,4 @@
 export default defineNuxtConfig({
-  // #MARK nuxt/framework #4325
   alias: {
     '#fonts': '.',
     '#paintbrush': '.'
@@ -11,12 +10,10 @@ export default defineNuxtConfig({
     highlight: false,
     markdown: {
       tags: {
-        /* eslint-disable sort-keys */
-        'p': 'content-text-p',
         'a': 'content-auto-link-a',
         'blockquote': 'highlight',
-        'code-inline': 'inline-code',
         'code': 'multiline-code',
+        'code-inline': 'inline-code',
         'em': 'content-text-em',
         'h1': 'content-text-h1',
         'h2': 'content-text-h2',
@@ -26,23 +23,23 @@ export default defineNuxtConfig({
         'h6': 'content-text-h6',
         'hr': 'separator',
         'img': 'image',
-        'ul': 'content-list-container-ul',
-        'ol': 'content-list-container-ol',
         'li': 'content-list-item-li',
+        'ol': 'content-list-container-ol',
+        'p': 'content-text-p',
         'strong': 'content-text-strong',
         'table': 'prose-table',
-        'thead': 'prose-thead',
         'tbody': 'prose-tbody',
         'td': 'prose-td',
         'th': 'prose-th',
-        'tr': 'prose-tr'
-        /* eslint-enable sort-keys */
+        'thead': 'prose-thead',
+        'tr': 'prose-tr',
+        'ul': 'content-list-container-ul'
       }
     }
   },
   i18n: {
     defaultLocale: 'en',
-    detectBrowserLanguage: false, // Set this to false, otherwise the whole i18n thing falls apart
+    detectBrowserLanguage: false,
     langDir: 'lang/',
     lazy: true,
     locales: [
@@ -56,8 +53,7 @@ export default defineNuxtConfig({
       }
     ]
   },
-  // #MARK(PB-2)
-  modules: [ './modules/icons', './modules/docs', '@nuxtjs/i18n-edge', '@pinia/nuxt', '@nuxt/content', '@vueuse/nuxt', 'nuxt-lodash' ],
+  modules: [ './modules/icons', './modules/docs', '@nuxtjs/i18n-edge', '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', '@nuxt/content', '@vueuse/nuxt', 'nuxt-lodash' ],
   ssr: true,
   typescript: {
     shim: false
