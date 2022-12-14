@@ -42,6 +42,6 @@
   }
 
   withDefaults(defineProps<MultilineCodeProps>(), {
-    language: 'javascript'
+    language: 'none'
   })
 </script>

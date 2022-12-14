@@ -4,11 +4,29 @@
   @icon check-square
   @category Basic
 -->
-<template>
+
+<!--##
   <ButtonGroup>
+  __<Button color="primary">
+  ____button
+  __</Button>
+  __<Container :max="false" right-badge="5">
+  ____<Button capitalize color="secondary">
+  ______second button
+  ____</Button>
+  __</Container>
+  __<Button color="primary" gradient="secondary">
+  ____gradient
+  __</Button>
+  </ButtonGroup>
+-->
+
+<template>
+  <ButtonGroup v-auto-animate>
     <Button
       v-for="option in options"
       :key="option"
+      v-auto-animate
       :ghost="modelValue !== option"
       @click="selectOption(option)"
     >

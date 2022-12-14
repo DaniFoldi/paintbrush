@@ -1,13 +1,11 @@
-export type Font = 'gantari' | 'inter' | 'manrope' | 'phosphor-icons' | 'playfair-display' | 'raleway' | 'source-code-pro'
+export type Font = 'gantari' | 'manrope' | 'phosphor-icons' | 'playfair-display' | 'source-code-pro'
 
 export const fontMap: Record<Font | 'inherit', string> = {
   gantari: 'GantariVariable',
   inherit: 'inherit',
-  inter: 'InterVariable',
   manrope: 'ManropeVariable',
   'phosphor-icons': 'phosphor-icons',
   'playfair-display': 'Playfair DisplayVariable',
-  raleway: 'RalewayVariable',
   'source-code-pro': 'Source Code ProVariable'
 }
 

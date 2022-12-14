@@ -11,11 +11,9 @@
   </Container>
   <slot v-else />
   <PaintbrushGantari v-if="fonts.includes('gantari')" />
-  <PaintbrushInter v-if="fonts.includes('inter')" />
   <PaintbrushManrope v-if="fonts.includes('manrope')" />
   <PaintbrushPhosphorIcons v-if="fonts.includes('phosphor-icons')" />
   <PaintbrushPlayfairDisplay v-if="fonts.includes('playfair-display')" />
-  <PaintbrushRaleway v-if="fonts.includes('raleway')" />
   <PaintbrushSourceCodePro v-if="fonts.includes('source-code-pro')" />
 </template>
 

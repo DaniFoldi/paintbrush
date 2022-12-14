@@ -1,5 +1,5 @@
 <template>
-  <SidebarContainer exclude-middle>
+  <SidebarContainer exclude-middle width="min-content">
     <template #sidebar-top>
       <Search ref="searchbar" :model-value="[]" @pb-search="updateFilter" />
       <template v-for="(category) in filteredCategories" :key="category">

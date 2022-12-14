@@ -106,7 +106,7 @@
       <PoweredBy />
     </template>
     <template #content>
-      <NotificationContainer position="top-right" />
+      <!-- <NotificationContainer position="top-right" /> -->
       <NuxtPage />
     </template>
   </SidebarContainer>

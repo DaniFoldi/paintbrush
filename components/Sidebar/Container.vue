@@ -35,6 +35,7 @@
     excludeMiddle?: boolean // Exclude middle part
     segmentSpacing?: string // Segmentation between top, middle and bottom parts
     sidebarSpacing?: string // Spacing between sidebar parts
+    width?: string // Width of the sidebar
     wrapContent?: boolean // Wrap content in a container
   }
 
@@ -42,6 +43,7 @@
     excludeMiddle: false,
     segmentSpacing: 'doubleUnit',
     sidebarSpacing: 'doubleUnit',
+    width: '260px',
     wrapContent: true
   })
 
@@ -60,7 +62,7 @@
     @include mixins.set-100-percent('width', 'height');
     @include grid.grid;
 
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: v-bind(width) 1fr;
     grid-template-rows: 100%;
   }
 

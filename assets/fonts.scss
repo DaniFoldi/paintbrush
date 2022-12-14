@@ -1,24 +1,12 @@
-@use '#fonts/node_modules/@fontsource/inter/scss/mixins.scss' as inter;
 @use '#fonts/node_modules/@fontsource/playfair-display/scss/mixins.scss' as playfair;
-@use '#fonts/node_modules/@fontsource/raleway/scss/mixins.scss' as raleway;
 @use '#fonts/node_modules/@fontsource/gantari/scss/mixins.scss' as gantari;
 @use '#fonts/node_modules/@fontsource/manrope/scss/mixins.scss' as manrope;
 @use '#fonts/node_modules/@fontsource/source-code-pro/scss/mixins.scss' as sourceCodePro;
 
 
-@mixin inter {
-  @include inter.fontFaceVariable(
-    $fontDir: '#fonts/node_modules/@fontsource/inter/files');
-}
-
 @mixin playfair-display {
   @include playfair.fontFaceVariable(
     $fontDir: '~/node_modules/@fontsource/playfair-display/files');
-}
-
-@mixin raleway {
-  @include raleway.fontFaceVariable(
-    $fontDir: '~/node_modules/@fontsource/raleway/files');
 }
 
 @mixin gantari {
@@ -37,15 +25,11 @@
 }
 
 @mixin font($family) {
-  @if $family == 'raleway' {
-    font-family: RalewayVariable, 'Helvetica Neue', sans-serif;
-  } @else if $family == 'playfair' {
+  @if $family == 'playfair' {
     font-family: 'Playfair Display', 'Times New Roman', sans-serif;
   } @else if $family == 'phosphor-icons' {
     // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- Icons do not have generic family
     font-family: Phosphor-icons;
-  } @else if $family == 'inter' {
-    font-family: InterVariable, Helvetica, Arial, sans-serif;
   } @else if $family == 'source-code-pro' {
     font-family: 'Source Code ProVariable', Courier, monospace;
   } @else if $family == 'gantari' {

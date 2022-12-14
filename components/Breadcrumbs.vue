@@ -4,25 +4,50 @@
   @category Display
   @description Show the path of the current path
 -->
+
+<!--##
+  <template>
+  <Breadcrumbs :path="path" />
+  </template>
+  <script lang="ts" setup>
+  __const path = [{iconName: 'folder', text: 'Home', link: '/'}, {iconName: 'file', text: 'File'}]
+  </script>
+-->
+
 <template>
   <Container>
-    <Text
-      v-for="(piece, i) of path"
-      :key="piece.text + i"
-      inline
-      :underline="piece.underline"
-    >
+    <template v-for="(piece, i) of path" :key="piece.text + i">
       <Text v-if="i !== 0" part>
         /
       </Text>
-      <Icon
-        v-if="piece.iconName"
-        :color="piece.iconColor ?? 'inherit'"
-        :name="piece.iconName"
-        :variant="piece.iconVariant ?? 'regular'"
-      />
-      {{ piece.text }}
-    </text>
+      <AutoLink
+        v-if="piece.link"
+        :href="piece.link"
+        inline
+        :underline="piece.underline"
+      >
+        <Icon
+          v-if="piece.iconName"
+          :color="piece.iconColor ?? 'inherit'"
+          :name="piece.iconName"
+          :variant="piece.iconVariant ?? 'regular'"
+        />
+        {{ piece.text }}
+      </AutoLink>
+      <Text
+        v-else
+        inline
+        :underline="piece.underline"
+      >
+        <Icon
+          v-if="piece.iconName"
+          :color="piece.iconColor ?? 'inherit'"
+          :name="piece.iconName"
+          :variant="piece.iconVariant ?? 'regular'"
+        />
+        {{ piece.text }}
+      </Text>
+    </template>
   </Container>
 </template>
 
@@ -35,6 +60,7 @@
     iconColor?: string
     iconName: IconTypes
     iconVariant?: IconVariants
+    link?: string
     text: string
     underline?: boolean
   }

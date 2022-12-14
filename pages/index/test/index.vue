@@ -11,22 +11,9 @@
     <AutoLink href="https://paintbrush.danifoldi.com" reload>
       link
     </AutoLink>
-    <ButtonGroup>
-      <Button color="primary">
-        button
-      </Button>
-      <Container :max="false" right-badge="5">
-        <Button capitalize color="secondary">
-          second button
-        </Button>
-      </Container>
-      <Button color="primary" gradient="secondary">
-        gradient
-      </Button>
-      <Button ref="testRef" ghost uppercase>
-        ghost
-      </Button>
-    </ButtonGroup>
+    <Button ref="testRef" ghost uppercase>
+      ghost
+    </Button>
     <Separator />
     <Container>
       <OptionGroup v-model="defaultOption" :options="options" />

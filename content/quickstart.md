@@ -1,20 +1,18 @@
 # How To Install Paintbrush
-```
+```bash
 npm install paintbrush-ui
 ```
 
 And in your app.vue:
-```
-<Paintbrush [...]>\n  <div>My awesome site</div>\n</Paintbrush>
+```vue
+<Paintbrush>
+  <h1>My awesome site</h1>
+</Paintbrush>
 ```
 
 Here is an example `nuxt.config.ts`:
 
-
 ```typescript
-import { defineNuxtConfig } from 'nuxt'
-
-
 export default defineNuxtConfig({
   alias: {
     '#fonts': './node_modules/paintbrush-ui',

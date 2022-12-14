@@ -41,8 +41,6 @@
       position: relative;
 
       &::before {
-        @include fonts.font('inter');
-
         background: v-bind(background);
         border-radius: 9px;
         color: v-bind(color);
@@ -65,8 +63,6 @@
       position: relative;
 
       &::after {
-        @include fonts.font('inter');
-
         background: v-bind(background);
         border-radius: 9px;
         color: v-bind(color);
