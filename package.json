@@ -11,7 +11,7 @@
     "dev": "nuxi dev",
     "license": "npm-run-all license:*",
     "license:prod": "license-checker --summary --production --unknown --onlyAllow \"0BSD;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;MIT;CC-BY-4.0\"",
-    "license:all": "license-checker --summary --onlyAllow \"0BSD;Apache*;Apache-2.0;BSD-2-Clause;BSD-3-Clause;CC0-1.0;CC-BY-3.0;CC-BY-4.0;CC-BY-ND-4.0;ISC;MIT;Python-2.0\"",
+    "license:all": "license-checker --summary --onlyAllow \"0BSD;Apache*;Apache-2.0;BSD-2-Clause;BSD-3-Clause;CC0-1.0;CC-BY-3.0;CC-BY-4.0;CC-BY-ND-4.0;ISC;MIT;Python-2.0;Unlicense\"",
     "lint": "npm-run-all lint:*",
     "lint:css": "stylelint --cache --cache-location .stylelintcache --report-descriptionless-disables --report-needless-disables --report-invalid-scope-disables \"**/*.{scss,vue}\" \"*.{scss,vue}\"",
     "lintw:css": "chokidar \"**/*.{scss,vue}\" -i \"{coverage,node_modules,.nuxt,.output}/**\" -c \"npm run lint:css -- --fix\"",
