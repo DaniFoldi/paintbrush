@@ -9,9 +9,10 @@
   <template>
   __<Breadcrumbs :path="path" />
   </template>
+
   <script lang="ts" setup>
-  __// @ts-expect-error - Icon names should have their type annotated
-  __const path = [{ iconName: 'folder', text: 'Home', link: '/' }, { iconName: 'file', text: 'File' }]
+  __import type { Breadcrumb } from '~~/components/Breadcrumbs.vue'
+  __const path: Breadcrumb[] = [{ iconName: 'folder', text: 'Home', link: '/' }, { iconName: 'file', text: 'File' }]
   </script>
 -->
 
@@ -57,7 +58,8 @@
   import { IconVariants } from '../modules/icons'
 
 
-  interface Breadcrumb {
+  // eslint-disable-next-line import/exports-last
+  export interface Breadcrumb {
     iconColor?: string
     iconName: IconTypes
     iconVariant?: IconVariants
