@@ -22,5 +22,5 @@
     language: 'none'
   })
 
-  const highlight = await useHighlighter(props.code, props.language, { theme: 'github-dark', langs: ['html', 'vue', 'vue-html', 'js', 'ts', 'css', 'scss'] })
+  const highlight = await useHighlighter(props.code, props.language, { theme: 'github-dark', langs: [ 'html', 'vue', 'vue-html', 'js', 'ts', 'css', 'scss' ] })
 </script>
