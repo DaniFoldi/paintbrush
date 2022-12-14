@@ -56,7 +56,7 @@ export default defineNuxtConfig({
   lodash: {
     exclude: [ 'memoize' ]
   },
-  modules: [ './modules/icons', './modules/docs', '@nuxtjs/i18n', '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', '@nuxt/content', '@vueuse/nuxt', 'nuxt-lodash', '@nuxtjs/html-validator', '@nuxtjs/critters', '@nuxtjs/fontaine', '@nuxtjs/ionic', '@nuxtjs/partytown' ],
+  modules: [ './modules/icons', './modules/docs', '@nuxtjs/i18n', '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', '@nuxt/content', '@vueuse/nuxt', 'nuxt-lodash', '@nuxtjs/html-validator', '@nuxtjs/critters', '@nuxtjs/fontaine', /* '@nuxtjs/ionic', */ '@nuxtjs/partytown' ],
   ssr: true,
   typescript: {
     shim: false
