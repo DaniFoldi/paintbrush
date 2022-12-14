@@ -4,7 +4,7 @@
       <Float :above="testRef" />
     </ClientOnly>
     <Text>
-      asd
+      {{ $t('test') }}
     </Text>
     <Separator />
     <Icon name="gear" />
