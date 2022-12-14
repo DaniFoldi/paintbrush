@@ -24,10 +24,10 @@
 </template>
 
 <script lang="ts" setup>
-  import type { TChartData } from 'vue-chartjs/dist/types'
+  import type { ChartProps } from 'vue-chartjs'
 
 
-  const bar: TChartData<'bar'> = {
+  const bar: ChartProps<'bar', number[], unknown>['data'] = {
     labels: [
       'A',
       'B',
@@ -43,7 +43,7 @@
     ]
   }
 
-  const bubble: TChartData<'bubble'> = {
+  const bubble: ChartProps<'bubble'>['data'] = {
     datasets: [
       {
         label: 'Data One',
@@ -90,7 +90,7 @@
     ]
   }
 
-  const doughnut: TChartData<'doughnut'> = {
+  const doughnut: ChartProps<'doughnut'>['data'] = {
     labels: [ 'VueJs', 'EmberJs', 'ReactJs', 'AngularJs' ],
     datasets: [
       {
@@ -100,7 +100,7 @@
     ]
   }
 
-  const line: TChartData<'line'> = {
+  const line: ChartProps<'line'>['data'] = {
     labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ],
     datasets: [
       {
@@ -111,7 +111,7 @@
     ]
   }
 
-  const pie: TChartData<'pie'> = {
+  const pie: ChartProps<'pie'>['data'] = {
     labels: [ 'VueJs', 'EmberJs', 'ReactJs', 'AngularJs' ],
     datasets: [
       {
@@ -121,7 +121,7 @@
     ]
   }
 
-  const polar: TChartData<'polarArea'> = {
+  const polar: ChartProps<'polarArea', number[], unknown>['data'] = {
     labels: [
       'Eating',
       'Drinking',
@@ -151,7 +151,7 @@
     ]
   }
 
-  const radar: TChartData<'radar'> = {
+  const radar: ChartProps<'radar'>['data'] = {
     labels: [
       'Eating',
       'Drinking',
