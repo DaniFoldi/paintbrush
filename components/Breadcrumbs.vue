@@ -7,10 +7,11 @@
 
 <!--##
   <template>
-  <Breadcrumbs :path="path" />
+  __<Breadcrumbs :path="path" />
   </template>
   <script lang="ts" setup>
-  __const path = [{iconName: 'folder', text: 'Home', link: '/'}, {iconName: 'file', text: 'File'}]
+  __// @ts-expect-error - Icon names should have their type annotated
+  __const path = [{ iconName: 'folder', text: 'Home', link: '/' }, { iconName: 'file', text: 'File' }]
   </script>
 -->
 
