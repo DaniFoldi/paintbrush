@@ -27,7 +27,6 @@ export default defineNuxtModule({
     }
     if (moduleOptions.mountPlugins) {
       addPlugin(resolver.resolve('./plugins/autoanimate.ts'))
-      addPlugin(resolver.resolve('./plugins/persistent-store.ts'))
     }
   }
 })
