@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url'
-import { addComponentsDir, addAutoImportDir, defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
+import { addComponentsDir, addImportsDir, defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
 
 
 export default defineNuxtModule({
@@ -20,7 +20,7 @@ export default defineNuxtModule({
     const resolver = createResolver(import.meta.url)
 
     if (moduleOptions.mountComposables) {
-      await addAutoImportDir(fileURLToPath(new URL('composables', import.meta.url)))
+      await addImportsDir(fileURLToPath(new URL('composables', import.meta.url)))
     }
     if (moduleOptions.mountComponents) {
       await addComponentsDir({ path: fileURLToPath(new URL('components', import.meta.url)), prefix: moduleOptions.prefixComponents ? 'Pb' : undefined })
