@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.1
+  @version 0.2.0
   @icon chart-pie-slice
   @category Chart
   @note For the height property to work, set { maintainAspectRatio: false } in options
@@ -8,19 +8,19 @@
 -->
 
 <template>
-  <PolarArea :chart-data="data" :chart-options="options" />
+  <PolarArea :data="data" :options="options" />
 </template>
 
 <script lang="ts" setup>
   import { PolarArea } from 'vue-chartjs'
   import { Chart, Title, Tooltip, Legend, ArcElement, RadialLinearScale } from 'chart.js'
-  import type { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import type { ChartProps } from 'vue-chartjs'
 
 
   interface PolarChartProps {
-    data: TChartData<'polarArea', number[], unknown> // chart data to render
+    data: ChartProps<'polarArea', number[], unknown>['data'] // chart data to render
     height?: string // height of chart
-    options?: TChartOptions<'polarArea'> // options for chart
+    options?: ChartProps<'polarArea', number[], unknown>['options'] // options for chart
     width?: string // width of chart
   }
 

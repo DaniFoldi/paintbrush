@@ -1,6 +1,6 @@
 <!--!
   @icon chart-line
-  @version 0.1.2
+  @version 0.2.0
   @category Chart
   @note For the height property to work, set { maintainAspectRatio: false } in options
   @require vue-chartjs
@@ -8,20 +8,20 @@
 -->
 
 <template>
-  <Line :chart-data="data" :chart-options="options" />
+  <Line :data="data" :options="options" />
 </template>
 
 <script lang="ts" setup>
   import { Line } from 'vue-chartjs'
   import { Chart, Title, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js'
   import type { ScatterDataPoint } from 'chart.js'
-  import type { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import type { ChartProps } from 'vue-chartjs'
 
 
   interface LineChartProps {
-    data: TChartData<'line', (number | ScatterDataPoint | null)[], unknown> // chart data to render
+    data: ChartProps<'line', (number | ScatterDataPoint | null)[], unknown>['data'] // chart data to render
     height?: string // height of chart
-    options?: TChartOptions<'line'> // options for chart
+    options?: ChartProps<'line', (number | ScatterDataPoint | null)[], unknown>['options'] // options for chart
     width?: string // width of chart
   }
 

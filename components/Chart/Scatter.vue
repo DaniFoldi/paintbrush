@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.1
+  @version 0.2.0
   @icon dots-nine
   @category Chart
   @note For the height property to work, set { maintainAspectRatio: false } in options
@@ -8,20 +8,20 @@
 -->
 
 <template>
-  <Scatter :chart-data="data" :chart-options="options" />
+  <Scatter :data="data" :options="options" />
 </template>
 
 <script lang="ts" setup>
   import { Scatter } from 'vue-chartjs'
   import { Chart, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js'
   import type { ScatterDataPoint } from 'chart.js'
-  import type { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import type { ChartProps } from 'vue-chartjs'
 
 
   interface ScatterChartProps {
-    data: TChartData<'scatter', (number | ScatterDataPoint | null)[], unknown> // chart data to render
+    data: ChartProps<'scatter', (number | ScatterDataPoint | null)[], unknown>['data'] // chart data to render
     height?: string // height of chart
-    options?: TChartOptions<'scatter'> // options for chart
+    options?: ChartProps<'scatter', (number | ScatterDataPoint | null)[], unknown>['options'] // options for chart
     width?: string // width of chart
   }
 

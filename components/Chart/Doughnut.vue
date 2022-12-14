@@ -1,5 +1,5 @@
 <!--!
-  @version 0.1.1
+  @version 0.2.0
   @icon chart-pie
   @category Chart
   @note For the height property to work, set { maintainAspectRatio: false } in options
@@ -8,19 +8,19 @@
 -->
 
 <template>
-  <Doughnut :chart-data="data" :chart-options="options" />
+  <Doughnut :data="data" :options="options" />
 </template>
 
 <script lang="ts" setup>
   import { Doughnut } from 'vue-chartjs'
   import { Chart, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale } from 'chart.js'
-  import type { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import type { ChartProps } from 'vue-chartjs'
 
 
   interface DoughnutChartProps {
-    data: TChartData<'doughnut', number[], unknown> // chart data to render
+    data: ChartProps<'doughnut', number[], unknown>['data'] // chart data to render
     height?: string // height of chart
-    options?: TChartOptions<'doughnut'> // options for chart
+    options?: ChartProps<'doughnut', number[], unknown>['options'] // options for chart
     width?: string // width of chart
   }
 
