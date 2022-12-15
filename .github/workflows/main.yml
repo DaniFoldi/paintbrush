@@ -252,6 +252,9 @@ jobs:
     if: github.repository == 'DaniFoldi/paintbrush' && github.actor != 'renovate[bot]'
     name: Update production deployment
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
 
     needs:
     - build
@@ -292,6 +295,7 @@ jobs:
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         projectName: paintbrush
         directory: .output/public
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
 
   code-analysis:
     name: Run CodeQL analysis
