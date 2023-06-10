@@ -84,7 +84,7 @@
   },
   "dependencies": {
     "@fontsource/gantari": "^4.5.1",
-    "@fontsource/manrope": "^4.5.12",
+    "@fontsource/manrope": "^5.0.3",
     "@fontsource/playfair-display": "^4.5.12",
     "@fontsource/source-code-pro": "^4.5.12",
     "@formkit/auto-animate": "^1.0.0-beta.5",
