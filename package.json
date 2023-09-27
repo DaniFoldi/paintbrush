@@ -73,7 +73,7 @@
     "nuxt": "^3.0.0",
     "nuxt-lodash": "^2.4.1",
     "playwright": "^1.29.0",
-    "rimraf": "^3.0.2",
+    "rimraf": "^5.0.5",
     "sass": "^1.57.1",
     "ts-dedent": "^2.2.0",
     "ts-node": "^10.9.1",
