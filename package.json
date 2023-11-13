@@ -63,7 +63,7 @@
     "@vitest/coverage-c8": "^0.26.2",
     "@vueuse/components": "^9.8.2",
     "@vueuse/core": "^9.8.2",
-    "@vueuse/nuxt": "^9.8.2",
+    "@vueuse/nuxt": "^10.6.1",
     "chokidar-cli": "^3.0.0",
     "defu": "^6.1.1",
     "globby": "^13.1.3",
