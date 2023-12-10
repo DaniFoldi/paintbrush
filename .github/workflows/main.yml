@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
@@ -43,7 +43,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
 
@@ -60,7 +60,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
@@ -82,7 +82,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
@@ -104,7 +104,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
@@ -126,7 +126,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
@@ -148,7 +148,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
@@ -200,7 +200,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: ${{ matrix.version }}
         cache: npm
@@ -272,7 +272,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
@@ -319,7 +319,7 @@ jobs:
         languages: javascript
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
@@ -352,7 +352,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
       with:
         node-version: 18
         cache: npm
