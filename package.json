@@ -61,7 +61,7 @@
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "@vitest/coverage-c8": "^0.26.2",
-    "@vueuse/components": "^9.8.2",
+    "@vueuse/components": "^10.7.1",
     "@vueuse/core": "^9.8.2",
     "@vueuse/nuxt": "^9.8.2",
     "chokidar-cli": "^3.0.0",
