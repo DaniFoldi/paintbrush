@@ -18,10 +18,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -40,10 +40,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
 
@@ -57,10 +57,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -79,10 +79,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -101,10 +101,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -123,10 +123,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -145,10 +145,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -171,10 +171,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Setup python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
       with:
         python-version: "3.10"
 
@@ -197,10 +197,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: ${{ matrix.version }}
         cache: npm
@@ -235,7 +235,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Approve PR
       if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
@@ -269,10 +269,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -289,7 +289,7 @@ jobs:
         npm run build
 
     - name: Publish to Cloudflare Pages
-      uses: cloudflare/pages-action@v1.3.0
+      uses: cloudflare/pages-action@c2ad89679f0dee1ff4bcf9b8bbe1cf52d176cb29 # v1.3.0
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -311,15 +311,15 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@8b7fcbfac2aae0e6c24d9f9ebd5830b1290b18e4 # v2
       with:
         languages: javascript
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -329,7 +329,7 @@ jobs:
         npm ci --no-progress
 
     - name: Run CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@8b7fcbfac2aae0e6c24d9f9ebd5830b1290b18e4 # v2
 
   npm-publish:
     name: Publish to NPM
@@ -349,10 +349,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
     - name: Install nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
       with:
         node-version: 18
         cache: npm
@@ -361,7 +361,7 @@ jobs:
       run: |
         npm ci --no-progress
 
-    - uses: JS-DevTools/npm-publish@v1
+    - uses: JS-DevTools/npm-publish@0f451a94170d1699fd50710966d48fb26194d939 # v1
       with:
         token: ${{ secrets.NPM_TOKEN }}
 
