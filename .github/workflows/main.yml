@@ -361,7 +361,7 @@ jobs:
       run: |
         npm ci --no-progress
 
-    - uses: JS-DevTools/npm-publish@v1
+    - uses: JS-DevTools/npm-publish@19c28f1ef146469e409470805ea4279d47c3d35c # v3
       with:
         token: ${{ secrets.NPM_TOKEN }}
 
