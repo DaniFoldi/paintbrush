@@ -87,7 +87,7 @@
     "@fontsource/manrope": "^4.5.12",
     "@fontsource/playfair-display": "^4.5.12",
     "@fontsource/source-code-pro": "^4.5.12",
-    "@formkit/auto-animate": "^1.0.0-beta.5",
+    "@formkit/auto-animate": "^1.0.0-pre-alpha.3",
     "@pinia-plugin-persistedstate/nuxt": "^1.0.0",
     "@pinia/nuxt": "^0.4.6",
     "atropos": "^1.0.2",
